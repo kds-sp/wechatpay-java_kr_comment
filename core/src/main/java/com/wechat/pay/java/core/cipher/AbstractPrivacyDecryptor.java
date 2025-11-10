@@ -18,10 +18,10 @@ public abstract class AbstractPrivacyDecryptor implements PrivacyDecryptor {
   private final Cipher cipher;
 
   /**
-   * 构造敏感信息解密的抽象类
+   * 민감 정보 복호화의 추상 클래스 구성
    *
-   * @param transformation 加密使用的模式
-   * @param privateKey 加密使用的私钥
+   * @param transformation 암호화에 사용되는 모드
+   * @param privateKey 암호화에 사용되는 개인키
    */
   protected AbstractPrivacyDecryptor(String transformation, PrivateKey privateKey) {
     this.privateKey = requireNonNull(privateKey);

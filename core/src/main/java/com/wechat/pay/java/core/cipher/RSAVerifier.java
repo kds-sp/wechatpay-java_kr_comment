@@ -5,7 +5,7 @@ import static com.wechat.pay.java.core.cipher.Constant.SHA256WITHRSA;
 import com.wechat.pay.java.core.certificate.CertificateProvider;
 import java.security.PublicKey;
 
-/** RSA验签器 */
+/** RSA 서명 검증기 */
 public final class RSAVerifier extends AbstractVerifier {
 
   public RSAVerifier(CertificateProvider provider) {

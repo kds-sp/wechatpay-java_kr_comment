@@ -1,20 +1,20 @@
 package com.wechat.pay.java.core.cipher;
 
-/** 签名器 */
+/** 서명기 */
 public interface Signer {
 
   /**
-   * 生成签名结果
+   * 서명 결과 생성
    *
-   * @param message 签名信息
-   * @return 签名结果
+   * @param message 서명 정보
+   * @return 서명 결과
    */
   SignatureResult sign(String message);
 
   /**
-   * 获取签名算法
+   * 서명 알고리즘 가져오기
    *
-   * @return 签名算法
+   * @return 서명 알고리즘
    */
   String getAlgorithm();
 }

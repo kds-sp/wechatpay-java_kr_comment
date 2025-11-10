@@ -20,7 +20,7 @@ import com.wechat.pay.java.core.exception.ValidationException;
 import com.wechat.pay.java.core.http.HttpRequest.Builder;
 import java.io.InputStream;
 
-/** 请求客户端抽象基类 */
+/** 요청 클라이언트 추상 기본 클래스 */
 public abstract class AbstractHttpClient implements HttpClient {
 
   protected final Credential credential;
@@ -138,9 +138,9 @@ public abstract class AbstractHttpClient implements HttpClient {
   }
 
   /**
-   * 获取http客户端信息，用于User-Agent。 格式：客户端名称/版本 示例：okhttp3/4.9.3
+   * http 클라이언트 정보 가져오기, User-Agent에 사용. 형식: 클라이언트 이름/버전 예시: okhttp3/4.9.3
    *
-   * @return 客户端信息
+   * @return 클라이언트 정보
    */
   protected abstract String getHttpClientInfo();
 

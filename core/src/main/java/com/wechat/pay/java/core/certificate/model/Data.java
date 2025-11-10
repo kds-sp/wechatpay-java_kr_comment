@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.certificate.model;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 获取平台证书列表返回数据 */
+/** 플랫폼 인증서 목록 가져오기 응답 데이터 */
 public class Data {
 
   private String serialNo;

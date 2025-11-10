@@ -1,24 +1,24 @@
 package com.wechat.pay.java.core.cipher;
 
-/** 认证加密器 */
+/** 인증 암호화기 */
 public interface AeadCipher {
   /**
-   * 加密并转换为字符串
+   * 암호화하고 문자열로 변환
    *
-   * @param associatedData AAD，额外的认证加密数据，可以为空
-   * @param nonce IV，随机字符串初始化向量
-   * @param plaintext 明文
-   * @return Base64编码的密文
+   * @param associatedData AAD, 추가 인증 암호화 데이터, 비어 있을 수 있음
+   * @param nonce IV, 랜덤 문자열 초기화 벡터
+   * @param plaintext 평문
+   * @return Base64 인코딩된 암호문
    */
   String encrypt(byte[] associatedData, byte[] nonce, byte[] plaintext);
 
   /**
-   * 解密并转换为字符串
+   * 복호화하고 문자열로 변환
    *
-   * @param associatedData AAD，额外的认证加密数据，可以为空
-   * @param nonce IV，随机字符串初始化向量
-   * @param ciphertext 密文
-   * @return UTF-8编码的明文
+   * @param associatedData AAD, 추가 인증 암호화 데이터, 비어 있을 수 있음
+   * @param nonce IV, 랜덤 문자열 초기화 벡터
+   * @param ciphertext 암호문
+   * @return UTF-8 인코딩된 평문
    */
   String decrypt(byte[] associatedData, byte[] nonce, byte[] ciphertext);
 }

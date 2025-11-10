@@ -10,7 +10,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 调用微信支付服务需要的RSA相关配置 */
+/** 위챗페이 서비스 호출에 필요한 RSA 관련 설정 */
 public final class RSAConfig extends AbstractRSAConfig {
 
   private RSAConfig(

@@ -13,8 +13,8 @@ import com.wechat.pay.java.core.notification.NotificationConfig;
 import java.nio.charset.StandardCharsets;
 
 /**
- * 具有自动下载并更新平台证书能力的RSA配置类。 每次构造，都会立即使用传入的商户参数下载微信支付平台证书。 如果下载成功，SDK 会将商户参数注册或更新至
- * AutoCertificateService。若下载失败，将会抛出异常。 为了提高性能，建议将配置类作为全局变量，减少不必要的证书下载，避免资源浪费
+ * 플랫폼 인증서를 자동으로 다운로드하고 업데이트하는 기능을 가진 RSA 설정 클래스. 매번 생성 시 전달된 가맹점 파라미터를 사용하여 즉시 위챗페이 플랫폼 인증서를 다운로드합니다. 다운로드가 성공하면 SDK는 가맹점 파라미터를
+ * AutoCertificateService에 등록하거나 업데이트합니다. 다운로드가 실패하면 예외가 발생합니다. 성능 향상을 위해 설정 클래스를 전역 변수로 사용하여 불필요한 인증서 다운로드를 줄이고 리소스 낭비를 방지하는 것을 권장합니다
  */
 public final class RSAAutoCertificateConfig extends AbstractRSAConfig
     implements NotificationConfig {
@@ -33,9 +33,9 @@ public final class RSAAutoCertificateConfig extends AbstractRSAConfig
   }
 
   /**
-   * 获取签名类型
+   * 서명 타입 가져오기
    *
-   * @return 签名类型
+   * @return 서명 타입
    */
   @Override
   public String getSignType() {
@@ -43,9 +43,9 @@ public final class RSAAutoCertificateConfig extends AbstractRSAConfig
   }
 
   /**
-   * 获取认证加解密器类型
+   * 인증 암호화/복호화기 타입 가져오기
    *
-   * @return 认证加解密器类型
+   * @return 인증 암호화/복호화기 타입
    */
   @Override
   public String getCipherType() {
@@ -53,9 +53,9 @@ public final class RSAAutoCertificateConfig extends AbstractRSAConfig
   }
 
   /**
-   * 创建验签器
+   * 서명 검증기 생성
    *
-   * @return 验签器
+   * @return 서명 검증기
    */
   @Override
   public Verifier createVerifier() {
@@ -63,9 +63,9 @@ public final class RSAAutoCertificateConfig extends AbstractRSAConfig
   }
 
   /**
-   * 创建认证加解密器
+   * 인증 암호화/복호화기 생성
    *
-   * @return 认证加解密器
+   * @return 인증 암호화/복호화기
    */
   @Override
   public AeadCipher createAeadCipher() {

@@ -3,7 +3,7 @@ package com.wechat.pay.java.core;
 import com.wechat.pay.java.core.util.PemUtil;
 import java.security.PrivateKey;
 
-/** RSAConfigBuilder抽象类 */
+/** RSAConfigBuilder 추상 클래스 */
 public abstract class AbstractRSAConfigBuilder<T extends AbstractRSAConfigBuilder<T>> {
 
   protected String merchantId;

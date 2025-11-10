@@ -10,7 +10,7 @@ import java.time.Instant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** 微信支付认证凭据生成器 */
+/** 위챗페이 인증 자격 증명 생성기 */
 public final class WechatPay2Credential implements Credential {
 
   private static final Logger logger = LoggerFactory.getLogger(WechatPay2Credential.class);

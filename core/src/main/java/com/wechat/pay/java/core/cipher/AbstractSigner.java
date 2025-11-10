@@ -18,12 +18,12 @@ public abstract class AbstractSigner implements Signer {
   private final PrivateKey privateKey;
 
   /**
-   * AbstractSigner 构造函数
+   * AbstractSigner 생성자
    *
-   * @param algorithm 微信支付的签名算法，例如SHA256-RSA2048
-   * @param algorithmName 获取Signature对象时指定的算法，例如SHA256withRSA
-   * @param certificateSerialNumber 商户API证书序列号
-   * @param privateKey 商户API私钥
+   * @param algorithm 위챗페이의 서명 알고리즘, 예: SHA256-RSA2048
+   * @param algorithmName Signature 객체를 가져올 때 지정하는 알고리즘, 예: SHA256withRSA
+   * @param certificateSerialNumber 가맹점 API 인증서 시리얼 번호
+   * @param privateKey 가맹점 API 개인키
    */
   protected AbstractSigner(
       String algorithm,

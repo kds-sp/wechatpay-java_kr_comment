@@ -2,21 +2,21 @@ package com.wechat.pay.java.core.certificate;
 
 import java.security.cert.X509Certificate;
 
-/** 微信支付平台证书提供器 */
+/** 위챗페이 플랫폼 인증서 제공기 */
 public interface CertificateProvider {
 
   /**
-   * 根据证书序列号获取证书
+   * 인증서 시리얼 번호에 따라 인증서 가져오기
    *
-   * @param serialNumber 微信支付平台证书序列号
-   * @return X.509证书实例
+   * @param serialNumber 위챗페이 플랫폼 인증서 시리얼 번호
+   * @return X.509 인증서 인스턴스
    */
   X509Certificate getCertificate(String serialNumber);
 
   /**
-   * 获取最新可用的微信支付平台证书
+   * 최신 사용 가능한 위챗페이 플랫폼 인증서 가져오기
    *
-   * @return X.509证书实例
+   * @return X.509 인증서 인스턴스
    */
   X509Certificate getAvailableCertificate();
 }

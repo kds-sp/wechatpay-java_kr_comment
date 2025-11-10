@@ -6,7 +6,7 @@ import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** 证书提供器的简单实现，证书存储在内存ConcurrentHashMap中 */
+/** 인증서 제공기의 간단한 구현, 인증서는 메모리 ConcurrentHashMap에 저장됨 */
 public final class InMemoryCertificateProvider implements CertificateProvider {
 
   private final ConcurrentHashMap<BigInteger, X509Certificate> certificates =
@@ -17,7 +17,7 @@ public final class InMemoryCertificateProvider implements CertificateProvider {
     if (certificates.isEmpty()) {
       throw new IllegalArgumentException("The parameter list of constructor is empty.");
     }
-    // 假设拿到的都是可用的，选取一个能用最久的
+    // 가져온 모든 인증서가 사용 가능하다고 가정하고, 가장 오래 사용할 수 있는 것을 선택
     X509Certificate longest = null;
     for (X509Certificate item : certificates) {
       this.certificates.put(item.getSerialNumber(), item);
@@ -29,10 +29,10 @@ public final class InMemoryCertificateProvider implements CertificateProvider {
   }
 
   /**
-   * 根据证书序列号获取证书
+   * 인증서 시리얼 번호에 따라 인증서 가져오기
    *
-   * @param serialNumber 微信支付平台证书序列号
-   * @return X.509证书实例
+   * @param serialNumber 위챗페이 플랫폼 인증서 시리얼 번호
+   * @return X.509 인증서 인스턴스
    */
   @Override
   public X509Certificate getCertificate(String serialNumber) {
@@ -41,9 +41,9 @@ public final class InMemoryCertificateProvider implements CertificateProvider {
   }
 
   /**
-   * 获取最新可用的微信支付平台证书
+   * 최신 사용 가능한 위챗페이 플랫폼 인증서 가져오기
    *
-   * @return X.509证书实例
+   * @return X.509 인증서 인스턴스
    */
   @Override
   public X509Certificate getAvailableCertificate() {

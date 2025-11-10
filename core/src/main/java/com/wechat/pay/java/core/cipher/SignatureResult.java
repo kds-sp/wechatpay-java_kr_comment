@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 签名结果 */
+/** 서명 결과 */
 public class SignatureResult {
 
   private final String signature;
@@ -17,18 +17,18 @@ public class SignatureResult {
   }
 
   /**
-   * 获取签名
+   * 서명 가져오기
    *
-   * @return 签名
+   * @return 서명
    */
   public String getSign() {
     return signature;
   }
 
   /**
-   * 获取签名对应的商户证书序列号
+   * 서명에 해당하는 가맹점 인증서 시리얼 번호 가져오기
    *
-   * @return 商户证书序列号
+   * @return 가맹점 인증서 시리얼 번호
    */
   public String getCertificateSerialNumber() {
     return certificateSerialNumber;

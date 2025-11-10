@@ -17,10 +17,10 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 
-/** RSAConfig抽象类 */
+/** RSAConfig 추상 클래스 */
 public abstract class AbstractRSAConfig implements Config {
 
-  /** 使用微信支付平台证书验签 */
+  /** 위챗페이 플랫폼 인증서로 서명 검증 사용 */
   protected AbstractRSAConfig(
       String merchantId,
       PrivateKey privateKey,
@@ -34,7 +34,7 @@ public abstract class AbstractRSAConfig implements Config {
     this.publicKeyId = null;
   }
 
-  /** 使用微信支付公钥验签 */
+  /** 위챗페이 공개키로 서명 검증 사용 */
   protected AbstractRSAConfig(
       String merchantId,
       PrivateKey privateKey,
@@ -49,22 +49,22 @@ public abstract class AbstractRSAConfig implements Config {
     this.publicKeyId = publicKeyId;
   }
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   private final String merchantId;
 
-  /** 商户私钥 */
+  /** 가맹점 개인키 */
   private final PrivateKey privateKey;
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 시리얼 번호 */
   private final String merchantSerialNumber;
 
-  /** 微信支付平台证书Provider */
+  /** 위챗페이 플랫폼 인증서 Provider */
   private final CertificateProvider certificateProvider;
 
-  /** 微信支付平台公钥 */
+  /** 위챗페이 플랫폼 공개키 */
   private final PublicKey publicKey;
 
-  /** 微信支付平台公钥Id */
+  /** 위챗페이 플랫폼 공개키 Id */
   private final String publicKeyId;
 
   @Override

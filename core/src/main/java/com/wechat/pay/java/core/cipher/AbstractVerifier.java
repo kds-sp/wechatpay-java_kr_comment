@@ -24,10 +24,10 @@ public abstract class AbstractVerifier implements Verifier {
   protected final String algorithmName;
 
   /**
-   * AbstractVerifier 构造函数
+   * AbstractVerifier 생성자
    *
-   * @param algorithmName 获取Signature对象时指定的算法，例如SHA256withRSA
-   * @param certificateProvider 验签使用的微信支付平台证书管理器，非空
+   * @param algorithmName Signature 객체를 가져올 때 지정하는 알고리즘, 예: SHA256withRSA
+   * @param certificateProvider 서명 검증에 사용되는 위챗페이 플랫폼 인증서 관리자, null이 아님
    */
   protected AbstractVerifier(String algorithmName, CertificateProvider certificateProvider) {
     this.certificateProvider = requireNonNull(certificateProvider);
@@ -37,11 +37,11 @@ public abstract class AbstractVerifier implements Verifier {
   }
 
   /**
-   * AbstractVerifier 构造函数
+   * AbstractVerifier 생성자
    *
-   * @param algorithmName 获取Signature对象时指定的算法，例如SHA256withRSA
-   * @param publicKey 验签使用的微信支付平台公钥，非空
-   * @param publicKeyId 验签使用的微信支付平台公钥id
+   * @param algorithmName Signature 객체를 가져올 때 지정하는 알고리즘, 예: SHA256withRSA
+   * @param publicKey 서명 검증에 사용되는 위챗페이 플랫폼 공개키, null이 아님
+   * @param publicKeyId 서명 검증에 사용되는 위챗페이 플랫폼 공개키 id
    */
   protected AbstractVerifier(String algorithmName, PublicKey publicKey, String publicKeyId) {
     this.publicKey = requireNonNull(publicKey);
@@ -51,12 +51,12 @@ public abstract class AbstractVerifier implements Verifier {
   }
 
   /**
-   * AbstractVerifier 构造函数，仅在平台证书和平台公钥灰度切换阶段使用
+   * AbstractVerifier 생성자, 플랫폼 인증서와 플랫폼 공개키 그레이스케일 전환 단계에서만 사용
    *
-   * @param algorithmName 获取Signature对象时指定的算法，例如SHA256withRSA
-   * @param publicKey 验签使用的微信支付平台公钥，非空
-   * @param publicKeyId 验签使用的微信支付平台公钥id
-   * @param certificateProvider 验签使用的微信支付平台证书管理器，非空
+   * @param algorithmName Signature 객체를 가져올 때 지정하는 알고리즘, 예: SHA256withRSA
+   * @param publicKey 서명 검증에 사용되는 위챗페이 플랫폼 공개키, null이 아님
+   * @param publicKeyId 서명 검증에 사용되는 위챗페이 플랫폼 공개키 id
+   * @param certificateProvider 서명 검증에 사용되는 위챗페이 플랫폼 인증서 관리자, null이 아님
    */
   protected AbstractVerifier(
       String algorithmName,
@@ -103,19 +103,19 @@ public abstract class AbstractVerifier implements Verifier {
 
   @Override
   public boolean verify(String serialNumber, String message, String signature) {
-    // 如果公钥不为空，使用公钥验签
+    // 공개키가 null이 아니면 공개키로 서명 검증
     if (publicKey != null) {
       if (serialNumber.equals(publicKeyId)) {
         return verify(message, signature);
       }
-      // 如果证书为空，则说明是传入的publicKeyId错误，如果不为空，则继续使用证书验签
+      // 인증서가 null이면 전달된 publicKeyId가 잘못된 것이고, null이 아니면 계속 인증서로 서명 검증
       if (certificateProvider == null) {
         logger.error(
             "publicKeyId[{}] and serialNumber[{}] are not equal", publicKeyId, serialNumber);
         return false;
       }
     }
-    // 使用证书验签
+    // 인증서로 서명 검증
     requireNonNull(certificateProvider);
     X509Certificate certificate = certificateProvider.getCertificate(serialNumber);
     if (certificate == null) {

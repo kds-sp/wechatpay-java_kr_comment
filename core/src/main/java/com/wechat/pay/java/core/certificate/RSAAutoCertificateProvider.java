@@ -15,7 +15,7 @@ import com.wechat.pay.java.core.http.HttpHeaders;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 
-/** RSA自动更新平台证书提供器 */
+/** RSA 자동 업데이트 플랫폼 인증서 제공기 */
 public class RSAAutoCertificateProvider implements CertificateProvider {
 
   private static final CertificateHandler rsaCertificateHandler = new RSACertificateHandler();
@@ -41,10 +41,10 @@ public class RSAAutoCertificateProvider implements CertificateProvider {
   }
 
   /**
-   * 根据证书序列号获取证书
+   * 인증서 시리얼 번호에 따라 인증서 가져오기
    *
-   * @param serialNumber 微信支付平台证书序列号
-   * @return X.509证书实例
+   * @param serialNumber 위챗페이 플랫폼 인증서 시리얼 번호
+   * @return X.509 인증서 인스턴스
    */
   @Override
   public X509Certificate getCertificate(String serialNumber) {
@@ -52,9 +52,9 @@ public class RSAAutoCertificateProvider implements CertificateProvider {
   }
 
   /**
-   * 获取最新可用的微信支付平台证书
+   * 최신 사용 가능한 위챗페이 플랫폼 인증서 가져오기
    *
-   * @return X.509证书实例
+   * @return X.509 인증서 인스턴스
    */
   @Override
   public X509Certificate getAvailableCertificate() {
@@ -102,7 +102,7 @@ public class RSAAutoCertificateProvider implements CertificateProvider {
     }
 
     public Builder httpClientBuilder(AbstractHttpClientBuilder<?> builder) {
-      // httpClientBuilder 不是不可变的，所以为了避免过程中修改入参或者值发生变化，这里制作了一个副本
+      // httpClientBuilder는 불변이 아니므로, 과정에서 입력 파라미터나 값이 변경되는 것을 방지하기 위해 여기서 복사본을 만듦
       this.httpClientBuilder = builder.newInstance();
       return this;
     }

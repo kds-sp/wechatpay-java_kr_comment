@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.cipher;
 
 import java.security.PrivateKey;
 
-/** RSA签名器 */
+/** RSA 서명기 */
 public final class RSASigner extends AbstractSigner {
 
   public RSASigner(String certificateSerialNumber, PrivateKey privateKey) {

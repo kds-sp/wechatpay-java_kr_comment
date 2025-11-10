@@ -6,41 +6,41 @@ import com.wechat.pay.java.core.cipher.PrivacyDecryptor;
 import com.wechat.pay.java.core.cipher.PrivacyEncryptor;
 import com.wechat.pay.java.core.cipher.Signer;
 
-/** 调用微信支付服务的所需配置 */
+/** 위챗페이 서비스 호출에 필요한 설정 */
 public interface Config {
 
   /**
-   * 创建敏感信息加密器
+   * 민감 정보 암호화기 생성
    *
-   * @return 敏感信息加密器
+   * @return 민감 정보 암호화기
    */
   PrivacyEncryptor createEncryptor();
 
   /**
-   * 创建敏感信息解密器
+   * 민감 정보 복호화기 생성
    *
-   * @return 敏感信息解密器
+   * @return 민감 정보 복호화기
    */
   PrivacyDecryptor createDecryptor();
 
   /**
-   * 创建认证凭据生成器
+   * 인증 자격 증명 생성기 생성
    *
-   * @return 认证凭据生成器
+   * @return 인증 자격 증명 생성기
    */
   Credential createCredential();
 
   /**
-   * 创建请求验证器
+   * 요청 검증기 생성
    *
-   * @return 请求验证器
+   * @return 요청 검증기
    */
   Validator createValidator();
 
   /**
-   * 创建签名器
+   * 서명기 생성
    *
-   * @return 签名器
+   * @return 서명기
    */
   Signer createSigner();
 }

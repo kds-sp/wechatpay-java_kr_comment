@@ -2,14 +2,14 @@ package com.wechat.pay.java.core.cipher;
 
 import java.security.PublicKey;
 
-/** RSA敏感信息加密器 */
+/** RSA 민감 정보 암호화기 */
 public final class RSAPrivacyEncryptor extends AbstractPrivacyEncryptor {
 
   /**
-   * RSAPrivacyEncryptor 构造函数
+   * RSAPrivacyEncryptor 생성자
    *
-   * @param publicKey 请求的敏感信息加密时使用的微信支付公钥
-   * @param wechatpaySerialNumber 微信支付平台证书的证书序列号
+   * @param publicKey 요청의 민감 정보 암호화에 사용되는 위챗페이 공개키
+   * @param wechatpaySerialNumber 위챗페이 플랫폼 인증서의 인증서 시리얼 번호
    */
   public RSAPrivacyEncryptor(PublicKey publicKey, String wechatpaySerialNumber) {
     super("RSA/ECB/OAEPWithSHA-1AndMGF1Padding", publicKey, wechatpaySerialNumber);

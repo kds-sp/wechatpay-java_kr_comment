@@ -100,11 +100,11 @@ public class ApacheHttpClientAdapter extends AbstractHttpClient {
 
   private HttpEntity buildApacheHttpEntity(
       com.wechat.pay.java.core.http.RequestBody wechatPayRequestBody) {
-    // 处理空请求体的情况
+    // 빈 요청 본문 처리
     if (wechatPayRequestBody == null) {
       return new StringEntity("", "");
     }
-    // 指定ContentType参数为UTF-8， fix issues #352
+    // ContentType 파라미터를 UTF-8로 지정, fix issues #352
     if (wechatPayRequestBody instanceof JsonRequestBody) {
       return new StringEntity(
           ((JsonRequestBody) wechatPayRequestBody).getBody(),

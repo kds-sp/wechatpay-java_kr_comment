@@ -6,30 +6,30 @@ import com.wechat.pay.java.core.auth.Validator;
 public interface AbstractHttpClientBuilder<T extends AbstractHttpClientBuilder<T>> {
 
   /**
-   * 复制工厂，复制一个当前对象
+   * 팩토리 복사, 현재 객체의 복사본 생성
    *
-   * @return 对象的副本
+   * @return 객체의 복사본
    */
   T newInstance();
 
   /**
-   * 设置验证器
+   * 검증기 설정
    *
-   * @param validator 验证器
+   * @param validator 검증기
    * @return the AbstractHttpClientBuilder
    */
   T validator(Validator validator);
 
   /**
-   * 设置凭据生成器
+   * 자격 증명 생성기 설정
    *
-   * @param credential 凭据生成器
+   * @param credential 자격 증명 생성기
    * @return the AbstractHttpClientBuilder
    */
   T credential(Credential credential);
 
   /**
-   * 构建 AbstractHttpClient
+   * AbstractHttpClient 빌드
    *
    * @return AbstractHttpClient
    */

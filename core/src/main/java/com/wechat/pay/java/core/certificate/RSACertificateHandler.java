@@ -12,6 +12,6 @@ final class RSACertificateHandler implements CertificateHandler {
 
   @Override
   public void validateCertPath(X509Certificate certificate) {
-    // 为防止证书过期导致验签失败，从而影响业务，后续不再验证证书信任链
+    // 인증서 만료로 인한 서명 검증 실패를 방지하여 비즈니스에 영향을 주지 않도록, 이후 인증서 신뢰 체인 검증을 수행하지 않음
   }
 }

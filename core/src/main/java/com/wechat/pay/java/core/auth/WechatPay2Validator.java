@@ -15,7 +15,7 @@ import java.time.Instant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** 微信支付返回验证器 */
+/** 위챗페이 응답 검증기 */
 public final class WechatPay2Validator implements Validator {
 
   private static final Logger logger = LoggerFactory.getLogger(WechatPay2Validator.class);
@@ -31,7 +31,7 @@ public final class WechatPay2Validator implements Validator {
     String timestamp = responseHeaders.getHeader(WECHAT_PAY_TIMESTAMP);
     try {
       Instant responseTime = Instant.ofEpochSecond(Long.parseLong(timestamp));
-      // 拒绝过期请求
+      // 만료된 요청 거부
       if (Duration.between(responseTime, Instant.now()).abs().toMinutes()
           >= RESPONSE_EXPIRED_MINUTES) {
         throw new IllegalArgumentException(

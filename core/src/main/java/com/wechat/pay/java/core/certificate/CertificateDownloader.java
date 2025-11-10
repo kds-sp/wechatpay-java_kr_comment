@@ -68,7 +68,7 @@ public final class CertificateDownloader {
     }
   }
 
-  /** 下载证书 */
+  /** 인증서 다운로드 */
   public Map<String, X509Certificate> download() {
     HttpRequest httpRequest =
         new HttpRequest.Builder()
@@ -82,7 +82,7 @@ public final class CertificateDownloader {
           httpClient.execute(httpRequest, DownloadCertificateResponse.class);
       return decryptCertificate(httpResponse);
     } catch (ServiceException e) {
-      // 如果证书不存在，可能是切换为平台公钥，该处不报错
+      // 인증서가 존재하지 않으면 플랫폼 공개키로 전환된 것일 수 있으므로 여기서는 오류를 발생시키지 않음
       if (e.getErrorCode().equals("NOT_FOUND")) {
         return new HashMap<>();
       }
@@ -91,10 +91,10 @@ public final class CertificateDownloader {
   }
 
   /**
-   * 从应答报文中解密证书
+   * 응답 메시지에서 인증서 복호화
    *
    * @param httpResponse httpResponse
-   * @return 应答报文解密后，生成X.509证书对象的Map
+   * @return 응답 메시지 복호화 후 생성된 X.509 인증서 객체의 Map
    */
   private Map<String, X509Certificate> decryptCertificate(
       HttpResponse<DownloadCertificateResponse> httpResponse) {

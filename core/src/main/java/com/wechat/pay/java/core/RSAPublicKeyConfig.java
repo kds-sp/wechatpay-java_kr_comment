@@ -13,7 +13,7 @@ import com.wechat.pay.java.core.util.PemUtil;
 import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
 
-/** 使用微信支付平台公钥的RSA配置类。 每次构造都要求传入平台公钥以及平台公钥id，如果使用平台证书建议用RSAAutoCertificateConfig类 */
+/** 위챗페이 플랫폼 공개키를 사용하는 RSA 설정 클래스. 매번 생성 시 플랫폼 공개키 및 플랫폼 공개키 id를 전달해야 하며, 플랫폼 인증서를 사용하는 경우 RSAAutoCertificateConfig 클래스를 사용하는 것을 권장 */
 public final class RSAPublicKeyConfig extends AbstractRSAConfig implements NotificationConfig {
 
   private final PublicKey publicKey;
@@ -33,9 +33,9 @@ public final class RSAPublicKeyConfig extends AbstractRSAConfig implements Notif
   }
 
   /**
-   * 获取签名类型
+   * 서명 타입 가져오기
    *
-   * @return 签名类型
+   * @return 서명 타입
    */
   @Override
   public String getSignType() {
@@ -43,9 +43,9 @@ public final class RSAPublicKeyConfig extends AbstractRSAConfig implements Notif
   }
 
   /**
-   * 获取认证加解密器类型
+   * 인증 암호화/복호화기 타입 가져오기
    *
-   * @return 认证加解密器类型
+   * @return 인증 암호화/복호화기 타입
    */
   @Override
   public String getCipherType() {
@@ -53,9 +53,9 @@ public final class RSAPublicKeyConfig extends AbstractRSAConfig implements Notif
   }
 
   /**
-   * 创建验签器
+   * 서명 검증기 생성
    *
-   * @return 验签器
+   * @return 서명 검증기
    */
   @Override
   public Verifier createVerifier() {
@@ -63,9 +63,9 @@ public final class RSAPublicKeyConfig extends AbstractRSAConfig implements Notif
   }
 
   /**
-   * 创建认证加解密器
+   * 인증 암호화/복호화기 생성
    *
-   * @return 认证加解密器
+   * @return 인증 암호화/복호화기
    */
   @Override
   public AeadCipher createAeadCipher() {

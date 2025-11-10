@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** 定时更新证书的服务，它是一个由静态函数构成的工具类 */
+/** 정기적으로 인증서를 업데이트하는 서비스, 정적 함수로 구성된 유틸리티 클래스 */
 public class AutoCertificateService {
   private static final Logger log = LoggerFactory.getLogger(AutoCertificateService.class);
   protected static final int UPDATE_INTERVAL_MINUTE = 60;
@@ -32,14 +32,14 @@ public class AutoCertificateService {
             public Thread newThread(Runnable r) {
               Thread t =
                   new Thread(r, "auto-certificate-service-daemon-" + threadCount.incrementAndGet());
-              // 用户线程执行完成后不会阻止 JVM 退出
+              // 사용자 스레드 실행 완료 후 JVM 종료를 막지 않음
               t.setDaemon(true);
               return t;
             }
           });
 
   static {
-    // 取消时立即从工作队列中删除
+    // 취소 시 즉시 작업 큐에서 삭제
     serviceExecutor.setRemoveOnCancelPolicy(true);
   }
 
@@ -52,12 +52,12 @@ public class AutoCertificateService {
   }
 
   /**
-   * 注册证书下载任务 如果是第一次注册，会先下载证书。如果能成功下载，再保存下载器，供定时更新证书使用。如果下载失败，会抛出异常。
-   * 如果已经注册过，当前传入的下载器将覆盖之前的下载器。如果当前下载器不能下载证书，定时更新证书会失败。
+   * 인증서 다운로드 작업 등록, 첫 등록 시 인증서를 먼저 다운로드합니다. 다운로드가 성공하면 다운로더를 저장하여 정기 업데이트에 사용합니다. 다운로드가 실패하면 예외가 발생합니다.
+   * 이미 등록된 경우 현재 전달된 다운로더가 이전 다운로더를 덮어씁니다. 현재 다운로더가 인증서를 다운로드할 수 없으면 정기 업데이트가 실패합니다.
    *
-   * @param merchantId 商户号
-   * @param type 调用方自定义的证书类型，例如 RSA/ShangMi
-   * @param downloader 证书下载器
+   * @param merchantId 가맹점 번호
+   * @param type 호출자가 정의한 인증서 타입, 예: RSA/ShangMi
+   * @param downloader 인증서 다운로더
    */
   public static void register(String merchantId, String type, CertificateDownloader downloader) {
     String key = calculateDownloadWorkerMapKey(merchantId, type);
@@ -67,27 +67,27 @@ public class AutoCertificateService {
           certificateMap.put(key, result);
         };
 
-    // 下载证书，以验证配置是正确的
-    // 如果错误将抛出异常，fast-fail
+    // 인증서 다운로드하여 설정이 올바른지 검증
+    // 오류가 있으면 예외를 발생시킴, fast-fail
     worker.run();
-    // 更新配置
+    // 설정 업데이트
     downloadWorkerMap.put(key, worker);
 
     start(defaultUpdateInterval);
   }
 
   /**
-   * 注销证书下载任务
+   * 인증서 다운로드 작업 등록 해제
    *
-   * @param merchantId 商户号
-   * @param type 调用方自定义的证书类型，应等于 `register()` 时的值
+   * @param merchantId 가맹점 번호
+   * @param type 호출자가 정의한 인증서 타입, `register()` 시의 값과 동일해야 함
    */
   public static void unregister(String merchantId, String type) {
     String key = calculateDownloadWorkerMapKey(merchantId, type);
     downloadWorkerMap.remove(key);
   }
 
-  /** 清理所有已注册的下载器和已下载的证书，并取消定时更新证书的动作。 */
+  /** 등록된 모든 다운로더와 다운로드된 인증서를 정리하고, 정기 업데이트 작업을 취소합니다. */
   public static void shutdown() {
     downloadWorkerMap.clear();
     certificateMap.clear();
@@ -100,9 +100,9 @@ public class AutoCertificateService {
   }
 
   /**
-   * 启动更新证书的周期性动作
+   * 인증서 업데이트의 주기적 작업 시작
    *
-   * @param updateInterval 更新证书的周期
+   * @param updateInterval 인증서 업데이트 주기
    */
   public static void start(Duration updateInterval) {
     synchronized (AutoCertificateService.class) {
@@ -137,7 +137,7 @@ public class AutoCertificateService {
 
   private static X509Certificate getAvailableCertificate(
       Map<String, X509Certificate> certificateMap) {
-    // 假设拿到的都是可用的，选取一个能用最久的
+    // 가져온 모든 인증서가 사용 가능하다고 가정하고, 가장 오래 사용할 수 있는 것을 선택
     X509Certificate longest = null;
     for (X509Certificate item : certificateMap.values()) {
       if (longest == null || item.getNotAfter().after(longest.getNotAfter())) {
@@ -147,14 +147,14 @@ public class AutoCertificateService {
     return longest;
   }
 
-  // 根据证书序列号获取证书
+  // 인증서 시리얼 번호에 따라 인증서 가져오기
   public static X509Certificate getCertificate(
       String merchantId, String type, String serialNumber) {
     String key = calculateDownloadWorkerMapKey(merchantId, type);
     return certificateMap.get(key).get(serialNumber);
   }
 
-  // 获取最新可用的微信支付平台证书
+  // 최신 사용 가능한 위챗페이 플랫폼 인증서 가져오기
   public static X509Certificate getAvailableCertificate(String merchantId, String type) {
     String key = calculateDownloadWorkerMapKey(merchantId, type);
     return getAvailableCertificate(certificateMap.get(key));
