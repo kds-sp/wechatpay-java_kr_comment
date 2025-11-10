@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** SplitBillResponse */
 public class SplitBillResponse {
-  /** 哈希类型 说明：原始账单（gzip需要解压缩）的摘要算法，用于校验文件的完整性 */
+  /** 해시 유형 설명: 원본 청구서 (gzip은 압축 해제 필요)의 다이제스트 알고리즘, 파일 무결성 검증에 사용 */
   @SerializedName("hash_type")
   private SplitBillHashType hashType;
 
-  /** 哈希值 说明：原始账单（gzip需要解压缩）的摘要值，用于校验文件的完整性 */
+  /** 해시 값 설명: 원본 청구서 (gzip은 압축 해제 필요)의 다이제스트 값, 파일 무결성 검증에 사용 */
   @SerializedName("hash_value")
   private String hashValue;
 
-  /** 下载地址 说明：供下一步请求账单文件的下载地址，该地址30s内有效 */
+  /** 다운로드 주소 설명: 다음 단계 청구서 파일 요청을 위한 다운로드 주소, 이 주소는 30초 동안 유효 */
   @SerializedName("download_url")
   private String downloadUrl;
 

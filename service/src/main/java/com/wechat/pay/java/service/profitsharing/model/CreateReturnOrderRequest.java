@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,31 +17,31 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateReturnOrderRequest */
 public class CreateReturnOrderRequest {
-  /** 子商户号 说明：分账回退的接收商户，对应原分账出资的分账方商户，填写微信支付分配的商户号。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 번호 설명: 수익 분배 반환의 수신 가맹점, 원래 수익 분배 출자의 수익 분배 방 가맹점에 해당, 위챗페이가 할당한 가맹점 번호 입력. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信分账单号 说明：微信分账单号，微信系统返回的唯一标识。微信分账单号和商户分账单号二选一填写 */
+  /** 위챗페이 수익 분배 단 번호 설명: 위챗페이 수익 분배 단 번호, 위챗페이 시스템이 반환한 고유 식별자. 위챗페이 수익 분배 단 번호와 가맹점 수익 분배 단 번호 중 하나만 입력 */
   @SerializedName("order_id")
   private String orderId;
 
-  /** 商户分账单号 说明：商户系统内部的分账单号，在商户系统内部唯一，同一分账单号多次请求等同一次。微信分账单号和商户分账单号二选一填写 取值范围：[0-9a-zA-Z_*@-] */
+  /** 가맹점 수익 분배 단 번호 설명: 가맹점 시스템 내부의 수익 분배 단 번호, 가맹점 시스템 내부에서 고유, 동일한 수익 분배 단 번호로 여러 번 요청해도 한 번과 동일. 위챗페이 수익 분배 단 번호와 가맹점 수익 분배 단 번호 중 하나만 입력 값 범위: [0-9a-zA-Z_*@-] */
   @SerializedName("out_order_no")
   private String outOrderNo;
 
-  /** 商户回退单号 说明：此回退单号是商户在自己后台生成的一个新的回退单号，在商户后台唯一 */
+  /** 가맹점 반환 단 번호 설명: 이 반환 단 번호는 가맹점이 자신의 백엔드에서 생성한 새로운 반환 단 번호이며, 가맹점 백엔드에서 고유 */
   @SerializedName("out_return_no")
   private String outReturnNo;
 
-  /** 回退商户号 说明：分账回退的出资商户，只能对原分账请求中成功分给商户接收方进行回退 */
+  /** 반환 가맹점 번호 설명: 수익 분배 반환의 출자 가맹점, 원래 수익 분배 요청에서 가맹점 수신자에게 성공적으로 분배된 것만 반환 가능 */
   @SerializedName("return_mchid")
   private String returnMchid;
 
-  /** 回退金额 说明：需要从分账接收方回退的金额，单位为分，只能为整数，不能超过原始分账单分出给该接收方的金额 */
+  /** 반환 금액 설명: 수익 분배 수신자로부터 반환해야 하는 금액, 단위는 분, 정수만 가능, 원래 수익 분배 단에서 해당 수신자에게 분배한 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 回退描述 说明：分账回退的原因描述 */
+  /** 반환 설명 설명: 수익 분배 반환 사유 설명 */
   @SerializedName("description")
   private String description;
 

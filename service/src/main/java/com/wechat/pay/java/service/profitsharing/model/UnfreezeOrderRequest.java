@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** UnfreezeOrderRequest */
 public class UnfreezeOrderRequest {
-  /** 子商户号 说明：微信支付分配的子商户号，即分账的出资商户号。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호, 즉 수익 분배의 출자 가맹점 번호. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 商户分账单号 说明：商户系统内部的分账单号，在商户系统内部唯一，同一分账单号多次请求等同一次。只能是数字、大小写字母_-|*@ */
+  /** 가맹점 수익 분배 단 번호 설명: 가맹점 시스템 내부의 수익 분배 단 번호, 가맹점 시스템 내부에서 고유, 동일한 수익 분배 단 번호로 여러 번 요청해도 한 번과 동일. 숫자, 대소문자 _-|*@만 가능 */
   @SerializedName("out_order_no")
   private String outOrderNo;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 수익 분배 설명 설명: 수익 분배 사유 설명, 수익 분배 청구서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 
-  /** 分账结果回调url 说明：异步接收微信支付分账结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数 */
+  /** 수익 분배 결과 콜백 url 설명: 위챗페이 수익 분배 결과 알림을 비동기로 수신하는 콜백 주소, 알림 url은 외부에서 접근 가능한 url이어야 하며 매개변수를 포함할 수 없음 */
   @SerializedName("notify_url")
   private String notifyUrl;
 

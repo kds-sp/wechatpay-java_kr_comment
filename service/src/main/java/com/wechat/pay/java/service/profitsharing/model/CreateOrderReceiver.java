@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -20,33 +20,33 @@ import java.util.function.UnaryOperator;
 /** CreateOrderReceiver */
 public class CreateOrderReceiver {
   /**
-   * 分账接收方类型 说明：1、MERCHANT_ID：商户号 2、PERSONAL_OPENID：个人openid（由父商户APPID转换得到） 3、PERSONAL_SUB_OPENID:
-   * 个人sub_openid（由子商户APPID转换得到）
+   * 수익 분배 수신자 유형 설명: 1. MERCHANT_ID: 가맹점 번호 2. PERSONAL_OPENID: 개인 openid (부모 가맹점 APPID에서 변환) 3. PERSONAL_SUB_OPENID:
+   * 개인 sub_openid (서브 가맹점 APPID에서 변환)
    */
   @SerializedName("type")
   private String type;
 
   /**
-   * 分账接收方帐号 说明：1、类型是MERCHANT_ID时，是商户号 2、类型是PERSONAL_OPENID时，是个人openid
-   * 3、类型是PERSONAL_SUB_OPENID时，是个人sub_openid
+   * 수익 분배 수신자 계정 설명: 1. 유형이 MERCHANT_ID인 경우, 가맹점 번호 2. 유형이 PERSONAL_OPENID인 경우, 개인 openid
+   * 3. 유형이 PERSONAL_SUB_OPENID인 경우, 개인 sub_openid
    */
   @SerializedName("account")
   private String account;
 
   /**
-   * 分账个人接收方姓名 说明：可选项，在接收方类型为个人的时可选填，若有值，会检查与 name 是否实名匹配，不匹配会拒绝分账请求
-   * 1、分账接收方类型是PERSONAL_OPENID或PERSONAL_SUB_OPENID时，是个人姓名的密文（选传，传则校验） 此字段的加密的方式为：敏感信息加密说明
-   * 2、使用微信支付平台证书中的公钥 3、使用RSAES-OAEP算法进行加密 4、将请求中HTTP头部的Wechatpay-Serial设置为证书序列号
+   * 수익 분배 개인 수신자 이름 설명: 선택 사항, 수신자 유형이 개인일 때 선택적으로 입력 가능, 값이 있으면 name과 실명 일치 여부를 확인하며, 일치하지 않으면 수익 분배 요청을 거부함
+   * 1. 수익 분배 수신자 유형이 PERSONAL_OPENID 또는 PERSONAL_SUB_OPENID인 경우, 개인 이름의 암호문 (선택 전달, 전달 시 검증) 이 필드의 암호화 방식: 민감 정보 암호화 설명
+   * 2. 위챗페이 플랫폼 인증서의 공개 키 사용 3. RSAES-OAEP 알고리즘으로 암호화 4. 요청의 HTTP 헤더 Wechatpay-Serial을 인증서 일련 번호로 설정
    */
   @Encryption
   @SerializedName("name")
   private String name;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 수익 분배 금액 설명: 수익 분배 금액, 단위는 분, 정수만 가능, 원래 주문 결제 금액 및 최대 수익 분배 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 수익 분배 설명 설명: 수익 분배 사유 설명, 수익 분배 청구서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 

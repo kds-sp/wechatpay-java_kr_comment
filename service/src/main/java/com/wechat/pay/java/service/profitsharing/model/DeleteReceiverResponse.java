@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteReceiverResponse */
 public class DeleteReceiverResponse {
-  /** 子商户号 说明：参考请求参数 */
+  /** 서브 가맹점 번호 설명: 요청 파라미터 참조 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 接收方类型 说明：参考请求参数 */
+  /** 수신자 유형 설명: 요청 파라미터 참조 */
   @SerializedName("type")
   private ReceiverType type;
 
-  /** 接收方账号 说明：参考请求参数 */
+  /** 수신자 계정 설명: 요청 파라미터 참조 */
   @SerializedName("account")
   private String account;
 

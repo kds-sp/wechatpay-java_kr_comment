@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryReturnOrderRequest */
 public class QueryReturnOrderRequest {
-  /** 子商户号 说明：分账回退的接收商户，对应原分账出资的分账方商户，填写微信支付分配的商户号。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 번호 설명: 수익 분배 반환의 수신 가맹점, 원래 수익 분배 출자의 수익 분배 방 가맹점에 해당, 위챗페이가 할당한 가맹점 번호 입력. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 商户回退单号 说明：调用回退接口提供的商户系统内部的回退单号 */
+  /** 가맹점 반환 단 번호 설명: 반환 인터페이스 호출 시 제공한 가맹점 시스템 내부의 반환 단 번호 */
   @SerializedName("out_return_no")
   @Expose(serialize = false)
   private String outReturnNo;
 
-  /** 商户分账单号 说明：原发起分账请求时使用的商户系统内部的分账单号 */
+  /** 가맹점 수익 분배 단 번호 설명: 원래 수익 분배 요청 시작 시 사용한 가맹점 시스템 내부의 수익 분배 단 번호 */
   @SerializedName("out_order_no")
   @Expose(serialize = false)
   private String outOrderNo;

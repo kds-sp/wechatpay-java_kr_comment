@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,28 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteReceiverRequest */
 public class DeleteReceiverRequest {
-  /** 子商户号 说明：微信支付分配的子商户号，即分账的出资商户号。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호, 즉 수익 분배의 출자 가맹점 번호. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 公众账号ID 说明：微信分配的公众账号ID */
+  /** 공개 계정 ID 설명: 위챗페이가 할당한 공개 계정 ID */
   @SerializedName("appid")
   private String appid;
 
-  /** 子商户公众账号ID 说明：微信分配的子商户公众账号ID，分账接收方类型包含PERSONAL_SUB_OPENID时必填。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 공개 계정 ID 설명: 위챗페이가 할당한 서브 가맹점 공개 계정 ID, 수익 분배 수신자 유형에 PERSONAL_SUB_OPENID가 포함된 경우 필수. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_appid")
   private String subAppid;
 
   /**
-   * 接收方类型 说明：枚举值： MERCHANT_ID：商户ID PERSONAL_OPENID：个人openid（由父商户APPID转换得到）
-   * PERSONAL_SUB_OPENID：个人sub_openid（由子商户APPID转换得到）
+   * 수신자 유형 설명: 열거형 값: MERCHANT_ID: 가맹점 ID PERSONAL_OPENID: 개인 openid (부모 가맹점 APPID에서 변환)
+   * PERSONAL_SUB_OPENID: 개인 sub_openid (서브 가맹점 APPID에서 변환)
    */
   @SerializedName("type")
   private ReceiverType type;
 
   /**
-   * 接收方账号 说明：类型是MERCHANT\\_ID时，是商户号 类型是PERSONAL\\_OPENID时，是个人openid
-   * [openid获取方法](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/open/pay/chapter3_3_1.shtml#part-13)
+   * 수신자 계정 설명: 유형이 MERCHANT\\_ID인 경우, 가맹점 번호 유형이 PERSONAL\\_OPENID인 경우, 개인 openid
+   * [openid 획득 방법](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/open/pay/chapter3_3_1.shtml#part-13)
    */
   @SerializedName("account")
   private String account;

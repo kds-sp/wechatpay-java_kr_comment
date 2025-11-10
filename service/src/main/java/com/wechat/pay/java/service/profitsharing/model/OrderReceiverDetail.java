@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,42 +17,42 @@ import com.google.gson.annotations.SerializedName;
 
 /** OrderReceiverDetail */
 public class OrderReceiverDetail {
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 수익 분배 금액 설명: 수익 분배 금액, 단위는 분, 정수만 가능, 원래 주문 결제 금액 및 최대 수익 분배 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 수익 분배 설명 설명: 수익 분배 사유 설명, 수익 분배 청구서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 
-  /** 接收方类型 说明：接收方类型 */
+  /** 수신자 유형 설명: 수신자 유형 */
   @SerializedName("type")
   private ReceiverType type;
 
   /**
-   * 接收方账号 说明：1、类型是MERCHANT_ID时，是商户号 2、类型是PERSONAL_OPENID时，是个人openid
-   * 3、类型是PERSONAL_SUB_OPENID时，是个人sub_openid
+   * 수신자 계정 설명: 1. 유형이 MERCHANT_ID인 경우, 가맹점 번호 2. 유형이 PERSONAL_OPENID인 경우, 개인 openid
+   * 3. 유형이 PERSONAL_SUB_OPENID인 경우, 개인 sub_openid
    */
   @SerializedName("account")
   private String account;
 
-  /** 分账结果 说明：分账结果 */
+  /** 수익 분배 결과 설명: 수익 분배 결과 */
   @SerializedName("result")
   private DetailStatus result;
 
-  /** 分账失败原因 说明：分账失败原因，状态为CLOSED时返回 */
+  /** 수익 분배 실패 사유 설명: 수익 분배 실패 사유, 상태가 CLOSED일 때 반환 */
   @SerializedName("fail_reason")
   private DetailFailReason failReason;
 
-  /** 分账创建时间 说明：分账创建时间，遵循RFC3339标准格式 */
+  /** 수익 분배 생성 시간 설명: 수익 분배 생성 시간, RFC3339 표준 형식 준수 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 分账完成时间 说明：分账完成时间，遵循RFC3339标准格式 */
+  /** 수익 분배 완료 시간 설명: 수익 분배 완료 시간, RFC3339 표준 형식 준수 */
   @SerializedName("finish_time")
   private String finishTime;
 
-  /** 分账明细单号 说明：微信分账明细单号，每笔分账业务执行的明细单号，可与资金账单对账使用 */
+  /** 수익 분배 상세 단 번호 설명: 위챗페이 수익 분배 상세 단 번호, 각 수익 분배 업무 실행의 상세 단 번호, 자금 청구서와 대조에 사용 가능 */
   @SerializedName("detail_id")
   private String detailId;
 

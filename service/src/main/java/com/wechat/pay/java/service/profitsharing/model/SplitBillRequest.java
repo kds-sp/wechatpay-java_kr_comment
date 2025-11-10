@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** SplitBillRequest */
 public class SplitBillRequest {
-  /** 子商户号 说明：若商户是直连商户： - 无需填写该字段 若商户是服务商： - 不填则默认返回服务商下的所有分账账单。 - 如需下载某个子商户下的分账账单，则填指定的子商户号。 */
+  /** 서브 가맹점 번호 설명: 가맹점이 직접 연결 가맹점인 경우: - 이 필드를 작성할 필요 없음 가맹점이 서비스 제공자인 경우: - 작성하지 않으면 기본적으로 서비스 제공자 하위의 모든 수익 분배 청구서 반환. - 특정 서브 가맹점 하위의 수익 분배 청구서를 다운로드하려면 지정된 서브 가맹점 번호를 입력. */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 账单日期 说明：格式YYYY-MM-DD。仅支持三个月内的账单下载申请。 */
+  /** 청구서 날짜 설명: 형식 YYYY-MM-DD. 3개월 이내의 청구서 다운로드 신청만 지원. */
   @SerializedName("bill_date")
   @Expose(serialize = false)
   private String billDate;
 
-  /** 压缩类型 说明：不填则以不压缩的方式返回数据流 */
+  /** 압축 유형 설명: 작성하지 않으면 압축하지 않은 방식으로 데이터 스트림 반환 */
   @SerializedName("tar_type")
   @Expose(serialize = false)
   private SplitBillTarType tarType;

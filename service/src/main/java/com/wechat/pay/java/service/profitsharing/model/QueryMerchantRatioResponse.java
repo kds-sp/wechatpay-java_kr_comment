@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryMerchantRatioResponse */
 public class QueryMerchantRatioResponse {
-  /** 子商户号 说明：参考请求参数 */
+  /** 서브 가맹점 번호 설명: 요청 파라미터 참조 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 最大分账比例 说明：子商户允许父商户分账的最大比例，单位万分比，比如2000表示20% */
+  /** 최대 수익 분배 비율 설명: 서브 가맹점이 부모 가맹점의 수익 분배를 허용하는 최대 비율, 단위는 만분율, 예: 2000은 20%를 의미 */
   @SerializedName("max_ratio")
   private Long maxRatio;
 

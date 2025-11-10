@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -17,54 +17,54 @@ import com.google.gson.annotations.SerializedName;
 
 /** ReturnOrdersEntity */
 public class ReturnOrdersEntity {
-  /** 子商户号 说明：参考请求参数 */
+  /** 서브 가맹점 번호 설명: 요청 파라미터 참조 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信分账单号 说明：微信分账单号，微信系统返回的唯一标识 */
+  /** 위챗페이 수익 분배 단 번호 설명: 위챗페이 수익 분배 단 번호, 위챗페이 시스템이 반환한 고유 식별자 */
   @SerializedName("order_id")
   private String orderId;
 
-  /** 商户分账单号 说明：商户系统内部的分账单号，在商户系统内部唯一，同一分账单号多次请求等同一次 */
+  /** 가맹점 수익 분배 단 번호 설명: 가맹점 시스템 내부의 수익 분배 단 번호, 가맹점 시스템 내부에서 고유, 동일한 수익 분배 단 번호로 여러 번 요청해도 한 번과 동일 */
   @SerializedName("out_order_no")
   private String outOrderNo;
 
-  /** 商户回退单号 说明：调用回退接口提供的商户系统内部的回退单号 */
+  /** 가맹점 반환 단 번호 설명: 반환 인터페이스 호출 시 제공한 가맹점 시스템 내부의 반환 단 번호 */
   @SerializedName("out_return_no")
   private String outReturnNo;
 
-  /** 微信回退单号 说明：微信分账回退单号，微信系统返回的唯一标识 */
+  /** 위챗페이 반환 단 번호 설명: 위챗페이 수익 분배 반환 단 번호, 위챗페이 시스템이 반환한 고유 식별자 */
   @SerializedName("return_id")
   private String returnId;
 
-  /** 回退商户号 说明：只能对原分账请求中成功分给商户接收方进行回退 */
+  /** 반환 가맹점 번호 설명: 원래 수익 분배 요청에서 가맹점 수신자에게 성공적으로 분배된 것만 반환 가능 */
   @SerializedName("return_mchid")
   private String returnMchid;
 
-  /** 回退金额 说明：需要从分账接收方回退的金额，单位为分，只能为整数 */
+  /** 반환 금액 설명: 수익 분배 수신자로부터 반환해야 하는 금액, 단위는 분, 정수만 가능 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 回退描述 说明：分账回退的原因描述 */
+  /** 반환 설명 설명: 수익 분배 반환 사유 설명 */
   @SerializedName("description")
   private String description;
 
   /**
-   * 回退结果
-   * 说明：如果请求返回为处理中，则商户可以通过调用回退结果查询接口获取请求的最终处理结果。如果查询到回退结果在处理中，请勿变更商户回退单号，使用相同的参数再次发起分账回退，否则会出现资金风险。在处理中状态的回退单如果5天没有成功，会因为超时被设置为已失败
+   * 반환 결과
+   * 설명: 요청 반환값이 처리 중인 경우, 가맹점은 반환 결과 조회 인터페이스를 호출하여 요청의 최종 처리 결과를 얻을 수 있음. 반환 결과가 처리 중으로 조회되면 가맹점 반환 단 번호를 변경하지 말고, 동일한 파라미터로 다시 수익 분배 반환을 시작해야 하며, 그렇지 않으면 자금 위험이 발생할 수 있음. 처리 중 상태의 반환 단이 5일 동안 성공하지 않으면 시간 초과로 인해 실패로 설정됨
    */
   @SerializedName("result")
   private ReturnOrderStatus result;
 
-  /** 失败原因 说明：失败原因 */
+  /** 실패 사유 설명: 실패 사유 */
   @SerializedName("fail_reason")
   private ReturnOrderFailReason failReason;
 
-  /** 创建时间 说明：分账回退创建时间，遵循RFC3339标准格式 */
+  /** 생성 시간 설명: 수익 분배 반환 생성 시간, RFC3339 표준 형식 준수 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 完成时间 说明：分账回退完成时间，遵循RFC3339标准格式 */
+  /** 완료 시간 설명: 수익 분배 반환 완료 시간, RFC3339 표준 형식 준수 */
   @SerializedName("finish_time")
   private String finishTime;
 

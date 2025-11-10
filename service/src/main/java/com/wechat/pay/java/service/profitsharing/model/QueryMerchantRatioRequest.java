@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryMerchantRatioRequest */
 public class QueryMerchantRatioRequest {
-  /** 子商户号 说明：微信支付分配的子商户号，即分账的出资商户号。 */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호, 즉 수익 분배의 출자 가맹점 번호. */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;

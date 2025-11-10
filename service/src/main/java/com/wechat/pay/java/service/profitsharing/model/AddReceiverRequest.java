@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -19,52 +19,52 @@ import java.util.function.UnaryOperator;
 
 /** AddReceiverRequest */
 public class AddReceiverRequest {
-  /** 子商户号 说明：微信支付分配的子商户号，即分账的出资商户号。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호, 즉 수익 분배의 출자 가맹점 번호. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 公众账号ID 说明：微信分配的公众账号ID */
+  /** 공개 계정 ID 설명: 위챗페이가 할당한 공개 계정 ID */
   @SerializedName("appid")
   private String appid;
 
-  /** 子商户公众账号ID 说明：子商户的公众账号ID，分账接收方类型包含PERSONAL_SUB_OPENID时必填。（直连商户不需要，服务商需要） */
+  /** 서브 가맹점 공개 계정 ID 설명: 서브 가맹점의 공개 계정 ID, 수익 분배 수신자 유형에 PERSONAL_SUB_OPENID가 포함된 경우 필수. (직접 연결 가맹점은 불필요, 서비스 제공자는 필요) */
   @SerializedName("sub_appid")
   private String subAppid;
 
   /**
-   * 接收方类型 说明：枚举值： MERCHANT_ID：商户ID PERSONAL_OPENID：个人openid（由父商户APPID转换得到）
-   * PERSONAL_SUB_OPENID：个人sub_openid（由子商户APPID转换得到）
+   * 수신자 유형 설명: 열거형 값: MERCHANT_ID: 가맹점 ID PERSONAL_OPENID: 개인 openid (부모 가맹점 APPID에서 변환)
+   * PERSONAL_SUB_OPENID: 개인 sub_openid (서브 가맹점 APPID에서 변환)
    */
   @SerializedName("type")
   private ReceiverType type;
 
   /**
-   * 接收方账号 说明：类型是MERCHANT_ID时，是商户号 类型是PERSONAL_OPENID时，是个人openid
-   * 类型是PERSONAL_SUB_OPENID时，是个人sub_openid
+   * 수신자 계정 설명: 유형이 MERCHANT_ID인 경우, 가맹점 번호 유형이 PERSONAL_OPENID인 경우, 개인 openid
+   * 유형이 PERSONAL_SUB_OPENID인 경우, 개인 sub_openid
    */
   @SerializedName("account")
   private String account;
 
   /**
-   * 分账接收方全称 说明：分账接收方类型是MERCHANT_ID时，是商户全称（必传），当商户是小微商户或个体户时，是开户人姓名
-   * 分账接收方类型是PERSONAL_OPENID时，是个人姓名（选传，传则校验） 分账接收方类型是PERSONAL_SUB_OPENID时，是个人姓名（选传，传则校验）
-   * 1、此字段需要加密，的加密方法详见：敏感信息加密说明 2、使用微信支付平台证书中的公钥 3、使用RSAES-OAEP算法进行加密
-   * 4、将请求中HTTP头部的Wechatpay-Serial设置为证书序列号
+   * 수익 분배 수신자 전체 이름 설명: 수익 분배 수신자 유형이 MERCHANT_ID인 경우, 가맹점 전체 이름 (필수 전달), 가맹점이 소규모 가맹점 또는 개인 사업자일 때, 계좌 개설자 이름
+   * 수익 분배 수신자 유형이 PERSONAL_OPENID인 경우, 개인 이름 (선택 전달, 전달 시 검증) 수익 분배 수신자 유형이 PERSONAL_SUB_OPENID인 경우, 개인 이름 (선택 전달, 전달 시 검증)
+   * 1. 이 필드는 암호화가 필요하며, 암호화 방법은 민감 정보 암호화 설명 참조 2. 위챗페이 플랫폼 인증서의 공개 키 사용 3. RSAES-OAEP 알고리즘으로 암호화
+   * 4. 요청의 HTTP 헤더 Wechatpay-Serial을 인증서 일련 번호로 설정
    */
   @Encryption
   @SerializedName("name")
   private String name;
 
   /**
-   * 与分账方的关系类型 说明：子商户与接收方的关系。 本字段值为枚举： SERVICE_PROVIDER：服务商 STORE：门店 STAFF：员工 STORE_OWNER：店主
-   * PARTNER：合作伙伴 HEADQUARTER：总部 BRAND：品牌方 DISTRIBUTOR：分销商 USER：用户 SUPPLIER：供应商 CUSTOM：自定义
+   * 수익 분배 방과의 관계 유형 설명: 서브 가맹점과 수신자의 관계. 이 필드 값은 열거형: SERVICE_PROVIDER: 서비스 제공자 STORE: 매장 STAFF: 직원 STORE_OWNER: 점주
+   * PARTNER: 파트너 HEADQUARTER: 본부 BRAND: 브랜드 측 DISTRIBUTOR: 유통업자 USER: 사용자 SUPPLIER: 공급업체 CUSTOM: 사용자 정의
    */
   @SerializedName("relation_type")
   private ReceiverRelationType relationType;
 
   /**
-   * 自定义的分账关系 说明：子商户与接收方具体的关系，本字段最多10个字。 当字段relation_type的值为CUSTOM时，本字段必填
-   * 当字段relation_type的值不为CUSTOM时，本字段无需填写
+   * 사용자 정의 수익 분배 관계 설명: 서브 가맹점과 수신자의 구체적인 관계, 이 필드는 최대 10자. relation_type 필드 값이 CUSTOM일 때, 이 필드는 필수
+   * relation_type 필드 값이 CUSTOM이 아닐 때, 이 필드는 작성할 필요 없음
    */
   @SerializedName("custom_relation")
   private String customRelation;

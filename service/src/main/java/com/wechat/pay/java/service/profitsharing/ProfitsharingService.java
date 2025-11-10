@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
-// 微信支付分账API
+// 위챗페이 수익 분배 API
 //
 // API version: 0.0.9
 
@@ -52,7 +52,7 @@ import com.wechat.pay.java.service.profitsharing.model.SplitBillRequest;
 import com.wechat.pay.java.service.profitsharing.model.SplitBillResponse;
 import com.wechat.pay.java.service.profitsharing.model.UnfreezeOrderRequest;
 
-/** ProfitsharingService服务 */
+/** ProfitsharingService 서비스 */
 public class ProfitsharingService {
 
   private final HttpClient httpClient;
@@ -71,7 +71,7 @@ public class ProfitsharingService {
     this.decryptor = requireNonNull(decryptor);
   }
 
-  /** ProfitsharingService构造器 */
+  /** ProfitsharingService 빌더 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -112,20 +112,20 @@ public class ProfitsharingService {
   }
 
   /**
-   * 获取分账账单文件下载地址
+   * 수익 분배 청구서 파일 다운로드 주소 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return SplitBillResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public SplitBillResponse splitBill(SplitBillRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/bills";
 
     SplitBillRequest realRequest = request;
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -155,21 +155,21 @@ public class ProfitsharingService {
   }
 
   /**
-   * 查询最大分账比例API
+   * 최대 수익 분배 비율 조회 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return QueryMerchantRatioResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public QueryMerchantRatioResponse queryMerchantRatio(QueryMerchantRatioRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/profitsharing/merchant-configs/{sub_mchid}";
 
     QueryMerchantRatioRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "sub_mchid" + "}", urlEncode(realRequest.getSubMchid()));
 
@@ -191,18 +191,18 @@ public class ProfitsharingService {
   }
 
   /**
-   * 请求分账API
+   * 수익 분배 요청 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return OrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public OrdersEntity createOrder(CreateOrderRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/orders";
-    // 加密敏感信息
+    // 민감 정보 암호화
     CreateOrderRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());
@@ -223,24 +223,24 @@ public class ProfitsharingService {
   }
 
   /**
-   * 查询分账结果API
+   * 수익 분배 결과 조회 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return OrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public OrdersEntity queryOrder(QueryOrderRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/orders/{out_order_no}";
 
     QueryOrderRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_order_no" + "}", urlEncode(realRequest.getOutOrderNo()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -266,14 +266,14 @@ public class ProfitsharingService {
   }
 
   /**
-   * 解冻剩余资金API
+   * 잔여 자금 해제 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return OrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public OrdersEntity unfreezeOrder(UnfreezeOrderRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/orders/unfreeze";
@@ -296,18 +296,18 @@ public class ProfitsharingService {
   }
 
   /**
-   * 添加分账接收方API
+   * 수익 분배 수신자 추가 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return AddReceiverResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public AddReceiverResponse addReceiver(AddReceiverRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/receivers/add";
-    // 加密敏感信息
+    // 민감 정보 암호화
     AddReceiverRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());
@@ -329,14 +329,14 @@ public class ProfitsharingService {
   }
 
   /**
-   * 删除分账接收方API
+   * 수익 분배 수신자 삭제 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return DeleteReceiverResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public DeleteReceiverResponse deleteReceiver(DeleteReceiverRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/receivers/delete";
@@ -360,14 +360,14 @@ public class ProfitsharingService {
   }
 
   /**
-   * 请求分账回退API
+   * 수익 분배 반환 요청 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return ReturnOrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public ReturnOrdersEntity createReturnOrder(CreateReturnOrderRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/profitsharing/return-orders";
@@ -391,25 +391,25 @@ public class ProfitsharingService {
   }
 
   /**
-   * 查询分账回退结果API
+   * 수익 분배 반환 결과 조회 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return ReturnOrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public ReturnOrdersEntity queryReturnOrder(QueryReturnOrderRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/profitsharing/return-orders/{out_return_no}";
 
     QueryReturnOrderRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_return_no" + "}", urlEncode(realRequest.getOutReturnNo()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -436,21 +436,21 @@ public class ProfitsharingService {
   }
 
   /**
-   * 查询剩余待分金额API
+   * 잔여 대기 분배 금액 조회 API
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return QueryOrderAmountResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public QueryOrderAmountResponse queryOrderAmount(QueryOrderAmountRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/profitsharing/transactions/{transaction_id}/amounts";
 
     QueryOrderAmountRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace(
             "{" + "transaction_id" + "}", urlEncode(realRequest.getTransactionId()));
