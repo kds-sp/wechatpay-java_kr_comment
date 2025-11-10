@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제 API
 //
 // API version: 1.2.3
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** GoodsDetail */
 public class GoodsDetail {
-  /** 商户侧商品编码 说明：由半角的大小写字母、数字、中划线、下划线中的一种或几种组成。 */
+  /** 가맹점 측 상품 코드 설명: 반각 대소문자, 숫자, 하이픈, 밑줄 중 하나 또는 여러 개로 구성 */
   @SerializedName("merchant_goods_id")
   private String merchantGoodsId;
 
-  /** 微信侧商品编码 说明：微信支付定义的统一商品编号（没有可不传）。 */
+  /** 위챗페이 측 상품 코드 설명: 위챗페이가 정의한 통일 상품 번호 (없으면 전달하지 않아도 됨) */
   @SerializedName("wechatpay_goods_id")
   private String wechatpayGoodsId;
 
-  /** 商品名称 说明：商品的实际名称。 */
+  /** 상품 이름 설명: 상품의 실제 이름 */
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 商品数量 说明：用户购买的数量。 */
+  /** 상품 수량 설명: 사용자가 구매한 수량 */
   @SerializedName("quantity")
   private Integer quantity;
 
-  /** 商品单价 说明：商品单价，单位为分。 */
+  /** 상품 단가 설명: 상품 단가, 단위는 분 */
   @SerializedName("unit_price")
   private Integer unitPrice;
 

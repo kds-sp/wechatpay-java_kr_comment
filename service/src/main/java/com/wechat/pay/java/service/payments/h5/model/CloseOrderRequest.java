@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제 API
 //
 // API version: 1.2.3
 
@@ -23,7 +23,7 @@ public class CloseOrderRequest {
   @Expose(serialize = false)
   private String outTradeNo;
 
-  /** mchid 说明：直连商户号 */
+  /** mchid 설명: 직접 연결 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 

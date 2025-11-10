@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제 API
 //
 // API version: 1.2.3
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** Amount */
 public class Amount {
-  /** 总金额 说明：订单总金额，单位为分 */
+  /** 총액 설명: 주문 총액, 단위는 분 */
   @SerializedName("total")
   private Integer total;
 
-  /** 货币类型 说明：CNY：人民币，境内商户号仅支持人民币。 */
+  /** 통화 유형 설명: CNY: 위안화, 국내 가맹점 번호는 위안화만 지원 */
   @SerializedName("currency")
   private String currency;
 

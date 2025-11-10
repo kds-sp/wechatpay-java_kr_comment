@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제 API
 //
 // API version: 1.2.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** CloseRequest */
 public class CloseRequest {
-  /** mchid 说明：直连商户号 */
+  /** mchid 설명: 직접 연결 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제 API
 //
 // API version: 1.2.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** PrepayResponse */
 public class PrepayResponse {
-  /** h5Url 说明：支付跳转链接 */
+  /** h5Url 설명: 결제 리다이렉트 링크 */
   @SerializedName("h5_url")
   private String h5Url;
 
