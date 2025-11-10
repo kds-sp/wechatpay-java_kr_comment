@@ -35,14 +35,14 @@ public class BillDownloadServiceExtension {
   }
 
   /**
-   * 获取交易账单。从 DigestBillEntity 得到账单的流，应在消费完后验证摘要。支持解压缩。
+   * 거래 청단 조회. DigestBillEntity에서 청단 스트림을 얻으며, 소비 후 요약을 검증해야 함. 압축 해제 지원.
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return DigestBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public DigestBillEntity getTradeBill(GetTradeBillRequest request) {
     QueryBillEntity billEntity = service.getTradeBill(request);
@@ -52,14 +52,14 @@ public class BillDownloadServiceExtension {
   }
 
   /**
-   * 获取资金账单。从 DigestBillEntity 得到账单的流，应在消费完后验证摘要。
+   * 자금 청단 조회. DigestBillEntity에서 청단 스트림을 얻으며, 소비 후 요약을 검증해야 함.
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return DigestBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public DigestBillEntity getFundFlowBill(GetFundFlowBillRequest request) {
     QueryBillEntity billEntity = service.getFundFlowBill(request);
@@ -80,7 +80,7 @@ public class BillDownloadServiceExtension {
     return stream;
   }
 
-  /** BillDownloadServiceExtension 构造器 */
+  /** BillDownloadServiceExtension 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;

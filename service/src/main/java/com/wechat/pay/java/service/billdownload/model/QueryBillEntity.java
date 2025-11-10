@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 获取账单文件下载地址的对外API
+// 청단 파일 다운로드 주소 조회 대외 API
 //
-// 为方便商户快速查询和核对账务信息，支持通过本接口获取离线账单的下载地址。
+// 가맹점이 빠르게 조회하고 계정 정보를 확인할 수 있도록, 이 인터페이스를 통해 오프라인 청단의 다운로드 주소를 조회할 수 있음.
 //
 // API version: 2.1.4
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryBillEntity */
 public class QueryBillEntity {
-  /** 哈希类型 说明：哈希类型 */
+  /** 해시 유형 설명: 해시 유형 */
   @SerializedName("hash_type")
   private HashType hashType;
 
-  /** 哈希值 说明：原始账单（gzip需要解压缩）的摘要值，用于校验文件的完整性 */
+  /** 해시 값 설명: 원본 청단(gzip은 압축 해제 필요)의 요약 값, 파일 무결성 검증에 사용 */
   @SerializedName("hash_value")
   private String hashValue;
 
-  /** 下载地址 说明：供下一步请求账单文件的下载地址，该地址5min内有效。 */
+  /** 다운로드 주소 설명: 다음 단계 청단 파일 요청을 위한 다운로드 주소, 이 주소는 5분 내 유효 */
   @SerializedName("download_url")
   private String downloadUrl;
 

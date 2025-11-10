@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 获取账单文件下载地址的对外API
+// 청단 파일 다운로드 주소 조회 대외 API
 //
-// 为方便商户快速查询和核对账务信息，支持通过本接口获取离线账单的下载地址。
+// 가맹점이 빠르게 조회하고 계정 정보를 확인할 수 있도록, 이 인터페이스를 통해 오프라인 청단의 다운로드 주소를 조회할 수 있음.
 //
 // API version: 2.1.4
 
@@ -19,28 +19,28 @@ import java.util.function.UnaryOperator;
 
 /** EncryptBillEntity */
 public class EncryptBillEntity {
-  /** 账单文件序号 说明：账单文件序号，商户将多个文件按账单文件序号的顺序合并为完整的资金账单文件，起始值为1 */
+  /** 청단 파일 순서 번호 설명: 청단 파일 순서 번호, 가맹점이 여러 파일을 청단 파일 순서 번호 순서로 병합하여 완전한 자금 청단 파일로 만듦, 시작 값은 1 */
   @SerializedName("bill_sequence")
   private Long billSequence;
 
-  /** 哈希类型 说明：哈希类型 */
+  /** 해시 유형 설명: 해시 유형 */
   @SerializedName("hash_type")
   private HashType hashType;
 
-  /** 哈希值 说明：原始账单（gzip需要解压缩）的摘要值，用于校验文件的完整性。GCM算法加密的账单解密成功表示校验完整性通过。 */
+  /** 해시 값 설명: 원본 청단(gzip은 압축 해제 필요)의 요약 값, 파일 무결성 검증에 사용. GCM 알고리즘으로 암호화된 청단 복호화 성공은 무결성 검증 통과를 의미함. */
   @SerializedName("hash_value")
   private String hashValue;
 
-  /** 下载地址 说明：供下一步请求账单文件的下载地址，该地址5min内有效。 */
+  /** 다운로드 주소 설명: 다음 단계 청단 파일 요청을 위한 다운로드 주소, 이 주소는 5분 내 유효 */
   @SerializedName("download_url")
   private String downloadUrl;
 
-  /** 加密密钥 说明：加密账单文件使用的加密密钥。密钥用商户证书的公钥进行加密，然后进行Base64编码 */
+  /** 암호화 키 설명: 암호화 청단 파일에 사용하는 암호화 키. 키는 가맹점 인증서의 공개 키로 암호화한 후 Base64 인코딩 */
   @Encryption
   @SerializedName("encrypt_key")
   private String encryptKey;
 
-  /** 随机字符串 说明：加密账单文件使用的随机字符串 */
+  /** 랜덤 문자열 설명: 암호화 청단 파일에 사용하는 랜덤 문자열 */
   @SerializedName("nonce")
   private String nonce;
 

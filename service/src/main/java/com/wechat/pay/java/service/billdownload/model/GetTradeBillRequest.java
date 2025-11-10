@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 获取账单文件下载地址的对外API
+// 청단 파일 다운로드 주소 조회 대외 API
 //
-// 为方便商户快速查询和核对账务信息，支持通过本接口获取离线账单的下载地址。
+// 가맹점이 빠르게 조회하고 계정 정보를 확인할 수 있도록, 이 인터페이스를 통해 오프라인 청단의 다운로드 주소를 조회할 수 있음.
 //
 // API version: 2.1.4
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** GetTradeBillRequest */
 public class GetTradeBillRequest {
-  /** 账单日期 说明：账单日期，格式yyyy-MM-DD，仅支持三个月内的账单下载申请。 */
+  /** 청단 날짜 설명: 청단 날짜, 형식 yyyy-MM-DD, 3개월 이내의 청단 다운로드 신청만 지원 */
   @SerializedName("bill_date")
   @Expose(serialize = false)
   private String billDate;
 
-  /** 子商户号 说明：若商户是直连商户： * 无需填写该字段 若商户是服务商： * 不填则默认返回服务商下的交易或退款数据 * 如需下载某个子商户下的交易或退款数据，则该字段必填 */
+  /** 하위 가맹점 번호 설명: 가맹점이 직접 연결 가맹점인 경우: * 이 필드는 입력할 필요 없음 가맹점이 서비스 제공자인 경우: * 미입력 시 기본적으로 서비스 제공자 하위의 거래 또는 환불 데이터 반환 * 특정 하위 가맹점 하위의 거래 또는 환불 데이터를 다운로드하려면 이 필드는 필수 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 账单类型 说明：账单类型，不填则默认是ALL */
+  /** 청단 유형 설명: 청단 유형, 미입력 시 기본값은 ALL */
   @SerializedName("bill_type")
   @Expose(serialize = false)
   private BillType billType;
 
-  /** 压缩类型 说明：压缩类型，不填则以不压缩的方式返回数据流 */
+  /** 압축 유형 설명: 압축 유형, 미입력 시 압축하지 않은 방식으로 데이터 스트림 반환 */
   @SerializedName("tar_type")
   @Expose(serialize = false)
   private TarType tarType;

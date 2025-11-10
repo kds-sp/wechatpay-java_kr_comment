@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 获取账单文件下载地址的对外API
+// 청단 파일 다운로드 주소 조회 대외 API
 //
-// 为方便商户快速查询和核对账务信息，支持通过本接口获取离线账单的下载地址。
+// 가맹점이 빠르게 조회하고 계정 정보를 확인할 수 있도록, 이 인터페이스를 통해 오프라인 청단의 다운로드 주소를 조회할 수 있음.
 //
 // API version: 2.1.4
 
@@ -40,7 +40,7 @@ import com.wechat.pay.java.service.billdownload.model.GetTradeBillRequest;
 import com.wechat.pay.java.service.billdownload.model.QueryBillEntity;
 import com.wechat.pay.java.service.billdownload.model.QueryEncryptBillEntity;
 
-/** BillDownloadService服务 */
+/** BillDownloadService 서비스 */
 public class BillDownloadService {
 
   private final HttpClient httpClient;
@@ -55,7 +55,7 @@ public class BillDownloadService {
     this.decryptor = requireNonNull(decryptor);
   }
 
-  /** BillDownloadService构造器 */
+  /** BillDownloadService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -91,20 +91,20 @@ public class BillDownloadService {
   }
 
   /**
-   * 申请资金账单API
+   * 자금 청단 신청 API
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return QueryBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public QueryBillEntity getFundFlowBill(GetFundFlowBillRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/bill/fundflowbill";
 
     GetFundFlowBillRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getBillDate() != null) {
       queryParameter.add("bill_date", urlEncode(realRequest.getBillDate()));
@@ -134,21 +134,21 @@ public class BillDownloadService {
   }
 
   /**
-   * 申请单个子商户资金账单API
+   * 단일 하위 가맹점 자금 청단 신청 API
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return QueryEncryptBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public QueryEncryptBillEntity getSingleSubMchFundFlowBill(
       GetSingleSubMchFundFlowBillRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/bill/sub-merchant-fundflowbill";
 
     GetSingleSubMchFundFlowBillRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -184,20 +184,20 @@ public class BillDownloadService {
   }
 
   /**
-   * 申请二级商户资金账单API
+   * 2차 가맹점 자금 청단 신청 API
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return QueryEncryptBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public QueryEncryptBillEntity getAllSubMchFundFlowBill(GetAllSubMchFundFlowBillRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/ecommerce/bill/fundflowbill";
 
     GetAllSubMchFundFlowBillRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getBillDate() != null) {
       queryParameter.add("bill_date", urlEncode(realRequest.getBillDate()));
@@ -230,20 +230,20 @@ public class BillDownloadService {
   }
 
   /**
-   * 申请交易账单API
+   * 거래 청단 신청 API
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return QueryBillEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public QueryBillEntity getTradeBill(GetTradeBillRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/bill/tradebill";
 
     GetTradeBillRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getBillDate() != null) {
       queryParameter.add("bill_date", urlEncode(realRequest.getBillDate()));

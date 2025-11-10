@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 获取账单文件下载地址的对外API
+// 청단 파일 다운로드 주소 조회 대외 API
 //
-// 为方便商户快速查询和核对账务信息，支持通过本接口获取离线账单的下载地址。
+// 가맹점이 빠르게 조회하고 계정 정보를 확인할 수 있도록, 이 인터페이스를 통해 오프라인 청단의 다운로드 주소를 조회할 수 있음.
 //
 // API version: 2.1.4
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** GetAllSubMchFundFlowBillRequest */
 public class GetAllSubMchFundFlowBillRequest {
-  /** 账单日期 说明：账单日期，格式yyyy-MM-DD，仅支持三个月内的账单下载申请。 */
+  /** 청단 날짜 설명: 청단 날짜, 형식 yyyy-MM-DD, 3개월 이내의 청단 다운로드 신청만 지원 */
   @SerializedName("bill_date")
   @Expose(serialize = false)
   private String billDate;
 
-  /** 资金账户类型 说明：资金账户类型，本接口只支持填ALL */
+  /** 자금 계정 유형 설명: 자금 계정 유형, 이 인터페이스는 ALL만 입력 지원 */
   @SerializedName("account_type")
   @Expose(serialize = false)
   private AccountType accountType;
 
-  /** 压缩类型 说明：压缩类型，不填则以不压缩的方式返回数据流 */
+  /** 압축 유형 설명: 압축 유형, 미입력 시 압축하지 않은 방식으로 데이터 스트림 반환 */
   @SerializedName("tar_type")
   @Expose(serialize = false)
   private TarType tarType;
 
-  /** 账单文件加密算法 说明：账单文件加密算法 */
+  /** 청단 파일 암호화 알고리즘 설명: 청단 파일 암호화 알고리즘 */
   @SerializedName("algorithm")
   @Expose(serialize = false)
   private Algorithm algorithm;

@@ -3,7 +3,7 @@ package com.wechat.pay.java.service.certificate.model;
 import com.wechat.pay.java.core.util.GsonUtil;
 import java.io.Serializable;
 
-/** 获取平台证书列表返回数据 */
+/** 플랫폼 인증서 목록 조회 반환 데이터 */
 public class Data implements Serializable {
 
   private String serialNo;

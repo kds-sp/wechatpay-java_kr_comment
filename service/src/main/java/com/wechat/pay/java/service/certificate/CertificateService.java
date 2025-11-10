@@ -28,7 +28,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.function.Function;
 
-/** 证书服务 */
+/** 인증서 서비스 */
 public class CertificateService {
 
   private final HttpClient httpClient;
@@ -41,7 +41,7 @@ public class CertificateService {
     this.hostName = hostName;
   }
 
-  /** CertificateService构造器 */
+  /** CertificateService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -68,14 +68,14 @@ public class CertificateService {
   }
 
   /**
-   * 下载微信支付平台证书列表，仅下载RSA证书
+   * 위챗페이 플랫폼 인증서 목록 다운로드, RSA 인증서만 다운로드
    *
-   * @param apiV3Key 微信支付 APIv3 密钥
-   * @return 微信支付平台证书 X509Certificate 列表
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param apiV3Key 위챗페이 APIv3 키
+   * @return 위챗페이 플랫폼 인증서 X509Certificate 목록
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public List<X509Certificate> downloadCertificate(byte[] apiV3Key) {
     AeadCipher aeadCipher = new AeadAesCipher(apiV3Key);
@@ -83,16 +83,16 @@ public class CertificateService {
   }
 
   /**
-   * 下载微信支付平台证书列表
+   * 위챗페이 플랫폼 인증서 목록 다운로드
    *
-   * @param requestPath 下载证书的请求路径
-   * @param aeadCipher 认证加密器，用于解密证书
-   * @param certificateGenerator 从证书字符串到证书对象的生成器
-   * @return 微信支付平台证书 X509Certificate 列表
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param requestPath 인증서 다운로드 요청 경로
+   * @param aeadCipher 인증 암호화기, 인증서 복호화에 사용
+   * @param certificateGenerator 인증서 문자열에서 인증서 객체로의 생성기
+   * @return 위챗페이 플랫폼 인증서 X509Certificate 목록
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public List<X509Certificate> downloadCertificate(
       String requestPath,
@@ -126,14 +126,14 @@ public class CertificateService {
   }
 
   /**
-   * 下载微信支付平台证书列表，仅下载RSA证书
+   * 위챗페이 플랫폼 인증서 목록 다운로드, RSA 인증서만 다운로드
    *
-   * @param aeadCipher 认证加密器，用于解密证书
-   * @return 证书列表
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param aeadCipher 인증 암호화기, 인증서 복호화에 사용
+   * @return 인증서 목록
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public List<X509Certificate> downloadCertificate(AeadCipher aeadCipher) {
     return downloadCertificate(RSA_URL, aeadCipher, PemUtil::loadX509FromString);

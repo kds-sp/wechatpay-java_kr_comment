@@ -41,18 +41,18 @@ public class DigestBillEntity {
   }
 
   /**
-   * * 返回下载账单的输入流。当账单下载完成后，调用方应关闭该输入流。
+   * 다운로드한 청단의 입력 스트림 반환. 청단 다운로드 완료 후, 호출자는 이 입력 스트림을 닫아야 함.
    *
-   * @return 下载账单的输入流。
+   * @return 다운로드한 청단의 입력 스트림.
    */
   public InputStream getInputStream() {
     return this.digestInputStream;
   }
 
   /**
-   * * 通过计算摘要并同申请下载账单时获得的摘要对比，验证下载账单的完整性
+   * 요약을 계산하고 청단 다운로드 신청 시 얻은 요약과 비교하여 다운로드한 청단의 무결성 검증
    *
-   * @return 如果验证结果为真，账单是完整准确，未经篡改的。如果为假，账单是不完整或被篡改，应清理之前保存的文件。
+   * @return 검증 결과가 참이면 청단은 완전하고 정확하며 변경되지 않음. 거짓이면 청단이 불완전하거나 변경되었으며, 이전에 저장한 파일을 정리해야 함.
    */
   public final boolean verifyHash() {
     final String digest = digestAndEncodeHex();
