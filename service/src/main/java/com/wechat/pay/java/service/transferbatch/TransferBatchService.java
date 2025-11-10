@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 장면 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 동시에 여러 사용자의 위챗페이 잔액으로 이체하는 작업을 구현할 수 있으며, 보너스 보조금 지급, 수수료 대금 결제, 직원 비용 정산 등의 장면에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작. * 조회 배치 인터페이스를 호출하여 이체 배치 세부 정보 및 현재 상태를 가져올 수 있음. * 조회 세부 정보 인터페이스를 호출하여 단일 이체 세부 정보 및 현재 상태를 가져올 수 있음.
 //
 // API version: 1.0.5
 
@@ -44,7 +44,7 @@ import com.wechat.pay.java.service.transferbatch.model.InitiateBatchTransferResp
 import com.wechat.pay.java.service.transferbatch.model.TransferBatchEntity;
 import com.wechat.pay.java.service.transferbatch.model.TransferDetailEntity;
 
-/** TransferBatchService服务 */
+/** TransferBatchService 서비스 */
 public class TransferBatchService {
 
   private final HttpClient httpClient;
@@ -63,7 +63,7 @@ public class TransferBatchService {
     this.decryptor = requireNonNull(decryptor);
   }
 
-  /** TransferBatchService构造器 */
+  /** TransferBatchService 빌더 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -104,23 +104,23 @@ public class TransferBatchService {
   }
 
   /**
-   * 通过微信批次单号查询批次单
+   * 위챗페이 배치 번호로 배치 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return TransferBatchEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public TransferBatchEntity getTransferBatchByNo(GetTransferBatchByNoRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/transfer/batches/batch-id/{batch_id}";
 
     GetTransferBatchByNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath = requestPath.replace("{" + "batch_id" + "}", urlEncode(realRequest.getBatchId()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getNeedQueryDetail() != null) {
       queryParameter.add(
@@ -154,25 +154,25 @@ public class TransferBatchService {
   }
 
   /**
-   * 通过商家批次单号查询批次单
+   * 판매자 배치 번호로 배치 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return TransferBatchEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public TransferBatchEntity getTransferBatchByOutNo(GetTransferBatchByOutNoRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/transfer/batches/out-batch-no/{out_batch_no}";
 
     GetTransferBatchByOutNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_batch_no" + "}", urlEncode(realRequest.getOutBatchNo()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getNeedQueryDetail() != null) {
       queryParameter.add(
@@ -206,18 +206,18 @@ public class TransferBatchService {
   }
 
   /**
-   * 发起商家转账
+   * 판매자 이체 시작
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return InitiateBatchTransferResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public InitiateBatchTransferResponse initiateBatchTransfer(InitiateBatchTransferRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/transfer/batches";
-    // 加密敏感信息
+    // 민감 정보 암호화
     InitiateBatchTransferRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());
@@ -239,21 +239,21 @@ public class TransferBatchService {
   }
 
   /**
-   * 通过微信明细单号查询明细单
+   * 위챗페이 세부 번호로 세부 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return TransferDetailEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public TransferDetailEntity getTransferDetailByNo(GetTransferDetailByNoRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/transfer/batches/batch-id/{batch_id}/details/detail-id/{detail_id}";
 
     GetTransferDetailByNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath = requestPath.replace("{" + "batch_id" + "}", urlEncode(realRequest.getBatchId()));
 
     requestPath =
@@ -277,21 +277,21 @@ public class TransferBatchService {
   }
 
   /**
-   * 通过商家明细单号查询明细单
+   * 판매자 세부 번호로 세부 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return TransferDetailEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public TransferDetailEntity getTransferDetailByOutNo(GetTransferDetailByOutNoRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/transfer/batches/out-batch-no/{out_batch_no}/details/out-detail-no/{out_detail_no}";
 
     GetTransferDetailByOutNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_detail_no" + "}", urlEncode(realRequest.getOutDetailNo()));
 

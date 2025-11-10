@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -17,42 +17,42 @@ import com.google.gson.annotations.SerializedName;
 
 /** Parking */
 public class Parking {
-  /** 停车入场id 说明：车主服务为商户分配的入场id */
+  /** 주차 입장 id 설명: 차주 서비스가 가맹점에 할당한 입장 id */
   @SerializedName("id")
   private String id;
 
-  /** 商户入场id 说明：商户侧入场标识id，在同一个商户号下唯一 */
+  /** 가맹점 입장 id 설명: 가맹점 측 입장 식별 id, 동일한 가맹점 번호 하에서 고유 */
   @SerializedName("out_parking_no")
   private String outParkingNo;
 
-  /** 车牌号 说明：车牌号，仅包括省份+车牌，不包括特殊字符。 */
+  /** 차량 번호판 번호 설명: 차량 번호판 번호, 시/도 + 번호판만 포함, 특수 문자는 제외 */
   @SerializedName("plate_number")
   private String plateNumber;
 
-  /** 车牌颜色 说明：车牌颜色 */
+  /** 차량 번호판 색상 설명: 차량 번호판 색상 */
   @SerializedName("plate_color")
   private PlateColor plateColor;
 
-  /** 入场时间 说明：入场时间，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 입장 시간 설명: 입장 시간, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("start_time")
   private String startTime;
 
-  /** 停车场名称 说明：所在停车位车场的名称 */
+  /** 주차장 이름 설명: 주차 공간이 있는 주차장의 이름 */
   @SerializedName("parking_name")
   private String parkingName;
 
-  /** 免费时长 说明：停车场的免费停车时长，单位为秒 */
+  /** 무료 시간 설명: 주차장의 무료 주차 시간, 단위는 초 */
   @SerializedName("free_duration")
   private Integer freeDuration;
 
-  /** 停车入场状态 说明：本次入场车牌的服务状态， NORMAL:正常状态，可以使用微信支付分停车服务， BLOCKED 不可用状态，暂时不可以使用微信支付分停车服务 */
+  /** 주차 입장 상태 설명: 이번 입장 차량 번호판의 서비스 상태, NORMAL: 정상 상태, 위챗페이 스코어 주차 서비스 사용 가능, BLOCKED 사용 불가 상태, 일시적으로 위챗페이 스코어 주차 서비스 사용 불가 */
   @SerializedName("state")
   private String state;
 
   /**
-   * 不可用状态描述 说明：block服务状态描述，返回车牌状态为BLOCKED，会返回该字段，描述具体BLOCKED的原因， PAUSE：已暂停微信支付分停车服务；
-   * OVERDUE：已授权签约但欠费，不能提供服务, OUT_SERVICE : 车牌未开通微信支付分停车服务， EVALUATION_FAILED
-   * 综合评估未通过，用户支付分不可用的情况，会返回该状态。
+   * 사용 불가 상태 설명 설명: block 서비스 상태 설명, 차량 번호판 상태가 BLOCKED로 반환되면 이 필드가 반환되며, 구체적인 BLOCKED 원인을 설명, PAUSE: 위챗페이 스코어 주차 서비스 일시 중지됨;
+   * OVERDUE: 인증 계약은 했으나 미납, 서비스 제공 불가, OUT_SERVICE: 차량 번호판이 위챗페이 스코어 주차 서비스를 개통하지 않음, EVALUATION_FAILED
+   * 종합 평가 미통과, 사용자 결제 점수 사용 불가인 경우 이 상태가 반환됨.
    */
   @SerializedName("block_reason")
   private String blockReason;

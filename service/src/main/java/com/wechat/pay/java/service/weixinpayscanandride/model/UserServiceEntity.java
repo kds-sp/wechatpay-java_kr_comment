@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** UserServiceEntity */
 public class UserServiceEntity {
-  /** 代扣签约ID 说明：签约成功后，微信返回代扣签约ID */
+  /** 자동 결제 계약 ID 설명: 계약 성공 후 위챗이 반환한 자동 결제 계약 ID */
   @SerializedName("contract_id")
   private String contractId;
 
-  /** 用户服务可用状态 说明：用户服务可用状态，枚举值有： */
+  /** 사용자 서비스 사용 가능 상태 설명: 사용자 서비스 사용 가능 상태, 열거형 값: */
   @SerializedName("user_service_state")
   private UserServiceStateEnum userServiceState;
 
-  /** 不可用状态描述 说明：blocked服务状态描述，返回用户状态为BLOCKED，会返回该字段，具体描述的枚举值如下： */
+  /** 사용 불가 상태 설명 설명: blocked 서비스 상태 설명, 사용자 상태가 BLOCKED로 반환되면 이 필드가 반환되며, 구체적인 설명의 열거형 값은 다음과 같음: */
   @SerializedName("block_reason")
   private BlockReasonEnum blockReason;
 

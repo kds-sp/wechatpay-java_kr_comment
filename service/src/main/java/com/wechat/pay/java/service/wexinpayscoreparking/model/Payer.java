@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** Payer */
 public class Payer {
-  /** 用户在appid下的标识 说明：用户在appid下的唯一标识 */
+  /** 사용자가 appid 하에서의 식별 설명: 사용자가 appid 하에서의 고유 식별 */
   @SerializedName("openid")
   private String openid;
 
-  /** 用户在sub_appid下的标识 说明：用户在sub_appid下的标识，商户扣费时传入了sub_appid，则会返回该用户在sub_appid下的标识 */
+  /** 사용자가 sub_appid 하에서의 식별 설명: 사용자가 sub_appid 하에서의 식별, 가맹점이 결제 시 sub_appid를 전달한 경우 이 사용자가 sub_appid 하에서의 식별을 반환 */
   @SerializedName("sub_openid")
   private String subOpenid;
 

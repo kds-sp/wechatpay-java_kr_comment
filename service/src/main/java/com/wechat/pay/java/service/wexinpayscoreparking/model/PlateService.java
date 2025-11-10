@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -17,29 +17,29 @@ import com.google.gson.annotations.SerializedName;
 
 /** PlateService */
 public class PlateService {
-  /** 车牌号 说明：车牌号，仅包括省份+车牌，不包括特殊字符。 */
+  /** 차량 번호판 번호 설명: 차량 번호판 번호, 시/도 + 번호판만 포함, 특수 문자는 제외 */
   @SerializedName("plate_number")
   private String plateNumber;
 
-  /** 车牌颜色 说明：车牌颜色 */
+  /** 차량 번호판 색상 설명: 차량 번호판 색상 */
   @SerializedName("plate_color")
   private PlateColor plateColor;
 
   /**
-   * 车牌服务开通时间
-   * 说明：车牌服务开通时间，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 차량 번호판 서비스 개통 시간
+   * 설명: 차량 번호판 서비스 개통 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냄 (+08:00은 동부 8구 시간대, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("service_open_time")
   private String serviceOpenTime;
 
-  /** 用户标识 说明：用户在商户对应appid下的唯一标识，此处返回商户请求中的openid */
+  /** 사용자 식별 설명: 사용자가 가맹점에 해당하는 appid 하에서의 고유 식별, 여기서는 가맹점 요청의 openid를 반환 */
   @SerializedName("openid")
   private String openid;
 
   /**
-   * 车牌服务开通状态 说明：车牌服务开通状态， NORMAL 正常服务 PAUSE 暂停服务 OUT_SERVICE 未开通 商户根据状态带用户跳转至对应的微信支付分停车服务小程序页面。
-   * 其中NORMAL 和 PAUSE状态，可跳转至车牌管理页，进行车牌服务状态管理。OUT_SERVICE状态，可跳转至服务开通页面。
+   * 차량 번호판 서비스 개통 상태 설명: 차량 번호판 서비스 개통 상태, NORMAL 정상 서비스 PAUSE 일시 중지 서비스 OUT_SERVICE 미개통 가맹점은 상태에 따라 사용자를 해당 위챗페이 스코어 주차 서비스 미니프로그램 페이지로 이동.
+   * NORMAL 및 PAUSE 상태는 차량 번호판 관리 페이지로 이동하여 차량 번호판 서비스 상태를 관리할 수 있음. OUT_SERVICE 상태는 서비스 개통 페이지로 이동할 수 있음.
    */
   @SerializedName("service_state")
   private String serviceState;

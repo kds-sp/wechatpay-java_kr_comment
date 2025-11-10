@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -18,87 +18,87 @@ import java.util.List;
 
 /** Transaction */
 public class Transaction {
-  /** 公众账号id 说明：appid是商户在微信申请公众号或移动应用成功后分配的帐号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 id 설명: appid는 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청한 후 성공적으로 할당받은 계정 ID, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   private String appid;
 
-  /** 子商户公众账号id 说明：子商户申请的公众号或移动应用appid，需要在服务商的商户平台为子商户绑定 */
+  /** 서브 가맹점 공개 계정 id 설명: 서브 가맹점이 신청한 공개 계정 또는 모바일 애플리케이션 appid, 서비스 제공자의 가맹점 플랫폼에서 서브 가맹점에 바인딩해야 함 */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 商户号 说明：微信支付分配的商户号 */
+  /** 가맹점 번호 설명: 위챗페이가 할당한 가맹점 번호 */
   @SerializedName("sp_mchid")
   private String spMchid;
 
-  /** 子商户号 说明：微信支付分配的子商户号 */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 服务描述 说明：商户自定义字段，用于交易账单中对扣费服务的描述。 */
+  /** 서비스 설명 설명: 가맹점 사용자 정의 필드, 거래 청구서에서 결제 서비스 설명에 사용 */
   @SerializedName("description")
   private String description;
 
   /**
-   * 订单创建时间
-   * 说明：订单成功创建时返回，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 주문 생성 시간
+   * 설명: 주문이 성공적으로 생성될 때 반환, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냄 (+08:00은 동부 8구 시간대, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母_-*且在同一个商户号下唯一 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자, 대소문자, _-*만 가능하며 동일한 가맹점 번호 하에서 고유 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 微信支付订单号 说明：微信支付订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 交易状态 说明：SUCCESS—支付成功 ACCEPTED—已接收，等待扣款 PAY_FAIL–支付失败(其他原因，如银行返回失败) REFUND—转入退款 */
+  /** 거래 상태 설명: SUCCESS—결제 성공 ACCEPTED—수신됨, 결제 대기 중 PAY_FAIL–결제 실패(기타 원인, 예: 은행 반환 실패) REFUND—환불로 전환 */
   @SerializedName("trade_state")
   private String tradeState;
 
-  /** 交易状态描述 说明：对当前订单状态的描述和下一步操作的指引 */
+  /** 거래 상태 설명 설명: 현재 주문 상태에 대한 설명 및 다음 단계 작업 안내 */
   @SerializedName("trade_state_description")
   private String tradeStateDescription;
 
   /**
-   * 支付完成时间
-   * 说明：订单支付完成时间，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 결제 완료 시간
+   * 설명: 주문 결제 완료 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냄 (+08:00은 동부 8구 시간대, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("success_time")
   private String successTime;
 
-  /** 付款银行 说明：银行类型，采用字符串类型的银行标识。BPA：该笔订单由微信进行垫付 */
+  /** 결제 은행 설명: 은행 유형, 문자열 유형의 은행 식별자 사용. BPA: 이 주문은 위챗페이가 선불 지급 */
   @SerializedName("bank_type")
   private String bankType;
 
-  /** 用户是否已还款 说明：枚举值： Y：用户已还款 N：用户未还款 注意：使用此字段前需先确认bank_type字段值为BPA以及 trade_state字段值为SUCCESS。 */
+  /** 사용자 상환 여부 설명: 열거형 값: Y: 사용자가 상환함 N: 사용자가 상환하지 않음 주의: 이 필드를 사용하기 전에 bank_type 필드 값이 BPA이고 trade_state 필드 값이 SUCCESS인지 먼저 확인해야 함 */
   @SerializedName("user_repaid")
   private String userRepaid;
 
-  /** 附加数据 说明：附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用 */
+  /** 추가 데이터 설명: 추가 데이터, 조회 API 및 결제 알림에서 그대로 반환되며 사용자 정의 매개변수로 사용할 수 있음 */
   @SerializedName("attach")
   private String attach;
 
-  /** 交易场景 说明：交易场景值，目前支持 ：PARKING：车场停车场景 */
+  /** 거래 장면 설명: 거래 장면 값, 현재 지원: PARKING: 주차장 주차 장면 */
   @SerializedName("trade_scene")
   private String tradeScene;
 
-  /** 停车场景信息 说明：返回信息中的trade_scene为PARKING，返回该场景信息 */
+  /** 주차 장면 정보 설명: 반환 정보의 trade_scene이 PARKING인 경우 이 장면 정보를 반환 */
   @SerializedName("parking_info")
   private ParkingTradeScene parkingInfo;
 
-  /** 支付者信息 说明：支付者信息 */
+  /** 결제자 정보 설명: 결제자 정보 */
   @SerializedName("payer")
   private Payer payer;
 
-  /** 订单金额信息 说明：订单金额信息 */
+  /** 주문 금액 정보 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private QueryOrderAmount amount;
 
-  /** 优惠信息 说明：优惠信息 */
+  /** 혜택 정보 설명: 혜택 정보 */
   @SerializedName("promotion_detail")
   private List<PromotionDetail> promotionDetail;
 

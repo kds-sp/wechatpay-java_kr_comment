@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -18,100 +18,100 @@ import java.util.List;
 
 /** TransactionsEntity */
 public class TransactionsEntity {
-  /** 公众账号ID 说明：商户在微信申请公众号或移动应用成功后分配的账号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 ID 설명: 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청한 후 성공적으로 할당받은 계정 ID, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   private String appid;
 
-  /** 子商户公众账号ID 说明：子商户申请的公众号或移动应用AppID，需要在服务商的商户平台为子商户绑定 */
+  /** 서브 가맹점 공개 계정 ID 설명: 서브 가맹점이 신청한 공개 계정 또는 모바일 애플리케이션 AppID, 서비스 제공자의 가맹점 플랫폼에서 서브 가맹점에 바인딩해야 함 */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 商户号 说明：微信支付分配的商户号 */
+  /** 가맹점 번호 설명: 위챗페이가 할당한 가맹점 번호 */
   @SerializedName("sp_mchid")
   private String spMchid;
 
-  /** 子商户号 说明：微信支付分配的子商户号 */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 服务描述 说明：商户自定义字段，用于交易账单中对扣费服务的描述。 */
+  /** 서비스 설명 설명: 가맹점 사용자 정의 필드, 거래 청구서에서 결제 서비스 설명에 사용 */
   @SerializedName("description")
   private String description;
 
-  /** 订单创建时间 说明：订单成功创建时返回，按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 주문 생성 시간 설명: 주문이 성공적으로 생성될 때 반환, rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母，且在同一个商户号下唯一 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자, 대소문자만 가능하며 동일한 가맹점 번호 하에서 고유 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 微信支付订单号 说明：微信支付订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 交易状态 说明：交易状态，枚举值： */
+  /** 거래 상태 설명: 거래 상태, 열거형 값: */
   @SerializedName("trade_state")
   private TradeState tradeState;
 
-  /** 交易状态描述 说明：对当前订单状态的描述和下一步操作的指引 */
+  /** 거래 상태 설명 설명: 현재 주문 상태에 대한 설명 및 다음 단계 작업 안내 */
   @SerializedName("trade_state_description")
   private String tradeStateDescription;
 
-  /** 支付完成时间 说明：订单支付完成时间，按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 결제 완료 시간 설명: 주문 결제 완료 시간, rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("success_time")
   private String successTime;
 
   /**
-   * 付款银行 说明：银行类型，采用字符串类型的银行标识，详细可参考
-   * 微信支付银行类型标识（https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml）。 特殊标识
-   * BPA：该笔订单由微信进行垫付
+   * 결제 은행 설명: 은행 유형, 문자열 유형의 은행 식별자 사용, 자세한 내용은
+   * 위챗페이 은행 유형 식별자 참조 (https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml). 특수 식별자
+   * BPA: 이 주문은 위챗페이가 선불 지급
    */
   @SerializedName("bank_type")
   private String bankType;
 
   /**
-   * 用户还款状态 说明：该字段标识对应的垫资单是否已还款或者已撤销。注意，使用此字段前需先确认bank_type字段值为BPA 以及
-   * trade_state字段值为SUCCESS或者REFUND。枚举值如下：
+   * 사용자 상환 상태 설명: 이 필드는 해당 선불 지급 단이 상환되었거나 취소되었는지를 식별. 주의, 이 필드를 사용하기 전에 bank_type 필드 값이 BPA이고
+   * trade_state 필드 값이 SUCCESS 또는 REFUND인지 먼저 확인해야 함. 열거형 값은 다음과 같음:
    */
   @SerializedName("user_repay_state")
   private UserRepayState userRepayState;
 
-  /** 还款微信支付订单号 说明：用户还款成功的微信支付订单号。用户已还款会返回该字段。 */
+  /** 상환 위챗페이 주문 번호 설명: 사용자가 상환에 성공한 위챗페이 주문 번호. 사용자가 상환한 경우 이 필드가 반환됨 */
   @SerializedName("repay_transaction_id")
   private String repayTransactionId;
 
   /**
-   * 垫资还款时间 说明：垫资还款时间，该笔订单发生过垫资，并且用户还款成功后，会返回该字段信息，按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE
+   * 선불 지급 상환 시간 설명: 선불 지급 상환 시간, 이 주문에 선불 지급이 발생했고 사용자가 상환에 성공한 경우 이 필드 정보가 반환됨, rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE
    */
   @SerializedName("repay_time")
   private String repayTime;
 
-  /** 附加数据 说明：附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用 */
+  /** 추가 데이터 설명: 추가 데이터, 조회 API 및 결제 알림에서 그대로 반환되며 사용자 정의 매개변수로 사용할 수 있음 */
   @SerializedName("attach")
   private String attach;
 
-  /** 代扣签约ID 说明：签约成功后，微信返回的代扣签约ID */
+  /** 자동 결제 계약 ID 설명: 계약 성공 후 위챗이 반환한 자동 결제 계약 ID */
   @SerializedName("contract_id")
   private String contractId;
 
-  /** 交易场景 说明：交易场景值，枚举值： */
+  /** 거래 장면 설명: 거래 장면 값, 열거형 값: */
   @SerializedName("trade_scene")
   private TradeScene tradeScene;
 
-  /** 公交场景信息 说明：返回信息中的trade_scene为BUS，返回该场景信息 */
+  /** 버스 장면 정보 설명: 반환 정보의 trade_scene이 BUS인 경우 이 장면 정보를 반환 */
   @SerializedName("bus_info")
   private BusSceneInfo busInfo;
 
-  /** 地铁场景信息 说明：返回信息中的trade_scene为METRO，返回该场景信息 */
+  /** 지하철 장면 정보 설명: 반환 정보의 trade_scene이 METRO인 경우 이 장면 정보를 반환 */
   @SerializedName("metro_info")
   private MetroSceneInfo metroInfo;
 
-  /** 订单金额信息 说明：订单金额信息 */
+  /** 주문 금액 정보 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private QueryOrderAmount amount;
 
-  /** 优惠信息 说明：优惠信息 */
+  /** 혜택 정보 설명: 혜택 정보 */
   @SerializedName("promotion_detail")
   private List<PromotionDetail> promotionDetail;
 

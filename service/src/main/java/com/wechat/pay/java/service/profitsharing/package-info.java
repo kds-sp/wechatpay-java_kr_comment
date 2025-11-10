@@ -1,2 +1,2 @@
-/** 微信支付分账API */
+/** 위챗페이 수익 분배 API */
 package com.wechat.pay.java.service.profitsharing;

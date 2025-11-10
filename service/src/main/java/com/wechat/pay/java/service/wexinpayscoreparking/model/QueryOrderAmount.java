@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryOrderAmount */
 public class QueryOrderAmount {
-  /** 订单金额 说明：订单总金额，单位为分，只能为整数，详见支付金额 */
+  /** 주문 금액 설명: 주문 총액, 단위는 분, 정수만 가능, 결제 금액 참조 */
   @SerializedName("total")
   private Long total;
 
-  /** 货币类型 说明：符合ISO 4217标准的三位字母代码，目前只支持人民币：CNY */
+  /** 통화 유형 설명: ISO 4217 표준 3자리 문자 코드, 현재는 위안화만 지원: CNY */
   @SerializedName("currency")
   private String currency;
 
-  /** 用户实际支付金额 说明：用户实际支付金额，单位为分，只能为整数，详见支付金额 */
+  /** 사용자 실제 결제 금액 설명: 사용자 실제 결제 금액, 단위는 분, 정수만 가능, 결제 금액 참조 */
   @SerializedName("payer_total")
   private Long payerTotal;
 
-  /** 折扣 说明：订单折扣 */
+  /** 할인 설명: 주문 할인 */
   @SerializedName("discount_total")
   private Long discountTotal;
 

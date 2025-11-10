@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 결제 API
 //
 // API version: 1.2.1
 
@@ -17,43 +17,43 @@ import com.google.gson.annotations.SerializedName;
 
 /** PromotionDetail */
 public class PromotionDetail {
-  /** 券ID 说明：券或者立减优惠id */
+  /** 쿠폰 ID 설명: 쿠폰 또는 즉시 할인 혜택 id */
   @SerializedName("coupon_id")
   private String couponId;
 
-  /** 优惠名称 说明：优惠名称 */
+  /** 혜택 이름 설명: 혜택 이름 */
   @SerializedName("name")
   private String name;
 
-  /** 优惠范围 说明：GLOBAL-全场代金券， SINGLE-单品优惠 */
+  /** 혜택 범위 설명: GLOBAL-전체 상품권, SINGLE-단품 혜택 */
   @SerializedName("scope")
   private String scope;
 
-  /** 优惠类型 说明：枚举值： CASH：充值型代金券 NOCASH：免充值型代金券 */
+  /** 혜택 유형 설명: 열거형 값: CASH: 충전형 상품권 NOCASH: 무충전형 상품권 */
   @SerializedName("type")
   private String type;
 
-  /** 活动ID 说明：在微信商户后台配置的批次ID */
+  /** 활동 ID 설명: 위챗페이 가맹점 백엔드에서 구성한 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 优惠券面额 说明：用户享受优惠的金额 */
+  /** 쿠폰 액면가 설명: 사용자가 받는 혜택 금액 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 微信出资 说明：特指由微信支付商户平台创建的优惠，出资金额等于本项优惠总金额，单位为分 */
+  /** 위챗페이 출자 설명: 위챗페이 가맹점 플랫폼에서 생성한 혜택을 특정, 출자 금액은 이 항목 혜택 총액과 같음, 단위는 분 */
   @SerializedName("wechatpay_contribute")
   private Long wechatpayContribute;
 
-  /** 商户出资 说明：特指商户自己创建的优惠，出资金额等于本项优惠总金额，单位为分 */
+  /** 가맹점 출자 설명: 가맹점이 직접 생성한 혜택을 특정, 출자 금액은 이 항목 혜택 총액과 같음, 단위는 분 */
   @SerializedName("merchant_contribute")
   private Long merchantContribute;
 
-  /** 其他出资 说明：其他出资方出资金额，单位为分 */
+  /** 기타 출자 설명: 기타 출자자 출자 금액, 단위는 분 */
   @SerializedName("other_contribute")
   private Long otherContribute;
 
-  /** 优惠币种 说明：CNY：人民币，境内商户号仅支持人民币。 */
+  /** 혜택 통화 설명: CNY: 위안화, 국내 가맹점 번호는 위안화만 지원 */
   @SerializedName("currency")
   private String currency;
 

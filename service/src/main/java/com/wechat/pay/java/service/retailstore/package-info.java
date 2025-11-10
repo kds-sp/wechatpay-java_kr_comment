@@ -1,2 +1,2 @@
-/** 营销加价购对外API */
+/** 마케팅 추가 구매 대외 API */
 package com.wechat.pay.java.service.retailstore;

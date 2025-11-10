@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 결제 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryUserServiceRequest */
 public class QueryUserServiceRequest {
-  /** 公众账号ID 说明：商户在微信申请公众号或移动应用成功后分配的账号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 ID 설명: 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청한 후 성공적으로 할당받은 계정 ID, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 子公众账号ID 说明：子公众账号ID，服务商模式下选传 */
+  /** 서브 공개 계정 ID 설명: 서브 공개 계정 ID, 서비스 제공자 모드에서 선택적 전달 */
   @SerializedName("sub_appid")
   @Expose(serialize = false)
   private String subAppid;
 
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 서브 가맹점 번호 설명: 위챗페이가 할당한 서브 가맹점 번호, 서비스 제공자 모드에서 필수 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 代扣签约ID 说明：签约成功后，微信返回代扣签约ID 查用户是否能继续使用乘车卡时必传 */
+  /** 자동 결제 계약 ID 설명: 계약 성공 후 위챗이 반환한 자동 결제 계약 ID 사용자가 계속 교통카드를 사용할 수 있는지 확인할 때 필수 */
   @SerializedName("contract_id")
   @Expose(serialize = false)
   private String contractId;
