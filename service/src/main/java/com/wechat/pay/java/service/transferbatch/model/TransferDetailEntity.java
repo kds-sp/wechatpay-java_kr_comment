@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -20,63 +20,63 @@ import java.util.function.UnaryOperator;
 
 /** TransferDetailEntity */
 public class TransferDetailEntity {
-  /** 商户号 说明：微信支付分配的商户号 */
+  /** 가맹점 번호 설명: 위챗페이가 할당한 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，在商户系统内部唯一 */
+  /** 판매자 배치 단 번호 설명: 가맹점 시스템 내부의 판매자 배치 단 번호, 가맹점 시스템 내부에서 고유 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 微信批次单号 说明：微信批次单号，微信商家转账系统返回的唯一标识 */
+  /** 위챗페이 배치 단 번호 설명: 위챗페이 배치 단 번호, 위챗페이 판매자 이체 시스템이 반환한 고유 식별자 */
   @SerializedName("batch_id")
   private String batchId;
 
-  /** 商户appid 说明：申请商户号的appid或商户号绑定的appid（企业号corpid即为此appid） */
+  /** 가맹점 appid 설명: 가맹점 번호를 신청한 appid 또는 가맹점 번호에 바인딩된 appid (기업 번호 corpid가 이 appid임) */
   @SerializedName("appid")
   private String appid;
 
-  /** 商家明细单号 说明：商户系统内部区分转账批次单下不同转账明细单的唯一标识 */
+  /** 판매자 상세 단 번호 설명: 가맹점 시스템 내부에서 이체 배치 단 하위의 서로 다른 이체 상세 단을 구분하는 고유 식별자 */
   @SerializedName("out_detail_no")
   private String outDetailNo;
 
-  /** 微信明细单号 说明：微信支付系统内部区分转账批次单下不同转账明细单的唯一标识 */
+  /** 위챗페이 상세 단 번호 설명: 위챗페이 시스템 내부에서 이체 배치 단 하위의 서로 다른 이체 상세 단을 구분하는 고유 식별자 */
   @SerializedName("detail_id")
   private String detailId;
 
   /**
-   * 明细状态 说明：INIT: 初始态。 系统转账校验中 WAIT_PAY: 待确认。待商户确认, 符合免密条件时, 系统会自动扭转为转账中
-   * PROCESSING:转账中。正在处理中，转账结果尚未明确 SUCCESS:转账成功 FAIL:转账失败。需要确认失败原因后，再决定是否重新发起对该笔明细单的转账（并非整个转账批次单）
+   * 상세 상태 설명: INIT: 초기 상태. 시스템 이체 검증 중 WAIT_PAY: 확인 대기. 가맹점 확인 대기, 무비밀번호 조건에 부합할 때, 시스템이 자동으로 이체 중으로 전환함
+   * PROCESSING: 이체 중. 처리 중이며, 이체 결과가 아직 명확하지 않음 SUCCESS: 이체 성공 FAIL: 이체 실패. 실패 사유를 확인한 후, 이 상세 단의 이체를 다시 시작할지 결정해야 함 (전체 이체 배치 단이 아님)
    */
   @SerializedName("detail_status")
   private String detailStatus;
 
-  /** 转账金额 说明：转账金额单位为“分” */
+  /** 이체 금액 설명: 이체 금액 단위는 "분" */
   @SerializedName("transfer_amount")
   private Long transferAmount;
 
-  /** 转账备注 说明：单条转账备注（微信用户会收到该备注），UTF8编码，最多允许32个字符 */
+  /** 이체 비고 설명: 단일 이체 비고 (위챗페이 사용자가 이 비고를 받음), UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("transfer_remark")
   private String transferRemark;
 
-  /** 明细失败原因 说明：如果转账失败则有失败原因 */
+  /** 상세 실패 사유 설명: 이체가 실패한 경우 실패 사유가 있음 */
   @SerializedName("fail_reason")
   private FailReasonType failReason;
 
-  /** 收款用户openid 说明：商户appid下，某用户的openid */
+  /** 수취 사용자 openid 설명: 가맹점 appid 하위의 특정 사용자의 openid */
   @SerializedName("openid")
   private String openid;
 
-  /** 收款用户姓名 说明：收款方姓名。采用标准RSA算法，公钥由微信侧提供 商户转账时传入了收款用户姓名、查询时会返回收款用户姓名 */
+  /** 수취 사용자 이름 설명: 수취 방 이름. 표준 RSA 알고리즘을 사용하며, 공개 키는 위챗페이 측에서 제공 가맹점이 이체할 때 수취 사용자 이름을 전달했으면, 조회 시 수취 사용자 이름을 반환함 */
   @Encryption
   @SerializedName("user_name")
   private String userName;
 
-  /** 转账发起时间 说明：转账发起的时间，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 이체 시작 시간 설명: 이체를 시작한 시간, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("initiate_time")
   private String initiateTime;
 
-  /** 明细更新时间 说明：明细最后一次状态变更的时间，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 상세 업데이트 시간 설명: 상세의 마지막 상태 변경 시간, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("update_time")
   private String updateTime;
 

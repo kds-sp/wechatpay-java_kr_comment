@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 차감 API
 //
 // API version: 1.2.1
 
@@ -17,57 +17,57 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateTransactionRequest */
 public class CreateTransactionRequest {
-  /** 公众账号id 说明：appid是商户在微信申请公众号或移动应用成功后分配的帐号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 ID 설명: appid는 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청하여 성공한 후 할당받은 계정 ID이며, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   private String appid;
 
-  /** 子公众账号id 说明：子公众账号id，服务商模式下选传，用于扣费信息的商户信息展示， */
+  /** 하위 공개 계정 ID 설명: 하위 공개 계정 ID, 서비스 제공자 모드에서 선택 전달, 차감 정보의 가맹점 정보 표시에 사용 */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점 번호, 서비스 제공자 모드에서 필수 전달 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 服务描述 说明：商户自定义字段，用于交易账单中对扣费服务的描述。 */
+  /** 서비스 설명 설명: 가맹점 사용자 정의 필드, 거래 청구서에서 차감 서비스 설명에 사용. */
   @SerializedName("description")
   private String description;
 
-  /** 附加数据 说明：附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用 */
+  /** 추가 데이터 설명: 추가 데이터, 조회 API와 결제 알림에서 원본 그대로 반환되며, 사용자 정의 매개변수로 사용할 수 있음 */
   @SerializedName("attach")
   private String attach;
 
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母_-*且在同一个商户号下唯一 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자와 대소문자 _-*만 가능하며, 동일한 가맹점 번호 하위에서 고유해야 함 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 交易场景 说明：交易场景值，目前支持 ：PARKING：车场停车场景 */
+  /** 거래 시나리오 설명: 거래 시나리오 값, 현재 지원: PARKING: 주차장 주차 시나리오 */
   @SerializedName("trade_scene")
   private String tradeScene;
 
   /**
-   * 订单优惠标记
-   * 说明：代金券或立减优惠功能的参数，说明详见[代金券或立减优惠](https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter5_1_2.shtml)
+   * 주문 할인 표시
+   * 설명: 상품권 또는 즉시 할인 기능의 매개변수, 자세한 설명은 [상품권 또는 즉시 할인](https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter5_1_2.shtml) 참조
    */
   @SerializedName("goods_tag")
   private String goodsTag;
 
-  /** 回调通知url 说明：接受扣款结果异步回调通知的url，注意回调url只接受https */
+  /** 콜백 알림 url 설명: 차감 결과 비동기 콜백 알림을 수신하는 url, 콜백 url은 https만 수신함 */
   @SerializedName("notify_url")
   private String notifyUrl;
 
   /**
-   * 分账标识 说明：Y：是，需要分账 N：否，不分账
-   * 字母要求大写，不传默认不分账，分账详细说明见[直连分账API](https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=26_1)、[服务商分账API文档](https://pay.weixin.qq.com/wiki/doc/api/allocation_sl.php?chapter=24_1&index=1)
+   * 수익 분배 식별자 설명: Y: 예, 수익 분배 필요 N: 아니오, 수익 분배 안 함
+   * 문자는 대문자 요구, 전달하지 않으면 기본값은 수익 분배 안 함, 수익 분배 자세한 설명은 [직접 연결 수익 분배 API](https://pay.weixin.qq.com/wiki/doc/api/allocation.php?chapter=26_1), [서비스 제공자 수익 분배 API 문서](https://pay.weixin.qq.com/wiki/doc/api/allocation_sl.php?chapter=24_1&index=1) 참조
    */
   @SerializedName("profit_sharing")
   private String profitSharing;
 
-  /** 订单金额 说明：订单金额信息 */
+  /** 주문 금액 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private OrderAmount amount;
 
-  /** 停车场景信息 说明：当交易场景为PARKING时，需要在该字段添加停车场景信息 */
+  /** 주차 시나리오 정보 설명: 거래 시나리오가 PARKING일 때, 이 필드에 주차 시나리오 정보를 추가해야 함 */
   @SerializedName("parking_info")
   private ParkingTradeScene parkingInfo;
 

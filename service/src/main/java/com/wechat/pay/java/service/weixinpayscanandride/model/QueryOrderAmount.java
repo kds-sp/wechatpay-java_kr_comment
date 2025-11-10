@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryOrderAmount */
 public class QueryOrderAmount {
-  /** 订单金额 说明：订单总金额，单位为分，只能为整数，详见支付金额 */
+  /** 주문 금액 설명: 주문 총액, 단위는 분, 정수만 가능, 자세한 내용은 결제 금액 참조 */
   @SerializedName("total")
   private Long total;
 
-  /** 用户实际支付金额 说明：用户实际支付金额，单位为分，只能为整数，详见支付金额 */
+  /** 사용자 실제 결제 금액 설명: 사용자 실제 결제 금액, 단위는 분, 정수만 가능, 자세한 내용은 결제 금액 참조 */
   @SerializedName("payer_total")
   private Long payerTotal;
 
-  /** 货币类型 说明：CNY：人民币，境内商户号仅支持人民币。 */
+  /** 통화 유형 설명: CNY: 중국 위안화, 국내 가맹점 번호는 중국 위안화만 지원. */
   @SerializedName("currency")
   private String currency;
 

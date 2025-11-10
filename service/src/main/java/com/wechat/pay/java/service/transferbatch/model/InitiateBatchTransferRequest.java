@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -22,40 +22,40 @@ import java.util.function.UnaryOperator;
 
 /** InitiateBatchTransferRequest */
 public class InitiateBatchTransferRequest {
-  /** 商户appid 说明：申请商户号的appid或商户号绑定的appid（企业号corpid即为此appid） */
+  /** 가맹점 appid 설명: 가맹점 번호를 신청한 appid 또는 가맹점 번호에 바인딩된 appid (기업 번호 corpid가 이 appid임) */
   @SerializedName("appid")
   private String appid;
 
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，要求此参数只能由数字、大小写字母组成，在商户系统内部唯一 */
+  /** 판매자 배치 단 번호 설명: 가맹점 시스템 내부의 판매자 배치 단 번호, 이 매개변수는 숫자와 대소문자로만 구성되어야 하며, 가맹점 시스템 내부에서 고유해야 함 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 批次名称 说明：该笔批量转账的名称 */
+  /** 배치 이름 설명: 이 일괄 이체의 이름 */
   @SerializedName("batch_name")
   private String batchName;
 
-  /** 批次备注 说明：转账说明，UTF8编码，最多允许32个字符 */
+  /** 배치 비고 설명: 이체 설명, UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("batch_remark")
   private String batchRemark;
 
-  /** 转账总金额 说明：转账金额单位为“分”。转账总金额必须与批次内所有明细转账金额之和保持一致，否则无法发起转账操作 */
+  /** 이체 총액 설명: 이체 금액 단위는 "분". 이체 총액은 배치 내 모든 상세 이체 금액의 합과 일치해야 하며, 그렇지 않으면 이체 작업을 시작할 수 없음 */
   @SerializedName("total_amount")
   private Long totalAmount;
 
-  /** 转账总笔数 说明：一个转账批次单最多发起一千笔转账。转账总笔数必须与批次内所有明细之和保持一致，否则无法发起转账操作 */
+  /** 이체 총 건수 설명: 하나의 이체 배치 단은 최대 천 건의 이체를 시작할 수 있음. 이체 총 건수는 배치 내 모든 상세의 합과 일치해야 하며, 그렇지 않으면 이체 작업을 시작할 수 없음 */
   @SerializedName("total_num")
   private Integer totalNum;
 
-  /** 转账明细列表 说明：发起批量转账的明细列表，最多一千笔 */
+  /** 이체 상세 목록 설명: 일괄 이체를 시작하는 상세 목록, 최대 천 건 */
   @Encryption
   @SerializedName("transfer_detail_list")
   private List<TransferDetailInput> transferDetailList = new ArrayList<TransferDetailInput>();
 
-  /** 转账场景ID 说明：该批次转账使用的转账场景，如不填写则使用商家的默认场景，如无默认场景可为空，可前往“商家转账到零钱-前往功能”中申请。 如：1001-现金营销 */
+  /** 이체 시나리오 ID 설명: 이 배치 이체에 사용되는 이체 시나리오, 작성하지 않으면 판매자의 기본 시나리오를 사용하며, 기본 시나리오가 없으면 비워둘 수 있으며, "판매자 이체-기능으로 이동"에서 신청할 수 있음. 예: 1001-현금 마케팅 */
   @SerializedName("transfer_scene_id")
   private String transferSceneId;
 
-  /** 通知地址 说明：异步接收微信支付结果通知的回调地址，通知url必须为公网可访问的url，必须为https，不能携带参数。 */
+  /** 알림 주소 설명: 위챗페이 결제 결과 알림을 비동기로 수신하는 콜백 주소, 알림 url은 공개 네트워크에서 접근 가능한 url이어야 하며, https여야 하며, 매개변수를 포함할 수 없음. */
   @SerializedName("notify_url")
   private String notifyUrl;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 차감 API
 //
 // API version: 1.2.1
 
@@ -17,43 +17,43 @@ import com.google.gson.annotations.SerializedName;
 
 /** ParkingTradeScene */
 public class ParkingTradeScene {
-  /** 入场id 说明：微信支付分停车服务为商户分配的入场id，商户通过入场通知接口获取入场id */
+  /** 입장 ID 설명: 위챗페이 스코어 주차 서비스가 가맹점에 할당한 입장 ID, 가맹점은 입장 알림 인터페이스를 통해 입장 ID를 얻음 */
   @SerializedName("parking_id")
   private String parkingId;
 
-  /** 车牌号 说明：车牌号，仅包括省份+车牌，不包括特殊字符。 */
+  /** 차량 번호판 설명: 차량 번호판, 지방+번호판만 포함하며, 특수 문자는 포함하지 않음. */
   @SerializedName("plate_number")
   private String plateNumber;
 
-  /** 车牌颜色 说明：车牌颜色 */
+  /** 차량 번호판 색상 설명: 차량 번호판 색상 */
   @SerializedName("plate_color")
   private PlateColor plateColor;
 
   /**
-   * 入场时间
-   * 说明：用户入场时间，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 입장 시간
+   * 설명: 사용자 입장 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("start_time")
   private String startTime;
 
   /**
-   * 出场时间
-   * 说明：用户出场时间，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 퇴장 시간
+   * 설명: 사용자 퇴장 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("end_time")
   private String endTime;
 
-  /** 停车场名称 说明：所在停车位车场的名称 */
+  /** 주차장 이름 설명: 주차 위치가 있는 주차장의 이름 */
   @SerializedName("parking_name")
   private String parkingName;
 
-  /** 计费时长 说明：计费的时间长，单位为秒 */
+  /** 요금 계산 시간 설명: 요금 계산 시간 길이, 단위는 초 */
   @SerializedName("charging_duration")
   private Integer chargingDuration;
 
-  /** 停车场设备id 说明：停车场设备id */
+  /** 주차장 장비 ID 설명: 주차장 장비 ID */
   @SerializedName("device_id")
   private String deviceId;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** BusSceneInfo */
 public class BusSceneInfo {
-  /** 乘车时间 说明：用户乘车时间（上车），按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 승차 시간 설명: 사용자 승차 시간 (탑승), rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("start_time")
   private String startTime;
 
-  /** 乘车路线 说明：乘车路线 路线名称的展示规则：\\^[A-Za-z0-9]{1,10}路$ 如line_name符合上述的规则,扣款凭证将增加展示乘车路线的字段 */
+  /** 승차 노선 설명: 승차 노선 노선 이름 표시 규칙: \\^[A-Za-z0-9]{1,10}路$ line_name이 위 규칙에 부합하면, 차감 영수증에 승차 노선 필드가 추가로 표시됨 */
   @SerializedName("line_name")
   private String lineName;
 
-  /** 车牌号 说明：车牌号。仅包括省份+车牌，不包括特殊字符。 */
+  /** 차량 번호판 설명: 차량 번호판. 지방+번호판만 포함하며, 특수 문자는 포함하지 않음. */
   @SerializedName("plate_number")
   private String plateNumber;
 

@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -19,11 +19,11 @@ import java.util.List;
 
 /** TransferBatchEntity */
 public class TransferBatchEntity {
-  /** 转账批次单 说明：转账批次单基本信息 */
+  /** 이체 배치 단 설명: 이체 배치 단 기본 정보 */
   @SerializedName("transfer_batch")
   private TransferBatchGet transferBatch;
 
-  /** 转账明细单列表 说明：当批次状态为“FINISHED”（已完成），且成功查询到转账明细单时返回。包括微信明细单号、明细状态信息 */
+  /** 이체 상세 단 목록 설명: 배치 상태가 "FINISHED" (완료됨)이고 이체 상세 단을 성공적으로 조회했을 때 반환. 위챗페이 상세 단 번호, 상세 상태 정보 포함 */
   @SerializedName("transfer_detail_list")
   private List<TransferDetailCompact> transferDetailList;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 차감 API
 //
 // API version: 1.2.1
 
@@ -18,12 +18,12 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryTransactionRequest */
 public class QueryTransactionRequest {
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점 번호, 서비스 제공자 모드에서 필수 전달 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母，且在同一个商户号下唯一 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자와 대소문자만 가능하며, 동일한 가맹점 번호 하위에서 고유해야 함 */
   @SerializedName("out_trade_no")
   @Expose(serialize = false)
   private String outTradeNo;

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付分停车服务
+// 위챗페이 스코어 주차 서비스
 //
-// 微信支付分停车服务 扣费API
+// 위챗페이 스코어 주차 서비스 차감 API
 //
 // API version: 1.2.1
 
@@ -18,27 +18,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryPlateServiceRequest */
 public class QueryPlateServiceRequest {
-  /** 公众账号id 说明：appid是商户在微信申请公众号或移动应用成功后分配的帐号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 ID 설명: appid는 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청하여 성공한 후 할당받은 계정 ID이며, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점 번호, 서비스 제공자 모드에서 필수 전달 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 车牌号 说明：车牌号，仅包括省份+车牌，不包括特殊字符。 */
+  /** 차량 번호판 설명: 차량 번호판, 지방+번호판만 포함하며, 특수 문자는 포함하지 않음. */
   @SerializedName("plate_number")
   @Expose(serialize = false)
   private String plateNumber;
 
-  /** 用户标识 说明：用户在商户对应appid下的唯一标识 */
+  /** 사용자 식별자 설명: 가맹점에 해당하는 appid 하위의 사용자 고유 식별자 */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
 
-  /** 车牌颜色 说明：车牌颜色 */
+  /** 차량 번호판 색상 설명: 차량 번호판 색상 */
   @SerializedName("plate_color")
   @Expose(serialize = false)
   private PlateColor plateColor;

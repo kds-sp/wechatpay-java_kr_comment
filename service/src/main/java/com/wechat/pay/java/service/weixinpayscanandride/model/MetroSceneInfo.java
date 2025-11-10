@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -17,19 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 /** MetroSceneInfo */
 public class MetroSceneInfo {
-  /** 乘车时间 说明：用户乘车时间（上车），按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 승차 시간 설명: 사용자 승차 시간 (탑승), rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("start_time")
   private String startTime;
 
-  /** 下车时间 说明：用户下车时间，按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 하차 시간 설명: 사용자 하차 시간, rfc3339에서 정의한 형식 사용, 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("end_time")
   private String endTime;
 
-  /** 起始站 说明：乘车起始站，该值催缴时会向微信用户进行展示 */
+  /** 출발역 설명: 승차 출발역, 이 값은 고지 시 위챗페이 사용자에게 표시됨 */
   @SerializedName("start_station")
   private String startStation;
 
-  /** 终点站 说明：乘车终点站，该值催缴时会向微信用户进行展示 */
+  /** 도착역 설명: 승차 도착역, 이 값은 고지 시 위챗페이 사용자에게 표시됨 */
   @SerializedName("end_station")
   private String endStation;
 

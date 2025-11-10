@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -20,26 +20,26 @@ import java.util.function.UnaryOperator;
 
 /** TransferDetailInput */
 public class TransferDetailInput {
-  /** 商家明细单号 说明：商户系统内部区分转账批次单下不同转账明细单的唯一标识，要求此参数只能由数字、大小写字母组成 */
+  /** 판매자 상세 단 번호 설명: 가맹점 시스템 내부에서 이체 배치 단 하위의 서로 다른 이체 상세 단을 구분하는 고유 식별자, 이 매개변수는 숫자와 대소문자로만 구성되어야 함 */
   @SerializedName("out_detail_no")
   private String outDetailNo;
 
-  /** 转账金额 说明：转账金额单位为“分” */
+  /** 이체 금액 설명: 이체 금액 단위는 "분" */
   @SerializedName("transfer_amount")
   private Long transferAmount;
 
-  /** 转账备注 说明：单条转账备注（微信用户会收到该备注），UTF8编码，最多允许32个字符 */
+  /** 이체 비고 설명: 단일 이체 비고 (위챗페이 사용자가 이 비고를 받음), UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("transfer_remark")
   private String transferRemark;
 
-  /** 收款用户openid 说明：商户appid下，某用户的openid */
+  /** 수취 사용자 openid 설명: 가맹점 appid 하위의 특정 사용자의 openid */
   @SerializedName("openid")
   private String openid;
 
   /**
-   * 收款用户姓名 说明：收款方真实姓名。支持标准RSA算法和国密算法，公钥由微信侧提供 明细转账金额<0.3元时，不允许填写收款用户姓名 明细转账金额 >=
-   * 2,000元时，该笔明细必须填写收款用户姓名 同一批次转账明细中的姓名字段传入规则需保持一致，也即全部填写、或全部不填写
-   * 若商户传入收款用户姓名，微信支付会校验用户openID与姓名是否一致，并提供电子回单
+   * 수취 사용자 이름 설명: 수취 방의 실제 이름. 표준 RSA 알고리즘과 국제 암호 알고리즘을 지원하며, 공개 키는 위챗페이 측에서 제공 상세 이체 금액<0.3원일 때, 수취 사용자 이름을 작성할 수 없음 상세 이체 금액 >=
+   * 2,000원일 때, 이 상세는 수취 사용자 이름을 작성해야 함 동일 배치 이체 상세의 이름 필드 전달 규칙은 일관되어야 하며, 즉 모두 작성하거나 모두 작성하지 않아야 함
+   * 가맹점이 수취 사용자 이름을 전달하면, 위챗페이는 사용자 openID와 이름이 일치하는지 확인하고 전자 영수증을 제공함
    */
   @Encryption
   @SerializedName("user_name")

@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -18,79 +18,79 @@ import com.google.gson.annotations.SerializedName;
 
 /** TransferBatchGet */
 public class TransferBatchGet {
-  /** 商户号 说明：微信支付分配的商户号 */
+  /** 가맹점 번호 설명: 위챗페이가 할당한 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，在商户系统内部唯一 */
+  /** 판매자 배치 단 번호 설명: 가맹점 시스템 내부의 판매자 배치 단 번호, 가맹점 시스템 내부에서 고유 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 微信批次单号 说明：微信批次单号，微信商家转账系统返回的唯一标识 */
+  /** 위챗페이 배치 단 번호 설명: 위챗페이 배치 단 번호, 위챗페이 판매자 이체 시스템이 반환한 고유 식별자 */
   @SerializedName("batch_id")
   private String batchId;
 
-  /** 商户appid 说明：申请商户号的appid或商户号绑定的appid（企业号corpid即为此appid） */
+  /** 가맹점 appid 설명: 가맹점 번호를 신청한 appid 또는 가맹점 번호에 바인딩된 appid (기업 번호 corpid가 이 appid임) */
   @SerializedName("appid")
   private String appid;
 
   /**
-   * 批次状态 说明：WAIT_PAY: 待付款确认。需要付款出资商户在商家助手小程序或服务商助手小程序进行付款确认
-   * ACCEPTED:已受理。批次已受理成功，若发起批量转账的30分钟后，转账批次单仍处于该状态，可能原因是商户账户余额不足等。商户可查询账户资金流水，若该笔转账批次单的扣款已经发生，则表示批次已经进入转账中，请再次查单确认
-   * PROCESSING:转账中。已开始处理批次内的转账明细单 FINISHED:已完成。批次内的所有转账明细单都已处理完成 CLOSED:已关闭。可查询具体的批次关闭原因确认
+   * 배치 상태 설명: WAIT_PAY: 결제 확인 대기. 결제 출자 가맹점이 판매자 어시스턴트 미니 프로그램 또는 서비스 제공자 어시스턴트 미니 프로그램에서 결제 확인을 수행해야 함
+   * ACCEPTED: 접수됨. 배치가 성공적으로 접수되었으며, 일괄 이체를 시작한 지 30분 후에도 이체 배치 단이 여전히 이 상태에 있으면, 가맹점 계좌 잔액 부족 등의 원인일 수 있음. 가맹점은 계좌 자금 거래 내역을 조회할 수 있으며, 이 이체 배치 단의 차감이 이미 발생했다면 배치가 이미 이체 중으로 진입한 것이므로 다시 조회하여 확인해야 함
+   * PROCESSING: 이체 중. 배치 내 이체 상세 단 처리를 시작함 FINISHED: 완료됨. 배치 내 모든 이체 상세 단이 처리 완료됨 CLOSED: 닫힘. 구체적인 배치 닫힘 사유를 조회하여 확인할 수 있음
    */
   @SerializedName("batch_status")
   private String batchStatus;
 
-  /** 批次类型 说明：API:API方式发起 WEB:页面方式发起 */
+  /** 배치 유형 설명: API: API 방식으로 시작 WEB: 페이지 방식으로 시작 */
   @SerializedName("batch_type")
   private String batchType;
 
-  /** 批次名称 说明：该笔批量转账的名称 */
+  /** 배치 이름 설명: 이 일괄 이체의 이름 */
   @SerializedName("batch_name")
   private String batchName;
 
-  /** 批次备注 说明：转账说明，UTF8编码，最多允许32个字符 */
+  /** 배치 비고 설명: 이체 설명, UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("batch_remark")
   private String batchRemark;
 
-  /** 批次关闭原因 说明：如果批次单状态为“CLOSED”（已关闭），则有关闭原因 */
+  /** 배치 닫힘 사유 설명: 배치 단 상태가 "CLOSED" (닫힘)인 경우, 닫힘 사유가 있음 */
   @SerializedName("close_reason")
   private CloseReasonType closeReason;
 
-  /** 转账总金额 说明：转账金额单位为“分” */
+  /** 이체 총액 설명: 이체 금액 단위는 "분" */
   @SerializedName("total_amount")
   private Long totalAmount;
 
-  /** 转账总笔数 说明：一个转账批次单最多发起三千笔转账 */
+  /** 이체 총 건수 설명: 하나의 이체 배치 단은 최대 삼천 건의 이체를 시작할 수 있음 */
   @SerializedName("total_num")
   private Integer totalNum;
 
-  /** 批次创建时间 说明：批次受理成功时返回，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 배치 생성 시간 설명: 배치 접수 성공 시 반환, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 批次更新时间 说明：批次最近一次状态变更的时间，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 배치 업데이트 시간 설명: 배치의 가장 최근 상태 변경 시간, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("update_time")
   private String updateTime;
 
-  /** 转账成功金额 说明：转账成功的金额，单位为“分”。当批次状态为“PROCESSING”（转账中）时，转账成功金额随时可能变化 */
+  /** 이체 성공 금액 설명: 이체 성공 금액, 단위는 "분". 배치 상태가 "PROCESSING" (이체 중)일 때, 이체 성공 금액은 언제든지 변경될 수 있음 */
   @SerializedName("success_amount")
   private Long successAmount;
 
-  /** 转账成功笔数 说明：转账成功的笔数。当批次状态为“PROCESSING”（转账中）时，转账成功笔数随时可能变化 */
+  /** 이체 성공 건수 설명: 이체 성공 건수. 배치 상태가 "PROCESSING" (이체 중)일 때, 이체 성공 건수는 언제든지 변경될 수 있음 */
   @SerializedName("success_num")
   private Integer successNum;
 
-  /** 转账失败金额 说明：转账失败的金额，单位为“分” */
+  /** 이체 실패 금액 설명: 이체 실패 금액, 단위는 "분" */
   @SerializedName("fail_amount")
   private Long failAmount;
 
-  /** 转账失败笔数 说明：转账失败的笔数 */
+  /** 이체 실패 건수 설명: 이체 실패 건수 */
   @SerializedName("fail_num")
   private Integer failNum;
 
-  /** 转账场景ID 说明：指定的转账场景ID */
+  /** 이체 시나리오 ID 설명: 지정된 이체 시나리오 ID */
   @SerializedName("transfer_scene_id")
   private String transferSceneId;
 

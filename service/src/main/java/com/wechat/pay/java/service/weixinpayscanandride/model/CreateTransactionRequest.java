@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -17,55 +17,55 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateTransactionRequest */
 public class CreateTransactionRequest {
-  /** 公众账号ID 说明：商户在微信申请公众号或移动应用成功后分配的账号ID，登录平台为mp.weixin.qq.com或open.weixin.qq.com */
+  /** 공개 계정 ID 설명: 가맹점이 위챗에서 공개 계정 또는 모바일 애플리케이션을 신청하여 성공한 후 할당받은 계정 ID, 로그인 플랫폼은 mp.weixin.qq.com 또는 open.weixin.qq.com */
   @SerializedName("appid")
   private String appid;
 
-  /** 子公众账号ID 说明：子公众账号ID，服务商模式下选传，用于扣费信息的商户信息展示， */
+  /** 하위 공개 계정 ID 설명: 하위 공개 계정 ID, 서비스 제공자 모드에서 선택 전달, 차감 정보의 가맹점 정보 표시에 사용 */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점 번호, 서비스 제공자 모드에서 필수 전달 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 服务描述 说明：商户自定义字段，用于交易账单中对扣费服务的描述。该字段长度限制为字节长度限制 */
+  /** 서비스 설명 설명: 가맹점 사용자 정의 필드, 거래 청구서에서 차감 서비스 설명에 사용. 이 필드 길이 제한은 바이트 길이 제한 */
   @SerializedName("description")
   private String description;
 
-  /** 附加数据 说明：附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用，该字段长度限制为字节长度限制 */
+  /** 추가 데이터 설명: 추가 데이터, 조회 API와 결제 알림에서 원본 그대로 반환되며, 사용자 정의 매개변수로 사용할 수 있음, 이 필드 길이 제한은 바이트 길이 제한 */
   @SerializedName("attach")
   private String attach;
 
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母，且在同一个商户号下唯一。该字段长度限制为字节长度限制 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자와 대소문자만 가능하며, 동일한 가맹점 번호 하위에서 고유해야 함. 이 필드 길이 제한은 바이트 길이 제한 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 交易场景 说明：交易场景值，现在支持公交和地铁的场景值 */
+  /** 거래 시나리오 설명: 거래 시나리오 값, 현재 버스와 지하철 시나리오 값 지원 */
   @SerializedName("trade_scene")
   private TradeScene tradeScene;
 
-  /** 订单优惠标记 说明：代金券或立减优惠功能的参数，说明详见代金券或立减优惠 */
+  /** 주문 할인 표시 설명: 상품권 또는 즉시 할인 기능의 매개변수, 자세한 설명은 상품권 또는 즉시 할인 참조 */
   @SerializedName("goods_tag")
   private String goodsTag;
 
-  /** 代扣签约ID 说明：签约成功后，微信返回代扣签约ID 查用户是否能继续使用乘车卡时必传，此时，才会返回签约信息，如contract_state */
+  /** 자동 차감 계약 ID 설명: 계약 성공 후, 위챗페이가 반환한 자동 차감 계약 ID 사용자가 계속 교통 카드를 사용할 수 있는지 조회할 때 필수 전달, 이때 계약 정보가 반환됨, 예: contract_state */
   @SerializedName("contract_id")
   private String contractId;
 
-  /** 通知地址 说明：接受扣款结果异步回调通知的URL，注意回调URL只接受HTTPS */
+  /** 알림 주소 설명: 차감 결과 비동기 콜백 알림을 수신하는 URL, 콜백 URL은 HTTPS만 수신함 */
   @SerializedName("notify_url")
   private String notifyUrl;
 
-  /** 订单金额信息 说明：订单金额信息 */
+  /** 주문 금액 정보 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private OrderAmount amount;
 
-  /** 公交场景信息 说明：请求受理扣费 tradescene为BUS时，传入该参数 */
+  /** 버스 시나리오 정보 설명: 요청 접수 차감 tradescene이 BUS일 때, 이 매개변수 전달 */
   @SerializedName("bus_info")
   private BusSceneInfo busInfo;
 
-  /** 地铁场景信息 说明：请求受理扣费 tradescene为METRO时，传入该参数 */
+  /** 지하철 시나리오 정보 설명: 요청 접수 차감 tradescene이 METRO일 때, 이 매개변수 전달 */
   @SerializedName("metro_info")
   private MetroSceneInfo metroInfo;
 

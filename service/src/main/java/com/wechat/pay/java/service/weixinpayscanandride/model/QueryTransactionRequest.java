@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
-// 公共出行平台代扣服务对外API
+// 공공 교통 플랫폼 자동 차감 서비스 대외 API
 //
 // API version: 1.0.0
 
@@ -18,12 +18,12 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryTransactionRequest */
 public class QueryTransactionRequest {
-  /** 商户订单号 说明：商户系统内部订单号，只能是数字、大小写字母，且在同一个商户号下唯一。该字段长度限制为字节长度限制 */
+  /** 가맹점 주문 번호 설명: 가맹점 시스템 내부 주문 번호, 숫자와 대소문자만 가능하며, 동일한 가맹점 번호 하위에서 고유해야 함. 이 필드 길이 제한은 바이트 길이 제한 */
   @SerializedName("out_trade_no")
   @Expose(serialize = false)
   private String outTradeNo;
 
-  /** 子商户号 说明：微信支付分配的子商户号，服务商模式下必传 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점 번호, 서비스 제공자 모드에서 필수 전달 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;

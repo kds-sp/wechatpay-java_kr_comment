@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** TransferDetailCompact */
 public class TransferDetailCompact {
-  /** 微信明细单号 说明：微信支付系统内部区分转账批次单下不同转账明细单的唯一标识 */
+  /** 위챗페이 상세 단 번호 설명: 위챗페이 시스템 내부에서 이체 배치 단 하위의 서로 다른 이체 상세 단을 구분하는 고유 식별자 */
   @SerializedName("detail_id")
   private String detailId;
 
-  /** 商家明细单号 说明：商户系统内部区分转账批次单下不同转账明细单的唯一标识 */
+  /** 판매자 상세 단 번호 설명: 가맹점 시스템 내부에서 이체 배치 단 하위의 서로 다른 이체 상세 단을 구분하는 고유 식별자 */
   @SerializedName("out_detail_no")
   private String outDetailNo;
 
   /**
-   * 明细状态 说明：INIT: 初始态。 系统转账校验中 WAIT_PAY: 待确认。待商户确认, 符合免密条件时, 系统会自动扭转为转账中
-   * PROCESSING:转账中。正在处理中，转账结果尚未明确 SUCCESS:转账成功 FAIL:转账失败。需要确认失败原因后，再决定是否重新发起对该笔明细单的转账（并非整个转账批次单）
+   * 상세 상태 설명: INIT: 초기 상태. 시스템 이체 검증 중 WAIT_PAY: 확인 대기. 가맹점 확인 대기, 무비밀번호 조건에 부합할 때, 시스템이 자동으로 이체 중으로 전환함
+   * PROCESSING: 이체 중. 처리 중이며, 이체 결과가 아직 명확하지 않음 SUCCESS: 이체 성공 FAIL: 이체 실패. 실패 사유를 확인한 후, 이 상세 단의 이체를 다시 시작할지 결정해야 함 (전체 이체 배치 단이 아님)
    */
   @SerializedName("detail_status")
   private String detailStatus;

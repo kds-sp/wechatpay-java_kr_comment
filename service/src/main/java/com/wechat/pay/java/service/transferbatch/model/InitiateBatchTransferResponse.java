@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** InitiateBatchTransferResponse */
 public class InitiateBatchTransferResponse {
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，在商户系统内部唯一 */
+  /** 판매자 배치 단 번호 설명: 가맹점 시스템 내부의 판매자 배치 단 번호, 가맹점 시스템 내부에서 고유 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 微信批次单号 说明：微信批次单号，微信商家转账系统返回的唯一标识 */
+  /** 위챗페이 배치 단 번호 설명: 위챗페이 배치 단 번호, 위챗페이 판매자 이체 시스템이 반환한 고유 식별자 */
   @SerializedName("batch_id")
   private String batchId;
 
-  /** 批次创建时间 说明：批次受理成功时返回，按照使用rfc3339所定义的格式，格式为YYYY-MM-DDThh:mm:ss+TIMEZONE */
+  /** 배치 생성 시간 설명: 배치 접수 성공 시 반환, rfc3339에서 정의한 형식 사용, 형식은 YYYY-MM-DDThh:mm:ss+TIMEZONE */
   @SerializedName("create_time")
   private String createTime;
 
   /**
-   * 批次状态
-   * 说明：ACCEPTED:已受理。批次已受理成功，若发起批量转账的30分钟后，转账批次单仍处于该状态，可能原因是商户账户余额不足等。商户可查询账户资金流水，若该笔转账批次单的扣款已经发生，则表示批次已经进入转账中，请再次查单确认
-   * PROCESSING:转账中。已开始处理批次内的转账明细单 FINISHED:已完成。批次内的所有转账明细单都已处理完成 CLOSED:已关闭。可查询具体的批次关闭原因确认
+   * 배치 상태
+   * 설명: ACCEPTED: 접수됨. 배치가 성공적으로 접수되었으며, 일괄 이체를 시작한 지 30분 후에도 이체 배치 단이 여전히 이 상태에 있으면, 가맹점 계좌 잔액 부족 등의 원인일 수 있음. 가맹점은 계좌 자금 거래 내역을 조회할 수 있으며, 이 이체 배치 단의 차감이 이미 발생했다면 배치가 이미 이체 중으로 진입한 것이므로 다시 조회하여 확인해야 함
+   * PROCESSING: 이체 중. 배치 내 이체 상세 단 처리를 시작함 FINISHED: 완료됨. 배치 내 모든 이체 상세 단이 처리 완료됨 CLOSED: 닫힘. 구체적인 배치 닫힘 사유를 조회하여 확인할 수 있음
    */
   @SerializedName("batch_status")
   private String batchStatus;

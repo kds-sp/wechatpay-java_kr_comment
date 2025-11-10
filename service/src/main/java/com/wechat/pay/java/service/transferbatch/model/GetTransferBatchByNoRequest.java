@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 商家转账对外API
+// 판매자 계좌 이체 대외 API
 //
-// * 场景及业务流程：     商户可通过该产品实现同时向多个用户微信零钱进行转账的操作，可用于发放奖金补贴、佣金货款结算、员工报销等场景。
-// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 接入步骤：     * 商户在微信支付商户平台开通“批量转账到零钱”产品权限，并勾选“使用API方式发起转账”。     * 调用批量转账接口，对多个用户微信零钱发起转账。     * 调用查询批次接口，可获取到转账批次详情及当前状态。     * 调用查询明细接口，可获取到单条转账明细详情及当前状态。
+// * 시나리오 및 비즈니스 프로세스: 가맹점은 이 제품을 통해 여러 사용자의 위챗페이 잔액으로 동시에 이체하는 작업을 수행할 수 있으며, 보너스 보조금 지급, 수수료 대금 정산, 직원 비용 처리 등의 시나리오에 사용할 수 있음.
+// [https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0](https://pay.weixin.qq.com/index.php/public/product/detail?pid=108&productType=0) * 접속 단계: * 가맹점은 위챗페이 가맹점 플랫폼에서 "일괄 이체" 제품 권한을 개통하고 "API 방식으로 이체 시작"을 선택함. * 일괄 이체 인터페이스를 호출하여 여러 사용자의 위챗페이 잔액으로 이체를 시작함. * 조회 배치 인터페이스를 호출하여 이체 배치 상세 정보 및 현재 상태를 얻을 수 있음. * 조회 상세 인터페이스를 호출하여 단일 이체 상세 정보 및 현재 상태를 얻을 수 있음.
 //
 // API version: 1.0.5
 
@@ -19,31 +19,31 @@ import com.google.gson.annotations.SerializedName;
 
 /** GetTransferBatchByNoRequest */
 public class GetTransferBatchByNoRequest {
-  /** 微信批次单号 说明：微信批次单号，微信商家转账系统返回的唯一标识 */
+  /** 위챗페이 배치 단 번호 설명: 위챗페이 배치 단 번호, 위챗페이 판매자 이체 시스템이 반환한 고유 식별자 */
   @SerializedName("batch_id")
   @Expose(serialize = false)
   private String batchId;
 
   /**
-   * 是否查询转账明细单 说明：true-是；false-否，默认否。商户可选择是否查询指定状态的转账明细单，当转账批次单状态为“FINISHED”（已完成）时，才会返回满足条件的转账明细单
+   * 이체 상세 단 조회 여부 설명: true-예; false-아니오, 기본값은 아니오. 가맹점은 지정된 상태의 이체 상세 단을 조회할지 선택할 수 있으며, 이체 배치 단 상태가 "FINISHED" (완료됨)일 때만 조건을 만족하는 이체 상세 단을 반환함
    */
   @SerializedName("need_query_detail")
   @Expose(serialize = false)
   private Boolean needQueryDetail;
 
-  /** 请求资源起始位置 说明：该次请求资源的起始位置。返回的明细是按照设置的明细条数进行分页展示的，一次查询可能无法返回所有明细，我们使用该参数标识查询开始位置，默认值为0 */
+  /** 요청 리소스 시작 위치 설명: 이번 요청 리소스의 시작 위치. 반환된 상세는 설정한 상세 건수로 페이지네이션되어 표시되며, 한 번의 조회로 모든 상세를 반환하지 못할 수 있으므로, 이 매개변수로 조회 시작 위치를 표시하며, 기본값은 0 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Integer offset;
 
-  /** 最大资源条数 说明：该次请求可返回的最大明细条数，最小20条，最大100条，不传则默认20条。不足20条按实际条数返回 */
+  /** 최대 리소스 건수 설명: 이번 요청에서 반환할 수 있는 최대 상세 건수, 최소 20건, 최대 100건, 전달하지 않으면 기본값 20건. 20건 미만은 실제 건수로 반환 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Integer limit;
 
   /**
-   * 明细状态 说明：WAIT_PAY: 待确认。待商户确认, 符合免密条件时, 系统会自动扭转为转账中 ALL:全部。需要同时查询转账成功、失败和待确认的明细单 SUCCESS:转账成功
-   * FAIL:转账失败。需要确认失败原因后，再决定是否重新发起对该笔明细单的转账（并非整个转账批次单）
+   * 상세 상태 설명: WAIT_PAY: 확인 대기. 가맹점 확인 대기, 무비밀번호 조건에 부합할 때, 시스템이 자동으로 이체 중으로 전환함 ALL: 전체. 이체 성공, 실패, 확인 대기 상태의 상세 단을 동시에 조회해야 함 SUCCESS: 이체 성공
+   * FAIL: 이체 실패. 실패 사유를 확인한 후, 이 상세 단의 이체를 다시 시작할지 결정해야 함 (전체 이체 배치 단이 아님)
    */
   @SerializedName("detail_status")
   @Expose(serialize = false)
