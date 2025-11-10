@@ -6,35 +6,35 @@ import com.wechat.pay.java.core.exception.ServiceException;
 import com.wechat.pay.java.core.exception.ValidationException;
 import java.io.InputStream;
 
-/** HTTP请求客户端，自动生成签名和验证签名 */
+/** HTTP 요청 클라이언트, 자동으로 서명 생성 및 검증 */
 public interface HttpClient {
 
   /**
-   * 发送HTTP请求
+   * HTTP 요청 전송
    *
-   * @param request HTTP请求
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request HTTP 요청
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   <T> HttpResponse<T> execute(HttpRequest request, Class<T> responseClass);
 
   /**
-   * 发送GET请求
+   * GET 요청 전송
    *
-   * @param headers 请求头
-   * @param url 请求URL
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param headers 요청 헤더
+   * @param url 요청 URL
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   default <T> HttpResponse<T> get(HttpHeaders headers, String url, Class<T> responseClass) {
     HttpRequest httpRequest =
@@ -43,18 +43,18 @@ public interface HttpClient {
   }
 
   /**
-   * 发送POST请求
+   * POST 요청 전송
    *
-   * @param headers 请求头
-   * @param url 请求URL
-   * @param body 请求体
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param headers 요청 헤더
+   * @param url 요청 URL
+   * @param body 요청 본문
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   default <T> HttpResponse<T> post(
       HttpHeaders headers, String url, RequestBody body, Class<T> responseClass) {
@@ -69,18 +69,18 @@ public interface HttpClient {
   }
 
   /**
-   * 发送PATCH请求
+   * PATCH 요청 전송
    *
-   * @param headers 请求头
-   * @param url 请求URL
-   * @param body 请求体
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param headers 요청 헤더
+   * @param url 요청 URL
+   * @param body 요청 본문
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   default <T> HttpResponse<T> patch(
       HttpHeaders headers, String url, RequestBody body, Class<T> responseClass) {
@@ -95,18 +95,18 @@ public interface HttpClient {
   }
 
   /**
-   * 发送PUT请求
+   * PUT 요청 전송
    *
-   * @param headers 请求头
-   * @param url 请求URL
-   * @param body 请求体
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param headers 요청 헤더
+   * @param url 요청 URL
+   * @param body 요청 본문
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   default <T> HttpResponse<T> put(
       HttpHeaders headers, String url, RequestBody body, Class<T> responseClass) {
@@ -121,17 +121,17 @@ public interface HttpClient {
   }
 
   /**
-   * 发送DELETE请求
+   * DELETE 요청 전송
    *
-   * @param headers 请求头
-   * @param url 请求URL
-   * @param responseClass 业务返回类的Class对象，如果不确定业务返回类型，或该请求没有返回体，可以传入Object.class
-   * @param <T> 由Class对象建模的类的类型
-   * @return HTTP返回
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param headers 요청 헤더
+   * @param url 요청 URL
+   * @param responseClass 비즈니스 응답 클래스의 Class 객체, 비즈니스 응답 타입을 확정할 수 없거나 해당 요청에 응답 본문이 없는 경우 Object.class를 전달할 수 있음
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return HTTP 응답
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   default <T> HttpResponse<T> delete(HttpHeaders headers, String url, Class<T> responseClass) {
     HttpRequest httpRequest =
@@ -140,10 +140,10 @@ public interface HttpClient {
   }
 
   /**
-   * 下载文件，文件流使用完后需要关闭
+   * 파일 다운로드, 파일 스트림 사용 후 닫아야 함
    *
-   * @param url 请求URL
-   * @return 文件流
+   * @param url 요청 URL
+   * @return 파일 스트림
    */
   InputStream download(String url);
 }

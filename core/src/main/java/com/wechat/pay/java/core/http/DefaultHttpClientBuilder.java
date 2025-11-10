@@ -12,17 +12,17 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 
-/** 默认HttpClient构造器 */
+/** 기본 HttpClient 빌더 */
 public class DefaultHttpClientBuilder
     implements AbstractHttpClientBuilder<DefaultHttpClientBuilder> {
 
   private Credential credential;
   private Validator validator;
 
-  // 最大空闲连接 maxIdleConnections 为5个，跟 OkHttp 默认值保持一致
+  // 최대 유휴 연결 maxIdleConnections는 5개로, OkHttp 기본값과 동일하게 유지
   private static final int MAX_IDLE_CONNECTIONS = 5;
-  // 连接的 Keep-Alive 空闲时长为7秒, 微信支付服务器目前是8秒
-  // 防止空闲客户端被服务器断掉，而造成不必要的重试
+  // 연결의 Keep-Alive 유휴 시간은 7초, 위챗페이 서버는 현재 8초
+  // 유휴 클라이언트가 서버에 의해 끊어져 불필요한 재시도가 발생하는 것을 방지
   private static final int KEEP_ALIVE_SECONDS = 7;
   private static final okhttp3.OkHttpClient defaultOkHttpClient =
       new OkHttpClient.Builder()
@@ -40,9 +40,9 @@ public class DefaultHttpClientBuilder
       new OkHttpMultiDomainInterceptor();
 
   /**
-   * 复制工厂，复制一个当前对象
+   * 팩토리 복사, 현재 객체의 복사본 생성
    *
-   * @return 对象的副本
+   * @return 객체의 복사본
    */
   @Override
   public DefaultHttpClientBuilder newInstance() {
@@ -58,9 +58,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置读超时
+   * 읽기 타임아웃 설정
    *
-   * @param readTimeoutMs 读超时，单位毫秒
+   * @param readTimeoutMs 읽기 타임아웃, 단위 밀리초
    * @return defaultHttpClientBuilder
    */
   public DefaultHttpClientBuilder readTimeoutMs(int readTimeoutMs) {
@@ -69,9 +69,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置写超时
+   * 쓰기 타임아웃 설정
    *
-   * @param writeTimeoutMs 写超时，单位毫秒
+   * @param writeTimeoutMs 쓰기 타임아웃, 단위 밀리초
    * @return defaultHttpClientBuilder
    */
   public DefaultHttpClientBuilder writeTimeoutMs(int writeTimeoutMs) {
@@ -80,9 +80,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置连接超时
+   * 연결 타임아웃 설정
    *
-   * @param connectTimeoutMs 连接超时，单位毫秒
+   * @param connectTimeoutMs 연결 타임아웃, 단위 밀리초
    * @return defaultHttpClientBuilder
    */
   public DefaultHttpClientBuilder connectTimeoutMs(int connectTimeoutMs) {
@@ -91,9 +91,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置凭据生成器
+   * 자격 증명 생성기 설정
    *
-   * @param credential 凭据生成器
+   * @param credential 자격 증명 생성기
    * @return defaultHttpClientBuilder
    */
   @Override
@@ -103,9 +103,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置验证器
+   * 검증기 설정
    *
-   * @param validator 验证器
+   * @param validator 검증기
    * @return defaultHttpClientBuilder
    */
   @Override
@@ -115,9 +115,9 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 设置 okHttpClient 若设置该参数，会覆盖client中的原有配置
+   * okHttpClient 설정, 이 파라미터를 설정하면 client의 기존 설정을 덮어씀
    *
-   * @param okHttpClient 用户自定义的okHttpClient
+   * @param okHttpClient 사용자 정의 okHttpClient
    * @return defaultHttpClientBuilder
    */
   public DefaultHttpClientBuilder okHttpClient(okhttp3.OkHttpClient okHttpClient) {
@@ -139,7 +139,7 @@ public class DefaultHttpClientBuilder
   }
 
   /**
-   * 启用双域名容灾
+   * 이중 도메인 재해 복구 활성화
    *
    * @return defaultHttpClientBuilder
    */
@@ -148,14 +148,14 @@ public class DefaultHttpClientBuilder
     return this;
   }
 
-  /** OkHttp 在网络问题时不重试 */
+  /** OkHttp가 네트워크 문제 시 재시도하지 않음 */
   public DefaultHttpClientBuilder disableRetryOnConnectionFailure() {
     this.retryOnConnectionFailure = false;
     return this;
   }
 
   /**
-   * 构建默认HttpClient
+   * 기본 HttpClient 빌드
    *
    * @return httpClient
    */

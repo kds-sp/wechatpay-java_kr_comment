@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import com.wechat.pay.java.core.util.GsonUtil;
 import java.net.URLConnection;
 
-/** 文件类型请求体 */
+/** 파일 타입 요청 본문 */
 public final class FileRequestBody implements RequestBody {
 
   private final String meta;
@@ -19,27 +19,27 @@ public final class FileRequestBody implements RequestBody {
   }
 
   /**
-   * 获取媒体文件元信息
+   * 미디어 파일 메타 정보 가져오기
    *
-   * @return 媒体文件元信息
+   * @return 미디어 파일 메타 정보
    */
   public String getMeta() {
     return meta;
   }
 
   /**
-   * 获取文件名
+   * 파일명 가져오기
    *
-   * @return 文件名
+   * @return 파일명
    */
   public String getFileName() {
     return fileName;
   }
 
   /**
-   * 获取文件
+   * 파일 가져오기
    *
-   * @return 文件
+   * @return 파일
    */
   public byte[] getFile() {
     return file;
@@ -49,7 +49,7 @@ public final class FileRequestBody implements RequestBody {
   public String getContentType() {
     String contentTypeFromName = URLConnection.guessContentTypeFromName(fileName);
     if (contentTypeFromName == null) {
-      // 表明是某种二进制数据
+      // 어떤 종류의 바이너리 데이터임을 나타냄
       return MediaType.APPLICATION_OCTET_STREAM.getValue();
     }
     return contentTypeFromName;

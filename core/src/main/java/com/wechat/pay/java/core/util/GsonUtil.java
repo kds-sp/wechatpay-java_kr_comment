@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 
-/** Gson工具类 */
+/** Gson 유틸리티 클래스 */
 public class GsonUtil {
 
   private GsonUtil() {}
@@ -49,19 +49,19 @@ public class GsonUtil {
   }
 
   /**
-   * 获取自定义设置的Gson对象
+   * 사용자 정의 설정된 Gson 객체 가져오기
    *
-   * @return Gson对象
+   * @return Gson 객체
    */
   public static Gson getGson() {
     return gson;
   }
 
   /**
-   * 转换对象为JSON格式字符串
+   * 객체를 JSON 형식 문자열로 변환
    *
-   * @param object 待转换对象
-   * @return JSON格式字符串
+   * @param object 변환할 객체
+   * @return JSON 형식 문자열
    */
   public static String toJson(Object object) {
     return gson.toJson(object);

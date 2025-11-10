@@ -10,7 +10,7 @@ import com.wechat.pay.java.core.util.PemUtil;
 import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
 
-/** 签名类型为RSA的通知配置参数 */
+/** 서명 타입이 RSA인 알림 설정 파라미터 */
 public final class RSAPublicKeyNotificationConfig extends AbstractNotificationConfig {
 
   private RSAPublicKeyNotificationConfig(

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/** HTTP请求头 */
+/** HTTP 요청 헤더 */
 public class HttpHeaders {
 
   private final Map<String, String> headers = new HashMap<>();
@@ -18,29 +18,29 @@ public class HttpHeaders {
   }
 
   /**
-   * 增加请求头参数
+   * 요청 헤더 파라미터 추가
    *
-   * @param name 参数名称
-   * @param value 参数值
+   * @param name 파라미터 이름
+   * @param value 파라미터 값
    */
   public void addHeader(String name, String value) {
     headers.put(requireNonNull(name), requireNonNull(value));
   }
 
   /**
-   * 获取请求头参数
+   * 요청 헤더 파라미터 가져오기
    *
-   * @param name 参数名称
-   * @return 参数值
+   * @param name 파라미터 이름
+   * @return 파라미터 값
    */
   public String getHeader(String name) {
     return headers.get(name);
   }
 
   /**
-   * 获取请求头
+   * 요청 헤더 가져오기
    *
-   * @return 请求头
+   * @return 요청 헤더
    */
   public Map<String, String> getHeaders() {
     return new HashMap<>(headers);

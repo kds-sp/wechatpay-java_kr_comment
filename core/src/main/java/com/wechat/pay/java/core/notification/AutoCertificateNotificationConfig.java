@@ -13,10 +13,10 @@ import com.wechat.pay.java.core.http.HttpClient;
 import java.nio.charset.StandardCharsets;
 
 /**
- * 通知回调配置类
+ * 알림 콜백 설정 클래스
  *
- * @deprecated 请使用 RSAAutoCertificateConfig。 从版本 v0.2.4 起, 该类是多余的，而且功能不完整。
- *     开发者应尽快迁移。我们将在未来某个时间移除这段废弃的代码。
+ * @deprecated RSAAutoCertificateConfig를 사용하세요. 버전 v0.2.4부터 이 클래스는 불필요하며 기능이 불완전합니다.
+ *     개발자는 가능한 한 빨리 마이그레이션해야 합니다. 향후 어느 시점에 이 폐기된 코드를 제거할 예정입니다.
  */
 @Deprecated
 public final class AutoCertificateNotificationConfig extends AbstractNotificationConfig {

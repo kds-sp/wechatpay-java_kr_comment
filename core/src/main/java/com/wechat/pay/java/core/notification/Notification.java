@@ -3,7 +3,7 @@ package com.wechat.pay.java.core.notification;
 import com.google.gson.annotations.SerializedName;
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 微信支付回调通知 */
+/** 위챗페이 콜백 알림 */
 public class Notification {
 
   @SerializedName("id")

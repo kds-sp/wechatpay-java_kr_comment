@@ -1,12 +1,12 @@
 package com.wechat.pay.java.core.http;
 
-/** HTTP请求体 */
+/** HTTP 요청 본문 */
 public interface RequestBody {
 
   /**
-   * 获取请求体的数据类型
+   * 요청 본문의 데이터 타입 가져오기
    *
-   * @return 请求体的数据类型
+   * @return 요청 본문의 데이터 타입
    */
   String getContentType();
 }

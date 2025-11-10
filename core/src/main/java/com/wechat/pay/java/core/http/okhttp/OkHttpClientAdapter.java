@@ -23,7 +23,7 @@ import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** OkHttp请求客户端 */
+/** OkHttp 요청 클라이언트 */
 public final class OkHttpClientAdapter extends AbstractHttpClient {
 
   private static final Logger logger = LoggerFactory.getLogger(OkHttpClientAdapter.class);

@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.http;
 
 import static java.util.Objects.requireNonNull;
 
-/** HTTP媒体类型 */
+/** HTTP 미디어 타입 */
 public enum MediaType {
   APPLICATION_JSON("application/json"),
   MULTIPART_FORM_DATA("multipart/form-data"),

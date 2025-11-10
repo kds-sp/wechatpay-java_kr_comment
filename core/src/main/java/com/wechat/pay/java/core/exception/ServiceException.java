@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import com.wechat.pay.java.core.http.HttpRequest;
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 发送HTTP请求成功，返回异常时抛出。例如返回状态码小于200或大于等于300、返回体参数不完整。 */
+/** HTTP 요청 전송 성공, 응답 예외 시 발생. 예: 응답 상태 코드가 200 미만이거나 300 이상, 응답 본문 파라미터가 불완전한 경우. */
 public class ServiceException extends WechatPayException {
 
   private static final long serialVersionUID = -7174975090366956652L;
@@ -17,11 +17,11 @@ public class ServiceException extends WechatPayException {
   private String errorMessage;
 
   /**
-   * 返回状态码小于200或大于300调用
+   * 응답 상태 코드가 200 미만이거나 300 이상일 때 호출
    *
-   * @param httpRequest http请求
-   * @param httpStatusCode http状态码
-   * @param responseBody http返回体
+   * @param httpRequest http 요청
+   * @param httpStatusCode http 상태 코드
+   * @param responseBody http 응답 본문
    */
   public ServiceException(HttpRequest httpRequest, int httpStatusCode, String responseBody) {
     super(
@@ -41,7 +41,7 @@ public class ServiceException extends WechatPayException {
   }
 
   /**
-   * 获取序列化版本UID
+   * 직렬화 버전 UID 가져오기
    *
    * @return UID
    */
@@ -50,27 +50,27 @@ public class ServiceException extends WechatPayException {
   }
 
   /**
-   * 获取HTTP请求
+   * HTTP 요청 가져오기
    *
-   * @return HTTP请求
+   * @return HTTP 요청
    */
   public HttpRequest getHttpRequest() {
     return httpRequest;
   }
 
   /**
-   * 获取HTTP返回体
+   * HTTP 응답 본문 가져오기
    *
-   * @return HTTP返回体
+   * @return HTTP 응답 본문
    */
   public String getResponseBody() {
     return responseBody;
   }
 
   /**
-   * 获取HTTP状态码
+   * HTTP 상태 코드 가져오기
    *
-   * @return HTTP状态码
+   * @return HTTP 상태 코드
    */
   public int getHttpStatusCode() {
     return httpStatusCode;

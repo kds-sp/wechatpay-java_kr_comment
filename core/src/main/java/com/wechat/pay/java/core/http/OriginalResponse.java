@@ -21,27 +21,27 @@ public class OriginalResponse {
   }
 
   /**
-   * 获取返回头
+   * 응답 헤더 가져오기
    *
-   * @return 返回头
+   * @return 응답 헤더
    */
   public HttpHeaders getHeaders() {
     return headers;
   }
 
   /**
-   * 获取返回对应的请求
+   * 응답에 해당하는 요청 가져오기
    *
-   * @return 请求
+   * @return 요청
    */
   public HttpRequest getRequest() {
     return request;
   }
 
   /**
-   * 获取返回体
+   * 응답 본문 가져오기
    *
-   * @return 返回体
+   * @return 응답 본문
    */
   public String getBody() {
     return body;
@@ -66,7 +66,7 @@ public class OriginalResponse {
     private String jsonBody;
 
     /**
-     * 设置返回contentType
+     * 응답 contentType 설정
      *
      * @param contentType contentType
      * @return OriginalResponse Builder
@@ -77,9 +77,9 @@ public class OriginalResponse {
     }
 
     /**
-     * 设置返回headers
+     * 응답 headers 설정
      *
-     * @param headers contentType
+     * @param headers headers
      * @return OriginalResponse Builder
      */
     public Builder headers(Map<String, String> headers) {
@@ -88,7 +88,7 @@ public class OriginalResponse {
     }
 
     /**
-     * 设置request
+     * request 설정
      *
      * @param request request
      * @return OriginalResponse Builder
@@ -99,7 +99,7 @@ public class OriginalResponse {
     }
 
     /**
-     * 设置返回statusCode
+     * 응답 statusCode 설정
      *
      * @param statusCode statusCode
      * @return OriginalResponse Builder
@@ -110,7 +110,7 @@ public class OriginalResponse {
     }
 
     /**
-     * 设置返回body
+     * 응답 body 설정
      *
      * @param jsonBody jsonBody
      * @return OriginalResponse Builder
@@ -121,7 +121,7 @@ public class OriginalResponse {
     }
 
     /**
-     * 构建 OriginalResponse
+     * OriginalResponse 빌드
      *
      * @return OriginalResponse
      */

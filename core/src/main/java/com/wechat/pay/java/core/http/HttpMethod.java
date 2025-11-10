@@ -1,6 +1,6 @@
 package com.wechat.pay.java.core.http;
 
-/** HTTP方法 */
+/** HTTP 메서드 */
 public enum HttpMethod {
   GET,
 

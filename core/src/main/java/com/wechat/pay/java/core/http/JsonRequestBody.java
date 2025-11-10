@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** HTTP JSON类型请求体 */
+/** HTTP JSON 타입 요청 본문 */
 public final class JsonRequestBody implements RequestBody {
 
   private final String body;
@@ -14,9 +14,9 @@ public final class JsonRequestBody implements RequestBody {
   }
 
   /**
-   * 获取请求体
+   * 요청 본문 가져오기
    *
-   * @return 请求体
+   * @return 요청 본문
    */
   public String getBody() {
     return body;

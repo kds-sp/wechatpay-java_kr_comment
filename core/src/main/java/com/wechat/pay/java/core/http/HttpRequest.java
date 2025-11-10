@@ -9,7 +9,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-/** HTTP请求 */
+/** HTTP 요청 */
 public final class HttpRequest {
 
   private final HttpMethod httpMethod;
@@ -28,7 +28,7 @@ public final class HttpRequest {
   }
 
   /**
-   * 获取HttpMethod
+   * HttpMethod 가져오기
    *
    * @return httpMethod
    */
@@ -37,36 +37,36 @@ public final class HttpRequest {
   }
 
   /**
-   * 获取请求URL
+   * 요청 URL 가져오기
    *
-   * @return 请求URL
+   * @return 요청 URL
    */
   public URL getUrl() {
     return url;
   }
 
   /**
-   * 获取请求URI
+   * 요청 URI 가져오기
    *
-   * @return 请求uri
+   * @return 요청 uri
    */
   public URI getUri() {
     return uri;
   }
 
   /**
-   * 获取请求头
+   * 요청 헤더 가져오기
    *
-   * @return 请求头
+   * @return 요청 헤더
    */
   public HttpHeaders getHeaders() {
     return headers;
   }
 
   /**
-   * 获取请求体
+   * 요청 본문 가져오기
    *
-   * @return 请求体
+   * @return 요청 본문
    */
   public RequestBody getBody() {
     return body;
@@ -85,7 +85,7 @@ public final class HttpRequest {
     private RequestBody body;
 
     /**
-     * 设置httpMethod
+     * httpMethod 설정
      *
      * @param httpMethod httpMethod
      * @return Builder
@@ -96,7 +96,7 @@ public final class HttpRequest {
     }
 
     /**
-     * 设置url
+     * url 설정
      *
      * @param url url
      * @return Builder
@@ -107,7 +107,7 @@ public final class HttpRequest {
     }
 
     /**
-     * 设置url
+     * url 설정
      *
      * @param urlString urlString
      * @return Builder
@@ -123,7 +123,7 @@ public final class HttpRequest {
     }
 
     /**
-     * 重置headers
+     * headers 재설정
      *
      * @param headers headers
      * @return Builder
@@ -134,7 +134,7 @@ public final class HttpRequest {
     }
 
     /**
-     * 添加header
+     * header 추가
      *
      * @param name name
      * @param value value
@@ -146,7 +146,7 @@ public final class HttpRequest {
     }
 
     /**
-     * 设置body
+     * body 설정
      *
      * @param body body
      * @return Builder
@@ -157,10 +157,10 @@ public final class HttpRequest {
     }
 
     /**
-     * 构建HttpRequest
+     * HttpRequest 빌드
      *
      * @return HttpRequest
-     * @throws HttpException url转uri失败
+     * @throws HttpException url을 uri로 변환 실패
      */
     public HttpRequest build() {
       try {

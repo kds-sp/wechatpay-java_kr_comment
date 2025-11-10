@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.notification;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 通知数据 */
+/** 알림 데이터 */
 public class Resource {
 
   private String algorithm;

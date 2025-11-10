@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/** I/O工具 */
+/** I/O 유틸리티 */
 public class IOUtil {
 
   private static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -15,11 +15,11 @@ public class IOUtil {
   private IOUtil() {}
 
   /**
-   * 转换输入流为字节数组
+   * 입력 스트림을 바이트 배열로 변환
    *
-   * @param inputStream 输入流
-   * @return 字节数组
-   * @throws IOException 读取字节失败、关闭流失败等
+   * @param inputStream 입력 스트림
+   * @return 바이트 배열
+   * @throws IOException 바이트 읽기 실패, 스트림 닫기 실패 등
    */
   public static byte[] toByteArray(InputStream inputStream) throws IOException {
     ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -34,22 +34,22 @@ public class IOUtil {
   }
 
   /**
-   * 转换输入流为字符串
+   * 입력 스트림을 문자열로 변환
    *
-   * @param inputStream 输入流
-   * @return UTF-8编码的字符串
-   * @throws IOException 读取字节失败、关闭流失败等
+   * @param inputStream 입력 스트림
+   * @return UTF-8 인코딩된 문자열
+   * @throws IOException 바이트 읽기 실패, 스트림 닫기 실패 등
    */
   public static String toString(InputStream inputStream) throws IOException {
     return new String(toByteArray(inputStream), StandardCharsets.UTF_8);
   }
 
   /**
-   * 从文件路径中读取字符串
+   * 파일 경로에서 문자열 읽기
    *
-   * @param path 文件路径
-   * @return UTF-8编码的字符串
-   * @throws IOException 读取字节失败、关闭流失败等
+   * @param path 파일 경로
+   * @return UTF-8 인코딩된 문자열
+   * @throws IOException 바이트 읽기 실패, 스트림 닫기 실패 등
    */
   public static String loadStringFromPath(String path) throws IOException {
     try (InputStream inputStream = Files.newInputStream(Paths.get(path))) {

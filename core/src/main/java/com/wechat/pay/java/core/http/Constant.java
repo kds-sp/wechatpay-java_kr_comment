@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/** HTTP常量 */
+/** HTTP 상수 */
 public final class Constant {
 
   /**
-   * User-Agent头部值格式：WechatPay-Java/版本 操作系统/版本 Java/版本 Credential/Credential信息 Validator/Validator信息
-   * HttpClient信息 示例： WechatPay-Java/0.0.1 (Linux/3.10.0-957.el7.x86_64) Java/1.8.0_222
+   * User-Agent 헤더 값 형식: WechatPay-Java/버전 운영체제/버전 Java/버전 Credential/Credential 정보 Validator/Validator 정보
+   * HttpClient 정보 예시: WechatPay-Java/0.0.1 (Linux/3.10.0-957.el7.x86_64) Java/1.8.0_222
    * Crendetial/WechatPay2Crendetial Validator/WechatPay2Validator okhttp3/4.9.3
    */
   public static final String USER_AGENT_FORMAT =

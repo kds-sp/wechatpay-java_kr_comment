@@ -3,34 +3,34 @@ package com.wechat.pay.java.core.notification;
 import com.wechat.pay.java.core.cipher.AeadCipher;
 import com.wechat.pay.java.core.cipher.Verifier;
 
-/** 用于解析通知的配置 */
+/** 알림 파싱을 위한 설정 */
 public interface NotificationConfig {
 
   /**
-   * 获取签名类型
+   * 서명 타입 가져오기
    *
-   * @return 签名类型
+   * @return 서명 타입
    */
   String getSignType();
 
   /**
-   * 获取认证加解密器类型
+   * 인증 암호화/복호화기 타입 가져오기
    *
-   * @return 认证加解密器类型
+   * @return 인증 암호화/복호화기 타입
    */
   String getCipherType();
 
   /**
-   * 创建验签器
+   * 서명 검증기 생성
    *
-   * @return 验签器
+   * @return 서명 검증기
    */
   Verifier createVerifier();
 
   /**
-   * 创建认证加解密器
+   * 인증 암호화/복호화기 생성
    *
-   * @return 认证加解密器
+   * @return 인증 암호화/복호화기
    */
   AeadCipher createAeadCipher();
 }

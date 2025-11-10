@@ -10,7 +10,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
-/** 默认HttpClient构造器 */
+/** 기본 HttpClient 빌더 */
 public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<ApacheHttpClientBuilder> {
 
   private Credential credential;
@@ -29,9 +29,9 @@ public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<Apache
   }
 
   /**
-   * 复制工厂，复制一个当前对象
+   * 팩토리 복사, 현재 객체의 복사본 생성
    *
-   * @return 对象的副本
+   * @return 객체의 복사본
    */
   @Override
   public ApacheHttpClientBuilder newInstance() {
@@ -43,9 +43,9 @@ public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<Apache
   }
 
   /**
-   * 设置凭据生成器
+   * 자격 증명 생성기 설정
    *
-   * @param credential 凭据生成器
+   * @param credential 자격 증명 생성기
    * @return apacheHttpClientBuilder
    */
   @Override
@@ -55,9 +55,9 @@ public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<Apache
   }
 
   /**
-   * 设置验证器
+   * 검증기 설정
    *
-   * @param validator 验证器
+   * @param validator 검증기
    * @return apacheHttpClientBuilder
    */
   @Override
@@ -67,9 +67,9 @@ public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<Apache
   }
 
   /**
-   * 设置 appacheHttpClient，若没有设置，则使用默认创建的 appacheHttpClient
+   * apacheHttpClient 설정, 설정하지 않으면 기본으로 생성된 apacheHttpClient 사용
    *
-   * @param apacheHttpClient 用户自定义的apacheHttpClient
+   * @param apacheHttpClient 사용자 정의 apacheHttpClient
    * @return apacheHttpClientBuilder
    */
   public ApacheHttpClientBuilder apacheHttpClient(CloseableHttpClient apacheHttpClient) {
@@ -85,7 +85,7 @@ public class ApacheHttpClientBuilder implements AbstractHttpClientBuilder<Apache
   }
 
   /**
-   * 构建默认HttpClient
+   * 기본 HttpClient 빌드
    *
    * @return httpClient
    */

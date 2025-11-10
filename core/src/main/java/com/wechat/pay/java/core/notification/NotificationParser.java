@@ -13,7 +13,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 通知解析器 */
+/** 알림 파서 */
 public class NotificationParser {
 
   private final Gson gson = GsonUtil.getGson();
@@ -36,14 +36,14 @@ public class NotificationParser {
   }
 
   /**
-   * 解析微信支付回调通知
+   * 위챗페이 콜백 알림 파싱
    *
-   * @param requestParam 解析通知所需要的请求参数
-   * @param decryptObjectClass 解密数据的Class对象
-   * @param <T> 由Class对象建模的类的类型
-   * @return 解密后的回调报文
-   * @throws MalformedMessageException 回调通知参数不正确、解析通知数据失败
-   * @throws ValidationException 签名验证失败
+   * @param requestParam 알림 파싱에 필요한 요청 파라미터
+   * @param decryptObjectClass 복호화할 데이터의 Class 객체
+   * @param <T> Class 객체로 모델링된 클래스의 타입
+   * @return 복호화된 콜백 메시지
+   * @throws MalformedMessageException 콜백 알림 파라미터가 올바르지 않거나 알림 데이터 파싱 실패
+   * @throws ValidationException 서명 검증 실패
    */
   public <T> T parse(RequestParam requestParam, Class<T> decryptObjectClass) {
     validateRequest(requestParam);

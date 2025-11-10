@@ -16,9 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 通知回调配置类
+ * 알림 콜백 설정 클래스
  *
- * @deprecated 请使用 RSAAutoCertificateConfig，开发者应尽快迁移，我们将在未来某个时间移除这段废弃的代码。
+ * @deprecated RSAAutoCertificateConfig를 사용하세요. 개발자는 가능한 한 빨리 마이그레이션해야 하며, 향후 어느 시점에 이 폐기된 코드를 제거할 예정입니다.
  */
 public final class RSANotificationConfig extends AbstractNotificationConfig {
 

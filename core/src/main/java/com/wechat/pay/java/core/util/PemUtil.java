@@ -21,16 +21,16 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
-/** PEM工具 */
+/** PEM 유틸리티 */
 public class PemUtil {
 
   private PemUtil() {}
 
   /**
-   * 从字符串中加载RSA私钥。
+   * 문자열에서 RSA 개인키 로드
    *
-   * @param keyString 私钥字符串
-   * @return RSA私钥
+   * @param keyString 개인키 문자열
+   * @return RSA 개인키
    */
   public static PrivateKey loadPrivateKeyFromString(String keyString) {
     try {
@@ -49,12 +49,12 @@ public class PemUtil {
   }
 
   /**
-   * 从字符串中加载指定算法的私钥
+   * 문자열에서 지정된 알고리즘의 개인키 로드
    *
-   * @param keyString 私钥字符串
-   * @param algorithm 私钥算法
+   * @param keyString 개인키 문자열
+   * @param algorithm 개인키 알고리즘
    * @param provider the provider
-   * @return 私钥
+   * @return 개인키
    */
   public static PrivateKey loadPrivateKeyFromString(
       String keyString, String algorithm, String provider) {
@@ -74,10 +74,10 @@ public class PemUtil {
   }
 
   /**
-   * 从字符串中加载RSA公钥。
+   * 문자열에서 RSA 공개키 로드
    *
-   * @param keyString 公钥字符串
-   * @return RSA公钥
+   * @param keyString 공개키 문자열
+   * @return RSA 공개키
    */
   public static PublicKey loadPublicKeyFromString(String keyString) {
     try {
@@ -96,22 +96,22 @@ public class PemUtil {
   }
 
   /**
-   * 从文件路径加载RSA私钥
+   * 파일 경로에서 RSA 개인키 로드
    *
-   * @param keyPath 私钥路径
-   * @return RSA私钥
+   * @param keyPath 개인키 경로
+   * @return RSA 개인키
    */
   public static PrivateKey loadPrivateKeyFromPath(String keyPath) {
     return loadPrivateKeyFromString(readKeyStringFromPath(keyPath));
   }
 
   /**
-   * 从文件路径加载指定算法的私钥
+   * 파일 경로에서 지정된 알고리즘의 개인키 로드
    *
-   * @param keyPath 私钥路径
-   * @param algorithm 私钥算法
+   * @param keyPath 개인키 경로
+   * @param algorithm 개인키 알고리즘
    * @param provider the provider
-   * @return 私钥
+   * @return 개인키
    */
   public static PrivateKey loadPrivateKeyFromPath(
       String keyPath, String algorithm, String provider) {
@@ -119,10 +119,10 @@ public class PemUtil {
   }
 
   /**
-   * 从文件路径加载RSA公钥
+   * 파일 경로에서 RSA 공개키 로드
    *
-   * @param keyPath 公钥路径
-   * @return RSA公钥
+   * @param keyPath 공개키 경로
+   * @return RSA 공개키
    */
   public static PublicKey loadPublicKeyFromPath(String keyPath) {
     return loadPublicKeyFromString(readKeyStringFromPath(keyPath));
@@ -137,10 +137,10 @@ public class PemUtil {
   }
 
   /**
-   * 从输入流加载X.509证书
+   * 입력 스트림에서 X.509 인증서 로드
    *
-   * @param inputStream 私钥输入流
-   * @return X.509证书
+   * @param inputStream 인증서 입력 스트림
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromStream(InputStream inputStream) {
     try {
@@ -152,11 +152,11 @@ public class PemUtil {
   }
 
   /**
-   * 从输入流加载X.509证书
+   * 입력 스트림에서 X.509 인증서 로드
    *
-   * @param inputStream 私钥输入流
+   * @param inputStream 인증서 입력 스트림
    * @param provider the provider
-   * @return X.509证书
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromStream(InputStream inputStream, String provider) {
     try {
@@ -168,10 +168,10 @@ public class PemUtil {
   }
 
   /**
-   * 从文件路径加载X.509证书
+   * 파일 경로에서 X.509 인증서 로드
    *
-   * @param certificatePath 证书文件路径
-   * @return X.509证书
+   * @param certificatePath 인증서 파일 경로
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromPath(String certificatePath) {
     try (FileInputStream inputStream = new FileInputStream(certificatePath)) {
@@ -182,11 +182,11 @@ public class PemUtil {
   }
 
   /**
-   * 从文件路径加载X.509证书
+   * 파일 경로에서 X.509 인증서 로드
    *
-   * @param certificatePath 证书文件路径
+   * @param certificatePath 인증서 파일 경로
    * @param provider the provider
-   * @return X.509证书
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromPath(String certificatePath, String provider) {
     try (FileInputStream inputStream = new FileInputStream(certificatePath)) {
@@ -197,10 +197,10 @@ public class PemUtil {
   }
 
   /**
-   * 从字符串加载X.509证书
+   * 문자열에서 X.509 인증서 로드
    *
-   * @param certificateString 证书字符串
-   * @return X.509证书
+   * @param certificateString 인증서 문자열
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromString(String certificateString) {
     try (ByteArrayInputStream inputStream =
@@ -212,11 +212,11 @@ public class PemUtil {
   }
 
   /**
-   * 从字符串加载X.509证书
+   * 문자열에서 X.509 인증서 로드
    *
-   * @param certificateString 证书字符串
+   * @param certificateString 인증서 문자열
    * @param provider the provider
-   * @return X.509证书
+   * @return X.509 인증서
    */
   public static X509Certificate loadX509FromString(String certificateString, String provider) {
     try (ByteArrayInputStream inputStream =

@@ -6,9 +6,9 @@ import com.wechat.pay.java.core.util.GsonUtil;
 import java.util.Objects;
 
 /**
- * HTTP返回
+ * HTTP 응답
  *
- * @param <T> 业务返回体类型
+ * @param <T> 비즈니스 응답 본문 타입
  */
 public final class HttpResponse<T> {
 
@@ -26,36 +26,36 @@ public final class HttpResponse<T> {
   }
 
   /**
-   * 获取返回头
+   * 응답 헤더 가져오기
    *
-   * @return 返回头
+   * @return 응답 헤더
    */
   public HttpHeaders getHeaders() {
     return headers;
   }
 
   /**
-   * 获取返回对应的请求
+   * 응답에 해당하는 요청 가져오기
    *
-   * @return 请求
+   * @return 요청
    */
   public HttpRequest getRequest() {
     return request;
   }
 
   /**
-   * 获取返回体
+   * 응답 본문 가져오기
    *
-   * @return 返回体
+   * @return 응답 본문
    */
   public ResponseBody getBody() {
     return body;
   }
 
   /**
-   * 获取业务返回
+   * 비즈니스 응답 가져오기
    *
-   * @return 业务返回
+   * @return 비즈니스 응답
    */
   public T getServiceResponse() {
     return serviceResponse;
@@ -82,7 +82,7 @@ public final class HttpResponse<T> {
     }
 
     /**
-     * 构造 HttpResponse
+     * HttpResponse 구성
      *
      * @return httpResponse
      */

@@ -14,7 +14,7 @@ import com.wechat.pay.java.core.util.PemUtil;
 import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
 
-/** 通知回调配置类 该类仅在商户由平台证书切换为平台公钥的灰度阶段使用，灰度完成后请切换为RSAPublicKeyNotificationConfig */
+/** 알림 콜백 설정 클래스, 이 클래스는 가맹점이 플랫폼 인증서에서 플랫폼 공개키로 전환하는 그레이스케일 단계에서만 사용하며, 그레이스케일 완료 후 RSAPublicKeyNotificationConfig로 전환해야 함 */
 public final class RSACombinedNotificationConfig extends AbstractNotificationConfig {
 
   private RSACombinedNotificationConfig(

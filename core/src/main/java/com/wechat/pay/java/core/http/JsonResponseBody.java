@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.http;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** JSON类型返回体 */
+/** JSON 타입 응답 본문 */
 public final class JsonResponseBody implements ResponseBody {
 
   private final String body;
@@ -12,9 +12,9 @@ public final class JsonResponseBody implements ResponseBody {
   }
 
   /**
-   * 获取返回体
+   * 응답 본문 가져오기
    *
-   * @return 返回体
+   * @return 응답 본문
    */
   public String getBody() {
     return body;

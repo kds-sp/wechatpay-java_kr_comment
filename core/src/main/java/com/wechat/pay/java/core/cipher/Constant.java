@@ -1,6 +1,6 @@
 package com.wechat.pay.java.core.cipher;
 
-/** 用于签名和加密的常量 */
+/** 서명 및 암호화에 사용되는 상수 */
 public final class Constant {
 
   public static final String SHA256WITHRSA = "SHA256withRSA";

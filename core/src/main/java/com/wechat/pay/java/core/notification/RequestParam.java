@@ -4,7 +4,7 @@ import static com.wechat.pay.java.core.notification.Constant.RSA_SIGN_TYPE;
 
 import com.wechat.pay.java.core.util.GsonUtil;
 
-/** 微信支付通知请求参数 */
+/** 위챗페이 알림 요청 파라미터 */
 public class RequestParam {
 
   private final String serialNumber;
@@ -19,7 +19,7 @@ public class RequestParam {
     this.signature = signature;
     this.message = message;
     this.body = body;
-    // 回调报文头新增Wechatpay-Signature-Type，默认为WECHATPAY2-SHA256-RSA2048
+    // 콜백 메시지 헤더에 Wechatpay-Signature-Type 추가, 기본값은 WECHATPAY2-SHA256-RSA2048
     if (signType == null || signType.isEmpty()) {
       this.signType = RSA_SIGN_TYPE;
     } else {

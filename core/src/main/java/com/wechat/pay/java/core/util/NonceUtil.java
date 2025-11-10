@@ -2,7 +2,7 @@ package com.wechat.pay.java.core.util;
 
 import java.security.SecureRandom;
 
-/** 随机串生成工具 */
+/** 랜덤 문자열 생성 유틸리티 */
 public class NonceUtil {
 
   private NonceUtil() {}
@@ -12,10 +12,10 @@ public class NonceUtil {
   private static final SecureRandom random = new SecureRandom();
 
   /**
-   * 使用SecureRandom生成随机串
+   * SecureRandom을 사용하여 랜덤 문자열 생성
    *
-   * @param length 随机串长度
-   * @return nonce 随机串
+   * @param length 랜덤 문자열 길이
+   * @return nonce 랜덤 문자열
    */
   public static String createNonce(int length) {
     char[] buf = new char[length];

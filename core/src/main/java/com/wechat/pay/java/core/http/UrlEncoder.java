@@ -7,10 +7,10 @@ import java.nio.charset.StandardCharsets;
 public class UrlEncoder {
 
   /**
-   * 对参数进行url编码
+   * 파라미터를 URL 인코딩
    *
-   * @param string 待编码的字符串
-   * @return 编码后的字符串
+   * @param string 인코딩할 문자열
+   * @return 인코딩된 문자열
    */
   public static String urlEncode(String string) {
     try {

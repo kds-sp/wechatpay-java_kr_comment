@@ -1,14 +1,14 @@
 package com.wechat.pay.java.core.util;
 
-/** 字符串工具类 */
+/** 문자열 유틸리티 클래스 */
 public class StringUtil {
   private StringUtil() {}
 
   /**
-   * 将给定对象转换为字符串，每行缩进 4 个空格（除了首行）
+   * 주어진 객체를 문자열로 변환하며, 각 줄을 4개의 공백으로 들여쓰기 (첫 줄 제외)
    *
-   * @param o 对象
-   * @return 格式化字符串
+   * @param o 객체
+   * @return 포맷된 문자열
    */
   public static String toIndentedString(Object o) {
     if (o == null) {
