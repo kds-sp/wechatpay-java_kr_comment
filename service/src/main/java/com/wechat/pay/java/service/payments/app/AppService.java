@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제 API
 //
 // API version: 1.2.3
 
@@ -39,7 +39,7 @@ import com.wechat.pay.java.service.payments.app.model.QueryOrderByIdRequest;
 import com.wechat.pay.java.service.payments.app.model.QueryOrderByOutTradeNoRequest;
 import com.wechat.pay.java.service.payments.model.Transaction;
 
-/** AppService服务 */
+/** AppService 서비스 */
 public class AppService {
 
   private final HttpClient httpClient;
@@ -50,16 +50,16 @@ public class AppService {
     this.hostName = hostName;
   }
 
-  /** AppService构造器 */
+  /** AppService 빌더 */
   public static class Builder {
 
     private HttpClient httpClient;
     private HostName hostName;
 
     /**
-     * 设置请求配置，以该配置构造默认的httpClient，若未调用httpClient()方法，则必须调用该方法
+     * 요청 설정, 이 설정으로 기본 httpClient 구성, httpClient() 메서드를 호출하지 않은 경우 이 메서드를 호출해야 함
      *
-     * @param config 请求配置
+     * @param config 요청 설정
      * @return Builder
      */
     public Builder config(Config config) {
@@ -69,9 +69,9 @@ public class AppService {
     }
 
     /**
-     * 设置微信支付域名，可选，默认为api.mch.weixin.qq.com
+     * 위챗페이 도메인 설정, 선택 사항, 기본값은 api.mch.weixin.qq.com
      *
-     * @param hostName 微信支付域名
+     * @param hostName 위챗페이 도메인
      * @return Builder
      */
     public Builder hostName(HostName hostName) {
@@ -80,7 +80,7 @@ public class AppService {
     }
 
     /**
-     * 设置自定义httpClient，若未调用config()，则必须调用该方法
+     * 사용자 정의 httpClient 설정, config()를 호출하지 않은 경우 이 메서드를 호출해야 함
      *
      * @param httpClient httpClient
      * @return Builder
@@ -91,7 +91,7 @@ public class AppService {
     }
 
     /**
-     * 构造服务
+     * 서비스 구성
      *
      * @return AppService
      */
@@ -101,20 +101,20 @@ public class AppService {
   }
 
   /**
-   * 关闭订单
+   * 주문 닫기
    *
-   * @param request 请求参数
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request 요청 파라미터
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public void closeOrder(CloseOrderRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/pay/transactions/out-trade-no/{out_trade_no}/close";
 
     CloseOrderRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_trade_no" + "}", urlEncode(realRequest.getOutTradeNo()));
 
@@ -135,14 +135,14 @@ public class AppService {
   }
 
   /**
-   * APP支付下单
+   * APP 결제 주문
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return PrepayResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public PrepayResponse prepay(PrepayRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/pay/transactions/app";
@@ -166,25 +166,25 @@ public class AppService {
   }
 
   /**
-   * 微信支付订单号查询订单
+   * 위챗페이 주문 번호로 주문 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return Transaction
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public Transaction queryOrderById(QueryOrderByIdRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/pay/transactions/id/{transaction_id}";
 
     QueryOrderByIdRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace(
             "{" + "transaction_id" + "}", urlEncode(realRequest.getTransactionId()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getMchid() != null) {
       queryParameter.add("mchid", urlEncode(realRequest.getMchid()));
@@ -207,25 +207,25 @@ public class AppService {
   }
 
   /**
-   * 商户订单号查询订单
+   * 가맹점 주문 번호로 주문 조회
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return Transaction
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public Transaction queryOrderByOutTradeNo(QueryOrderByOutTradeNoRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/pay/transactions/out-trade-no/{out_trade_no}";
 
     QueryOrderByOutTradeNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_trade_no" + "}", urlEncode(realRequest.getOutTradeNo()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getMchid() != null) {
       queryParameter.add("mchid", urlEncode(realRequest.getMchid()));
