@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -18,43 +18,43 @@ import java.util.List;
 
 /** Amount */
 public class Amount {
-  /** 订单金额 说明：订单总金额，单位为分 */
+  /** 주문 금액 설명: 주문 총액, 단위는 분 */
   @SerializedName("total")
   private Long total;
 
-  /** 退款金额 说明：退款标价金额，单位为分，可以做部分退款 */
+  /** 환불 금액 설명: 환불 표시 금액, 단위는 분, 부분 환불 가능 */
   @SerializedName("refund")
   private Long refund;
 
-  /** 退款出资账户及金额 说明：退款出资的账户类型及金额信息 */
+  /** 환불 출자 계좌 및 금액 설명: 환불 출자의 계좌 유형 및 금액 정보 */
   @SerializedName("from")
   private List<FundsFromItem> from;
 
-  /** 用户支付金额 说明：现金支付金额，单位为分，只能为整数 */
+  /** 사용자 결제 금액 설명: 현금 결제 금액, 단위는 분, 정수만 가능 */
   @SerializedName("payer_total")
   private Long payerTotal;
 
-  /** 用户退款金额 说明：退款给用户的金额，不包含所有优惠券金额 */
+  /** 사용자 환불 금액 설명: 사용자에게 환불하는 금액, 모든 쿠폰 금액 포함하지 않음 */
   @SerializedName("payer_refund")
   private Long payerRefund;
 
-  /** 应结退款金额 说明：去掉非充值代金券退款金额后的退款金额，单位为分，退款金额=申请退款金额-非充值代金券退款金额，退款金额<=申请退款金额 */
+  /** 정산 환불 금액 설명: 비충전 상품권 환불 금액을 제외한 환불 금액, 단위는 분, 환불 금액=신청 환불 금액-비충전 상품권 환불 금액, 환불 금액<=신청 환불 금액 */
   @SerializedName("settlement_refund")
   private Long settlementRefund;
 
-  /** 应结订单金额 说明：应结订单金额=订单金额-免充值代金券金额，应结订单金额<=订单金额，单位为分 */
+  /** 정산 주문 금액 설명: 정산 주문 금액=주문 금액-무충전 상품권 금액, 정산 주문 금액<=주문 금액, 단위는 분 */
   @SerializedName("settlement_total")
   private Long settlementTotal;
 
-  /** 优惠退款金额 说明：优惠退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见代金券或立减优惠，单位为分 */
+  /** 혜택 환불 금액 설명: 혜택 환불 금액<=환불 금액, 환불 금액-상품권 또는 즉시 할인 환불 금액이 현금, 자세한 내용은 상품권 또는 즉시 할인 참조, 단위는 분 */
   @SerializedName("discount_refund")
   private Long discountRefund;
 
-  /** 退款币种 说明：符合ISO 4217标准的三位字母代码，目前只支持人民币：CNY。 */
+  /** 환불 통화 설명: ISO 4217 표준 3자리 문자 코드, 현재는 위안화만 지원: CNY */
   @SerializedName("currency")
   private String currency;
 
-  /** 手续费退款金额 说明：手续费退款金额，单位为分 */
+  /** 수수료 환불 금액 설명: 수수료 환불 금액, 단위는 분 */
   @SerializedName("refund_fee")
   private Long refundFee;
 

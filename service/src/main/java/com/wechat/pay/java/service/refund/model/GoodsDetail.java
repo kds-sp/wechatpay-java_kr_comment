@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -17,27 +17,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** GoodsDetail */
 public class GoodsDetail {
-  /** 商户侧商品编码 说明：由半角的大小写字母、数字、中划线、下划线中的一种或几种组成 */
+  /** 가맹점 측 상품 코드 설명: 반각 대소문자, 숫자, 하이픈, 밑줄 중 하나 또는 여러 개로 구성 */
   @SerializedName("merchant_goods_id")
   private String merchantGoodsId;
 
-  /** 微信侧商品编码 说明：微信支付定义的统一商品编号（没有可不传） */
+  /** 위챗페이 측 상품 코드 설명: 위챗페이가 정의한 통일 상품 번호 (없으면 전달하지 않아도 됨) */
   @SerializedName("wechatpay_goods_id")
   private String wechatpayGoodsId;
 
-  /** 商品名称 说明：商品的实际名称 */
+  /** 상품 이름 설명: 상품의 실제 이름 */
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 商品单价 说明：商品单价金额，单位为分 */
+  /** 상품 단가 설명: 상품 단가 금액, 단위는 분 */
   @SerializedName("unit_price")
   private Long unitPrice;
 
-  /** 商品退款金额 说明：商品退款金额，单位为分 */
+  /** 상품 환불 금액 설명: 상품 환불 금액, 단위는 분 */
   @SerializedName("refund_amount")
   private Long refundAmount;
 
-  /** 商品退货数量 说明：对应商品的退货数量 */
+  /** 상품 반품 수량 설명: 해당 상품의 반품 수량 */
   @SerializedName("refund_quantity")
   private Integer refundQuantity;
 

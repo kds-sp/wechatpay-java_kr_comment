@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.refund.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** COUPON - 代金券，代金券类型，需要走结算资金的充值型代金券 DISCOUNT - 优惠券，优惠券类型，不走结算资金的免充值型优惠券 */
+/** COUPON - 상품권, 상품권 유형, 정산 자금을 거쳐야 하는 충전형 상품권 DISCOUNT - 쿠폰, 쿠폰 유형, 정산 자금을 거치지 않는 무충전형 쿠폰 */
 public enum Type {
   @SerializedName("COUPON")
   COUPON,

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -14,8 +14,8 @@ package com.wechat.pay.java.service.refund.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * ORIGINAL - 原路退款，退款渠道 BALANCE - 退回到余额，退款渠道 OTHER_BALANCE - 原账户异常退到其他余额账户，退款渠道 OTHER_BANKCARD -
- * 原银行卡异常退到其他银行卡，退款渠道
+ * ORIGINAL - 원래 경로 환불, 환불 채널 BALANCE - 잔액으로 반환, 환불 채널 OTHER_BALANCE - 원래 계좌 이상으로 다른 잔액 계좌로 반환, 환불 채널 OTHER_BANKCARD -
+ * 원래 은행 카드 이상으로 다른 은행 카드로 반환, 환불 채널
  */
 public enum Channel {
   @SerializedName("ORIGINAL")

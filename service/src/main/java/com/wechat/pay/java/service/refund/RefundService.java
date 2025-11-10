@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -36,7 +36,7 @@ import com.wechat.pay.java.service.refund.model.CreateRequest;
 import com.wechat.pay.java.service.refund.model.QueryByOutRefundNoRequest;
 import com.wechat.pay.java.service.refund.model.Refund;
 
-/** RefundService服务 */
+/** RefundService 서비스 */
 public class RefundService {
 
   private final HttpClient httpClient;
@@ -47,16 +47,16 @@ public class RefundService {
     this.hostName = hostName;
   }
 
-  /** RefundService构造器 */
+  /** RefundService 빌더 */
   public static class Builder {
 
     private HttpClient httpClient;
     private HostName hostName;
 
     /**
-     * 设置请求配置，以该配置构造默认的httpClient，若未调用httpClient()方法，则必须调用该方法
+     * 요청 설정, 이 설정으로 기본 httpClient 구성, httpClient() 메서드를 호출하지 않은 경우 이 메서드를 호출해야 함
      *
-     * @param config 请求配置
+     * @param config 요청 설정
      * @return Builder
      */
     public Builder config(Config config) {
@@ -65,9 +65,9 @@ public class RefundService {
     }
 
     /**
-     * 设置微信支付域名，可选，默认为api.mch.weixin.qq.com
+     * 위챗페이 도메인 설정, 선택 사항, 기본값은 api.mch.weixin.qq.com
      *
-     * @param hostName 微信支付域名
+     * @param hostName 위챗페이 도메인
      * @return Builder
      */
     public Builder hostName(HostName hostName) {
@@ -76,7 +76,7 @@ public class RefundService {
     }
 
     /**
-     * 设置自定义httpClient，若未调用config()，则必须调用该方法
+     * 사용자 정의 httpClient 설정, config()를 호출하지 않은 경우 이 메서드를 호출해야 함
      *
      * @param httpClient httpClient
      * @return Builder
@@ -87,7 +87,7 @@ public class RefundService {
     }
 
     /**
-     * 构造服务
+     * 서비스 구성
      *
      * @return RefundService
      */
@@ -97,14 +97,14 @@ public class RefundService {
   }
 
   /**
-   * 退款申请
+   * 환불 신청
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return Refund
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public Refund create(CreateRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/refund/domestic/refunds";
@@ -127,24 +127,24 @@ public class RefundService {
   }
 
   /**
-   * 查询单笔退款（通过商户退款单号）
+   * 단건 환불 조회 (가맹점 환불 번호로)
    *
-   * @param request 请求参数
+   * @param request 요청 파라미터
    * @return Refund
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 파라미터 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 응답 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 응답 예외. 예: 응답 상태 코드가 200 미만이거나 300 이상.
+   * @throws MalformedMessageException 서비스 응답 성공, content-type이 application/json이 아니거나 응답 본문 파싱 실패.
    */
   public Refund queryByOutRefundNo(QueryByOutRefundNoRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/refund/domestic/refunds/{out_refund_no}";
 
     QueryByOutRefundNoRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace("{" + "out_refund_no" + "}", urlEncode(realRequest.getOutRefundNo()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));

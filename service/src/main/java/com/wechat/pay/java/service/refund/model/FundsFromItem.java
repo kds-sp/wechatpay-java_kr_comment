@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** FundsFromItem */
 public class FundsFromItem {
-  /** 出资金额 说明：对应账户出资金额 */
+  /** 출자 금액 설명: 해당 계좌 출자 금액 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 出资账户类型 说明：下面枚举值多选一。 枚举值： AVAILABLE : 可用余额 UNAVAILABLE : 不可用余额 */
+  /** 출자 계좌 유형 설명: 아래 열거형 값 중 하나 선택. 열거형 값: AVAILABLE : 사용 가능한 잔액 UNAVAILABLE : 사용 불가능한 잔액 */
   @SerializedName("account")
   private Account account;
 

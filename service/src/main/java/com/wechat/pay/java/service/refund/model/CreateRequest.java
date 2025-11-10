@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -18,42 +18,42 @@ import java.util.List;
 
 /** CreateRequest */
 public class CreateRequest {
-  /** 子商户号 说明：子商户的商户号，由微信支付生成并下发。服务商模式下必须传递此参数 */
+  /** 서브 가맹점 번호 설명: 서브 가맹점의 가맹점 번호, 위챗페이가 생성하여 발급. 서비스 제공자 모드에서 이 매개변수를 전달해야 함 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信支付订单号 说明：原支付交易对应的微信订单号 */
+  /** 위챗페이 주문 번호 설명: 원래 결제 거래에 해당하는 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 商户订单号 说明：原支付交易对应的商户订单号 */
+  /** 가맹점 주문 번호 설명: 원래 결제 거래에 해당하는 가맹점 주문 번호 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 번호 설명: 가맹점 시스템 내부의 환불 번호, 가맹점 시스템 내부에서 고유, 숫자, 대소문자 _-|*@만 가능, 동일한 환불 번호로 여러 번 요청해도 한 건만 환불됨 */
   @SerializedName("out_refund_no")
   private String outRefundNo;
 
-  /** 退款原因 说明：若商户传入，会在下发给用户的退款消息中体现退款原因 */
+  /** 환불 사유 설명: 가맹점이 전달하면 사용자에게 전달되는 환불 메시지에 환불 사유가 표시됨 */
   @SerializedName("reason")
   private String reason;
 
   /**
-   * 退款结果回调url 说明：异步接收微信支付退款结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数。
-   * 如果参数中传了notify_url，则商户平台上配置的回调地址将不会生效，优先回调当前传的这个地址。
+   * 환불 결과 콜백 url 설명: 위챗페이 환불 결과 알림을 비동기로 수신하는 콜백 주소, 알림 url은 외부에서 접근 가능한 url이어야 하며 매개변수를 포함할 수 없음.
+   * 매개변수에 notify_url을 전달하면 가맹점 플랫폼에서 구성한 콜백 주소는 적용되지 않으며, 현재 전달한 이 주소를 우선 콜백함.
    */
   @SerializedName("notify_url")
   private String notifyUrl;
 
-  /** 退款商品 说明：指定商品退款需要传此参数，其他场景无需传递 */
+  /** 환불 상품 설명: 특정 상품 환불 시 이 매개변수를 전달해야 하며, 다른 시나리오에서는 전달할 필요 없음 */
   @SerializedName("goods_detail")
   private List<GoodsDetail> goodsDetail;
 
-  /** 金额信息 说明：订单金额信息 */
+  /** 금액 정보 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private AmountReq amount;
 
-  /** 退款资金来源 说明：若传递此参数则使用对应的资金账户退款，否则默认使用未结算资金退款（仅对老资金流商户适用） 枚举值： - AVAILABLE：可用余额账户 */
+  /** 환불 자금 출처 설명: 이 매개변수를 전달하면 해당 자금 계좌로 환불하고, 그렇지 않으면 기본적으로 미정산 자금으로 환불함 (기존 자금 흐름 가맹점에만 적용) 열거형 값: - AVAILABLE: 사용 가능한 잔액 계좌 */
   @SerializedName("funds_account")
   private ReqFundsAccount fundsAccount;
 

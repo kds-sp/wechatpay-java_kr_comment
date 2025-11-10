@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -18,12 +18,12 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryByOutRefundNoRequest */
 public class QueryByOutRefundNoRequest {
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 번호 설명: 가맹점 시스템 내부의 환불 번호, 가맹점 시스템 내부에서 고유, 숫자, 대소문자 _-|*@만 가능, 동일한 환불 번호로 여러 번 요청해도 한 건만 환불됨 */
   @SerializedName("out_refund_no")
   @Expose(serialize = false)
   private String outRefundNo;
 
-  /** 子商户号 说明：子商户的商户号，由微信支付生成并下发。服务商模式下必须传递此参数 */
+  /** 서브 가맹점 번호 설명: 서브 가맹점의 가맹점 번호, 위챗페이가 생성하여 발급. 서비스 제공자 모드에서 이 매개변수를 전달해야 함 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;

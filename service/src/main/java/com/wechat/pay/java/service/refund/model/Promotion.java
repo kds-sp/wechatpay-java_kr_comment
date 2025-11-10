@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -18,27 +18,27 @@ import java.util.List;
 
 /** Promotion */
 public class Promotion {
-  /** 券ID 说明：券或者立减优惠id */
+  /** 쿠폰 ID 설명: 쿠폰 또는 즉시 할인 id */
   @SerializedName("promotion_id")
   private String promotionId;
 
-  /** 优惠券面额 说明：用户享受优惠的金额（优惠券面额=微信出资金额+商家出资金额+其他出资方金额 ），单位为分 */
+  /** 쿠폰 액면가 설명: 사용자가 받는 혜택 금액 (쿠폰 액면가=위챗페이 출자 금액+판매자 출자 금액+기타 출자 방 금액), 단위는 분 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 优惠退款金额 说明：优惠退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为用户支付的现金，说明详见代金券或立减优惠，单位为分 */
+  /** 혜택 환불 금액 설명: 혜택 환불 금액<=환불 금액, 환불 금액-상품권 또는 즉시 할인 환불 금액이 사용자가 지불한 현금, 자세한 내용은 상품권 또는 즉시 할인 참조, 단위는 분 */
   @SerializedName("refund_amount")
   private Long refundAmount;
 
-  /** 商品列表 说明：优惠商品发生退款时返回商品信息 */
+  /** 상품 목록 설명: 혜택 상품 환불 발생 시 상품 정보 반환 */
   @SerializedName("goods_detail")
   private List<GoodsDetail> goodsDetail;
 
-  /** 优惠范围 说明：枚举值： - GLOBAL- 全场代金券 - SINGLE- 单品优惠 */
+  /** 혜택 범위 설명: 열거형 값: - GLOBAL- 전역 상품권 - SINGLE- 단품 혜택 */
   @SerializedName("scope")
   private Scope scope;
 
-  /** 优惠类型 说明：枚举值： - COUPON- 代金券，需要走结算资金的充值型代金券 - DISCOUNT- 优惠券，不走结算资金的免充值型优惠券 */
+  /** 혜택 유형 설명: 열거형 값: - COUPON- 상품권, 정산 자금을 거쳐야 하는 충전형 상품권 - DISCOUNT- 쿠폰, 정산 자금을 거치지 않는 무충전형 쿠폰 */
   @SerializedName("type")
   private Type type;
 

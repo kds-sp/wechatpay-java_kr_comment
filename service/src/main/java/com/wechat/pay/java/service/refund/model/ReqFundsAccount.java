@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.refund.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** AVAILABLE - 可用余额，仅对老资金流商户适用，指定从可用余额账户出资 */
+/** AVAILABLE - 사용 가능한 잔액, 기존 자금 흐름 가맹점에만 적용, 사용 가능한 잔액 계좌에서 출자 지정 */
 public enum ReqFundsAccount {
   @SerializedName("AVAILABLE")
   AVAILABLE

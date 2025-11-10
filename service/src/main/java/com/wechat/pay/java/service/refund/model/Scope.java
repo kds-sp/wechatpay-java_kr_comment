@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.refund.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** GLOBAL - 全场代金券，全场优惠类型 SINGLE - 单品优惠，单品优惠类型 */
+/** GLOBAL - 전역 상품권, 전역 혜택 유형 SINGLE - 단품 혜택, 단품 혜택 유형 */
 public enum Scope {
   @SerializedName("GLOBAL")
   GLOBAL,

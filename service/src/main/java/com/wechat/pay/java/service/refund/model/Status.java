@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.refund.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** SUCCESS - 退款成功，退款状态 CLOSED - 退款关闭，退款状态 PROCESSING - 退款处理中，退款状态 ABNORMAL - 退款异常，退款状态 */
+/** SUCCESS - 환불 성공, 환불 상태 CLOSED - 환불 닫힘, 환불 상태 PROCESSING - 환불 처리 중, 환불 상태 ABNORMAL - 환불 이상, 환불 상태 */
 public enum Status {
   @SerializedName("SUCCESS")
   SUCCESS,

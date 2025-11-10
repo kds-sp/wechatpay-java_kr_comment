@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -14,9 +14,9 @@ package com.wechat.pay.java.service.refund.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * UNSETTLED - 未结算资金，退款所使用资金对应的资金账户类型 AVAILABLE - 可用余额，退款所使用资金对应的资金账户类型 UNAVAILABLE -
- * 不可用余额，退款所使用资金对应的资金账户类型 OPERATION - 运营户，退款所使用资金对应的资金账户类型 BASIC -
- * 基本账户（含可用余额和不可用余额），退款所使用资金对应的资金账户类型 ECNY_BASIC - 数字人民币基本账户，退款所使用资金对应的资金账户类型
+ * UNSETTLED - 미정산 자금, 환불에 사용된 자금에 해당하는 자금 계좌 유형 AVAILABLE - 사용 가능한 잔액, 환불에 사용된 자금에 해당하는 자금 계좌 유형 UNAVAILABLE -
+ * 사용 불가능한 잔액, 환불에 사용된 자금에 해당하는 자금 계좌 유형 OPERATION - 운영 계좌, 환불에 사용된 자금에 해당하는 자금 계좌 유형 BASIC -
+ * 기본 계좌 (사용 가능한 잔액과 사용 불가능한 잔액 포함), 환불에 사용된 자금에 해당하는 자금 계좌 유형 ECNY_BASIC - 디지털 위안화 기본 계좌, 환불에 사용된 자금에 해당하는 자금 계좌 유형
  */
 public enum FundsAccount {
   @SerializedName("UNSETTLED")

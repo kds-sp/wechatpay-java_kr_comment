@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 境内普通商户退款API
+// 국내 일반 가맹점 환불 API
 //
-// 境内普通商户退款功能涉及的API文档
+// 국내 일반 가맹점 환불 기능 관련 API 문서
 //
 // API version: 1.2.0
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.refund.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** AVAILABLE - 可用余额，多账户资金准备退款可用余额出资账户类型 UNAVAILABLE - 不可用余额，多账户资金准备退款不可用余额出资账户类型 */
+/** AVAILABLE - 사용 가능한 잔액, 다중 계좌 자금 준비 환불 사용 가능한 잔액 출자 계좌 유형 UNAVAILABLE - 사용 불가능한 잔액, 다중 계좌 자금 준비 환불 사용 불가능한 잔액 출자 계좌 유형 */
 public enum Account {
   @SerializedName("AVAILABLE")
   AVAILABLE,
