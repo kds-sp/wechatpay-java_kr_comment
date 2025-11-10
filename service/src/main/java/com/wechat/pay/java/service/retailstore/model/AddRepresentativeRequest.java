@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -20,20 +20,20 @@ import java.util.List;
 
 /** AddRepresentativeRequest */
 public class AddRepresentativeRequest {
-  /** 零售小店活动ID 说明：零售小店活动ID */
+  /** 소매점 활동 ID 설명: 소매점 활동 ID */
   @SerializedName("activity_id")
   @Expose(serialize = false)
   private String activityId;
 
-  /** 业务代理信息列表 说明：业务代理信息列表 */
+  /** 비즈니스 대리인 정보 목록 설명: 비즈니스 대리인 정보 목록 */
   @SerializedName("representative_info_list")
   private List<RepresentativeInfo> representativeInfoList = new ArrayList<RepresentativeInfo>();
 
-  /** 请求业务单据号 说明：商户新增业务代理请求的唯一标识，商户需保证唯一。可包含英文字母，数字，\\|，\\_，\\*，\\-等内容，不允许出现其他不合法符号。 */
+  /** 요청 비즈니스 증빙 번호 설명: 가맹점이 비즈니스 대리인 추가 요청의 고유 식별자, 가맹점은 고유성을 보장해야 함. 영문자, 숫자, \\|, \\_, \\*, \\- 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음. */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 添加时间 说明：添加时间 */
+  /** 추가 시간 설명: 추가 시간 */
   @SerializedName("add_time")
   private String addTime;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -18,7 +18,7 @@ import java.util.List;
 
 /** Materials */
 public class Materials {
-  /** 成功的物料码列表 说明：成功的物料码列表 */
+  /** 성공한 재료 코드 목록 설명: 성공한 재료 코드 목록 */
   @SerializedName("material_list")
   private List<MaterialInfo> materialList;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** GoodsInfo */
 public class GoodsInfo {
-  /** 商品ID 说明：商品ID */
+  /** 상품 ID 설명: 상품 ID */
   @SerializedName("goods_id")
   private String goodsId;
 
-  /** 商品名称 说明：商品名称 */
+  /** 상품 이름 설명: 상품 이름 */
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 商品图片URL 说明：商品图片URL */
+  /** 상품 이미지 URL 설명: 상품 이미지 URL */
   @SerializedName("goods_picture_url")
   private String goodsPictureUrl;
 

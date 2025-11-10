@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** OrderInfo */
 public class OrderInfo {
-  /** 支付订单的微信用户OpenID 说明：支付订单的微信用户OpenID */
+  /** 주문을 결제한 위챗페이 사용자 OpenID 설명: 주문을 결제한 위챗페이 사용자 OpenID */
   @SerializedName("payer_openid")
   private String payerOpenid;
 
-  /** 商户订单号 说明：商户订单号 */
+  /** 가맹점 주문 번호 설명: 가맹점 주문 번호 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 订单总金额 说明：订单总金额（单位：分） */
+  /** 주문 총액 설명: 주문 총액 (단위: 분) */
   @SerializedName("total_fee")
   private Long totalFee;
 
-  /** 门店ID 说明：门店ID */
+  /** 매장 ID 설명: 매장 ID */
   @SerializedName("store_id")
   private String storeId;
 
-  /** 门店商户号 说明：门店商户号 */
+  /** 매장 가맹점 번호 설명: 매장 가맹점 번호 */
   @SerializedName("store_merchant_id")
   private String storeMerchantId;
 

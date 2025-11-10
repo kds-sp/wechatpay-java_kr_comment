@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -18,15 +18,15 @@ import java.util.List;
 
 /** DeleteRepresentativeResponse */
 public class DeleteRepresentativeResponse {
-  /** 零售小店活动ID 说明：零售小店活动ID */
+  /** 소매 소매점 활동 ID 설명: 소매 소매점 활동 ID */
   @SerializedName("activity_id")
   private String activityId;
 
-  /** 删除失败业务代理信息列表 说明：删除失败业务代理信息列表 */
+  /** 삭제 실패한 비즈니스 대리인 정보 목록 설명: 삭제 실패한 비즈니스 대리인 정보 목록 */
   @SerializedName("failed_representative_info_list")
   private List<RepresentativeInfo> failedRepresentativeInfoList;
 
-  /** 删除时间 说明：删除时间 */
+  /** 삭제 시간 설명: 삭제 시간 */
   @SerializedName("delete_time")
   private String deleteTime;
 

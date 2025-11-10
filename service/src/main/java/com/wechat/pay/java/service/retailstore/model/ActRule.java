@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -18,23 +18,23 @@ import java.util.List;
 
 /** ActRule */
 public class ActRule {
-  /** 购买单件商品，补贴给门店的金额 说明：购买单件商品，补贴给门店的金额（单位：分） */
+  /** 단일 상품 구매 시 매장에 지급하는 보조금 금액 설명: 단일 상품 구매 시 매장에 지급하는 보조금 금액 (단위: 분) */
   @SerializedName("store_subsidy")
   private Long storeSubsidy;
 
-  /** 购买单件商品，补贴给服务商的佣金 说明：购买单件商品，补贴给服务商的佣金（单位：分） */
+  /** 단일 상품 구매 시 서비스 제공자에 지급하는 수수료 설명: 단일 상품 구매 시 서비스 제공자에 지급하는 수수료 (단위: 분) */
   @SerializedName("service_provider_subsidy")
   private Long serviceProviderSubsidy;
 
-  /** 活动门店补贴商品数上限 说明：活动门店补贴商品数上限 */
+  /** 활동 매장 보조금 상품 수 상한 설명: 활동 매장 보조금 상품 수 상한 */
   @SerializedName("store_subsidy_quota")
   private Integer storeSubsidyQuota;
 
-  /** 单用户享受加价购优惠次数上限 说明：单用户享受加价购优惠次数上限 */
+  /** 단일 사용자 추가 구매 할인 횟수 상한 설명: 단일 사용자 추가 구매 할인 횟수 상한 */
   @SerializedName("user_subsidy_quota")
   private Integer userSubsidyQuota;
 
-  /** 活动区域列表 说明：活动区域列表 */
+  /** 활동 지역 목록 설명: 활동 지역 목록 */
   @SerializedName("areas")
   private List<ActArea> areas;
 

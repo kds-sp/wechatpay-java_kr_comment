@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** StoreInfo */
 public class StoreInfo {
-  /** 门店ID 说明：门店ID */
+  /** 매장 ID 설명: 매장 ID */
   @SerializedName("store_id")
   private String storeId;
 
-  /** 门店补贴入账商户号 说明：门店指定的品牌补贴收款商户号 */
+  /** 매장 보조금 입금 가맹점 번호 설명: 매장이 지정한 브랜드 보조금 수취 가맹점 번호 */
   @SerializedName("accounting_merchant_id")
   private String accountingMerchantId;
 
-  /** 门店商户号 说明：报名门店的商户号，即门店收款商户号 */
+  /** 매장 가맹점 번호 설명: 등록 매장의 가맹점 번호, 즉 매장 수취 가맹점 번호 */
   @SerializedName("merchant_id")
   private String merchantId;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -18,11 +18,11 @@ import java.util.List;
 
 /** LockQualificationRequest */
 public class LockQualificationRequest {
-  /** 订单信息 说明：订单信息 */
+  /** 주문 정보 설명: 주문 정보 */
   @SerializedName("order_information")
   private OrderInfo orderInformation;
 
-  /** 待锁定的加价购资格ID列表 说明：待锁定的加价购资格ID列表 */
+  /** 잠글 추가 구매 자격 ID 목록 설명: 잠글 추가 구매 자격 ID 목록 */
   @SerializedName("qualification_ids")
   private List<String> qualificationIds;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 营销加价购对外API
+// 마케팅 추가 구매 대외 API
 //
-// 指定服务商可通过该接口报名加价购活动、查询某个区域内的加价购活动列表、锁定加价活动购资格以及解锁加价购活动资格。
+// 지정된 서비스 제공자는 이 인터페이스를 통해 추가 구매 활동에 등록하고, 특정 지역 내의 추가 구매 활동 목록을 조회하며, 추가 구매 활동 자격을 잠그고 추가 구매 활동 자격을 잠금 해제할 수 있음.
 //
 // API version: 1.4.0
 
@@ -17,43 +17,43 @@ import com.google.gson.annotations.SerializedName;
 
 /** ActInfo */
 public class ActInfo {
-  /** 活动名称 说明：活动名称 */
+  /** 활동 이름 설명: 활동 이름 */
   @SerializedName("activity_name")
   private String activityName;
 
   /**
-   * 活动报名开始时间
-   * 说明：遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）
+   * 활동 등록 시작 시간
+   * 설명: rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간)
    */
   @SerializedName("apply_start_time")
   private String applyStartTime;
 
   /**
-   * 活动报名结束时间
-   * 说明：遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）
+   * 활동 등록 종료 시간
+   * 설명: rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간)
    */
   @SerializedName("apply_end_time")
   private String applyEndTime;
 
   /**
-   * 活动开始时间
-   * 说明：遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）
+   * 활동 시작 시간
+   * 설명: rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간)
    */
   @SerializedName("activity_start_time")
   private String activityStartTime;
 
   /**
-   * 活动结束时间
-   * 说明：遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）
+   * 활동 종료 시간
+   * 설명: rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내며, T는 문자열에 나타나 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄 (+08:00는 동부 8구역 시간을 나타내며, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간)
    */
   @SerializedName("activity_end_time")
   private String activityEndTime;
 
-  /** 活动描述 说明：活动描述 */
+  /** 활동 설명 설명: 활동 설명 */
   @SerializedName("activity_description")
   private String activityDescription;
 
