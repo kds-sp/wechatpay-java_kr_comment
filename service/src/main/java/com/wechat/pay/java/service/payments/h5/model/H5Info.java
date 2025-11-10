@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제 API
 //
 // API version: 1.2.3
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** H5Info */
 public class H5Info {
-  /** 场景类型 说明：场景类型 */
+  /** 장면 유형 설명: 장면 유형 */
   @SerializedName("type")
   private String type;
 
-  /** 应用名称 说明：应用名称 */
+  /** 애플리케이션 이름 설명: 애플리케이션 이름 */
   @SerializedName("app_name")
   private String appName;
 
-  /** 网站URL 说明：网站URL */
+  /** 웹사이트 URL 설명: 웹사이트 URL */
   @SerializedName("app_url")
   private String appUrl;
 
-  /** iOS平台BundleID 说明：iOS平台BundleID */
+  /** iOS 플랫폼 BundleID 설명: iOS 플랫폼 BundleID */
   @SerializedName("bundle_id")
   private String bundleId;
 
-  /** Android平台PackageName 说明：Android平台PackageName */
+  /** Android 플랫폼 PackageName 설명: Android 플랫폼 PackageName */
   @SerializedName("package_name")
   private String packageName;
 

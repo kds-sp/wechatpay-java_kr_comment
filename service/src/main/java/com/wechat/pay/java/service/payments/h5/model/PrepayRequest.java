@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제 API
 //
 // API version: 1.2.3
 
@@ -18,35 +18,35 @@ import java.util.List;
 
 /** PrepayRequest */
 public class PrepayRequest {
-  /** 公众号ID 说明：公众号ID */
+  /** 공개 계정 ID 설명: 공개 계정 ID */
   @SerializedName("appid")
   private String appid;
 
-  /** 直连商户号 说明：直连商户号 */
+  /** 직접 연결 가맹점 번호 설명: 직접 연결 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 商品描述 说明：商品描述 */
+  /** 상품 설명 설명: 상품 설명 */
   @SerializedName("description")
   private String description;
 
-  /** 商户订单号 说明：商户订单号 */
+  /** 가맹점 주문 번호 설명: 가맹점 주문 번호 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 交易结束时间 说明：订单失效时间，格式为rfc3339格式 */
+  /** 거래 종료 시간 설명: 주문 만료 시간, 형식은 rfc3339 형식 */
   @SerializedName("time_expire")
   private String timeExpire;
 
-  /** 附加数据 说明：附加数据 */
+  /** 추가 데이터 설명: 추가 데이터 */
   @SerializedName("attach")
   private String attach;
 
-  /** 通知地址 说明：有效性：1. HTTPS；2. 不允许携带查询串。 */
+  /** 알림 주소 설명: 유효성: 1. HTTPS; 2. 쿼리 문자열 포함 불가 */
   @SerializedName("notify_url")
   private String notifyUrl;
 
-  /** 订单优惠标记 说明：商品标记，代金券或立减优惠功能的参数。 */
+  /** 주문 혜택 마커 설명: 상품 마커, 상품권 또는 즉시 할인 기능의 매개변수 */
   @SerializedName("goods_tag")
   private String goodsTag;
 
@@ -68,7 +68,7 @@ public class PrepayRequest {
   @SerializedName("limit_pay")
   private List<LimitPayEnum> limitPay;
 
-  /** 电子发票入口开放标识 说明：传入true时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效。 */
+  /** 전자 세금계산서 진입 개방 식별 설명: true를 전달하면 결제 성공 메시지와 결제 상세 페이지에 세금계산서 발행 진입이 나타남. 위챗페이 가맹점 플랫폼 또는 위챗 공개 플랫폼에서 전자 세금계산서 기능을 개통해야 하며, 이 필드를 전달해야만 적용됨 */
   @SerializedName("support_fapiao")
   private Boolean supportFapiao;
 

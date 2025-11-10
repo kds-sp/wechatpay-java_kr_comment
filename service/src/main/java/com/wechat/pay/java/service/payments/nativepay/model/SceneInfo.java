@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// Native支付
+// Native 결제
 //
-// Native支付API
+// Native 결제 API
 //
 // API version: 1.2.3
 
@@ -15,13 +15,13 @@ import static com.wechat.pay.java.core.util.StringUtil.toIndentedString;
 
 import com.google.gson.annotations.SerializedName;
 
-/** 支付场景描述 */
+/** 결제 장면 설명 */
 public class SceneInfo {
-  /** 用户终端IP 说明：用户终端IP */
+  /** 사용자 단말 IP 설명: 사용자 단말 IP */
   @SerializedName("payer_client_ip")
   private String payerClientIp;
 
-  /** 商户端设备号 说明：商户端设备号 */
+  /** 가맹점 단말 기기 번호 설명: 가맹점 단말 기기 번호 */
   @SerializedName("device_id")
   private String deviceId;
 

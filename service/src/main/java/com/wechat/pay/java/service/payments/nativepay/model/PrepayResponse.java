@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// Native支付
+// Native 결제
 //
-// Native支付API
+// Native 결제 API
 //
 // API version: 1.2.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** PrepayResponse */
 public class PrepayResponse {
-  /** codeUrl 说明：二维码链接 */
+  /** codeUrl 설명: QR 코드 링크 */
   @SerializedName("code_url")
   private String codeUrl;
 

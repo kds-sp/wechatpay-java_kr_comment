@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// JSAPI支付
+// JSAPI 결제
 //
-// JSAPI支付API
+// JSAPI 결제 API
 //
 // API version: 1.2.3
 
@@ -23,7 +23,7 @@ public class QueryOrderByIdRequest {
   @Expose(serialize = false)
   private String transactionId;
 
-  /** mchid 说明：直连商户号 */
+  /** mchid 설명: 직접 연결 가맹점 번호 */
   @SerializedName("mchid")
   @Expose(serialize = false)
   private String mchid;
