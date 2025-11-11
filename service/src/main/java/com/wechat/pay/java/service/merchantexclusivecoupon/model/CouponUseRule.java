@@ -18,31 +18,31 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponUseRule */
 public class CouponUseRule {
-  /** 券可核销时间 설명:日期区间内可以使用优惠 */
+  /** 쿠폰 사용 가능 시간 설명: 날짜 구간 내에서 할인을 사용할 수 있음 */
   @SerializedName("coupon_available_time")
   private FavorAvailableTime couponAvailableTime;
 
-  /** 固定面额满减券使用规则 설명:固定面额满减，折扣券，换购券使用规则三选一，stock_type为NORMAL时必填。 */
+  /** 고정 금액 만원 이상 할인 쿠폰 사용 규칙 설명: 고정 금액 만원 이상 할인, 할인 쿠폰, 교환 쿠폰 사용 규칙 중 하나를 선택, stock_type이 NORMAL일 때 필수. */
   @SerializedName("fixed_normal_coupon")
   private FixedValueStockMsg fixedNormalCoupon;
 
-  /** 折扣券使用规则 설명:固定面额满减，折扣券，换购券使用规则三选一，stock_type为DISCOUNT时必填。 */
+  /** 할인 쿠폰 사용 규칙 설명: 고정 금액 만원 이상 할인, 할인 쿠폰, 교환 쿠폰 사용 규칙 중 하나를 선택, stock_type이 DISCOUNT일 때 필수. */
   @SerializedName("discount_coupon")
   private DiscountMsg discountCoupon;
 
-  /** 换购券使用规则 설명:固定面额满减，折扣券，换购券使用规则三选一，stock_type为EXCHANGE时必填。 */
+  /** 교환 쿠폰 사용 규칙 설명: 고정 금액 만원 이상 할인, 할인 쿠폰, 교환 쿠폰 사용 규칙 중 하나를 선택, stock_type이 EXCHANGE일 때 필수. */
   @SerializedName("exchange_coupon")
   private ExchangeMsg exchangeCoupon;
 
-  /** 核销方式 설명:核销方式 */
+  /** 사용 방식 설명: 사용 방식 */
   @SerializedName("use_method")
   private CouponUseMethod useMethod;
 
-  /** 小程序AppID 설명:核销方式为线上小程序核销才有效 */
+  /** 미니프로그램 AppID 설명: 사용 방식이 온라인 미니프로그램 사용인 경우에만 유효 */
   @SerializedName("mini_programs_appid")
   private String miniProgramsAppid;
 
-  /** 小程序path 설명:核销方式为线上小程序核销才有效 */
+  /** 미니프로그램 path 설명: 사용 방식이 온라인 미니프로그램 사용인 경우에만 유효 */
   @SerializedName("mini_programs_path")
   private String miniProgramsPath;
 

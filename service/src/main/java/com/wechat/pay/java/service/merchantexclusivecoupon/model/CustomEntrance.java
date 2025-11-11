@@ -19,16 +19,14 @@ import com.google.gson.annotations.SerializedName;
 /** CustomEntrance */
 public class CustomEntrance {
   /**
-   * 小程序入口 설명:需要小程序APPID、path、入口文案、引导文案。如果需要跳转小程序，APPID、path、入口文案为必填，引导文案非必填。 AppID要与归属商户号有M-A or
-   * M-m-suba关系。
-   * 注：请查看[绑定关系说明文档](https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter5_2_2.shtml#part-7)
+   * 미니프로그램 입구 설명: 미니프로그램 APPID, path, 입구 문구, 안내 문구 필요. 미니프로그램으로 이동하는 경우, APPID, path, 입구 문구는 필수이며, 안내 문구는 필수 아님. AppID는 소속 가맹점 번호와 M-A 또는 M-m-suba 관계가 있어야 함.
+   * 참고: [바인딩 관계 설명 문서](https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter5_2_2.shtml#part-7) 참조
    */
   @SerializedName("mini_programs_info")
   private MiniAppInfo miniProgramsInfo;
 
   /**
-   * 商户公众号AppID 설명:可配置商户公众号，从券详情可跳转至公众号，用户自定义字段。 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID 或
-   * 传入的AppID得是归属商户号有绑定关系的AppID
+   * 가맹점 공개 계정 AppID 설명: 가맹점 공개 계정을 설정할 수 있으며, 쿠폰 상세에서 공개 계정으로 이동 가능, 사용자 정의 필드. 검증 규칙: 전달한 AppID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID이거나, 전달한 AppID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID여야 함
    */
   @SerializedName("appid")
   private String appid;
@@ -40,11 +38,11 @@ public class CustomEntrance {
   @SerializedName("hall_id")
   private String hallId;
 
-  /** 可用门店ID 설명:填写代金券可用门店ID */
+  /** 사용 가능 매장 ID 설명: 현금 쿠폰 사용 가능 매장 ID 입력 */
   @SerializedName("store_id")
   private String storeId;
 
-  /** code展示模式 설명:code展示模式 */
+  /** code 표시 모드 설명: code 표시 모드 */
   @SerializedName("code_display_mode")
   private CodeDisplayMode codeDisplayMode;
 

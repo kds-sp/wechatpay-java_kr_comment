@@ -18,36 +18,35 @@ import com.google.gson.annotations.SerializedName;
 
 /** StockSendRule */
 public class StockSendRule {
-  /** 批次总预算 설명:总预算金额，单位分 참고: 해당 필드는 아직 미개방 */
+  /** 배치 총 예산 설명: 총 예산 금액, 단위 분 참고: 해당 필드는 아직 미개방 */
   @SerializedName("max_amount")
   private Long maxAmount;
 
-  /** 批次最大发放个数 설명:批次最大可发放个数限制 特殊规则：取值范围 1 ≤ value ≤ 1000000000 */
+  /** 배치 최대 발송 개수 설명: 배치 최대 발송 가능 개수 제한 특수 규칙: 값 범위 1 ≤ value ≤ 1000000000 */
   @SerializedName("max_coupons")
   private Long maxCoupons;
 
-  /** 用户最大可领个数 설명:用户可领个数，每个用户最多100张券。 */
+  /** 사용자 최대 수령 가능 개수 설명: 사용자가 수령할 수 있는 개수, 각 사용자당 최대 100장의 쿠폰. */
   @SerializedName("max_coupons_per_user")
   private Integer maxCouponsPerUser;
 
-  /** 单天发放上限金额 설명:单天发放上限金额 참고: 해당 필드는 아직 미개방 */
+  /** 단일 일자 발송 상한선 금액 설명: 단일 일자 발송 상한선 금액 참고: 해당 필드는 아직 미개방 */
   @SerializedName("max_amount_by_day")
   private Long maxAmountByDay;
 
   /**
-   * 单天发放上限个数 설명:单天发放上限个数（stock\\_type为DISCOUNT或EXCHANGE时可传入此字段控制单天发放上限）。 特殊规则：取值范围 1 ≤ value ≤
-   * 1000000000
+   * 단일 일자 발송 상한선 개수 설명: 단일 일자 발송 상한선 개수(stock_type이 DISCOUNT 또는 EXCHANGE일 때 이 필드를 전달하여 단일 일자 발송 상한선을 제어할 수 있음). 특수 규칙: 값 범위 1 ≤ value ≤ 1000000000
    */
   @SerializedName("max_coupons_by_day")
   private Long maxCouponsByDay;
 
   /**
-   * 是否开启自然人限领 설명:不填默认否，枚举值： true：是 false：否 注：自然人防刷即同证件号下的所有账户合并计算的限领次数（限领次数指的是参数字段“用户最大领取个数”填写的值）
+   * 자연인 수령 제한 활성화 여부 설명: 입력하지 않으면 기본값은 아니오, 열거형 값: true: 예 false: 아니오 참고: 자연인 방지 기능은 동일 신분증 번호 하의 모든 계정을 합산하여 계산한 수령 제한 횟수(수령 제한 횟수는 매개변수 필드 "사용자 최대 수령 개수"에 입력한 값)
    */
   @SerializedName("natural_person_limit")
   private Boolean naturalPersonLimit;
 
-  /** 可疑账号拦截 설명:true-是；false-否，不填默认否 */
+  /** 의심 계정 차단 설명: true-예, false-아니오, 입력하지 않으면 기본값은 아니오 */
   @SerializedName("prevent_api_abuse")
   private Boolean preventApiAbuse;
 

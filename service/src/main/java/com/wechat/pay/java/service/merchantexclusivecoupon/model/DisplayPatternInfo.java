@@ -18,41 +18,41 @@ import com.google.gson.annotations.SerializedName;
 
 /** DisplayPatternInfo */
 public class DisplayPatternInfo {
-  /** 使用须知 설명:用于说明详细的活动规则，会展示在代金券详情页。 */
+  /** 사용 안내 설명: 상세한 활동 규칙을 설명하는 데 사용되며, 현금 쿠폰 상세 페이지에 표시됩니다. */
   @SerializedName("description")
   private String description;
 
   /**
-   * 商户logo
-   * 설명:若券归属商户号有认证品牌，则系统将自动拉取对应品牌logo；若券归属商户号不在认证品牌下，需自定义上传logo，未上传时将展示兜底灰色logo样式，影响券详情页用户体验，请及时上传。
-   * 商户logo的URL地址，仅支持通过《[图片上传API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》接口获取的图片URL地址。
-   * 1、商户logo大小需为120像素\\*120像素。 2、支持JPG/JPEG/PNG格式，且图片小于1M。 注：该字段暂不支持修改
+   * 가맹점 logo
+   * 설명: 쿠폰 소속 가맹점 번호에 인증 브랜드가 있는 경우, 시스템이 자동으로 해당 브랜드 logo를 가져옵니다. 쿠폰 소속 가맹점 번호가 인증 브랜드 하에 없는 경우, 사용자 정의 logo 업로드가 필요하며, 업로드하지 않으면 기본 회색 logo 스타일이 표시되어 쿠폰 상세 페이지 사용자 경험에 영향을 줍니다. 가능한 한 빨리 업로드하세요.
+   * 가맹점 logo의 URL 주소, 《[이미지 업로드 API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》 인터페이스를 통해 획득한 이미지 URL 주소만 지원합니다.
+   * 1. 가맹점 logo 크기는 120픽셀*120픽셀이어야 합니다. 2. JPG/JPEG/PNG 형식을 지원하며, 이미지는 1M 미만이어야 합니다. 참고: 해당 필드는 아직 수정을 지원하지 않음
    */
   @SerializedName("merchant_logo_url")
   private String merchantLogoUrl;
 
   /**
-   * 商户名称 설명:不支持商户自定义。若券归属商户号有认证品牌，系统将自动拉取认证品牌号下的品牌名称；若券归属商户号不在认证品牌下，则拉取本商户号的商户简称。展示上限12个字符。
-   * 注：该字段暂不支持修改
+   * 가맹점 이름 설명: 가맹점 사용자 정의를 지원하지 않음. 쿠폰 소속 가맹점 번호에 인증 브랜드가 있는 경우, 시스템이 자동으로 인증 브랜드 번호 하의 브랜드 이름을 가져옵니다. 쿠폰 소속 가맹점 번호가 인증 브랜드 하에 없는 경우, 본 가맹점 번호의 가맹점 약칭을 가져옵니다. 표시 상한선 12자.
+   * 참고: 해당 필드는 아직 수정을 지원하지 않음
    */
   @SerializedName("merchant_name")
   private String merchantName;
 
   /**
-   * 背景颜色
-   * 설명:券的背景颜色，可设置10种颜色，色值请参考[卡券背景颜色图](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_1.shtml#part-01)。颜色取值为颜色图中的颜色名称。
+   * 배경색
+   * 설명: 쿠폰의 배경색, 10가지 색상을 설정할 수 있으며, 색상 값은 [카드 쿠폰 배경색 그림](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_2_1.shtml#part-01)을 참조하세요. 색상 값은 색상 그림의 색상 이름입니다.
    */
   @SerializedName("background_color")
   private String backgroundColor;
 
   /**
-   * 券详情图片
-   * 설명:券详情图片，1074像素（宽）\\*603像素（高），图片大小不超过2M，支持JPG/PNG格式。仅支持通过《[图片上传API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》接口获取的图片URL地址。
+   * 쿠폰 상세 이미지
+   * 설명: 쿠폰 상세 이미지, 1074픽셀(너비)*603픽셀(높이), 이미지 크기는 2M 이하여야 하며, JPG/PNG 형식을 지원합니다. 《[이미지 업로드 API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》 인터페이스를 통해 획득한 이미지 URL 주소만 지원합니다.
    */
   @SerializedName("coupon_image_url")
   private String couponImageUrl;
 
-  /** 视频号相关信息 설명:视频号相关信息 */
+  /** 비디오 계정 관련 정보 설명: 비디오 계정 관련 정보 */
   @SerializedName("finder_info")
   private FinderInfo finderInfo;
 

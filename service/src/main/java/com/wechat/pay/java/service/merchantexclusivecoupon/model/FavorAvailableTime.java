@@ -20,39 +20,37 @@ import java.util.List;
 /** FavorAvailableTime */
 public class FavorAvailableTime {
   /**
-   * 开始时间
-   * 설명:批次开始时间，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
-   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다. 注意：商家券有效期最长为1年。
+   * 시작 시간
+   * 설명: 배치 시작 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다. 참고: 가맹점 쿠폰 유효 기간은 최대 1년입니다.
    */
   @SerializedName("available_begin_time")
   private String availableBeginTime;
 
   /**
-   * 结束时间
-   * 설명:批次结束时间，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
-   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다. 注意：商家券有效期最长为1年。
+   * 종료 시간
+   * 설명: 배치 종료 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다. 참고: 가맹점 쿠폰 유효 기간은 최대 1년입니다.
    */
   @SerializedName("available_end_time")
   private String availableEndTime;
 
   /**
-   * 生效后N天内有效
-   * 설명:日期区间内，券生效后x天内有效。例如生效当天内有效填1，生效后2天内有效填2，以此类推……注意，用户在有效期开始前领取商家券，则从有效期第1天开始计算天数，用户在有效期内领取商家券，则从领取当天开始计算天数，无论用户何时领取商家券，商家券在活动有效期结束后均不可用。可配合wait_days_after_receive一同填写，也可单独填写。单独填写时，有效期内领券后立即生效，生效后x天内有效。
+   * 발효 후 N일 내 유효
+   * 설명: 날짜 구간 내에서, 쿠폰이 발효된 후 x일 내 유효. 예를 들어 발효 당일 내 유효하면 1을 입력하고, 발효 후 2일 내 유효하면 2를 입력하며, 이와 같이 진행... 참고, 사용자가 유효 기간 시작 전에 가맹점 쿠폰을 수령한 경우, 유효 기간 제1일부터 일수를 계산하며, 사용자가 유효 기간 내에 가맹점 쿠폰을 수령한 경우, 수령 당일부터 일수를 계산합니다. 사용자가 언제 가맹점 쿠폰을 수령하든, 가맹점 쿠폰은 활동 유효 기간 종료 후에는 사용할 수 없습니다. wait_days_after_receive와 함께 입력할 수 있으며, 단독으로도 입력할 수 있습니다. 단독 입력 시, 유효 기간 내 쿠폰 수령 후 즉시 발효되며, 발효 후 x일 내 유효합니다.
    */
   @SerializedName("available_day_after_receive")
   private Integer availableDayAfterReceive;
 
-  /** 固定周期有效时间段 설명:可以设置多个星期下的多个可用时间段，比如每周二10点到18点 */
+  /** 고정 주기 유효 시간대 설명: 여러 주의 여러 사용 가능 시간대를 설정할 수 있으며, 예를 들어 매주 화요일 10시부터 18시까지 */
   @SerializedName("available_week")
   private AvailableWeek availableWeek;
 
-  /** 无规律的有效时间段 설명:无规律的有效时间，多个无规律时间段 */
+  /** 불규칙한 유효 시간대 설명: 불규칙한 유효 시간, 여러 불규칙 시간대 */
   @SerializedName("irregulary_avaliable_time")
   private List<IrregularAvailableTime> irregularyAvaliableTime;
 
   /**
-   * 领取后N天开始生效
-   * 설명:日期区间内，用户领券后需等待x天开始生效。例如领券后当天开始生效则无需填写，领券后第2天开始生效填1，以此类推……用户在有效期开始前领取商家券，则从有效期第1天开始计算天数，用户在有效期内领取商家券，则从领取当天开始计算天数。无论用户何时领取商家券，商家券在活动有效期结束后均不可用。需配合available_day_after_receive一同填写，不可单独填写。注：最大不能超过30天
+   * 수령 후 N일부터 발효
+   * 설명: 날짜 구간 내에서, 사용자가 쿠폰을 수령한 후 x일을 기다려야 발효됩니다. 예를 들어 쿠폰 수령 후 당일부터 발효되면 입력할 필요가 없으며, 쿠폰 수령 후 제2일부터 발효되면 1을 입력하며, 이와 같이 진행... 사용자가 유효 기간 시작 전에 가맹점 쿠폰을 수령한 경우, 유효 기간 제1일부터 일수를 계산하며, 사용자가 유효 기간 내에 가맹점 쿠폰을 수령한 경우, 수령 당일부터 일수를 계산합니다. 사용자가 언제 가맹점 쿠폰을 수령하든, 가맹점 쿠폰은 활동 유효 기간 종료 후에는 사용할 수 없습니다. available_day_after_receive와 함께 입력해야 하며, 단독으로 입력할 수 없습니다. 참고: 최대 30일을 초과할 수 없음
    */
   @SerializedName("wait_days_after_receive")
   private Integer waitDaysAfterReceive;

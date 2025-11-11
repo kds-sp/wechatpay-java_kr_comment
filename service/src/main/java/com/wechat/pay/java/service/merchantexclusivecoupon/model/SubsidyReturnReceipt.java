@@ -18,63 +18,63 @@ import com.google.gson.annotations.SerializedName;
 
 /** SubsidyReturnReceipt */
 public class SubsidyReturnReceipt {
-  /** 补差回退单号 설명:补差回退唯一单号，由微信支付生成，仅在补差回退成功后有返回 */
+  /** 보조금 반환 내역 번호 설명: 보조금 반환 고유 내역 번호, 위챗페이가 생성하며, 보조금 반환 성공 후에만 반환 */
   @SerializedName("subsidy_return_receipt_id")
   private String subsidyReturnReceiptId;
 
-  /** 商家券배치 번호 설명:由微信支付生成，调用가맹점 쿠폰 생성API成功时返回的唯一批次ID */
+  /** 가맹점 쿠폰 배치 번호 설명: 위챗페이가 생성하며, 가맹점 쿠폰 생성 API 호출 성공 시 반환되는 고유 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 商家쿠폰 code 설명: 쿠폰의 고유 식별자 */
+  /** 가맹점 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 微信支付订单号 설명:微信支付下单支付成功返回的订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 결제 성공 시 반환되는 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 微信支付退款单号 설명:微信支付退款单号 */
+  /** 위챗페이 환불 내역 번호 설명: 위챗페이 환불 내역 번호 */
   @SerializedName("refund_id")
   private String refundId;
 
-  /** 原营销补差扣款商户号 설명:原营销补差扣款商户号，即回退资金收款商户号 */
+  /** 원 마케팅 보조금 출금 가맹점 번호 설명: 원 마케팅 보조금 출금 가맹점 번호, 즉 반환 자금 수취 가맹점 번호 */
   @SerializedName("payer_merchant")
   private String payerMerchant;
 
-  /** 原营销补差入账商户号 설명:原营销补差入账商户号，即回退资金扣款商户号 */
+  /** 원 마케팅 보조금 입금 가맹점 번호 설명: 원 마케팅 보조금 입금 가맹점 번호, 즉 반환 자금 출금 가맹점 번호 */
   @SerializedName("payee_merchant")
   private String payeeMerchant;
 
-  /** 补差回退金额 설명:本次补差回退金额，单位为分。单个券code回退总金额不能超过补差金额 */
+  /** 보조금 반환 금액 설명: 이번 보조금 반환 금액, 단위는 분. 단일 쿠폰 code 반환 총액은 보조금 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 补差回退描述 설명:回退备注描述，查询的时候原样带回 */
+  /** 보조금 반환 설명 설명: 반환 비고 설명, 조회 시 그대로 반환 */
   @SerializedName("description")
   private String description;
 
-  /** 补差回退单据状态 설명:补差付款单据状态 */
+  /** 보조금 반환 내역 상태 설명: 보조금 지급 내역 상태 */
   @SerializedName("status")
   private SubsidyReturnReceiptStatus status;
 
-  /** 补差回退失败原因 설명:仅在补差回退失败时，返回告知对应失败的原因 */
+  /** 보조금 반환 실패 사유 설명: 보조금 반환 실패 시에만 반환되며, 해당 실패 사유를 알려줌 */
   @SerializedName("fail_reason")
   private SubsidyReturnReceiptFailReason failReason;
 
-  /** 补差回退完成时间 설명:仅在补差回退成功时，返回完成时间 */
+  /** 보조금 반환 완료 시간 설명: 보조금 반환 성공 시에만 반환되며, 완료 시간을 반환합니다 */
   @SerializedName("return_done_time")
   private String returnDoneTime;
 
-  /** 补差付款单号 설명:此次补差回退操作对应的补差付款单号 */
+  /** 보조금 지급 내역 번호 설명: 이번 보조금 반환 작업에 해당하는 보조금 지급 내역 번호 */
   @SerializedName("subsidy_receipt_id")
   private String subsidyReceiptId;
 
-  /** 业务请求唯一单号 설명:商户侧需保证唯一性。可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号 */
+  /** 업무 요청 고유 내역 번호 설명: 가맹점 측에서 고유성 보장 필요. 영문, 숫자, |, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음 */
   @SerializedName("out_subsidy_return_no")
   private String outSubsidyReturnNo;
 
-  /** 补差回退发起时间 설명:补差回退单据创建时间 */
+  /** 보조금 반환 시작 시간 설명: 보조금 반환 내역 생성 시간 */
   @SerializedName("return_create_time")
   private String returnCreateTime;
 

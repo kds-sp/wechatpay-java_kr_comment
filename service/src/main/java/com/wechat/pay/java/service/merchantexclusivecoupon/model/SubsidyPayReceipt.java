@@ -18,65 +18,62 @@ import com.google.gson.annotations.SerializedName;
 
 /** SubsidyPayReceipt */
 public class SubsidyPayReceipt {
-  /** 补差付款单号 설명:补差付款唯一单号，由微信支付生成，仅在补差付款成功后有返回 */
+  /** 보조금 지급 내역 번호 설명: 보조금 지급 고유 내역 번호, 위챗페이가 생성하며, 보조금 지급 성공 후에만 반환 */
   @SerializedName("subsidy_receipt_id")
   private String subsidyReceiptId;
 
-  /** 商家券배치 번호 설명:由微信支付生成，调用가맹점 쿠폰 생성API成功时返回的唯一批次ID */
+  /** 가맹점 쿠폰 배치 번호 설명: 위챗페이가 생성하며, 가맹점 쿠폰 생성 API 호출 성공 시 반환되는 고유 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 商家쿠폰 code 설명: 쿠폰의 고유 식별자 */
+  /** 가맹점 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 微信支付订单号 설명:微信支付下单支付成功返回的订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 결제 성공 시 반환되는 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 营销补差扣款商户号 설명:营销补差扣款商户号 */
+  /** 마케팅 보조금 출금 가맹점 번호 설명: 마케팅 보조금 출금 가맹점 번호 */
   @SerializedName("payer_merchant")
   private String payerMerchant;
 
-  /** 营销补差入账商户号 설명:营销补差入账商户号 */
+  /** 마케팅 보조금 입금 가맹점 번호 설명: 마케팅 보조금 입금 가맹점 번호 */
   @SerializedName("payee_merchant")
   private String payeeMerchant;
 
   /**
-   * 补差付款金额 설명:单位为分，单笔订单补差金额不得超过券的优惠金额，最高补差金额为5000元 > 券的优惠金额定义： 满减券：满减金额即为优惠金额 折扣券：优惠金额 = 微信支付订单金额 ÷
-   * 折扣比例 × (1 - 折扣比例) 换购券：不支持
+   * 보조금 지급 금액 설명: 단위는 분, 단일 주문 보조금 금액은 쿠폰의 할인 금액을 초과할 수 없으며, 최대 보조금 금액은 5000원 > 쿠폰의 할인 금액 정의: 만원 이상 할인 쿠폰: 만원 이상 할인 금액이 할인 금액임. 할인 쿠폰: 할인 금액 = 위챗페이 주문 금액 ÷ 할인 비율 × (1 - 할인 비율). 교환 쿠폰: 지원하지 않음
    */
   @SerializedName("amount")
   private Long amount;
 
-  /** 补差付款描述 설명:付款备注描述，查询的时候原样带回 */
+  /** 보조금 지급 설명 설명: 지급 비고 설명, 조회 시 그대로 반환 */
   @SerializedName("description")
   private String description;
 
-  /** 补差付款单据状态 설명:补差付款单据状态 */
+  /** 보조금 지급 내역 상태 설명: 보조금 지급 내역 상태 */
   @SerializedName("status")
   private SubsidyPayReceiptStatus status;
 
-  /** 补差付款失败原因 설명:仅在补差付款失败时，返回告知对应失败的原因 */
+  /** 보조금 지급 실패 사유 설명: 보조금 지급 실패 시에만 반환되며, 해당 실패 사유를 알려줌 */
   @SerializedName("fail_reason")
   private SubsidyPayReceiptFailReason failReason;
 
   /**
-   * 补差付款完成时间
-   * 설명:仅在补差付款成功时，返回完成时间。[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
-   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
+   * 보조금 지급 완료 시간
+   * 설명: 보조금 지급 성공 시에만 반환되며, 완료 시간을 반환합니다. [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("success_time")
   private String successTime;
 
-  /** 业务请求唯一单号 설명:商户侧需保证唯一性。可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号 */
+  /** 업무 요청 고유 내역 번호 설명: 가맹점 측에서 고유성 보장 필요. 영문, 숫자, |, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음 */
   @SerializedName("out_subsidy_no")
   private String outSubsidyNo;
 
   /**
-   * 补差付款发起时间
-   * 설명:补差付款单据创建时间。遵循rfc3339标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
+   * 보조금 지급 시작 시간
+   * 설명: 보조금 지급 내역 생성 시간. rfc3339 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("create_time")
   private String createTime;

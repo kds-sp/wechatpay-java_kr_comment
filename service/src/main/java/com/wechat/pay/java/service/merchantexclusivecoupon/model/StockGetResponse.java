@@ -22,7 +22,7 @@ public class StockGetResponse {
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 배치 소속 가맹점 번호 설명:批次是归属于哪个商户 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
+  /** 배치 소속 가맹점 번호 설명: 배치가 어느 가맹점에 속하는지 참고: 일반 직접 연결 모드, 이 매개변수는 직접 연결 가맹점 번호. 서비스 제공업체 모드, 이 매개변수는 하위 가맹점 번호. 간접 연결 모드, 이 매개변수는 하위 가맹점 번호. */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
@@ -30,7 +30,7 @@ public class StockGetResponse {
   @SerializedName("comment")
   private String comment;
 
-  /** 适应商品范围 설명:배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 적용 상품 범위 설명: 배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("goods_name")
   private String goodsName;
 
@@ -38,11 +38,11 @@ public class StockGetResponse {
   @SerializedName("stock_type")
   private BusiFavorStockType stockType;
 
-  /** 核销规则 설명:核销规则 */
+  /** 사용 규칙 설명: 사용 규칙 */
   @SerializedName("coupon_use_rule")
   private CouponUseRule couponUseRule;
 
-  /** 发放规则 설명:发放规则 */
+  /** 발송 규칙 설명: 발송 규칙 */
   @SerializedName("stock_send_rule")
   private StockSendRule stockSendRule;
 
@@ -50,25 +50,25 @@ public class StockGetResponse {
   @SerializedName("custom_entrance")
   private CustomEntrance customEntrance;
 
-  /** 样式信息 설명:创建批次时的样式信息 */
+  /** 스타일 정보 설명: 배치 생성 시의 스타일 정보 */
   @SerializedName("display_pattern_info")
   private DisplayPatternInfo displayPatternInfo;
 
-  /** 批次状态 설명:批次状态 */
+  /** 배치 상태 설명: 배치 상태 */
   @SerializedName("stock_state")
   private StockStatus stockState;
 
-  /** 券code模式 설명:券code模式 */
+  /** 쿠폰 code 모드 설명: 쿠폰 code 모드 */
   @SerializedName("coupon_code_mode")
   private CouponCodeMode couponCodeMode;
 
-  /** 배치 번호 설명:批次唯一标识 */
+  /** 배치 번호 설명: 배치 고유 식별자 */
   @SerializedName("stock_id")
   private String stockId;
 
   /**
-   * 券code数量
-   * 설명:当且仅当coupon_code_mode(券code模式)为MERCHANT_UPLOAD(商户上传自定义code)模式时，返回该字段；返回内容为商户上传code的数量信息
+   * 쿠폰 code 수량
+   * 설명: coupon_code_mode(쿠폰 code 모드)가 MERCHANT_UPLOAD(가맹점 업로드 사용자 정의 code) 모드일 때만 이 필드를 반환. 반환 내용은 가맹점이 업로드한 code의 수량 정보
    */
   @SerializedName("coupon_code_count")
   private CouponCodeCount couponCodeCount;
@@ -77,7 +77,7 @@ public class StockGetResponse {
   @SerializedName("notify_config")
   private NotifyConfig notifyConfig;
 
-  /** 批次发放情况 설명:批次发放情况 */
+  /** 배치 발송 상황 설명: 배치 발송 상황 */
   @SerializedName("send_count_information")
   private SendCount sendCountInformation;
 

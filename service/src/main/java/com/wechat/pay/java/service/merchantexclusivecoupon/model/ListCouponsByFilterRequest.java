@@ -28,39 +28,39 @@ public class ListCouponsByFilterRequest {
   private String openid;
 
   /**
-   * 공개 계정 ID 설명:支持传入与当前调用接口商户号有绑定关系的AppID。支持小程序AppID与公众号AppID。
-   * 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID 或 传入的AppID得是归属商户号有绑定关系的AppID
+   * 공개 계정 ID 설명: 현재 호출 인터페이스 가맹점 번호와 바인딩 관계가 있는 AppID 전달 지원. 미니프로그램 AppID와 공개 계정 AppID 지원.
+   * 검증 규칙: 전달한 AppID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID이거나, 전달한 AppID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID여야 함
    */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 배치 번호 설명:배치 번호，是否指定배치 번호查询 */
+  /** 배치 번호 설명: 배치 번호, 배치 번호 지정 조회 여부 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
-  /** 创建批次的商户号 설명:批次创建方商户号 검증 규칙:当调用方商户号（即请求头中的商户号）为创建批次方商户号时，该参数必传 */
+  /** 배치 생성 가맹점 번호 설명: 배치 생성 측 가맹점 번호 검증 규칙: 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)가 배치 생성 측 가맹점 번호인 경우, 이 매개변수는 필수 전달 */
   @SerializedName("creator_merchant")
   @Expose(serialize = false)
   private String creatorMerchant;
 
-  /** 배치 소속 가맹점 번호 설명:批次归属商户号 검증 규칙:当调用方商户号（即请求头中的商户号）为批次归属商户号时，该参数必传 */
+  /** 배치 소속 가맹점 번호 설명: 배치 소속 가맹점 번호 검증 규칙: 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)가 배치 소속 가맹점 번호인 경우, 이 매개변수는 필수 전달 */
   @SerializedName("belong_merchant")
   @Expose(serialize = false)
   private String belongMerchant;
 
-  /** 批次发放商户号 설명:批次发放商户号 검증 규칙:当调用方商户号（即请求头中的商户号）为批次发放商户号时，该参数必传；委托营销关系下，请填写委托发券的商户号 */
+  /** 배치 발송 가맹점 번호 설명: 배치 발송 가맹점 번호 검증 규칙: 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)가 배치 발송 가맹점 번호인 경우, 이 매개변수는 필수 전달. 위탁 마케팅 관계 하에서는 위탁 쿠폰 발송 가맹점 번호를 입력하세요 */
   @SerializedName("sender_merchant")
   @Expose(serialize = false)
   private String senderMerchant;
 
-  /** 分页页码 설명:分页页码 */
+  /** 페이지 번호 설명: 페이지 번호 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Integer offset;
 
-  /** 分页大小 설명:分页大小 */
+  /** 페이지 크기 설명: 페이지 크기 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Integer limit;

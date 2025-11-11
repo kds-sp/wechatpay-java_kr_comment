@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** DiscountMsg */
 public class DiscountMsg {
-  /** 折扣比例 설명:折扣百分比，88为88折 */
+  /** 할인 비율 설명: 할인 백분율, 88은 88% 할인 */
   @SerializedName("discount_percent")
   private Integer discountPercent;
 
-  /** 消费门槛 설명:消费门槛，单位：分。 特殊规则：取值范围 1 ≤ value ≤ 10000000 */
+  /** 소비 기준 설명: 소비 기준, 단위: 분. 특수 규칙: 값 범위 1 ≤ value ≤ 10000000 */
   @SerializedName("transaction_minimum")
   private Long transactionMinimum;
 

@@ -22,11 +22,11 @@ public class CouponEntity {
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
-  /** 商家券批次名称 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 가맹점 쿠폰 배치 이름 설명: 배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次备注 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 배치 비고 설명: 가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("comment")
   private String comment;
 
@@ -50,7 +50,7 @@ public class CouponEntity {
   @SerializedName("coupon_state")
   private CouponStatus couponState;
 
-  /** 样式信息 설명: */
+  /** 스타일 정보 설명: */
   @SerializedName("display_pattern_info")
   private DisplayPatternInfo displayPatternInfo;
 
@@ -58,7 +58,7 @@ public class CouponEntity {
   @SerializedName("coupon_use_rule")
   private CouponUseRule couponUseRule;
 
-  /** 自定义入口 설명: */
+  /** 사용자 정의 입구 설명: */
   @SerializedName("custom_entrance")
   private CustomEntrance customEntrance;
 
@@ -100,23 +100,23 @@ public class CouponEntity {
   @SerializedName("associate_out_trade_no")
   private String associateOutTradeNo;
 
-  /** 回退请求单号 설명:回退时传入的唯一凭证（如券发生了退回，将返回此字段） */
+  /** 반환 요청 번호 설명: 반환 시 전달한 고유 증빙(쿠폰이 반환된 경우, 이 필드 반환) */
   @SerializedName("return_request_no")
   private String returnRequestNo;
 
-  /** 券回退时间 설명:券被回退的时间（如券发生了退回，将返回此字段） */
+  /** 쿠폰 반환 시간 설명: 쿠폰이 반환된 시간(쿠폰이 반환된 경우, 이 필드 반환) */
   @SerializedName("return_time")
   private String returnTime;
 
-  /** 失效请求单号 설명:失效时传入的唯一凭证（如果一张券已失效，将返回此字段） */
+  /** 무효화 요청 번호 설명: 무효화 시 전달한 고유 증빙(쿠폰이 이미 무효화된 경우, 이 필드 반환) */
   @SerializedName("deactivate_request_no")
   private String deactivateRequestNo;
 
-  /** 券失效时间 설명:券被失效的时间（如果一张券已失效，将返回此字段） */
+  /** 쿠폰 무효화 시간 설명: 쿠폰이 무효화된 시간(쿠폰이 이미 무효화된 경우, 이 필드 반환) */
   @SerializedName("deactivate_time")
   private String deactivateTime;
 
-  /** 失效原因 설명:失效一张券的原因（如果一张券已失效，可能返回此字段） */
+  /** 무효화 사유 설명: 쿠폰을 무효화한 사유(쿠폰이 이미 무효화된 경우, 이 필드 반환 가능) */
   @SerializedName("deactivate_reason")
   private String deactivateReason;
 

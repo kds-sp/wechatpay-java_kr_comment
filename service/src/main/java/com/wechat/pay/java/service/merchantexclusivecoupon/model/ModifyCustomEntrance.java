@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ModifyCustomEntrance */
 public class ModifyCustomEntrance {
-  /** 小程序入口 설명:需要小程序APPID、path、入口文案、引导文案。如果需要跳转小程序，APPID、path、入口文案为必填，引导文案非必填。AppID要与归属商户号有绑定关系 */
+  /** 미니프로그램 입구 설명: 미니프로그램 APPID, path, 입구 문구, 안내 문구 필요. 미니프로그램으로 이동하는 경우, APPID, path, 입구 문구는 필수이며, 안내 문구는 필수 아님. AppID는 소속 가맹점 번호와 바인딩 관계가 있어야 함 */
   @SerializedName("mini_programs_info")
   private ModifyMiniAppInfo miniProgramsInfo;
 
-  /** 商户公众号AppID 설명:可配置商户公众号，从券详情可跳转至公众号 */
+  /** 가맹점 공개 계정 AppID 설명: 가맹점 공개 계정을 설정할 수 있으며, 쿠폰 상세에서 공개 계정으로 이동 가능 */
   @SerializedName("appid")
   private String appid;
 
@@ -33,7 +33,7 @@ public class ModifyCustomEntrance {
   @SerializedName("hall_id")
   private String hallId;
 
-  /** code展示模式 설명:code展示模式 */
+  /** code 표시 모드 설명: code 표시 모드 */
   @SerializedName("code_display_mode")
   private CodeDisplayMode codeDisplayMode;
 

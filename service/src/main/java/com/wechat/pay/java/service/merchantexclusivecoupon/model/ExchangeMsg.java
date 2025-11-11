@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ExchangeMsg */
 public class ExchangeMsg {
-  /** 单品换购价 설명:单品换购价，单位：分。 特殊规则：取值范围 0 ≤ value ≤ 10000000 */
+  /** 단품 교환 가격 설명: 단품 교환 가격, 단위: 분. 특수 규칙: 값 범위 0 ≤ value ≤ 10000000 */
   @SerializedName("exchange_price")
   private Long exchangePrice;
 
-  /** 消费门槛 설명:消费门槛，单位：分。 特殊规则：取值范围 1 ≤ value ≤ 10000000 */
+  /** 소비 기준 설명: 소비 기준, 단위: 분. 특수 규칙: 값 범위 1 ≤ value ≤ 10000000 */
   @SerializedName("transaction_minimum")
   private Long transactionMinimum;
 
