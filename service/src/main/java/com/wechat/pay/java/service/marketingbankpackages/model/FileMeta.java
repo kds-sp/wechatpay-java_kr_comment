@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 银行营销对外API
+// 은행 마케팅 대외 API
 //
-// # 前言
-// 银行营销API是专为银行商户设置的一套API。目前仅包含“创建快捷交易协议号上传任务”接口，供银行上传快捷交易协议号文件。微信侧收到文件中，将快捷交易协议号转换为微信用户id，存储到指定的号码包文件中。
+// # 서문
+// 은행 마케팅 API는 은행 가맹점을 위해 설정된 API 세트입니다. 현재는 "빠른 거래 계약 번호 업로드 작업 생성" 인터페이스만 포함되어 있으며, 은행이 빠른 거래 계약 번호 파일을 업로드하는 데 사용됩니다. 위챗 측에서 파일을 받으면, 빠른 거래 계약 번호를 위챗 사용자 ID로 변환하여 지정된 번호 패키지 파일에 저장합니다.
 //
 // API version: 0.1.0
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** FileMeta */
 public class FileMeta {
-  /** 文件名 说明：快捷协议号包文件名。可包含英文字母，数字，_，.，-等内容，不允许出现其他不合法符号。同一个号码包的多个上传任务的文件名不可重复，要保证唯一 */
+  /** 파일 이름 설명: 빠른 계약 번호 패키지 파일 이름. 영문, 숫자, _, ., - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음. 동일 번호 패키지의 여러 업로드 작업 파일 이름은 중복될 수 없으며, 고유성을 보장해야 함 */
   @SerializedName("filename")
   private String filename;
 
-  /** 文件摘要 说明：快捷交易协议号文件的文件摘要，即快捷交易协议号文件的二进制内容进行sha256计算得到的值 */
+  /** 파일 다이제스트 설명: 빠른 거래 계약 번호 파일의 파일 다이제스트, 즉 빠른 거래 계약 번호 파일의 바이너리 내용을 sha256으로 계산하여 얻은 값 */
   @SerializedName("sha256")
   private String sha256;
 
   /**
-   * 银行类型
-   * 说明：银行类型，用于标识协议号所属的银行以及卡类型(信用卡或借记卡)。采用字符串类型的银行标识，值列表详见[银行类型](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/terms_definition/chapter1_1_3.shtml#part-7)
+   * 은행 유형
+   * 설명: 은행 유형, 계약 번호가 속한 은행 및 카드 유형(신용 카드 또는 직불 카드)을 식별하는 데 사용. 문자열 유형의 은행 식별자를 사용하며, 값 목록은 [은행 유형](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/terms_definition/chapter1_1_3.shtml#part-7) 참조
    */
   @SerializedName("bank_type")
   private String bankType;

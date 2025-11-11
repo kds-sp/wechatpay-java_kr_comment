@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 银行营销对外API
+// 은행 마케팅 대외 API
 //
-// # 前言
-// 银行营销API是专为银行商户设置的一套API。目前仅包含“创建快捷交易协议号上传任务”接口，供银行上传快捷交易协议号文件。微信侧收到文件中，将快捷交易协议号转换为微信用户id，存储到指定的号码包文件中。
+// # 서문
+// 은행 마케팅 API는 은행 가맹점을 위해 설정된 API 세트입니다. 현재는 "빠른 거래 계약 번호 업로드 작업 생성" 인터페이스만 포함되어 있으며, 은행이 빠른 거래 계약 번호 파일을 업로드하는 데 사용됩니다. 위챗 측에서 파일을 받으면, 빠른 거래 계약 번호를 위챗 사용자 ID로 변환하여 지정된 번호 패키지 파일에 저장합니다.
 //
 // API version: 0.1.0
 
@@ -19,27 +19,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListTaskRequest */
 public class ListTaskRequest {
-  /** 号码包id 说明：号码包唯一标识符。可在微信支付商户平台创建号码包后获得。 */
+  /** 번호 패키지 ID 설명: 번호 패키지 고유 식별자. 위챗페이 가맹점 플랫폼에서 번호 패키지를 생성한 후 획득할 수 있습니다. */
   @SerializedName("package_id")
   @Expose(serialize = false)
   private String packageId;
 
-  /** 文件名 说明：任务上传的文件名 */
+  /** 파일 이름 설명: 작업에서 업로드한 파일 이름 */
   @SerializedName("filename")
   @Expose(serialize = false)
   private String filename;
 
-  /** 分页页码 说明：分页页码，页码从0开始 */
+  /** 페이지 번호 설명: 페이지 번호, 페이지 번호는 0부터 시작 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Long offset;
 
-  /** 分页大小 说明：分页大小，单次最多查询20条记录 */
+  /** 페이지 크기 설명: 페이지 크기, 단일 조회당 최대 20개 레코드 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Long limit;
 
-  /** 任务状态 说明：上传任务的状态：PROCESSING - 处理中，FINISHED - 已完成 */
+  /** 작업 상태 설명: 업로드 작업의 상태: PROCESSING - 처리 중, FINISHED - 완료됨 */
   @SerializedName("status")
   @Expose(serialize = false)
   private TaskStatus status;

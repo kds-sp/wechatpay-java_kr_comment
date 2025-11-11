@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 银行营销对外API
+// 은행 마케팅 대외 API
 //
-// # 前言
-// 银行营销API是专为银行商户设置的一套API。目前仅包含“创建快捷交易协议号上传任务”接口，供银行上传快捷交易协议号文件。微信侧收到文件中，将快捷交易协议号转换为微信用户id，存储到指定的号码包文件中。
+// # 서문
+// 은행 마케팅 API는 은행 가맹점을 위해 설정된 API 세트입니다. 현재는 "빠른 거래 계약 번호 업로드 작업 생성" 인터페이스만 포함되어 있으며, 은행이 빠른 거래 계약 번호 파일을 업로드하는 데 사용됩니다. 위챗 측에서 파일을 받으면, 빠른 거래 계약 번호를 위챗 사용자 ID로 변환하여 지정된 번호 패키지 파일에 저장합니다.
 //
 // API version: 0.1.0
 
@@ -14,7 +14,7 @@ package com.wechat.pay.java.service.marketingbankpackages.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** PROCESSING - 处理中，上传任务处理中，请等待 FINISHED - 已完成，上传任务已处理完成，任务上传的文件中的用户已导入到号码包中 */
+/** PROCESSING - 처리 중, 업로드 작업 처리 중, 대기하세요 FINISHED - 완료됨, 업로드 작업이 처리 완료되었으며, 작업에서 업로드한 파일의 사용자가 번호 패키지에 가져와졌습니다 */
 public enum TaskStatus {
   @SerializedName("PROCESSING")
   PROCESSING,

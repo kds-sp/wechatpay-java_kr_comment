@@ -1,9 +1,9 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 银行营销对外API
+// 은행 마케팅 대외 API
 //
-// # 前言
-// 银行营销API是专为银行商户设置的一套API。目前仅包含“创建快捷交易协议号上传任务”接口，供银行上传快捷交易协议号文件。微信侧收到文件中，将快捷交易协议号转换为微信用户id，存储到指定的号码包文件中。
+// # 서문
+// 은행 마케팅 API는 은행 가맹점을 위해 설정된 API 세트입니다. 현재는 "빠른 거래 계약 번호 업로드 작업 생성" 인터페이스만 포함되어 있으며, 은행이 빠른 거래 계약 번호 파일을 업로드하는 데 사용됩니다. 위챗 측에서 파일을 받으면, 빠른 거래 계약 번호를 위챗 사용자 ID로 변환하여 지정된 번호 패키지 파일에 저장합니다.
 //
 // API version: 0.1.0
 
@@ -36,7 +36,7 @@ import com.wechat.pay.java.core.http.RequestBody;
 import com.wechat.pay.java.service.marketingbankpackages.model.ListTaskRequest;
 import com.wechat.pay.java.service.marketingbankpackages.model.ListTaskResponse;
 
-/** MarketingBankPackagesService服务 */
+/** MarketingBankPackagesService 서비스 */
 public class MarketingBankPackagesService {
 
   private final HttpClient httpClient;
@@ -47,7 +47,7 @@ public class MarketingBankPackagesService {
     this.hostName = hostName;
   }
 
-  /** MarketingBankPackagesService构造器 */
+  /** MarketingBankPackagesService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -75,25 +75,25 @@ public class MarketingBankPackagesService {
   }
 
   /**
-   * 查询上传任务列表
+   * 업로드 작업 목록 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ListTaskResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public ListTaskResponse listTask(ListTaskRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/bank/packages/{package_id}/tasks";
 
     ListTaskRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "package_id" + "}", urlEncode(realRequest.getPackageId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getFilename() != null) {
       queryParameter.add("filename", urlEncode(realRequest.getFilename()));
