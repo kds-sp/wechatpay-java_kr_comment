@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
 // API version: 0.1.3
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** SubsidiesCancelRequest */
 public class SubsidiesCancelRequest {
-  /** 电商平台二级商户号 说明：补差的电商平台二级商户，填写微信支付分配的商户号 */
+  /** 전자상거래 플랫폼 하위 가맹점 번호 설명: 보조금을 받는 전자상거래 플랫폼 하위 가맹점, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 取消补差描述 说明：取消补差描述，查询的时候原样带回来 */
+  /** 보조금 취소 설명 설명: 보조금 취소 설명, 조회 시 그대로 반환됨 */
   @SerializedName("description")
   private String description;
 

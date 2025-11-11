@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
 // API version: 0.1.3
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ReturnFrom */
 public class ReturnFrom {
-  /** 出资账户类型 说明：下面枚举值多选一。 枚举值： AVAILABLE : 可用余额 UNAVAILABLE : 不可用余额 */
+  /** 출자 계정 유형 설명: 다음 열거형 값 중 하나 선택. 열거형 값: AVAILABLE: 사용 가능 잔액 UNAVAILABLE: 사용 불가 잔액 */
   @SerializedName("account")
   private ReturnAccount account;
 
-  /** 出资金额 说明：对应账户出资金额 */
+  /** 출자 금액 설명: 해당 계정 출자 금액 */
   @SerializedName("amount")
   private Long amount;
 

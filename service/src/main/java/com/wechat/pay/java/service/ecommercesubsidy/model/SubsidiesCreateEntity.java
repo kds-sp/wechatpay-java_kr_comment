@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
-// 微信支付平台补差API
+// 위챗페이 플랫폼 보조금 API
 //
 // API version: 0.1.3
 
@@ -17,35 +17,35 @@ import com.google.gson.annotations.SerializedName;
 
 /** SubsidiesCreateEntity */
 public class SubsidiesCreateEntity {
-  /** 电商平台二级商户号 说明：补差的电商平台二级商户，填写微信支付分配的商户号 */
+  /** 전자상거래 플랫폼 하위 가맹점 번호 설명: 보조금을 받는 전자상거래 플랫폼 하위 가맹점, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 微信补差单号 说明：微信补差单号，微信系统返回的唯一标识 */
+  /** 위챗 보조금 내역 번호 설명: 위챗 보조금 내역 번호, 위챗 시스템이 반환한 고유 식별자 */
   @SerializedName("subsidy_id")
   private String subsidyId;
 
-  /** 补差描述 说明：补差描述 */
+  /** 보조금 설명 설명: 보조금 설명 */
   @SerializedName("description")
   private String description;
 
-  /** 补差金额 说明：补差金额 */
+  /** 보조금 금액 설명: 보조금 금액 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 补差单结果 说明：补差单结果 */
+  /** 보조금 내역 결과 설명: 보조금 내역 결과 */
   @SerializedName("result")
   private CreateStatus result;
 
-  /** 补差完成时间 说明：补差完成时间，遵循RFC3339标准格式 */
+  /** 보조금 완료 시간 설명: 보조금 완료 시간, RFC3339 표준 형식을 따름 */
   @SerializedName("success_time")
   private String successTime;
 
-  /** 商户补差单号 说明：商户系统内部的补差单号，在商户系统内部唯一，同一补差单号多次请求等同一次。只能是数字、大小写字母_-|*@ */
+  /** 가맹점 보조금 내역 번호 설명: 가맹점 시스템 내부의 보조금 내역 번호, 가맹점 시스템 내부에서 고유함, 동일 보조금 내역 번호로 여러 번 요청해도 한 번과 동일함. 숫자, 대소문자 영문, _, -, |, *, @만 가능 */
   @SerializedName("out_subsidy_no")
   private String outSubsidyNo;
 
