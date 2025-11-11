@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,32 +18,32 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListStocksRequest */
 public class ListStocksRequest {
-  /** 分页页码 说明：页码从0开始，默认第0页 */
+  /** 페이지 번호 설명: 페이지 번호는 0부터 시작, 기본값은 0페이지 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Integer offset;
 
-  /** 分页大小 说明：分页大小，最大10 */
+  /** 페이지 크기 설명: 페이지 크기, 최대 10 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Integer limit;
 
-  /** 创建批次的商户号 说明：批次创建方商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 배치 생성 방 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   @Expose(serialize = false)
   private String stockCreatorMchid;
 
-  /** 起始时间 说明：起始创建时间 */
+  /** 시작 시간 설명: 시작 생성 시간 */
   @SerializedName("create_start_time")
   @Expose(serialize = false)
   private String createStartTime;
 
-  /** 终止时间 说明：终止创建时间 */
+  /** 종료 시간 설명: 종료 생성 시간 */
   @SerializedName("create_end_time")
   @Expose(serialize = false)
   private String createEndTime;
 
-  /** 批次状态 说明：批次状态： unactivated-未激活；audit-审核中；running-运行中；stoped-已停止；paused-暂停发放 */
+  /** 배치 상태 설명: 배치 상태: unactivated-미활성화; audit-심사 중; running-실행 중; stoped-중지됨; paused-발급 일시 중지 */
   @SerializedName("status")
   @Expose(serialize = false)
   private String status;

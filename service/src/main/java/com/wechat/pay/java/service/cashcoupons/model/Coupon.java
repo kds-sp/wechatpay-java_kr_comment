@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,55 +17,55 @@ import com.google.gson.annotations.SerializedName;
 
 /** Coupon */
 public class Coupon {
-  /** 创建批次的商户号 说明：微信为创建方商户分配的商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 위챗페이가 생성 방 가맹점에 할당한 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   private String stockCreatorMchid;
 
-  /** 批次号 说明：批次id */
+  /** 배치 번호 설명: 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 单品优惠特定信息 说明：单品优惠特定信息 */
+  /** 단일 상품 할인 특정 정보 설명: 단일 상품 할인 특정 정보 */
   @SerializedName("cut_to_message")
   private CutTypeMsg cutToMessage;
 
-  /** 代金券名称 说明：代金券名称 */
+  /** 대금권 이름 설명: 대금권 이름 */
   @SerializedName("coupon_name")
   private String couponName;
 
-  /** 代金券状态 说明：代金券状态：SENDED-可用，USED-已实扣，EXPIRED-已过期 */
+  /** 대금권 상태 설명: 대금권 상태: SENDED-사용 가능, USED-실제 차감됨, EXPIRED-만료됨 */
   @SerializedName("status")
   private String status;
 
-  /** 使用说明 说明：代金券描述说明字段 */
+  /** 사용 설명 설명: 대금권 설명 필드 */
   @SerializedName("description")
   private String description;
 
-  /** 领券时间 说明：领券时间 */
+  /** 쿠폰 수령 시간 설명: 쿠폰 수령 시간 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 券类型 说明：NORMAL-满减券；CUT_TO-减至券 */
+  /** 쿠폰 유형 설명: NORMAL-만원 이상 할인 쿠폰; CUT_TO-할인액까지 쿠폰 */
   @SerializedName("coupon_type")
   private String couponType;
 
-  /** 是否无资金流 说明：true-是；false-否 */
+  /** 자금 흐름 없음 여부 설명: true-예; false-아니오 */
   @SerializedName("no_cash")
   private Boolean noCash;
 
-  /** 可用开始时间 说明：可用开始时间 */
+  /** 사용 가능 시작 시간 설명: 사용 가능 시작 시간 */
   @SerializedName("available_begin_time")
   private String availableBeginTime;
 
-  /** 可用结束时间 说明：可用结束时间 */
+  /** 사용 가능 종료 시간 설명: 사용 가능 종료 시간 */
   @SerializedName("available_end_time")
   private String availableEndTime;
 
-  /** 是否单品优惠 说明：TRUE-是；FALSE-否 */
+  /** 단일 상품 할인 여부 설명: TRUE-예; FALSE-아니오 */
   @SerializedName("singleitem")
   private Boolean singleitem;
 
-  /** 满减券信息 说明：普通满减券面额、门槛信息 */
+  /** 만원 이상 할인 쿠폰 정보 설명: 일반 만원 이상 할인 쿠폰 액면가, 최소 금액 정보 */
   @SerializedName("normal_coupon_information")
   private FixedValueStockMsg normalCouponInformation;
 

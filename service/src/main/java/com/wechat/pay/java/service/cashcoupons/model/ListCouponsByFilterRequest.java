@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,50 +18,50 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListCouponsByFilterRequest */
 public class ListCouponsByFilterRequest {
-  /** 用户标识 说明：用户在商户appid 下的唯一标识 */
+  /** 사용자 식별자 설명: 사용자가 가맹점 appid 하에서의 고유 식별자 */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
 
   /**
-   * 公众账号ID
-   * 说明：微信为发券方商户分配的公众账号ID，接口传入的所有appid应该为公众号的appid（在mp.weixin.qq.com申请的），不能为APP的appid（在open.weixin.qq.com申请的）。
+   * 공개 계정 ID
+   * 설명: 위챗페이가 쿠폰 발급 방 가맹점에 할당한 공개 계정 ID, 인터페이스에 전달하는 모든 appid는 공개 계정의 appid여야 함(mp.weixin.qq.com에서 신청한 것), APP의 appid는 안 됨(open.weixin.qq.com에서 신청한 것).
    */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 批次号 说明：批次号，是否指定批次号查询，填写available_mchid，该字段不生效 */
+  /** 배치 번호 설명: 배치 번호, 배치 번호 지정 조회 여부, available_mchid를 입력하면 이 필드는 적용되지 않음 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
-  /** 券状态 说明：代金券状态：SENDED-可用，USED-已实扣，填写available_mchid，该字段不生效 */
+  /** 쿠폰 상태 설명: 대금권 상태: SENDED-사용 가능, USED-실제 차감됨, available_mchid를 입력하면 이 필드는 적용되지 않음 */
   @SerializedName("status")
   @Expose(serialize = false)
   private String status;
 
-  /** 创建批次的商户号 说明：批次创建方商户号。创建批次的商户号，批次发放商户号，可用商户号三个参数，任意选填一个。 */
+  /** 배치 생성 방 가맹점 번호 설명: 배치 생성 방 가맹점 번호. 배치 생성 방 가맹점 번호, 배치 발급 가맹점 번호, 사용 가능 가맹점 번호 세 매개변수 중 하나를 선택 입력. */
   @SerializedName("creator_mchid")
   @Expose(serialize = false)
   private String creatorMchid;
 
-  /** 批次发放商户号 说明：批次发放商户号。创建批次的商户号，批次发放商户号，可用商户号三个参数，任意选填一个。 */
+  /** 배치 발급 가맹점 번호 설명: 배치 발급 가맹점 번호. 배치 생성 방 가맹점 번호, 배치 발급 가맹점 번호, 사용 가능 가맹점 번호 세 매개변수 중 하나를 선택 입력. */
   @SerializedName("sender_mchid")
   @Expose(serialize = false)
   private String senderMchid;
 
-  /** 可用商户号 说明：可用商户号。 创建批次的商户号，批次发放商户号，可用商户号三个参数，任意选填一个。 */
+  /** 사용 가능 가맹점 번호 설명: 사용 가능 가맹점 번호. 배치 생성 방 가맹점 번호, 배치 발급 가맹점 번호, 사용 가능 가맹점 번호 세 매개변수 중 하나를 선택 입력. */
   @SerializedName("available_mchid")
   @Expose(serialize = false)
   private String availableMchid;
 
-  /** 分页页码 说明：分页页码，默认0，填写available_mchid，该字段不生效 */
+  /** 페이지 번호 설명: 페이지 번호, 기본값 0, available_mchid를 입력하면 이 필드는 적용되지 않음 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Integer offset;
 
-  /** 分页大小 说明：分页大小，默认20，填写available_mchid，该字段不生效 */
+  /** 페이지 크기 설명: 페이지 크기, 기본값 20, available_mchid를 입력하면 이 필드는 적용되지 않음 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Integer limit;

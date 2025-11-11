@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,27 +17,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** StockRule */
 public class StockRule {
-  /** 发放总上限 说明：最大发券数 */
+  /** 발급 총 상한 설명: 최대 쿠폰 발급 수 */
   @SerializedName("max_coupons")
   private Long maxCoupons;
 
-  /** 总预算 说明：总消耗金额，单位分 */
+  /** 총 예산 설명: 총 소비 금액, 단위 분 */
   @SerializedName("max_amount")
   private Long maxAmount;
 
-  /** 单天发放上限金额 说明：单天最高消耗金额，单位分 */
+  /** 일일 발급 상한 금액 설명: 일일 최고 소비 금액, 단위 분 */
   @SerializedName("max_amount_by_day")
   private Long maxAmountByDay;
 
-  /** 单个用户可领个数 说明：单个用户可领个数 */
+  /** 단일 사용자 수령 가능 개수 설명: 단일 사용자 수령 가능 개수 */
   @SerializedName("max_coupons_per_user")
   private Integer maxCouponsPerUser;
 
-  /** 是否开启自然人限制 说明：true-是；false-否，默认否 */
+  /** 자연인 제한 활성화 여부 설명: true-예; false-아니오, 기본값 아니오 */
   @SerializedName("natural_person_limit")
   private Boolean naturalPersonLimit;
 
-  /** api发券防刷 说明：true-是；false-否，默认否 */
+  /** API 쿠폰 발급 남용 방지 설명: true-예; false-아니오, 기본값 아니오 */
   @SerializedName("prevent_api_abuse")
   private Boolean preventApiAbuse;
 

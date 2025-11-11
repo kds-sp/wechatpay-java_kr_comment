@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -65,7 +65,7 @@ import com.wechat.pay.java.service.cashcoupons.model.StopStockResponse;
 import com.wechat.pay.java.service.cashcoupons.model.UseFlowRequest;
 import com.wechat.pay.java.service.cashcoupons.model.UseFlowResponse;
 
-/** CashCouponsService服务 */
+/** CashCouponsService 서비스 */
 public class CashCouponsService {
 
   private final HttpClient httpClient;
@@ -76,7 +76,7 @@ public class CashCouponsService {
     this.hostName = hostName;
   }
 
-  /** CashCouponsService构造器 */
+  /** CashCouponsService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -104,20 +104,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 查询代金券消息通知地址
+   * 대금권 메시지 알림 주소 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Callback
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public Callback queryCallback(QueryCallbackRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/callbacks";
 
     QueryCallbackRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getMchid() != null) {
       queryParameter.add("mchid", urlEncode(realRequest.getMchid()));
@@ -140,14 +140,14 @@ public class CashCouponsService {
   }
 
   /**
-   * 设置代金券消息通知地址
+   * 대금권 메시지 알림 주소 설정
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return SetCallbackResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public SetCallbackResponse setCallback(SetCallbackRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/callbacks";
@@ -171,23 +171,23 @@ public class CashCouponsService {
   }
 
   /**
-   * 根据过滤条件查询用户的券
+   * 필터 조건에 따라 사용자 쿠폰 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return CouponCollection
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public CouponCollection listCouponsByFilter(ListCouponsByFilterRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/users/{openid}/coupons";
 
     ListCouponsByFilterRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getAppid() != null) {
       queryParameter.add("appid", urlEncode(realRequest.getAppid()));
@@ -232,27 +232,27 @@ public class CashCouponsService {
   }
 
   /**
-   * 查询代金券详情
+   * 대금권 상세 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Coupon
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public Coupon queryCoupon(QueryCouponRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/favor/users/{openid}/coupons/{coupon_id}";
 
     QueryCouponRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "coupon_id" + "}", urlEncode(realRequest.getCouponId()));
 
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getAppid() != null) {
       queryParameter.add("appid", urlEncode(realRequest.getAppid()));
@@ -275,20 +275,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 发放指定批次的代金券
+   * 지정된 배치의 대금권 발급
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return SendCouponResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public SendCouponResponse sendCoupon(SendCouponRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/users/{openid}/coupons";
 
     SendCouponRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
     if (this.hostName != null) {
@@ -310,14 +310,14 @@ public class CashCouponsService {
   }
 
   /**
-   * 创建代金券批次
+   * 대금권 배치 생성
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return CreateCouponStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public CreateCouponStockResponse createCouponStock(CreateCouponStockRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/coupon-stocks";
@@ -341,24 +341,24 @@ public class CashCouponsService {
   }
 
   /**
-   * 查询代金券可用商户
+   * 대금권 사용 가능 가맹점 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return AvailableMerchantCollection
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public AvailableMerchantCollection listAvailableMerchants(ListAvailableMerchantsRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/merchants";
 
     ListAvailableMerchantsRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getOffset() != null) {
       queryParameter.add("offset", urlEncode(realRequest.getOffset().toString()));
@@ -388,24 +388,24 @@ public class CashCouponsService {
   }
 
   /**
-   * 查询可核销商品编码
+   * 사용 가능 상품 코드 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return AvailableSingleitemCollection
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public AvailableSingleitemCollection listAvailableSingleitems(
       ListAvailableSingleitemsRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/items";
 
     ListAvailableSingleitemsRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getOffset() != null) {
       queryParameter.add("offset", urlEncode(realRequest.getOffset().toString()));
@@ -435,20 +435,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 条件查询批次列表
+   * 조건별 배치 목록 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return StockCollection
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public StockCollection listStocks(ListStocksRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks";
 
     ListStocksRequest realRequest = request;
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getOffset() != null) {
       queryParameter.add("offset", urlEncode(realRequest.getOffset().toString()));
@@ -487,20 +487,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 暂停批次
+   * 배치 일시 중지
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return PauseStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public PauseStockResponse pauseStock(PauseStockRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/pause";
 
     PauseStockRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {
@@ -522,23 +522,23 @@ public class CashCouponsService {
   }
 
   /**
-   * 查询批次详情
+   * 배치 상세 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Stock
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public Stock queryStock(QueryStockRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}";
 
     QueryStockRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getStockCreatorMchid() != null) {
       queryParameter.add("stock_creator_mchid", urlEncode(realRequest.getStockCreatorMchid()));
@@ -561,21 +561,21 @@ public class CashCouponsService {
   }
 
   /**
-   * 下载批次退款明细
+   * 배치 환불 상세 내역 다운로드
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return RefundFlowResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public RefundFlowResponse refundFlow(RefundFlowRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/refund-flow";
 
     RefundFlowRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {
@@ -596,21 +596,21 @@ public class CashCouponsService {
   }
 
   /**
-   * 重启批次
+   * 배치 재시작
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return RestartStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public RestartStockResponse restartStock(RestartStockRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/restart";
 
     RestartStockRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {
@@ -632,20 +632,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 激活开启批次
+   * 배치 활성화 시작
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return StartStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public StartStockResponse startStock(StartStockRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/start";
 
     StartStockRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {
@@ -667,20 +667,20 @@ public class CashCouponsService {
   }
 
   /**
-   * 终止批次
+   * 배치 종료
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return StopStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public StopStockResponse stopStock(StopStockRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/stop";
 
     StopStockRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {
@@ -702,21 +702,21 @@ public class CashCouponsService {
   }
 
   /**
-   * 下载批次核销明细
+   * 배치 사용 상세 내역 다운로드
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return UseFlowResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public UseFlowResponse useFlow(UseFlowRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/marketing/favor/stocks/{stock_id}/use-flow";
 
     UseFlowRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "stock_id" + "}", urlEncode(realRequest.getStockId()));
 
     if (this.hostName != null) {

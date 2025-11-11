@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,39 +17,39 @@ import com.google.gson.annotations.SerializedName;
 
 /** PatternInfo */
 public class PatternInfo {
-  /** 使用说明 说明：用于说明详细的活动规则，会展示在代金券详情页 */
+  /** 사용 설명 설명: 상세 활동 규칙 설명에 사용, 대금권 상세 페이지에 표시됨 */
   @SerializedName("description")
   private String description;
 
-  /** 商户logo 说明：商户logo */
+  /** 가맹점 로고 설명: 가맹점 로고 */
   @SerializedName("merchant_logo")
   private String merchantLogo;
 
-  /** 商户名称 说明：商户名称 */
+  /** 가맹점 이름 설명: 가맹점 이름 */
   @SerializedName("merchant_name")
   private String merchantName;
 
-  /** 背景颜色 说明：背景颜色 */
+  /** 배경색 설명: 배경색 */
   @SerializedName("background_color")
   private BackgroundColor backgroundColor;
 
-  /** 券详情图片 说明：券详情图片 */
+  /** 쿠폰 상세 이미지 설명: 쿠폰 상세 이미지 */
   @SerializedName("coupon_image")
   private String couponImage;
 
   /**
-   * 卡包跳转目标 说明：枚举值：PAYMENT_CODE：跳转至微信支付付款码，点击“立即使用”跳转至微信支付付款码
-   * MINI_PROGRAM：跳转至小程序，点击“立即使用”跳转至配置的商家小程序（需要指定小程序appid和path） DEFAULT_PAGE：跳转至默认页， 点击“立即使用”跳转至默认页面
-   * 如未传该参数，则默认跳转至默认页。
+   * 카드 패키지 이동 대상 설명: 열거형 값: PAYMENT_CODE: 위챗페이 결제 코드로 이동, "즉시 사용" 클릭 시 위챗페이 결제 코드로 이동
+   * MINI_PROGRAM: 미니 프로그램으로 이동, "즉시 사용" 클릭 시 설정된 상점 미니 프로그램으로 이동(미니 프로그램 appid와 path 지정 필요) DEFAULT_PAGE: 기본 페이지로 이동, "즉시 사용" 클릭 시 기본 페이지로 이동
+   * 이 매개변수를 전달하지 않으면 기본적으로 기본 페이지로 이동.
    */
   @SerializedName("jump_target")
   private JumpTarget jumpTarget;
 
-  /** 小程序appid 说明：跳转的小程序appid，跳转至小程序时必填。跳转的小程序appid需至少和一个可核销商户有绑定关系。 */
+  /** 미니 프로그램 appid 설명: 이동할 미니 프로그램 appid, 미니 프로그램으로 이동 시 필수. 이동할 미니 프로그램 appid는 최소 하나의 사용 가능 가맹점과 바인딩 관계가 있어야 함. */
   @SerializedName("mini_program_appid")
   private String miniProgramAppid;
 
-  /** 小程序path 说明：跳转的小程序path，跳转至小程序时必填。 */
+  /** 미니 프로그램 path 설명: 이동할 미니 프로그램 path, 미니 프로그램으로 이동 시 필수. */
   @SerializedName("mini_program_path")
   private String miniProgramPath;
 

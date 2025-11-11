@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,39 +18,39 @@ import java.util.List;
 
 /** StockUseRule */
 public class StockUseRule {
-  /** 发放总上限 说明：最大发券数 */
+  /** 발급 총 상한 설명: 최대 쿠폰 발급 수 */
   @SerializedName("max_coupons")
   private Long maxCoupons;
 
-  /** 总预算 说明：总消耗金额，单位分 */
+  /** 총 예산 설명: 총 소비 금액, 단위 분 */
   @SerializedName("max_amount")
   private Long maxAmount;
 
-  /** 单天发放上限金额 说明：单天最高消耗金额，单位分 */
+  /** 일일 발급 상한 금액 설명: 일일 최고 소비 금액, 단위 분 */
   @SerializedName("max_amount_by_day")
   private Long maxAmountByDay;
 
-  /** 固定面额批次特定信息 说明：固定面额发券批次特定信息 */
+  /** 고정 액면가 배치 특정 정보 설명: 고정 액면가 쿠폰 발급 배치 특정 정보 */
   @SerializedName("fixed_normal_coupon")
   private FixedValueStockMsg fixedNormalCoupon;
 
-  /** 单个用户可领个数 说明：单个用户可领个数 */
+  /** 단일 사용자 수령 가능 개수 설명: 단일 사용자 수령 가능 개수 */
   @SerializedName("max_coupons_per_user")
   private Integer maxCouponsPerUser;
 
-  /** 券类型 说明：NORMAL-满减券；CUT_TO-减至券 */
+  /** 쿠폰 유형 설명: NORMAL-만원 이상 할인 쿠폰; CUT_TO-할인액까지 쿠폰 */
   @SerializedName("coupon_type")
   private String couponType;
 
-  /** 订单优惠标记 说明：订单优惠标记 */
+  /** 주문 할인 표시 설명: 주문 할인 표시 */
   @SerializedName("goods_tag")
   private List<String> goodsTag;
 
-  /** 支付方式 说明：默认不限制，可设置以下各种组合方式 1、付款码支付 2、小程序支付 3、其他支付 4、付款码支付&小程序支付 5、付款码支付&其他支付 */
+  /** 결제 방식 설명: 기본값은 제한 없음, 다음 각종 조합 방식 설정 가능 1. 결제 코드 결제 2. 미니 프로그램 결제 3. 기타 결제 4. 결제 코드 결제&미니 프로그램 결제 5. 결제 코드 결제&기타 결제 */
   @SerializedName("trade_type")
   private List<TradeType> tradeType;
 
-  /** 是否可叠加其他优惠 说明：true-是；false-否 */
+  /** 기타 할인과 중복 사용 가능 여부 설명: true-예; false-아니오 */
   @SerializedName("combine_use")
   private Boolean combineUse;
 

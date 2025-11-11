@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,71 +17,71 @@ import com.google.gson.annotations.SerializedName;
 
 /** Stock */
 public class Stock {
-  /** 批次号 说明：批次id */
+  /** 배치 번호 설명: 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 批次创建方商户号 说明：微信为创建方商户分配的商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 위챗페이가 생성 방 가맹점에 할당한 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   private String stockCreatorMchid;
 
-  /** 批次名称 说明：批次名称 */
+  /** 배치 이름 설명: 배치 이름 */
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次状态 说明：批次状态： unactivated-未激活；audit-审核中；running-运行中；stoped-已停止；paused-暂停发放 */
+  /** 배치 상태 설명: 배치 상태: unactivated-미활성화; audit-심사 중; running-실행 중; stoped-중지됨; paused-발급 일시 중지 */
   @SerializedName("status")
   private String status;
 
-  /** 创建时间 说明：批次创建时间 */
+  /** 생성 시간 설명: 배치 생성 시간 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 使用说明 说明：批次描述信息 */
+  /** 사용 설명 설명: 배치 설명 정보 */
   @SerializedName("description")
   private String description;
 
-  /** 满减券批次使用规则 说明：普通发券批次特定信息 */
+  /** 만원 이상 할인 쿠폰 배치 사용 규칙 설명: 일반 쿠폰 발급 배치 특정 정보 */
   @SerializedName("stock_use_rule")
   private StockUseRule stockUseRule;
 
-  /** 可用开始时间 说明：可用开始时间 */
+  /** 사용 가능 시작 시간 설명: 사용 가능 시작 시간 */
   @SerializedName("available_begin_time")
   private String availableBeginTime;
 
-  /** 可用结束时间 说明：可用结束时间 */
+  /** 사용 가능 종료 시간 설명: 사용 가능 종료 시간 */
   @SerializedName("available_end_time")
   private String availableEndTime;
 
-  /** 已发券数量 说明：已发券数量 */
+  /** 발급된 쿠폰 수량 설명: 발급된 쿠폰 수량 */
   @SerializedName("distributed_coupons")
   private Integer distributedCoupons;
 
-  /** 是否无资金流 说明：是否无资金流，ture-是；false-否 */
+  /** 자금 흐름 없음 여부 설명: 자금 흐름 없음 여부, true-예; false-아니오 */
   @SerializedName("no_cash")
   private Boolean noCash;
 
-  /** 激活批次的时间 说明：批次激活开启时间 */
+  /** 배치 활성화 시간 설명: 배치 활성화 시작 시간 */
   @SerializedName("start_time")
   private String startTime;
 
-  /** 终止批次的时间 说明：批次永久停止时间 */
+  /** 배치 종료 시간 설명: 배치 영구 중지 시간 */
   @SerializedName("stop_time")
   private String stopTime;
 
-  /** 减至批次特定信息 说明：单品优惠特定信息 */
+  /** 할인액까지 배치 특정 정보 설명: 단일 상품 할인 특정 정보 */
   @SerializedName("cut_to_message")
   private CutTypeMsg cutToMessage;
 
-  /** 是否单品优惠 说明：true-是；false-否 */
+  /** 단일 상품 할인 여부 설명: true-예; false-아니오 */
   @SerializedName("singleitem")
   private Boolean singleitem;
 
-  /** 批次类型 说明：NORMAL-代金券批次；DISCOUNT_CUT-立减与折扣；OTHER-其他 */
+  /** 배치 유형 설명: NORMAL-대금권 배치; DISCOUNT_CUT-즉시 할인 및 할인; OTHER-기타 */
   @SerializedName("stock_type")
   private String stockType;
 
-  /** 卡包ID 说明：微信卡包ID */
+  /** 카드 패키지 ID 설명: 위챗페이 카드 패키지 ID */
   @SerializedName("card_id")
   private String cardId;
 

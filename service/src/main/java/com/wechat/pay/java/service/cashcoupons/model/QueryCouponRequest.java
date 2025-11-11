@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,20 +18,20 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryCouponRequest */
 public class QueryCouponRequest {
-  /** 代金券id 说明：代金券id */
+  /** 대금권 ID 설명: 대금권 ID */
   @SerializedName("coupon_id")
   @Expose(serialize = false)
   private String couponId;
 
   /**
-   * 公众账号ID
-   * 说明：微信为发券方商户分配的公众账号ID，接口传入的所有appid应该为公众号的appid（在mp.weixin.qq.com申请的），不能为APP的appid（在open.weixin.qq.com申请的）。
+   * 공개 계정 ID
+   * 설명: 위챗페이가 쿠폰 발급 방 가맹점에 할당한 공개 계정 ID, 인터페이스에 전달하는 모든 appid는 공개 계정의 appid여야 함(mp.weixin.qq.com에서 신청한 것), APP의 appid는 안 됨(open.weixin.qq.com에서 신청한 것).
    */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 用户openid 说明：Openid信息，用户在appid下的唯一标识 */
+  /** 사용자 openid 설명: Openid 정보, 사용자가 appid 하에서의 고유 식별자 */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
