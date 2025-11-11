@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** CloseAdvertisingShowRequest */
 public class CloseAdvertisingShowRequest {
-  /** 特约商户号 说明：需要关闭广告展示的特约商户号，由微信支付生成并下发。 */
+  /** 특약 가맹점 번호 설명: 광고 표시를 닫아야 하는 특약 가맹점 번호, 위챗페이가 생성하여 발급함. */
   @SerializedName("sub_mchid")
   private String subMchid;
 

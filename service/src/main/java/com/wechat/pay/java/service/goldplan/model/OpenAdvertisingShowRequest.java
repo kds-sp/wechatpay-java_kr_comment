@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -18,11 +18,11 @@ import java.util.List;
 
 /** OpenAdvertisingShowRequest */
 public class OpenAdvertisingShowRequest {
-  /** 特约商户号 说明：需要开通广告展示的特约商户号，由微信支付生成并下发。 */
+  /** 특약 가맹점 번호 설명: 광고 표시를 열어야 하는 특약 가맹점 번호, 위챗페이가 생성하여 발급함. */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 同业过滤标签值 说明：特约商户同业过滤的同业过滤标签值。如已设置同业过滤标签，再次请求传入，视为新增，将覆盖原有同业标签配置 */
+  /** 동종업계 필터 태그 값 설명: 특약 가맹점 동종업계 필터의 동종업계 필터 태그 값. 이미 동종업계 필터 태그가 설정된 경우, 다시 요청하여 전달하면 신규로 간주되며 기존 동종업계 태그 구성을 덮어씀 */
   @SerializedName("advertising_industry_filters")
   private List<IndustryType> advertisingIndustryFilters;
 

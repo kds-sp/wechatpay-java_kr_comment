@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** ChangeGoldPlanStatusRequest */
 public class ChangeGoldPlanStatusRequest {
-  /** 特约商户号 说明：开通或关闭点金计划的特约商户商户号，由微信支付生成并下发。 */
+  /** 특약 가맹점 번호 설명: 골드 플랜을 열거나 닫는 특약 가맹점 번호, 위챗페이가 생성하여 발급함. */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 操作类型 说明：开通或关闭点金计划的动作，枚举值： OPEN：表示开通点金计划 CLOSE：表示关闭点金计划 */
+  /** 작업 유형 설명: 골드 플랜을 열거나 닫는 작업, 열거형 값: OPEN: 골드 플랜 열기 의미 CLOSE: 골드 플랜 닫기 의미 */
   @SerializedName("operation_type")
   private OperationType operationType;
 
-  /** 支付场景 说明：支付场景，指定开通点金计划的支付场景。如果未指定，则默认全部打开 */
+  /** 결제 시나리오 설명: 결제 시나리오, 골드 플랜을 열 결제 시나리오를 지정. 지정하지 않으면 기본적으로 모두 열림 */
   @SerializedName("operation_pay_scene")
   private OperationPayScene operationPayScene;
 

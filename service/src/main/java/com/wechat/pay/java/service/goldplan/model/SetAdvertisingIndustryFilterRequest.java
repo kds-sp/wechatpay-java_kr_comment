@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -19,13 +19,13 @@ import java.util.List;
 
 /** SetAdvertisingIndustryFilterRequest */
 public class SetAdvertisingIndustryFilterRequest {
-  /** 特约商户号 说明：需要设置“同业过滤标签”的特约商户号，由微信支付生成并下发。 */
+  /** 특약 가맹점 번호 설명: "동종업계 필터 태그"를 설정해야 하는 특약 가맹점 번호, 위챗페이가 생성하여 발급함. */
   @SerializedName("sub_mchid")
   private String subMchid;
 
   /**
-   * 同业过滤标签值 说明：特约商户同业过滤的同业过滤标签值，同业过滤标签最少传一个，最多三个。如已设置同业过滤标签，再次请求传入，视为新增，将覆盖原有同业标签配置。
-   * 注：若配置完成后需清空标签的，可登陆商户平台手动清空（路径：商户平台->服务商功能->点金计划->特约商户管理->同业过滤标签）
+   * 동종업계 필터 태그 값 설명: 특약 가맹점 동종업계 필터의 동종업계 필터 태그 값, 동종업계 필터 태그는 최소 1개, 최대 3개까지 전달. 이미 동종업계 필터 태그가 설정된 경우, 다시 요청하여 전달하면 신규로 간주되며 기존 동종업계 태그 구성을 덮어씀.
+   * 참고: 구성 완료 후 태그를 비워야 하는 경우, 가맹점 플랫폼에 로그인하여 수동으로 비울 수 있음(경로: 가맹점 플랫폼->서비스 제공업체 기능->골드 플랜->특약 가맹점 관리->동종업계 필터 태그)
    */
   @SerializedName("advertising_industry_filters")
   private List<IndustryType> advertisingIndustryFilters = new ArrayList<IndustryType>();

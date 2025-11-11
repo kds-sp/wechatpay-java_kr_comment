@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -38,7 +38,7 @@ import com.wechat.pay.java.service.goldplan.model.CloseAdvertisingShowRequest;
 import com.wechat.pay.java.service.goldplan.model.OpenAdvertisingShowRequest;
 import com.wechat.pay.java.service.goldplan.model.SetAdvertisingIndustryFilterRequest;
 
-/** GoldPlanService服务 */
+/** GoldPlanService 서비스 */
 public class GoldPlanService {
 
   private final HttpClient httpClient;
@@ -49,7 +49,7 @@ public class GoldPlanService {
     this.hostName = hostName;
   }
 
-  /** GoldPlanService构造器 */
+  /** GoldPlanService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -77,13 +77,13 @@ public class GoldPlanService {
   }
 
   /**
-   * 关闭广告展示
+   * 광고 표시 닫기
    *
-   * @param request 请求参数
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request 요청 매개변수
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public void closeAdvertisingShow(CloseAdvertisingShowRequest request) {
     String requestPath =
@@ -106,13 +106,13 @@ public class GoldPlanService {
   }
 
   /**
-   * 开通广告展示
+   * 광고 표시 열기
    *
-   * @param request 请求参数
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request 요청 매개변수
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public void openAdvertisingShow(OpenAdvertisingShowRequest request) {
     String requestPath =
@@ -135,13 +135,13 @@ public class GoldPlanService {
   }
 
   /**
-   * 同业过滤标签管理
+   * 동종업계 필터 태그 관리
    *
-   * @param request 请求参数
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request 요청 매개변수
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public void setAdvertisingIndustryFilter(SetAdvertisingIndustryFilterRequest request) {
     String requestPath =
@@ -164,14 +164,14 @@ public class GoldPlanService {
   }
 
   /**
-   * 商家小票管理
+   * 상점 영수증 관리
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ChangeCustomPageStatusResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public ChangeCustomPageStatusResponse changeCustomPageStatus(
       ChangeCustomPageStatusRequest request) {
@@ -197,14 +197,14 @@ public class GoldPlanService {
   }
 
   /**
-   * 点金计划管理
+   * 골드 플랜 관리
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ChangeGoldPlanStatusResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public ChangeGoldPlanStatusResponse changeGoldPlanStatus(ChangeGoldPlanStatusRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/goldplan/merchants/changegoldplanstatus";

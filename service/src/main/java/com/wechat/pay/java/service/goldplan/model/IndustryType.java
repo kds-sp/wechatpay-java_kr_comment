@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 点金计划对外API
+// 골드 플랜 대외 API
 //
-// 特约商户点金计划管理API
+// 특약 가맹점 골드 플랜 관리 API
 //
 // API version: 0.3.3
 
@@ -13,7 +13,7 @@ package com.wechat.pay.java.service.goldplan.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** 同业过滤标签枚举值 */
+/** 동종업계 필터 태그 열거형 값 */
 public enum IndustryType {
   @SerializedName("E_COMMERCE")
   E_COMMERCE,
