@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 爱心餐对外API
+// 사랑의 식사 대외 API
 //
-// 微信支付爱心餐公益计划旨在面向深圳市的市政一线环卫工人提供每周一餐的1分钱用餐公益服务。在受助端，微信支付联动上千家餐饮门店关爱特殊人群，通过微信支付数字化能力将人群身份认证与公益福利领用全流程线上化，实现公益福利精准到人。在捐赠端，微信支付发挥连接优势与平台能力，结合用户就餐场景通过爱心餐一块捐插件让用户可在点餐时顺手捐1元，带动更多社会力量致谢城市美容师。
+// 위챗페이 사랑의 식사 공익 계획은 선전시의 시정 일선 환경 미화 노동자에게 주 1회 1전 식사 공익 서비스를 제공하는 것을 목표로 합니다. 수혜 측에서 위챗페이는 수천 개의 식음료 매장과 연계하여 특수 인군을 돌보며, 위챗페이의 디지털 역량을 통해 인군 신원 인증과 공익 복리 수령의 전 과정을 온라인화하여 공익 복리를 개인에게 정확히 전달합니다. 기부 측에서 위챗페이는 연결 우위와 플랫폼 역량을 발휘하여 사용자 식사 시나리오와 결합하여 사랑의 식사 1원 기부 플러그인을 통해 사용자가 주문 시 1원을 기부할 수 있게 하여 더 많은 사회적 힘을 이끌어 도시 미화사에게 감사를 전합니다.
 //
 // API version: 0.0.4
 
@@ -39,7 +39,7 @@ import com.wechat.pay.java.service.lovefeast.model.ListByUserRequest;
 import com.wechat.pay.java.service.lovefeast.model.OrdersEntity;
 import com.wechat.pay.java.service.lovefeast.model.OrdersListByUserResponse;
 
-/** LovefeastService服务 */
+/** LovefeastService 서비스 */
 public class LovefeastService {
 
   private final HttpClient httpClient;
@@ -50,7 +50,7 @@ public class LovefeastService {
     this.hostName = hostName;
   }
 
-  /** LovefeastService构造器 */
+  /** LovefeastService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -78,20 +78,20 @@ public class LovefeastService {
   }
 
   /**
-   * 查询爱心餐品牌信息
+   * 사랑의 식사 브랜드 정보 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return BrandEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public BrandEntity getBrand(GetBrandRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/lovefeast/brands/{brand_id}";
 
     GetBrandRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "brand_id" + "}", urlEncode(realRequest.getBrandId().toString()));
     if (this.hostName != null) {
@@ -111,21 +111,21 @@ public class LovefeastService {
   }
 
   /**
-   * 查询用户捐赠单详情
+   * 사용자 기부 내역 상세 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return OrdersEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public OrdersEntity getByUser(GetByUserRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/lovefeast/users/{openid}/orders/out-trade-no/{out_trade_no}";
 
     GetByUserRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
     requestPath =
@@ -148,26 +148,26 @@ public class LovefeastService {
   }
 
   /**
-   * 查询用户捐赠单列表
+   * 사용자 기부 내역 목록 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return OrdersListByUserResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public OrdersListByUserResponse listByUser(ListByUserRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/lovefeast/users/{openid}/orders/brand-id/{brand_id}";
 
     ListByUserRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
     requestPath =
         requestPath.replace("{" + "brand_id" + "}", urlEncode(realRequest.getBrandId().toString()));
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getLimit() != null) {
       queryParameter.add("limit", urlEncode(realRequest.getLimit().toString()));

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 爱心餐对外API
+// 사랑의 식사 대외 API
 //
-// 微信支付爱心餐公益计划旨在面向深圳市的市政一线环卫工人提供每周一餐的1分钱用餐公益服务。在受助端，微信支付联动上千家餐饮门店关爱特殊人群，通过微信支付数字化能力将人群身份认证与公益福利领用全流程线上化，实现公益福利精准到人。在捐赠端，微信支付发挥连接优势与平台能力，结合用户就餐场景通过爱心餐一块捐插件让用户可在点餐时顺手捐1元，带动更多社会力量致谢城市美容师。
+// 위챗페이 사랑의 식사 공익 계획은 선전시의 시정 일선 환경 미화 노동자에게 주 1회 1전 식사 공익 서비스를 제공하는 것을 목표로 합니다. 수혜 측에서 위챗페이는 수천 개의 식음료 매장과 연계하여 특수 인군을 돌보며, 위챗페이의 디지털 역량을 통해 인군 신원 인증과 공익 복리 수령의 전 과정을 온라인화하여 공익 복리를 개인에게 정확히 전달합니다. 기부 측에서 위챗페이는 연결 우위와 플랫폼 역량을 발휘하여 사용자 식사 시나리오와 결합하여 사랑의 식사 1원 기부 플러그인을 통해 사용자가 주문 시 1원을 기부할 수 있게 하여 더 많은 사회적 힘을 이끌어 도시 미화사에게 감사를 전합니다.
 //
 // API version: 0.0.4
 
@@ -19,23 +19,23 @@ import java.util.List;
 
 /** OrdersListByUserResponse */
 public class OrdersListByUserResponse {
-  /** 捐赠单详情 说明：捐赠单详情 */
+  /** 기부 내역 상세 설명: 기부 내역 상세 */
   @SerializedName("data")
   private List<OrdersEntity> data = new ArrayList<OrdersEntity>();
 
-  /** 该次请求返回的记录条数 说明：该次请求返回的记录条数 */
+  /** 이번 요청에서 반환된 레코드 수 설명: 이번 요청에서 반환된 레코드 수 */
   @SerializedName("count")
   private Integer count;
 
-  /** 最大记录条数 说明：返回的最大记录条数，默认值为10 */
+  /** 최대 레코드 수 설명: 반환되는 최대 레코드 수, 기본값은 10 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 起始位置 说明：查询起始位置。 */
+  /** 시작 위치 설명: 조회 시작 위치. */
   @SerializedName("offset")
   private Integer offset;
 
-  /** 全部记录数量 说明：全部记录数量 */
+  /** 전체 레코드 수 설명: 전체 레코드 수 */
   @SerializedName("total_count")
   private Long totalCount;
 

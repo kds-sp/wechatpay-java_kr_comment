@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 爱心餐对外API
+// 사랑의 식사 대외 API
 //
-// 微信支付爱心餐公益计划旨在面向深圳市的市政一线环卫工人提供每周一餐的1分钱用餐公益服务。在受助端，微信支付联动上千家餐饮门店关爱特殊人群，通过微信支付数字化能力将人群身份认证与公益福利领用全流程线上化，实现公益福利精准到人。在捐赠端，微信支付发挥连接优势与平台能力，结合用户就餐场景通过爱心餐一块捐插件让用户可在点餐时顺手捐1元，带动更多社会力量致谢城市美容师。
+// 위챗페이 사랑의 식사 공익 계획은 선전시의 시정 일선 환경 미화 노동자에게 주 1회 1전 식사 공익 서비스를 제공하는 것을 목표로 합니다. 수혜 측에서 위챗페이는 수천 개의 식음료 매장과 연계하여 특수 인군을 돌보며, 위챗페이의 디지털 역량을 통해 인군 신원 인증과 공익 복리 수령의 전 과정을 온라인화하여 공익 복리를 개인에게 정확히 전달합니다. 기부 측에서 위챗페이는 연결 우위와 플랫폼 역량을 발휘하여 사용자 식사 시나리오와 결합하여 사랑의 식사 1원 기부 플러그인을 통해 사용자가 주문 시 1원을 기부할 수 있게 하여 더 많은 사회적 힘을 이끌어 도시 미화사에게 감사를 전합니다.
 //
 // API version: 0.0.4
 
@@ -17,59 +17,59 @@ import com.google.gson.annotations.SerializedName;
 
 /** OrdersEntity */
 public class OrdersEntity {
-  /** 捐赠订单号 说明：捐赠订单号 */
+  /** 기부 주문 번호 설명: 기부 주문 번호 */
   @SerializedName("welfare_trade_id")
   private String welfareTradeId;
 
-  /** 应用ID 说明：直连商户或服务商申请的公众号或移动应用AppID */
+  /** 앱 ID 설명: 직연 가맹점 또는 서비스 제공업체가 신청한 공개 계정 또는 모바일 앱 AppID */
   @SerializedName("appid")
   private String appid;
 
-  /** 子商户应用ID 说明：子商户申请的公众号或移动应用AppID */
+  /** 하위 가맹점 앱 ID 설명: 하위 가맹점이 신청한 공개 계정 또는 모바일 앱 AppID */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 品牌ID 说明：品牌的品牌ID，商家进驻微信支付品牌商家后获得的品牌ID */
+  /** 브랜드 ID 설명: 브랜드의 브랜드 ID, 상점이 위챗페이 브랜드 상점에 입점한 후 획득한 브랜드 ID */
   @SerializedName("brand_id")
   private Long brandId;
 
-  /** 捐赠来源 说明：捐赠来源 枚举值 MINIPROGRAM_PAY：一起捐小程序 ENTRUST_PAY：一块捐插件 */
+  /** 기부 출처 설명: 기부 출처 열거형 값 MINIPROGRAM_PAY: 함께 기부 소프트웨어 ENTRUST_PAY: 1원 기부 플러그인 */
   @SerializedName("donate_source")
   private String donateSource;
 
-  /** 商户订单 说明：商户订单，仅在一块捐来源回调中出现 */
+  /** 가맹점 주문 설명: 가맹점 주문, 1원 기부 출처 콜백에서만 나타남 */
   @SerializedName("merchant_order")
   private MerchantOrder merchantOrder;
 
-  /** 捐赠机构名称 说明：捐赠公益机构名称。 */
+  /** 기부 기관명 설명: 기부 공익 기관명. */
   @SerializedName("institution_name")
   private String institutionName;
 
-  /** 捐赠项目编号 说明：本次捐赠项目编号。 */
+  /** 기부 프로젝트 번호 설명: 이번 기부 프로젝트 번호. */
   @SerializedName("business_id")
   private String businessId;
 
-  /** 捐赠活动名称 说明：本次捐赠活动名称。 */
+  /** 기부 활동명 설명: 이번 기부 활동명. */
   @SerializedName("business_name")
   private String businessName;
 
   /**
-   * 支付完成时间
-   * 说明：支付完成时间，遵循rfc3339标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 결제 완료 시간
+   * 설명: 결제 완료 시간, rfc3339 표준 형식을 따름, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄(+08:00은 동부 8구 시간을 나타내며 UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("success_time")
   private String successTime;
 
-  /** 支付者 说明：支付者信息 */
+  /** 결제자 설명: 결제자 정보 */
   @SerializedName("payer")
   private Payer payer;
 
-  /** 订单金额 说明：订单金额信息 */
+  /** 주문 금액 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private Amount amount;
 
-  /** 设备编号 说明：设备编号，通过物料码进入爱心餐一起捐小程序捐赠时携带的设备编号参数 */
+  /** 장치 번호 설명: 장치 번호, 재료 코드를 통해 사랑의 식사 함께 기부 소프트웨어에 진입하여 기부할 때 지닌 장치 번호 매개변수 */
   @SerializedName("device_id")
   private String deviceId;
 
