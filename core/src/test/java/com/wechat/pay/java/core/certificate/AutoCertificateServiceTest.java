@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 
 class AutoCertificateServiceTest {
 
-  // 因为每个任务都在后台运行,所以需要mock服务一直存在
+  // 각 작업이 백그라운드에서 실행되므로 mock 서비스가 계속 존재해야 함
   static MockWebServer server = new MockWebServer();
 
   static BlockingQueue<MockResponse> newUpdateQueue() {
@@ -57,7 +57,7 @@ class AutoCertificateServiceTest {
                     + "        }\n"
                     + "    ]\n"
                     + "}"));
-    // 删除证书A，新增证书B
+    // 인증서 A 삭제, 인증서 B 추가
     queue.add(
         new MockResponse()
             .addHeader("Content-Type", "application/json; charset=utf-8")
@@ -173,7 +173,7 @@ class AutoCertificateServiceTest {
     server.setDispatcher(dispatcher);
     server.start();
 
-    // 避免被别的用例影响
+    // 다른 테스트 케이스의 영향을 피하기 위해
     AutoCertificateService.shutdown();
     AutoCertificateService.start(Duration.ofSeconds(3));
   }

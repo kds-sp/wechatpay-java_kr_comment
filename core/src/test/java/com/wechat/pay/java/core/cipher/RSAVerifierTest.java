@@ -19,7 +19,7 @@ public class RSAVerifierTest {
   private static Verifier publicKeyRsaVerifier;
   private static final String MESSAGE = "message";
 
-  /** signature为使用RSASigner和测试商户证书私钥对MESSAGE签名得到的结果 */
+  /** signature는 RSASigner와 테스트 가맹점 인증서 개인키를 사용하여 MESSAGE에 서명한 결과 */
   private static final SignatureResult SIGNATURE_RESULT =
       new SignatureResult(
           "Rq+5ZpWV6IHTWE1+9gCrYJKguNgbItpMdlIA+PVCPCdUAKNlohZz7CL7Y8xWDIFJjdGnErMj6Z+Q/h9CF5MV+nAVkqDmBR0uP5pp"

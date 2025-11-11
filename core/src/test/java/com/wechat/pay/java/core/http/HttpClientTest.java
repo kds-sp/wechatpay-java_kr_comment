@@ -40,19 +40,19 @@ public interface HttpClientTest {
 
   static Stream<Arguments> requestProvider() {
     return Stream.of(
-        arguments(HttpMethod.GET, Named.of("无body", "")),
+        arguments(HttpMethod.GET, Named.of("body 없음", "")),
         arguments(HttpMethod.GET, Named.of("null body", null)),
-        arguments(HttpMethod.DELETE, Named.of("无body", "")),
-        arguments(HttpMethod.POST, Named.of("无body", "")),
+        arguments(HttpMethod.DELETE, Named.of("body 없음", "")),
+        arguments(HttpMethod.POST, Named.of("body 없음", "")),
         arguments(HttpMethod.POST, Named.of("null body", null)),
-        arguments(HttpMethod.POST, Named.of("有body", "post-data")),
-        arguments(HttpMethod.PUT, Named.of("无body", "")),
-        arguments(HttpMethod.PUT, Named.of("有body", "put-data")),
-        arguments(HttpMethod.PATCH, Named.of("无body", "")),
-        arguments(HttpMethod.PATCH, Named.of("有body", "patch-data")));
+        arguments(HttpMethod.POST, Named.of("body 있음", "post-data")),
+        arguments(HttpMethod.PUT, Named.of("body 없음", "")),
+        arguments(HttpMethod.PUT, Named.of("body 있음", "put-data")),
+        arguments(HttpMethod.PATCH, Named.of("body 없음", "")),
+        arguments(HttpMethod.PATCH, Named.of("body 있음", "patch-data")));
   }
 
-  @DisplayName("测试请求参数是否正确")
+  @DisplayName("요청 매개변수가 올바른지 테스트")
   @ParameterizedTest(name = "case {index}: {0} {1}")
   @MethodSource("requestProvider")
   default void testExecute_Request(HttpMethod method, String requestBody) throws Exception {
@@ -90,7 +90,7 @@ public interface HttpClientTest {
     server.shutdown();
   }
 
-  @DisplayName("测试应答处理200是否正确")
+  @DisplayName("응답 처리 200이 올바른지 테스트")
   @ParameterizedTest(name = "case {index}: {0} {1}")
   @MethodSource("requestProvider")
   default void testExecute_Response_200Ok(HttpMethod method, String requestBody) throws Exception {
@@ -124,7 +124,7 @@ public interface HttpClientTest {
     server.shutdown();
   }
 
-  @DisplayName("测试应答处理204是否正确")
+  @DisplayName("응답 처리 204가 올바른지 테스트")
   @ParameterizedTest(name = "case {index}: {0} {1}")
   @MethodSource("requestProvider")
   default void testExecute_Response_204NoContent(HttpMethod method, String requestBody)
