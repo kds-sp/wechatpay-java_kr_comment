@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,19 +18,19 @@ import java.util.List;
 
 /** StockCollection */
 public class StockCollection {
-  /** 批次总数 说明：命中查询条件总数量 */
+  /** 배치 총수 설명: 조회 조건에 맞는 총 수량 */
   @SerializedName("total_count")
   private Long totalCount;
 
-  /** 批次详情 说明：批次详情 */
+  /** 배치 상세 설명: 배치 상세 */
   @SerializedName("data")
   private List<Stock> data;
 
-  /** 分页大小 说明：分页大小，最大10 */
+  /** 페이지 크기 설명: 페이지 크기, 최대 10 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 分页页码 说明：页码从0开始，默认第0页 */
+  /** 페이지 번호 설명: 페이지 번호는 0부터 시작, 기본값은 0페이지 */
   @SerializedName("offset")
   private Integer offset;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ImageMeta */
 public class ImageMeta {
-  /** 文件名称 说明：商户上传的媒体图片的名称，商户自定义，必须以JPG、BMP、PNG为后缀。 */
+  /** 파일 이름 설명: 가맹점이 업로드한 미디어 이미지 이름, 가맹점 사용자 정의, 반드시 JPG, BMP, PNG를 접미사로 사용해야 함. */
   @SerializedName("filename")
   private String filename;
 
-  /** 文件摘要 说明：图片文件的文件摘要，即对图片文件的二进制内容进行sha256计算得到的值。 */
+  /** 파일 요약 설명: 이미지 파일의 파일 요약, 즉 이미지 파일의 이진 내용에 대해 sha256 계산으로 얻은 값. */
   @SerializedName("sha256")
   private String sha256;
 

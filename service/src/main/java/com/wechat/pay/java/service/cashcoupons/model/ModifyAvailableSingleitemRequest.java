@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,15 +18,15 @@ import java.util.List;
 
 /** ModifyAvailableSingleitemRequest */
 public class ModifyAvailableSingleitemRequest {
-  /** 创建批次的商户号 说明：批次创建方商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 배치 생성 방 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   private String stockCreatorMchid;
 
-  /** 增加商品编码列表 说明：增加单品编码列表 */
+  /** 상품 코드 목록 추가 설명: 단일 상품 코드 목록 추가 */
   @SerializedName("add_goods_id_list")
   private List<String> addGoodsIdList;
 
-  /** 删除商品编码列表 说明：删除单品编码列表 */
+  /** 상품 코드 목록 삭제 설명: 단일 상품 코드 목록 삭제 */
   @SerializedName("delete_goods_id_list")
   private List<String> deleteGoodsIdList;
 

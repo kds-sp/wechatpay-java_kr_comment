@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateCouponStockResponse */
 public class CreateCouponStockResponse {
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 创建时间 说明：创建时间 */
+  /** 생성 시간 설명: 생성 시간 */
   @SerializedName("create_time")
   private String createTime;
 

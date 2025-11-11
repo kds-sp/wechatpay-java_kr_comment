@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 /** PauseStockResponse */
 public class PauseStockResponse {
   /**
-   * 暂停时间
-   * 说明：暂停时间，遵循[rfc3339标准格式](https://datatracker.ietf.org/doc/html/rfc3339)，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 일시 중지 시간
+   * 설명: 일시 중지 시간, [rfc3339 표준 형식](https://datatracker.ietf.org/doc/html/rfc3339) 준수, 형식은 yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE, yyyy-MM-DD는 년월일, T는 문자열에 나타나며 time 요소의 시작을 의미, HH:mm:ss는 시분초, TIMEZONE은 시간대(+08:00은 동부 8구 시간대, UTC보다 8시간 앞서며 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 의미.
    */
   @SerializedName("pause_time")
   private String pauseTime;
 
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 

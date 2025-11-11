@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,19 +18,19 @@ import java.util.List;
 
 /** CouponCollection */
 public class CouponCollection {
-  /** 结果集 说明：结果集 */
+  /** 결과 집합 설명: 결과 집합 */
   @SerializedName("data")
   private List<Coupon> data;
 
-  /** 查询结果总数 说明：查询结果总数 */
+  /** 조회 결과 총수 설명: 조회 결과 총수 */
   @SerializedName("total_count")
   private Integer totalCount;
 
-  /** 分页大小 说明：分页大小 */
+  /** 페이지 크기 설명: 페이지 크기 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 分页页码 说明：分页页码 */
+  /** 페이지 번호 설명: 페이지 번호 */
   @SerializedName("offset")
   private Integer offset;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,44 +18,44 @@ import java.util.List;
 
 /** CouponRule */
 public class CouponRule {
-  /** 券生效时间 说明：需要指定领取后延时生效可选填 */
+  /** 쿠폰 유효 시간 설명: 수령 후 지연 유효 지정 필요 시 선택 입력 */
   @SerializedName("coupon_available_time")
   private FavorAvailableTime couponAvailableTime;
 
-  /** 固定面额满减券使用规则 说明：stock_type为NORMAL时必填 */
+  /** 고정 액면가 만원 이상 할인 쿠폰 사용 규칙 설명: stock_type이 NORMAL일 때 필수 */
   @SerializedName("fixed_normal_coupon")
   private FixedValueStockMsg fixedNormalCoupon;
 
-  /** 订单优惠标记 说明：订单优惠标记 */
+  /** 주문 할인 표시 설명: 주문 할인 표시 */
   @SerializedName("goods_tag")
   private List<String> goodsTag;
 
-  /** 指定支付模式 说明：支付方式 */
+  /** 지정 결제 모드 설명: 결제 방식 */
   @SerializedName("trade_type")
   private List<TradeType> tradeType;
 
-  /** 是否可叠加其他优惠 说明：true-是；false-否 */
+  /** 기타 할인과 중복 사용 가능 여부 설명: true-예; false-아니오 */
   @SerializedName("combine_use")
   private Boolean combineUse;
 
-  /** 可核销商品编码 说明：可核销商品编码 */
+  /** 사용 가능 상품 코드 설명: 사용 가능 상품 코드 */
   @SerializedName("available_items")
   private List<String> availableItems;
 
-  /** 不参与优惠商品编码 说明：不参与优惠商品编码 */
+  /** 할인 미참여 상품 코드 설명: 할인 미참여 상품 코드 */
   @SerializedName("unavailable_items")
   private List<String> unavailableItems;
 
-  /** 可核销商户号 说明：可核销商户号 */
+  /** 사용 가능 가맹점 번호 설명: 사용 가능 가맹점 번호 */
   @SerializedName("available_merchants")
   private List<String> availableMerchants;
 
-  /** 指定卡信息 说明：当批次指定支付方式为某张银行卡时才生效，可选的 */
+  /** 지정 카드 정보 설명: 배치에서 결제 방식을 특정 은행 카드로 지정한 경우에만 적용, 선택 사항 */
   @SerializedName("limit_card")
   private CardLimitation limitCard;
 
   /**
-   * 指定支付方式 说明：限定该批次的指定支付方式，如零钱、指定银行卡等，需填入支付方式编码， 条目个数限制为[1，1] 。当前支持的支付方式，及其编码枚举值，请参考该文档：
+   * 지정 결제 방식 설명: 이 배치의 지정 결제 방식을 제한, 예: 잔액, 지정 은행 카드 등, 결제 방식 코드를 입력해야 함, 항목 개수 제한 [1, 1]. 현재 지원하는 결제 방식 및 코드 열거형 값은 다음 문서 참조:
    * https://docs.qq.com/sheet/DWGpMbWx3b1JCbldy?c=E3A0A0
    */
   @SerializedName("limit_pay")

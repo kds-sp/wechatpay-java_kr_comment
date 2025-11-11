@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -19,11 +19,11 @@ import java.util.List;
 
 /** CardLimitation */
 public class CardLimitation {
-  /** 指定银行卡名字 说明：当批次指定支付方式为银行卡且配置了指定银行卡信息，该字段必填，最多4个中文字符。并将在微信支付收银台中展示给用户。 */
+  /** 지정 은행 카드 이름 설명: 배치에서 결제 방식을 은행 카드로 지정하고 지정 은행 카드 정보를 설정한 경우, 이 필드는 필수이며 최대 4자의 한자 문자. 위챗페이 결제 창에 사용자에게 표시됨. */
   @SerializedName("name")
   private String name;
 
-  /** 指定银行卡BIN 说明：当批次指定支付方式为银行卡且配置了指定银行卡信息，该字段必填，按json格式。特殊规则：单个卡BIN的字符长度为[6，9]，条目个数限制为[1，10] */
+  /** 지정 은행 카드 BIN 설명: 배치에서 결제 방식을 은행 카드로 지정하고 지정 은행 카드 정보를 설정한 경우, 이 필드는 필수이며 json 형식. 특수 규칙: 단일 카드 BIN의 문자 길이는 [6, 9], 항목 개수 제한은 [1, 10] */
   @SerializedName("bin")
   private List<String> bin = new ArrayList<String>();
 

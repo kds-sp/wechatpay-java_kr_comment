@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ModifyStockBudgetResponse */
 public class ModifyStockBudgetResponse {
-  /** 总预算 说明：批次预算额度，单位分 */
+  /** 총 예산 설명: 배치 예산 한도, 단위 분 */
   @SerializedName("max_amount")
   private Long maxAmount;
 
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 

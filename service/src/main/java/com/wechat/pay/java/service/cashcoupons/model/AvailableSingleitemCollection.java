@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,23 +18,23 @@ import java.util.List;
 
 /** AvailableSingleitemCollection */
 public class AvailableSingleitemCollection {
-  /** 可用单品编码总数 说明：可用单品编码总数 */
+  /** 사용 가능 단일 상품 코드 총수 설명: 사용 가능 단일 상품 코드 총수 */
   @SerializedName("total_count")
   private Integer totalCount;
 
-  /** 可用单品编码 说明：可用单品编码 */
+  /** 사용 가능 단일 상품 코드 설명: 사용 가능 단일 상품 코드 */
   @SerializedName("data")
   private List<String> data;
 
-  /** 分页页码 说明：分页页码 */
+  /** 페이지 번호 설명: 페이지 번호 */
   @SerializedName("offset")
   private Integer offset;
 
-  /** 分页大小 说明：分页大小 */
+  /** 페이지 크기 설명: 페이지 크기 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** FavorAvailableTime */
 public class FavorAvailableTime {
-  /** 固定时间段可用 说明：固定时间段可用 */
+  /** 고정 시간대 사용 가능 설명: 고정 시간대 사용 가능 */
   @SerializedName("fix_available_time")
   private FixedAvailableTime fixAvailableTime;
 
-  /** 领取第二天生效 说明：true-是；false-否 */
+  /** 수령 후 다음 날 유효 설명: true-예; false-아니오 */
   @SerializedName("second_day_available")
   private Boolean secondDayAvailable;
 
-  /** 领取后有效时间 说明：领取后有效时间，单位分钟 */
+  /** 수령 후 유효 시간 설명: 수령 후 유효 시간, 단위 분 */
   @SerializedName("available_time_after_receive")
   private Integer availableTimeAfterReceive;
 

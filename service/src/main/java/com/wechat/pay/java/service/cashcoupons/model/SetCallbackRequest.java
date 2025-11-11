@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** SetCallbackRequest */
 public class SetCallbackRequest {
-  /** 商户号 说明：微信支付商户号 */
+  /** 가맹점 번호 설명: 위챗페이 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 通知url地址 说明：支付通知商户url地址 */
+  /** 알림 url 주소 설명: 결제 알림 가맹점 url 주소 */
   @SerializedName("notify_url")
   private String notifyUrl;
 
-  /** 回调开关 说明：true-开启推送；false-停止推送 */
+  /** 콜백 스위치 설명: true-푸시 시작; false-푸시 중지 */
   @SerializedName("switch")
   private Boolean _switch;
 

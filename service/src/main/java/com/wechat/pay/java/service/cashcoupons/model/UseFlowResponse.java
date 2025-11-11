@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** UseFlowResponse */
 public class UseFlowResponse {
-  /** 下载链接 说明：流水文件下载链接，30s内有效 */
+  /** 다운로드 링크 설명: 내역 파일 다운로드 링크, 30초 내 유효 */
   @SerializedName("url")
   private String url;
 
-  /** 安全校验码 说明：文件内容的哈希值，防止篡改 */
+  /** 보안 검증 코드 설명: 파일 내용의 해시 값, 변조 방지 */
   @SerializedName("hash_value")
   private String hashValue;
 
-  /** 哈希算法类型 说明：哈希算法类型，目前只支持sha1 */
+  /** 해시 알고리즘 유형 설명: 해시 알고리즘 유형, 현재 sha1만 지원 */
   @SerializedName("hash_type")
   private String hashType;
 

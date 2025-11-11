@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,23 +18,23 @@ import java.util.List;
 
 /** AvailableMerchantCollection */
 public class AvailableMerchantCollection {
-  /** 可用商户总数量 说明：可用商户总数量 */
+  /** 사용 가능 가맹점 총 수량 설명: 사용 가능 가맹점 총 수량 */
   @SerializedName("total_count")
   private Integer totalCount;
 
-  /** 可用商户列表 说明：可用商户列表 */
+  /** 사용 가능 가맹점 목록 설명: 사용 가능 가맹점 목록 */
   @SerializedName("data")
   private List<String> data;
 
-  /** 分页页码 说明：分页页码 */
+  /** 페이지 번호 설명: 페이지 번호 */
   @SerializedName("offset")
   private Integer offset;
 
-  /** 分页大小 说明：分页大小 */
+  /** 페이지 크기 설명: 페이지 크기 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 

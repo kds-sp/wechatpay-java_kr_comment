@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** MediaImageRequest */
 public class MediaImageRequest {
-  /** 图片文件 说明：将媒体图片进行二进制转换，得到的媒体图片二进制内容，在请求body中上传此二进制内容。媒体图片只支持JPG、BMP、PNG格式，文件大小不能超过2M。 */
+  /** 이미지 파일 설명: 미디어 이미지를 이진 변환하여 얻은 미디어 이미지 이진 내용, 요청 body에서 이 이진 내용을 업로드. 미디어 이미지는 JPG, BMP, PNG 형식만 지원, 파일 크기는 2M를 초과할 수 없음. */
   @SerializedName("file")
   private FormFile file;
 
-  /** 媒体文件元信息 说明： */
+  /** 미디어 파일 메타 정보 설명: */
   @SerializedName("meta")
   private ImageMeta meta;
 

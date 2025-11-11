@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** FixedValueStockMsg */
 public class FixedValueStockMsg {
-  /** 面额 说明：面额，单位分 */
+  /** 액면가 설명: 액면가, 단위 분 */
   @SerializedName("coupon_amount")
   private Long couponAmount;
 
-  /** 门槛 说明：使用券金额门槛，单位分 */
+  /** 최소 금액 설명: 쿠폰 사용 금액 최소 금액, 단위 분 */
   @SerializedName("transaction_minimum")
   private Long transactionMinimum;
 

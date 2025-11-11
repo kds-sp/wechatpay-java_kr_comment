@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,51 +17,51 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateCouponStockRequest */
 public class CreateCouponStockRequest {
-  /** 批次名称 说明：批次名称 */
+  /** 배치 이름 설명: 배치 이름 */
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次备注 说明：仅配置商户可见，用于自定义信息 */
+  /** 배치 비고 설명: 설정 가맹점만 볼 수 있음, 사용자 정의 정보에 사용 */
   @SerializedName("comment")
   private String comment;
 
-  /** 归属商户号 说明：批次归属商户号 */
+  /** 소속 가맹점 번호 설명: 배치 소속 가맹점 번호 */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
-  /** 开始时间 说明：批次开始时间 */
+  /** 시작 시간 설명: 배치 시작 시간 */
   @SerializedName("available_begin_time")
   private String availableBeginTime;
 
-  /** 结束时间 说明：批次结束时间 */
+  /** 종료 시간 설명: 배치 종료 시간 */
   @SerializedName("available_end_time")
   private String availableEndTime;
 
-  /** 发放规则 说明：批次使用规则 */
+  /** 발급 규칙 설명: 배치 사용 규칙 */
   @SerializedName("stock_use_rule")
   private StockRule stockUseRule;
 
-  /** 样式设置 说明：代金券详情页 */
+  /** 스타일 설정 설명: 대금권 상세 페이지 */
   @SerializedName("pattern_info")
   private PatternInfo patternInfo;
 
-  /** 核销规则 说明： */
+  /** 사용 규칙 설명: */
   @SerializedName("coupon_use_rule")
   private CouponRule couponUseRule;
 
-  /** 是否无资金流 说明：是否无资金流，true-是；false-否 */
+  /** 자금 흐름 없음 여부 설명: 자금 흐름 없음 여부, true-예; false-아니오 */
   @SerializedName("no_cash")
   private Boolean noCash;
 
-  /** 批次类型 说明：批次类型，NORMAL-固定面额满减券批次；DISCOUNT-折扣券批次；EXCHAHGE-换购券批次；RANDOM-千人千面券批次 */
+  /** 배치 유형 설명: 배치 유형, NORMAL-고정 액면가 만원 이상 할인 쿠폰 배치; DISCOUNT-할인 쿠폰 배치; EXCHAHGE-교환 쿠폰 배치; RANDOM-개인화 쿠폰 배치 */
   @SerializedName("stock_type")
   private String stockType;
 
-  /** 商户单据号 说明：商户创建批次凭据号（格式：商户id+日期+流水号），商户侧需保持唯一性 */
+  /** 가맹점 증빙 번호 설명: 가맹점이 배치 생성 증빙 번호(형식: 가맹점 id+날짜+순서 번호), 가맹점 측은 고유성을 유지해야 함 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 扩展属性 说明：扩展属性字段，按json格式，暂时无需填写 */
+  /** 확장 속성 설명: 확장 속성 필드, json 형식, 현재는 입력할 필요 없음 */
   @SerializedName("ext_info")
   private String extInfo;
 

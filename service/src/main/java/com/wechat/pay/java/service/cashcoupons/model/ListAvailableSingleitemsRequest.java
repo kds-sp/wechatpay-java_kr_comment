@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListAvailableSingleitemsRequest */
 public class ListAvailableSingleitemsRequest {
-  /** 分页页码 说明：分页页码，最大500 */
+  /** 페이지 번호 설명: 페이지 번호, 최대 500 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Integer offset;
 
-  /** 分页大小 说明：分页大小，最大100 */
+  /** 페이지 크기 설명: 페이지 크기, 최대 100 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Integer limit;
 
-  /** 创建批次的商户号 说明：批次创建方商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 배치 생성 방 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   @Expose(serialize = false)
   private String stockCreatorMchid;
 
-  /** 批次号 说明：批次号 */
+  /** 배치 번호 설명: 배치 번호 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;

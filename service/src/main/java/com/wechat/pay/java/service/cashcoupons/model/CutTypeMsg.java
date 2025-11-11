@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** CutTypeMsg */
 public class CutTypeMsg {
-  /** 可用优惠的商品最高单价 说明：可用优惠的商品最高单价，单位分 */
+  /** 사용 가능 할인 상품 최고 단가 설명: 사용 가능 할인 상품 최고 단가, 단위 분 */
   @SerializedName("single_price_max")
   private Long singlePriceMax;
 
-  /** 减至后的优惠单价 说明：减至后的优惠单价 */
+  /** 할인 후 할인 단가 설명: 할인 후 할인 단가 */
   @SerializedName("cut_to_price")
   private Long cutToPrice;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -18,15 +18,15 @@ import java.util.List;
 
 /** FixedAvailableTime */
 public class FixedAvailableTime {
-  /** 可用星期数 说明：0-周日；1-周一；以此类推 */
+  /** 사용 가능 요일 설명: 0-일요일; 1-월요일; 이하 동일 */
   @SerializedName("available_week_day")
   private List<Integer> availableWeekDay;
 
-  /** 当天开始时间 说明：当天开始时间，单位秒 */
+  /** 당일 시작 시간 설명: 당일 시작 시간, 단위 초 */
   @SerializedName("begin_time")
   private Integer beginTime;
 
-  /** 当天结束时间 说明：当天结束时间，单位秒，默认为23点59分59秒 */
+  /** 당일 종료 시간 설명: 당일 종료 시간, 단위 초, 기본값은 23시 59분 59초 */
   @SerializedName("end_time")
   private Integer endTime;
 

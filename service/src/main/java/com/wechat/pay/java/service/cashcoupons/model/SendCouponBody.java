@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付营销系统开放API
+// 위챗페이 마케팅 시스템 오픈 API
 //
-// 新增立减金api
+// 신규 즉시 할인 금액 API
 //
 // API version: 3.4.0
 
@@ -17,30 +17,30 @@ import com.google.gson.annotations.SerializedName;
 
 /** SendCouponBody */
 public class SendCouponBody {
-  /** 批次id 说明：微信为每个批次分配的唯一id */
+  /** 배치 ID 설명: 위챗페이가 각 배치에 할당한 고유 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 商户单据号 说明：商户此次发放凭据号（格式：商户id+日期+流水号），商户侧需保持唯一性 */
+  /** 가맹점 증빙 번호 설명: 가맹점이 이번 발급 증빙 번호(형식: 가맹점 id+날짜+순서 번호), 가맹점 측은 고유성을 유지해야 함 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
   /**
-   * 公众账号ID
-   * 说明：微信为发券方商户分配的公众账号ID，接口传入的所有appid应该为公众号的appid（在mp.weixin.qq.com申请的），不能为APP的appid（在open.weixin.qq.com申请的）。
+   * 공개 계정 ID
+   * 설명: 위챗페이가 쿠폰 발급 방 가맹점에 할당한 공개 계정 ID, 인터페이스에 전달하는 모든 appid는 공개 계정의 appid여야 함(mp.weixin.qq.com에서 신청한 것), APP의 appid는 안 됨(open.weixin.qq.com에서 신청한 것).
    */
   @SerializedName("appid")
   private String appid;
 
-  /** 创建批次的商户号 说明：批次创建方商户号 */
+  /** 배치 생성 방 가맹점 번호 설명: 배치 생성 방 가맹점 번호 */
   @SerializedName("stock_creator_mchid")
   private String stockCreatorMchid;
 
-  /** 指定面额发券，面额 说明：指定面额发券场景，券面额，其他场景不需要填，单位分 */
+  /** 지정 액면가 쿠폰 발급, 액면가 설명: 지정 액면가 쿠폰 발급 시나리오, 쿠폰 액면가, 기타 시나리오는 입력할 필요 없음, 단위 분 */
   @SerializedName("coupon_value")
   private Long couponValue;
 
-  /** 指定面额发券，券门槛 说明：指定面额发券批次门槛，其他场景不需要，单位分 */
+  /** 지정 액면가 쿠폰 발급, 쿠폰 최소 금액 설명: 지정 액면가 쿠폰 발급 배치 최소 금액, 기타 시나리오는 필요 없음, 단위 분 */
   @SerializedName("coupon_minimum")
   private Long couponMinimum;
 
