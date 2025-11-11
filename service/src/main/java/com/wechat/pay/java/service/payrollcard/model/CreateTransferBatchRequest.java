@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -21,66 +21,66 @@ import java.util.function.UnaryOperator;
 
 /** CreateTransferBatchRequest */
 public class CreateTransferBatchRequest {
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
   /**
-   * 特约商户AppID
-   * 说明：微信分配的特约商户公众账号ID，特约商户授权类型为INFORMATION_AUTHORIZATION_TYPE和INFORMATION_AND_FUND_AUTHORIZATION_TYPE时
-   * 需要填写
+   * 특약 가맹점 AppID
+   * 설명: 위챗이 할당한 특약 가맹점 공개 계정 ID, 특약 가맹점 인증 유형이 INFORMATION_AUTHORIZATION_TYPE과 INFORMATION_AND_FUND_AUTHORIZATION_TYPE일 때
+   * 입력해야 합니다.
    */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 特约商户授权类型 说明：特约商户授权类型 */
+  /** 특약 가맹점 인증 유형 설명: 특약 가맹점 인증 유형 */
   @SerializedName("authorization_type")
   private AuthType authorizationType;
 
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，在商户系统内部唯一 */
+  /** 가맹점 배치서 번호 설명: 가맹점 시스템 내부의 가맹점 배치서 번호, 가맹점 시스템 내부에서 고유합니다 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 批次名称 说明：该笔批量转账的名称 */
+  /** 배치 이름 설명: 해당 일괄 이체의 이름 */
   @SerializedName("batch_name")
   private String batchName;
 
-  /** 批次备注 说明：转账说明，UTF8编码，最多允许32个字符 */
+  /** 배치 비고 설명: 이체 설명, UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("batch_remark")
   private String batchRemark;
 
-  /** 转账总金额 说明：转账金额单位为“分”。转账总金额必须与批次内所有明细转账金额之和保持一致，否则无法发起转账操作 */
+  /** 이체 총액 설명: 이체 금액 단위는 "분"입니다. 이체 총액은 배치 내 모든 명세서 이체 금액의 합과 일치해야 하며, 그렇지 않으면 이체 작업을 시작할 수 없습니다 */
   @SerializedName("total_amount")
   private Long totalAmount;
 
-  /** 转账总笔数 说明：一个转账批次单最多发起三千笔转账。转账总笔数必须与批次内所有明细之和保持一致，否则无法发起转账操作 */
+  /** 이체 총 건수 설명: 하나의 이체 배치서는 최대 3천 건의 이체를 시작할 수 있습니다. 이체 총 건수는 배치 내 모든 명세서의 합과 일치해야 하며, 그렇지 않으면 이체 작업을 시작할 수 없습니다 */
   @SerializedName("total_num")
   private Integer totalNum;
 
-  /** 转账明细列表 说明：发起批量转账的明细列表，最多三千笔 */
+  /** 이체 명세서 목록 설명: 일괄 이체를 시작하는 명세서 목록, 최대 3천 건 */
   @Encryption
   @SerializedName("transfer_detail_list")
   private List<TransferDetailInput> transferDetailList = new ArrayList<TransferDetailInput>();
 
-  /** 服务商的AppID 说明：微信分配的服务商商户公众账号ID，特约商户授权类型为FUND_AUTHORIZATION_TYPE时 需要填写 */
+  /** 서비스 제공업체의 AppID 설명: 위챗이 할당한 서비스 제공업체 가맹점 공개 계정 ID, 특약 가맹점 인증 유형이 FUND_AUTHORIZATION_TYPE일 때 입력해야 합니다 */
   @SerializedName("sp_appid")
   private String spAppid;
 
   /**
-   * 用工类型
-   * 说明：微工卡服务仅支持用于与商户有用工关系的用户，需明确用工类型；参考值：长期用工：LONG_TERM_EMPLOYMENT，短期用工：SHORT_TERM_EMPLOYMENT，合作关系：COOPERATION_EMPLOYMENT
+   * 고용 유형
+   * 설명: 급여 카드 서비스는 가맹점과 고용 관계가 있는 사용자에게만 지원되며, 고용 유형을 명확히 해야 합니다. 참고 값: 장기 고용: LONG_TERM_EMPLOYMENT, 단기 고용: SHORT_TERM_EMPLOYMENT, 협력 관계: COOPERATION_EMPLOYMENT
    */
   @SerializedName("employment_type")
   private EmploymentType employmentType;
 
   /**
-   * 用工场景
-   * 说明：用工场景；参考值：LOGISTICS：物流；MANUFACTURING：制造业；HOTEL：酒店；CATERING：餐饮业；EVENT：活动促销；RETAIL：零售；OTHERS：其他
+   * 고용 시나리오
+   * 설명: 고용 시나리오; 참고 값: LOGISTICS: 물류; MANUFACTURING: 제조업; HOTEL: 호텔; CATERING: 식음료업; EVENT: 이벤트 프로모션; RETAIL: 소매; OTHERS: 기타
    */
   @SerializedName("employment_scene")
   private EmploymentScene employmentScene;
 
-  /** 业务来源 说明：传入业务ID后必填，区分不同任务来源于哪个业务系统 */
+  /** 비즈니스 출처 설명: 비즈니스 ID를 전달한 후 필수 입력, 서로 다른 작업이 어느 비즈니스 시스템에서 나왔는지 구분합니다 */
   @SerializedName("business_type")
   private BusinessType businessType;
 

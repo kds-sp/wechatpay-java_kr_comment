@@ -1,2 +1,2 @@
-/** 文件上传服务API */
+/** 파일 업로드 서비스 API */
 package com.wechat.pay.java.service.file;

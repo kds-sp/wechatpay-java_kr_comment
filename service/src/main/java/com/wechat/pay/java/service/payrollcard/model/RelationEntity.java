@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -17,50 +17,47 @@ import com.google.gson.annotations.SerializedName;
 
 /** RelationEntity */
 public class RelationEntity {
-  /** 用户OpenID 说明：用户OpenID */
+  /** 사용자 OpenID 설명: 사용자 OpenID */
   @SerializedName("openid")
   private String openid;
 
-  /** 商户号 说明：商户号 */
+  /** 가맹점 번호 설명: 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 授权状态 说明：授权状态：UNAUTHORIZED：未授权 AUTHORIZED：已授权 DEAUTHORIZED：已取消授权 */
+  /** 인증 상태 설명: 인증 상태: UNAUTHORIZED: 미인증 AUTHORIZED: 인증됨 DEAUTHORIZED: 인증 취소됨 */
   @SerializedName("authorize_state")
   private String authorizeState;
 
-  /** 授权时间 说明：授权时间 */
+  /** 인증 시간 설명: 인증 시간 */
   @SerializedName("authorize_time")
   private String authorizeTime;
 
   /**
-   * 取消授权时间
-   * 说明：取消授权时间，遵循RFC3339标准格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。
+   * 인증 취소 시간
+   * 설명: 인증 취소 시간, RFC3339 표준 형식을 따릅니다. 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나 time 요소의 시작을 나타내며, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냅니다 (+08:00은 동부 8구역 시간을 나타내며, UTC보다 8시간 앞서므로 베이징 시간입니다).
    */
   @SerializedName("deauthorize_time")
   private String deauthorizeTime;
 
-  /** 开通状态 说明：微工卡的开通状态：UNREGISTERED：未开通；REGISTERED：已开通；CLOSED：已关闭 */
+  /** 개설 상태 설명: 급여 카드의 개설 상태: UNREGISTERED: 미개설; REGISTERED: 개설됨; CLOSED: 닫힘 */
   @SerializedName("register_state")
   private PayrollCardRegisterState registerState;
 
   /**
-   * 开通时间
-   * 说明：开通时间，未开通时不返回。遵循RFC3339标准格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。
+   * 개설 시간
+   * 설명: 개설 시간, 미개설 시 반환되지 않습니다. RFC3339 표준 형식을 따릅니다. 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나 time 요소의 시작을 나타내며, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냅니다 (+08:00은 동부 8구역 시간을 나타내며, UTC보다 8시간 앞서므로 베이징 시간입니다).
    */
   @SerializedName("register_time")
   private String registerTime;
 
   /**
-   * 关闭时间
-   * 说明：关闭时间，仅当开通状态是已关闭时返回。遵循RFC3339标准格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。
+   * 닫기 시간
+   * 설명: 닫기 시간, 개설 상태가 닫힘일 때만 반환됩니다. RFC3339 표준 형식을 따릅니다. 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나 time 요소의 시작을 나타내며, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냅니다 (+08:00은 동부 8구역 시간을 나타내며, UTC보다 8시간 앞서므로 베이징 시간입니다).
    */
   @SerializedName("close_time")
   private String closeTime;

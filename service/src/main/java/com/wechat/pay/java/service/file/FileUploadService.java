@@ -21,7 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-/** 文件上传服务 */
+/** 파일 업로드 서비스 */
 public class FileUploadService {
 
   private final HttpClient httpClient;
@@ -30,7 +30,7 @@ public class FileUploadService {
     this.httpClient = requireNonNull(httpClient);
   }
 
-  /** FileUploadService构造器 */
+  /** FileUploadService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -51,17 +51,17 @@ public class FileUploadService {
   }
 
   /**
-   * 上传视频
+   * 비디오 업로드
    *
-   * @param uploadPath 上传路径
-   * @param meta 媒体文件元信息
-   * @param videoPath 视频文件的绝对路径
-   * @return 上传结果
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
-   * @throws IOException 读取字节失败、关闭流失败等。
+   * @param uploadPath 업로드 경로
+   * @param meta 미디어 파일 메타 정보
+   * @param videoPath 비디오 파일의 절대 경로
+   * @return 업로드 결과
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
+   * @throws IOException 바이트 읽기 실패, 스트림 닫기 실패 등.
    */
   public FileUploadResponse uploadVideo(String uploadPath, String meta, String videoPath)
       throws IOException {
@@ -74,17 +74,17 @@ public class FileUploadService {
   }
 
   /**
-   * 上传视频
+   * 비디오 업로드
    *
-   * @param uploadPath 上传路径
-   * @param meta 媒体文件元信息
-   * @param fileName 文件名
-   * @param video 视频字节数组
-   * @return 上传结果
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param uploadPath 업로드 경로
+   * @param meta 미디어 파일 메타 정보
+   * @param fileName 파일 이름
+   * @param video 비디오 바이트 배열
+   * @return 업로드 결과
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public FileUploadResponse uploadVideo(
       String uploadPath, String meta, String fileName, byte[] video) {
@@ -92,17 +92,17 @@ public class FileUploadService {
   }
 
   /**
-   * 上传图片
+   * 이미지 업로드
    *
-   * @param uploadPath 上传路径
-   * @param meta 媒体文件元信息
-   * @param imagePath 图片文件的绝对路径
-   * @return 上传结果
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
-   * @throws IOException 读取图片失败、关闭图片流失败。
+   * @param uploadPath 업로드 경로
+   * @param meta 미디어 파일 메타 정보
+   * @param imagePath 이미지 파일의 절대 경로
+   * @return 업로드 결과
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
+   * @throws IOException 이미지 읽기 실패, 이미지 스트림 닫기 실패.
    */
   public FileUploadResponse uploadImage(String uploadPath, String meta, String imagePath)
       throws IOException {
@@ -115,17 +115,17 @@ public class FileUploadService {
   }
 
   /**
-   * 上传图片
+   * 이미지 업로드
    *
-   * @param uploadPath 上传路径
-   * @param meta 媒体文件元信息
-   * @param fileName 文件名
-   * @param image 图片字节数组
-   * @return 上传结果
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param uploadPath 업로드 경로
+   * @param meta 미디어 파일 메타 정보
+   * @param fileName 파일 이름
+   * @param image 이미지 바이트 배열
+   * @return 업로드 결과
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public FileUploadResponse uploadImage(
       String uploadPath, String meta, String fileName, byte[] image) {

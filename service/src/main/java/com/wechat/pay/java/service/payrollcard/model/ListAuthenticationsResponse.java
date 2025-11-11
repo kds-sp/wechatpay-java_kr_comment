@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -18,19 +18,19 @@ import java.util.List;
 
 /** ListAuthenticationsResponse */
 public class ListAuthenticationsResponse {
-  /** 查询结果记录列表 说明：查询结果记录列表 */
+  /** 조회 결과 기록 목록 설명: 조회 결과 기록 목록 */
   @SerializedName("data")
   private List<AuthenticationEntity> data;
 
-  /** 总记录条数 说明：经过条件筛选，查询到的记录总数 */
+  /** 총 기록 건수 설명: 조건 필터링을 거쳐 조회된 기록의 총 수 */
   @SerializedName("total_count")
   private Long totalCount;
 
-  /** 记录起始位置 说明：该次请求资源的起始位置，请求中包含偏移量时应答消息返回相同偏移量，否则返回默认值0 */
+  /** 기록 시작 위치 설명: 해당 요청 리소스의 시작 위치, 요청에 오프셋이 포함된 경우 응답 메시지에서 동일한 오프셋을 반환하고, 그렇지 않으면 기본값 0을 반환합니다 */
   @SerializedName("offset")
   private Long offset;
 
-  /** 本次返回条数 说明：经过条件筛选，本次查询到的记录条数 */
+  /** 이번 반환 건수 설명: 조건 필터링을 거쳐 이번 조회에서 조회된 기록 건수 */
   @SerializedName("limit")
   private Long limit;
 

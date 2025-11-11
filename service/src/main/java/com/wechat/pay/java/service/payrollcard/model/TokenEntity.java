@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** TokenEntity */
 public class TokenEntity {
-  /** 微信用户OpenID 说明：微信用户OpenID */
+  /** 위챗 사용자 OpenID 설명: 위챗 사용자 OpenID */
   @SerializedName("openid")
   private String openid;
 
-  /** 商户号 说明：商户号 */
+  /** 가맹점 번호 설명: 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** token值 说明：token值 */
+  /** token 값 설명: token 값 */
   @SerializedName("token")
   private String token;
 
-  /** token有效时间 说明：token有效时间，单位秒 */
+  /** token 유효 시간 설명: token 유효 시간, 단위는 초입니다 */
   @SerializedName("expires_in")
   private Integer expiresIn;
 

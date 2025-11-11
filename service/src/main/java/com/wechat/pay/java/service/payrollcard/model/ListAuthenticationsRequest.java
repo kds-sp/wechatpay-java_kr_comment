@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -18,42 +18,42 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListAuthenticationsRequest */
 public class ListAuthenticationsRequest {
-  /** 用户OpenID 说明：微信用户OpenID */
+  /** 사용자 OpenID 설명: 위챗 사용자 OpenID */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
 
-  /** 服务商AppID 说明：当输入服务商AppID时会校验其与服务商商户号绑定关系。 服务商AppID和特约商户AppID至少输入一个。 */
+  /** 서비스 제공업체 AppID 설명: 서비스 제공업체 AppID를 입력하면 서비스 제공업체 가맹점 번호와의 바인딩 관계를 검증합니다. 서비스 제공업체 AppID와 특약 가맹점 AppID 중 최소 하나는 입력해야 합니다. */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 特约商户AppID 说明：当输入特约商户AppID时会校验其与特约商户号关系。 特约商户AppID和服务商AppID至少输入一个。 */
+  /** 특약 가맹점 AppID 설명: 특약 가맹점 AppID를 입력하면 특약 가맹점 번호와의 관계를 검증합니다. 특약 가맹점 AppID와 서비스 제공업체 AppID 중 최소 하나는 입력해야 합니다. */
   @SerializedName("sub_appid")
   @Expose(serialize = false)
   private String subAppid;
 
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 核身日期 说明：核身日期，一次只能查询一天，最久可查询90天内的记录，格式为“yyyy-MM-DD” */
+  /** 신원 확인 날짜 설명: 신원 확인 날짜, 한 번에 하루만 조회할 수 있으며, 최대 90일 이내의 기록을 조회할 수 있습니다. 형식은 "yyyy-MM-DD"입니다 */
   @SerializedName("authenticate_date")
   @Expose(serialize = false)
   private String authenticateDate;
 
-  /** 核身状态 说明：核身状态，列表查询仅提供成功状态的核身记录查询，故此字段固定默认值即可 */
+  /** 신원 확인 상태 설명: 신원 확인 상태, 목록 조회는 성공 상태의 신원 확인 기록 조회만 제공하므로, 이 필드는 기본값으로 고정하면 됩니다 */
   @SerializedName("authenticate_state")
   @Expose(serialize = false)
   private String authenticateState;
 
-  /** 本次查询偏移量 说明：非负整数，表示该次请求资源的起始位置，从0开始计数。调用方选填，默认为0。offset为10，limit为10时，查询第10-19条数据 */
+  /** 이번 조회 오프셋 설명: 음수가 아닌 정수, 해당 요청 리소스의 시작 위치를 나타내며, 0부터 계산합니다. 호출자가 선택 입력하며, 기본값은 0입니다. offset이 10이고 limit이 10일 때, 10-19번째 데이터를 조회합니다 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Long offset;
 
-  /** 本次请求最大查询条数 说明：非0非负的整数，该次请求可返回的最大资源条数，默认值为10，最大支持10条。 */
+  /** 이번 요청 최대 조회 건수 설명: 0이 아닌 음수가 아닌 정수, 해당 요청이 반환할 수 있는 최대 리소스 건수, 기본값은 10이며, 최대 10건을 지원합니다. */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Long limit;

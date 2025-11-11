@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -19,54 +19,54 @@ import java.util.function.UnaryOperator;
 
 /** PreOrderAuthenticationWithAuthRequest */
 public class PreOrderAuthenticationWithAuthRequest {
-  /** 用户OpenID 说明：用户OpenID */
+  /** 사용자 OpenID 설명: 사용자 OpenID */
   @SerializedName("openid")
   private String openid;
 
-  /** 服务商AppID 说明：当输入服务商AppID时，会校验其与服务商商户号的绑定关系。服务商AppID和与特约商户AppID至少输入一个，且必须要有拉起微工卡小程序时使用的AppID。 */
+  /** 서비스 제공업체 AppID 설명: 서비스 제공업체 AppID를 입력하면 서비스 제공업체 가맹점 번호와의 바인딩 관계를 검증합니다. 서비스 제공업체 AppID와 특약 가맹점 AppID 중 최소 하나는 입력해야 하며, 급여 카드 미니프로그램을 실행할 때 사용한 AppID가 반드시 있어야 합니다. */
   @SerializedName("appid")
   private String appid;
 
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
   /**
-   * 特约商户AppID 说明：当输入特约商户AppID时，会校验其与特约商户号的绑定关系。服务商AppID和与特约商户AppID至少输入一个，且必须要有拉起微工卡小程序时使用的AppID。
+   * 특약 가맹점 AppID 설명: 특약 가맹점 AppID를 입력하면 특약 가맹점 번호와의 바인딩 관계를 검증합니다. 서비스 제공업체 AppID와 특약 가맹점 AppID 중 최소 하나는 입력해야 하며, 급여 카드 미니프로그램을 실행할 때 사용한 AppID가 반드시 있어야 합니다.
    */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 商家核身单号 说明：商户系统内部的商家核身单号，要求此参数只能由数字、大小写字母组成，在服务商内部唯一 */
+  /** 가맹점 신원 확인서 번호 설명: 가맹점 시스템 내부의 가맹점 신원 확인서 번호, 이 매개변수는 숫자와 대소문자로만 구성되어야 하며, 서비스 제공업체 내부에서 고유합니다 */
   @SerializedName("authenticate_number")
   private String authenticateNumber;
 
-  /** 项目名称 说明：该劳务活动的项目名称 */
+  /** 프로젝트 이름 설명: 해당 노동 활동의 프로젝트 이름 */
   @SerializedName("project_name")
   private String projectName;
 
-  /** 用工单位名称 说明：该工人所属的用工企业 */
+  /** 고용 단위 이름 설명: 해당 근로자가 속한 고용 기업 */
   @SerializedName("employer_name")
   private String employerName;
 
-  /** 用户实名 说明：用户实名信息，按照APIV3标准加密该字段 */
+  /** 사용자 실명 설명: 사용자 실명 정보, APIV3 표준에 따라 해당 필드를 암호화합니다 */
   @Encryption
   @SerializedName("user_name")
   private String userName;
 
-  /** 用户证件号 说明：用户证件号，按照APIV3标准加密该字段 */
+  /** 사용자 신분증 번호 설명: 사용자 신분증 번호, APIV3 표준에 따라 해당 필드를 암호화합니다 */
   @Encryption
   @SerializedName("id_card_number")
   private String idCardNumber;
 
   /**
-   * 用工类型
-   * 说明：微工卡服务仅支持用于与商户有用工关系的用户，需明确用工类型；非必填；未授权必填，授权过，非必填，如填写，需要校验和初次填写的一致性；参考值：长期用工：LONG_TERM_EMPLOYMENT，短期用工：SHORT_TERM_EMPLOYMENT，合作关系：COOPERATION_EMPLOYMENT
+   * 고용 유형
+   * 설명: 급여 카드 서비스는 가맹점과 고용 관계가 있는 사용자에게만 지원되며, 고용 유형을 명확히 해야 합니다. 선택 사항; 미인증 시 필수, 인증된 경우 선택 사항이며, 입력하는 경우 처음 입력한 것과의 일관성을 검증해야 합니다. 참고 값: 장기 고용: LONG_TERM_EMPLOYMENT, 단기 고용: SHORT_TERM_EMPLOYMENT, 협력 관계: COOPERATION_EMPLOYMENT
    */
   @SerializedName("employment_type")
   private EmploymentType employmentType;
 
-  /** 核身类型 说明：核身类型 */
+  /** 신원 확인 유형 설명: 신원 확인 유형 */
   @SerializedName("authenticate_type")
   private AuthenticationType authenticateType;
 

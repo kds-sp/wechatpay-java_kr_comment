@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -17,55 +17,54 @@ import com.google.gson.annotations.SerializedName;
 
 /** AuthenticationEntity */
 public class AuthenticationEntity {
-  /** 服务商商户号 说明：服务商商户号 */
+  /** 서비스 제공업체 가맹점 번호 설명: 서비스 제공업체 가맹점 번호 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 特约商户商户号 说明：特约商户商户号 */
+  /** 특약 가맹점 가맹점 번호 설명: 특약 가맹점 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 用户OpenID 说明：用户OpenID */
+  /** 사용자 OpenID 설명: 사용자 OpenID */
   @SerializedName("openid")
   private String openid;
 
-  /** 核身渠道 说明：核身渠道，发起核身时的来源渠道，如通过小程序，硬件设备等 */
+  /** 신원 확인 채널 설명: 신원 확인 채널, 신원 확인을 시작할 때의 출처 채널, 예: 미니프로그램, 하드웨어 장치 등 */
   @SerializedName("authenticate_scene")
   private AuthenticationScene authenticateScene;
 
-  /** 核身渠道标识 说明：核身渠道标识，用于定位渠道具体来源，如果是扫码打卡渠道标识就是具体的小程序AppID，若是硬件设备，则是设备的序列号等 */
+  /** 신원 확인 채널 식별자 설명: 신원 확인 채널 식별자, 채널의 구체적인 출처를 식별하는 데 사용됩니다. QR 코드 스캔 출석 채널 식별자인 경우 구체적인 미니프로그램 AppID이고, 하드웨어 장치인 경우 장치의 일련 번호 등입니다. */
   @SerializedName("authenticate_source")
   private String authenticateSource;
 
-  /** 项目名称 说明：项目名称 */
+  /** 프로젝트 이름 설명: 프로젝트 이름 */
   @SerializedName("project_name")
   private String projectName;
 
-  /** 用工企业 说明：该工人所属的用工企业，由商户核身下单时传入 */
+  /** 고용 기업 설명: 해당 근로자가 속한 고용 기업, 가맹점이 신원 확인 주문 시 전달 */
   @SerializedName("employer_name")
   private String employerName;
 
-  /** 核身状态 说明：核身状态 */
+  /** 신원 확인 상태 설명: 신원 확인 상태 */
   @SerializedName("authenticate_state")
   private AuthenticationState authenticateState;
 
   /**
-   * 核身时间
-   * 说明：核身时间，遵循RFC3339标准格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。
+   * 신원 확인 시간
+   * 설명: 신원 확인 시간, RFC3339 표준 형식을 따릅니다. 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나 time 요소의 시작을 나타내며, HH:mm:ss는 시분초를 나타내고, TIMEZONE은 시간대를 나타냅니다 (+08:00은 동부 8구역 시간을 나타내며, UTC보다 8시간 앞서므로 베이징 시간입니다).
    */
   @SerializedName("authenticate_time")
   private String authenticateTime;
 
-  /** 商家核身单号 说明：商户系统内部的商家核身单号，要求此参数只能由数字、大小写字母组成，在服务商内部唯一 */
+  /** 가맹점 신원 확인서 번호 설명: 가맹점 시스템 내부의 가맹점 신원 확인서 번호, 이 매개변수는 숫자와 대소문자로만 구성되어야 하며, 서비스 제공업체 내부에서 고유합니다 */
   @SerializedName("authenticate_number")
   private String authenticateNumber;
 
-  /** 核身失败原因 说明：结果为核身失败时的原因描述，仅在失败记录返回 */
+  /** 신원 확인 실패 원인 설명: 결과가 신원 확인 실패일 때의 원인 설명, 실패 기록에서만 반환됩니다 */
   @SerializedName("authenticate_failed_reason")
   private String authenticateFailedReason;
 
-  /** 核身类型 说明：核身类型 */
+  /** 신원 확인 유형 설명: 신원 확인 유형 */
   @SerializedName("authenticate_type")
   private AuthenticationType authenticateType;
 

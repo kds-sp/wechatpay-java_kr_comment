@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** TransferBatchEntity */
 public class TransferBatchEntity {
-  /** 商家批次单号 说明：商户系统内部的商家批次单号，在商户系统内部唯一 */
+  /** 가맹점 배치서 번호 설명: 가맹점 시스템 내부의 가맹점 배치서 번호, 가맹점 시스템 내부에서 고유합니다 */
   @SerializedName("out_batch_no")
   private String outBatchNo;
 
-  /** 微信支付批次单号 说明：微信支付批次单号，微信商家转账系统返回的唯一标识 */
+  /** 위챗페이 배치서 번호 설명: 위챗페이 배치서 번호, 위챗 가맹점 이체 시스템이 반환하는 고유 식별자 */
   @SerializedName("batch_id")
   private String batchId;
 
-  /** 批次创建时间 说明：批次受理成功时返回，按照使用rfc3339所定义的格式，格式为yyyy-MM-DDThh:mm:ss+TIMEZONE */
+  /** 배치 생성 시간 설명: 배치 접수 성공 시 반환되며, rfc3339에서 정의한 형식을 따릅니다. 형식은 yyyy-MM-DDThh:mm:ss+TIMEZONE입니다 */
   @SerializedName("create_time")
   private String createTime;
 

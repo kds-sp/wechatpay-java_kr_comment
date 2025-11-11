@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** GetRelationRequest */
 public class GetRelationRequest {
-  /** 用户OpenID 说明：微信用户OpenID */
+  /** 사용자 OpenID 설명: 위챗 사용자 OpenID */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
 
-  /** 特约商户号 说明：特约商户号 */
+  /** 특약 가맹점 번호 설명: 특약 가맹점 번호 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 服务商AppID 说明：当输入服务商AppID时会校验其与服务商商户号绑定关系。 服务商AppID和特约商户AppID至少输入一个。 */
+  /** 서비스 제공업체 AppID 설명: 서비스 제공업체 AppID를 입력하면 서비스 제공업체 가맹점 번호와의 바인딩 관계를 검증합니다. 서비스 제공업체 AppID와 특약 가맹점 AppID 중 최소 하나는 입력해야 합니다. */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 特约商户AppID 说明：当输入特约商户AppID时会校验其与特约商户号关系。 特约商户AppID和服务商AppID至少输入一个。 */
+  /** 특약 가맹점 AppID 설명: 특약 가맹점 AppID를 입력하면 특약 가맹점 번호와의 관계를 검증합니다. 특약 가맹점 AppID와 서비스 제공업체 AppID 중 최소 하나는 입력해야 합니다. */
   @SerializedName("sub_appid")
   @Expose(serialize = false)
   private String subAppid;

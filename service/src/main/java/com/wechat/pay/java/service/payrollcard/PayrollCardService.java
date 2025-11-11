@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다.
 //
 // API version: 1.5.2
 
@@ -48,7 +48,7 @@ import com.wechat.pay.java.service.payrollcard.model.RelationEntity;
 import com.wechat.pay.java.service.payrollcard.model.TokenEntity;
 import com.wechat.pay.java.service.payrollcard.model.TransferBatchEntity;
 
-/** PayrollCardService服务 */
+/** PayrollCardService 서비스 */
 public class PayrollCardService {
 
   private final HttpClient httpClient;
@@ -61,7 +61,7 @@ public class PayrollCardService {
     this.encryptor = requireNonNull(encryptor);
   }
 
-  /** PayrollCardService构造器 */
+  /** PayrollCardService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -96,26 +96,26 @@ public class PayrollCardService {
   }
 
   /**
-   * 获取核身结果
+   * 신원 확인 결과 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return AuthenticationEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public AuthenticationEntity getAuthentication(GetAuthenticationRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/payroll-card/authentications/{authenticate_number}";
 
     GetAuthenticationRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath =
         requestPath.replace(
             "{" + "authenticate_number" + "}", urlEncode(realRequest.getAuthenticateNumber()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -139,20 +139,20 @@ public class PayrollCardService {
   }
 
   /**
-   * 查询核身记录
+   * 신원 확인 기록 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ListAuthenticationsResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public ListAuthenticationsResponse listAuthentications(ListAuthenticationsRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/payroll-card/authentications";
 
     ListAuthenticationsRequest realRequest = request;
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getOpenid() != null) {
       queryParameter.add("openid", urlEncode(realRequest.getOpenid()));
@@ -197,14 +197,14 @@ public class PayrollCardService {
   }
 
   /**
-   * 微工卡核身预下单
+   * 급여 카드 신원 확인 사전 주문
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return PreOrderAuthenticationResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public PreOrderAuthenticationResponse preOrderAuthentication(
       PreOrderAuthenticationRequest request) {
@@ -229,20 +229,20 @@ public class PayrollCardService {
   }
 
   /**
-   * 微工卡核身预下单（流程中完成授权）
+   * 급여 카드 신원 확인 사전 주문 (프로세스에서 인증 완료)
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return PreOrderAuthenticationWithAuthResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public PreOrderAuthenticationWithAuthResponse preOrderAuthenticationWithAuth(
       PreOrderAuthenticationWithAuthRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/payroll-card/authentications/pre-order-with-auth";
-    // 加密敏感信息
+    // 민감 정보 암호화
     PreOrderAuthenticationWithAuthRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());
@@ -264,23 +264,23 @@ public class PayrollCardService {
   }
 
   /**
-   * 查询微工卡授权关系
+   * 급여 카드 인증 관계 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return RelationEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public RelationEntity getRelation(GetRelationRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/payroll-card/relations/{openid}";
 
     GetRelationRequest realRequest = request;
-    // 添加 path param
+    // path param 추가
     requestPath = requestPath.replace("{" + "openid" + "}", urlEncode(realRequest.getOpenid()));
 
-    // 添加 query param
+    // query param 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -310,18 +310,18 @@ public class PayrollCardService {
   }
 
   /**
-   * 生成授权token
+   * 인증 token 생성
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return TokenEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public TokenEntity createToken(CreateTokenRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/payroll-card/tokens";
-    // 加密敏感信息
+    // 민감 정보 암호화
     CreateTokenRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());
@@ -342,18 +342,18 @@ public class PayrollCardService {
   }
 
   /**
-   * 发起批量转账
+   * 일괄 이체 시작
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return TransferBatchEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public TransferBatchEntity createTransferBatch(CreateTransferBatchRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/payroll-card/transfer-batches";
-    // 加密敏感信息
+    // 민감 정보 암호화
     CreateTransferBatchRequest realRequest = request.cloneWithCipher(encryptor::encrypt);
     if (this.hostName != null) {
       requestPath = requestPath.replaceFirst(HostName.API.getValue(), hostName.getValue());

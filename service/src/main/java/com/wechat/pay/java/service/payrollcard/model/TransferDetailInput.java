@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微工卡接口文档
+// 급여 카드 인터페이스 문서
 //
-// 服务商通过本API文档提供的接口，查询商户和微工卡的授权关系、生成预授权的token口令、核身预下单、核身结果的查询等。
+// 서비스 제공업체는 본 API 문서에서 제공하는 인터페이스를 통해 가맹점과 급여 카드의 인증 관계 조회, 사전 인증 token 비밀번호 생성, 신원 확인 사전 주문, 신원 확인 결과 조회 등을 수행합니다。
 //
 // API version: 1.5.2
 
@@ -19,25 +19,25 @@ import java.util.function.UnaryOperator;
 
 /** TransferDetailInput */
 public class TransferDetailInput {
-  /** 商家明细单号 说明：商户系统内部区分转账批次单下不同转账明细单的唯一标识 */
+  /** 가맹점 명세서 번호 설명: 가맹점 시스템 내부에서 이체 배치서 하의 서로 다른 이체 명세서를 구분하는 고유 식별자 */
   @SerializedName("out_detail_no")
   private String outDetailNo;
 
-  /** 转账金额 说明：转账金额单位为“分” */
+  /** 이체 금액 설명: 이체 금액 단위는 "분"입니다 */
   @SerializedName("transfer_amount")
   private Long transferAmount;
 
-  /** 转账备注 说明：单条转账备注（微信用户会收到该备注），UTF8编码，最多允许32个字符 */
+  /** 이체 비고 설명: 단일 이체 비고 (위챗 사용자가 이 비고를 받습니다), UTF8 인코딩, 최대 32자 허용 */
   @SerializedName("transfer_remark")
   private String transferRemark;
 
-  /** 收款用户OpenID 说明：收款用户OpenID。如果转账特约商户授权类型是INFORMATION_AUTHORIZATION_TYPE，对应的是特约商户公众号下的OpenID。 */
+  /** 수취인 사용자 OpenID 설명: 수취인 사용자 OpenID. 이체 특약 가맹점 인증 유형이 INFORMATION_AUTHORIZATION_TYPE인 경우, 특약 가맹점 공개 계정 하의 OpenID에 해당합니다. */
   @SerializedName("openid")
   private String openid;
 
   /**
-   * 收款用户姓名 说明：收款用户姓名。采用标准RSA算法，公钥由微信侧提供 明细转账金额 >= 2,000时，该笔明细必须填写收款用户姓名
-   * 同一批次转账明细中的姓名字段传入规则需保持一致，也即全部填写、或全部不填写 若商户传入收款用户姓名，微信支付会校验用户OpenID与姓名是否一致，并提供电子回单
+   * 수취인 사용자 이름 설명: 수취인 사용자 이름. 표준 RSA 알고리즘을 사용하며, 공개 키는 위챗 측에서 제공합니다. 명세서 이체 금액 >= 2,000일 때, 해당 명세서는 반드시 수취인 사용자 이름을 입력해야 합니다.
+   * 동일 배치 이체 명세서의 이름 필드 전달 규칙은 일관성을 유지해야 하며, 즉 모두 입력하거나 모두 입력하지 않아야 합니다. 가맹점이 수취인 사용자 이름을 전달하면, 위챗페이는 사용자 OpenID와 이름이 일치하는지 검증하고 전자 영수증을 제공합니다.
    */
   @Encryption
   @SerializedName("user_name")
