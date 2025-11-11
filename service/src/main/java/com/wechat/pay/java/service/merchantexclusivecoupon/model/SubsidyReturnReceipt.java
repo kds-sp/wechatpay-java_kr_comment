@@ -26,7 +26,7 @@ public class SubsidyReturnReceipt {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 商家券code 설명:券的唯一标识 */
+  /** 商家쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 

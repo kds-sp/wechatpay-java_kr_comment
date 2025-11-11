@@ -45,7 +45,7 @@ public class CouponCodeEntity {
   @SerializedName("unionid")
   private String unionid;
 
-  /** 用户券code 설명:券的唯一标识 */
+  /** 用户쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 

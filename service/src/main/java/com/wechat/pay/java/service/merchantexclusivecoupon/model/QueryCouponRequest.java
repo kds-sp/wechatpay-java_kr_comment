@@ -19,22 +19,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryCouponRequest */
 public class QueryCouponRequest {
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   @Expose(serialize = false)
   private String couponCode;
 
   /**
-   * 公众账号ID 설명:支持传入与当前调用接口商户号有绑定关系的AppID。支持小程序AppID与公众号AppID。
-   * 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID或传入的AppID得是归属商户号有绑定关系的AppID
+   * 공개 계정 ID 설명: 현재 호출 인터페이스 가맹점 번호와 바인딩 관계가 있는 AppID 전달 지원. 미니프로그램 AppID와 공개 계정 AppID 지원.
+   * 검증 규칙: 전달한 AppID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID이거나, 전달한 AppID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID여야 함
    */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
   /**
-   * 用户OpenID 설명:OpenID信息，用户在AppID下的唯一标识。
-   * 검증 규칙:传入的OpenID得是调用方商户号（即请求头里面的商户号）有绑定关系的AppID获取的OpenID或传入的OpenID得是归属商户号有绑定关系的AppID获取的OpenID。[获取OpenID文档](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
+   * 사용자 OpenID 설명: OpenID 정보, 사용자가 AppID 하의 고유 식별자.
+   * 검증 규칙: 전달한 OpenID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID에서 획득한 OpenID이거나, 전달한 OpenID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID에서 획득한 OpenID여야 합니다. [OpenID 획득 문서](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
    */
   @SerializedName("openid")
   @Expose(serialize = false)

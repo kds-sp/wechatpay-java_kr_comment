@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponEntity */
 public class CouponEntity {
-  /** 批次归属商户号 설명:代金券的所属商户号 */
+  /** 배치 소속 가맹점 번호 설명:현금 쿠폰의 소속 가맹점 번호 */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
@@ -30,23 +30,23 @@ public class CouponEntity {
   @SerializedName("comment")
   private String comment;
 
-  /** 适用商品范围 설명:适用商品范围，字数上限为15个，一个中文汉字/英文字母/数字均占用一个字数。 */
+  /** 적용 상품 범위 설명: 적용 상품 범위, 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 批次类型 설명:批次类型 */
+  /** 배치 유형 설명: 배치 유형 */
   @SerializedName("stock_type")
   private BusiFavorStockType stockType;
 
-  /** 是否允许转赠 설명:不填默认否，枚举值： true：是 false：否 该字段暂未开放 */
+  /** 양도 허용 여부 설명:입력하지 않으면 기본값은 아니오, 열거형 값: true: 예 false: 아니오 참고: 해당 필드는 아직 미개방 */
   @SerializedName("transferable")
   private Boolean transferable;
 
-  /** 是否允许分享领券链接 설명:不填默认否，枚举值： true：是 false：否 该字段暂未开放 */
+  /** 쿠폰 수령 링크 공유 허용 여부 설명:입력하지 않으면 기본값은 아니오, 열거형 값: true: 예 false: 아니오 참고: 해당 필드는 아직 미개방 */
   @SerializedName("shareable")
   private Boolean shareable;
 
-  /** 券状态 설명:商家券状态 */
+  /** 쿠폰 상태 설명:가맹점 쿠폰 상태 */
   @SerializedName("coupon_state")
   private CouponStatus couponState;
 
@@ -54,7 +54,7 @@ public class CouponEntity {
   @SerializedName("display_pattern_info")
   private DisplayPatternInfo displayPatternInfo;
 
-  /** 券核销规则 설명: */
+  /** 쿠폰 사용 규칙 설명: */
   @SerializedName("coupon_use_rule")
   private CouponUseRule couponUseRule;
 
@@ -62,7 +62,7 @@ public class CouponEntity {
   @SerializedName("custom_entrance")
   private CustomEntrance customEntrance;
 
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
@@ -71,32 +71,32 @@ public class CouponEntity {
   private String stockId;
 
   /**
-   * 券可使用开始时间 설명:用户领取到的这张券实际可使用的开始时间：如批次设置的领取后可用，则开始时间即为券的领取时间； 如批次设置的领取后第X天可用，则为领取时间后第X天00:00:00
+   * 쿠폰 사용 가능 시작 시간 설명:사용자가 수령한 이 쿠폰의 실제 사용 가능 시작 시간: 배치에서 수령 후 사용 가능으로 설정한 경우, 시작 시간은 쿠폰 수령 시간이며, 배치에서 수령 후 X일 사용 가능으로 설정한 경우, 수령 시간 후 X일 00:00:00
    */
   @SerializedName("available_start_time")
   private String availableStartTime;
 
-  /** 券过期时间 설명:用户领取到这张券的过期时间 */
+  /** 쿠폰 만료 시간 설명:사용자가 이 쿠폰을 수령한 만료 시간 */
   @SerializedName("expire_time")
   private String expireTime;
 
-  /** 券领取时间 설명:用户领取到这张券的时间 */
+  /** 쿠폰 수령 시간 설명:사용자가 이 쿠폰을 수령한 시간 */
   @SerializedName("receive_time")
   private String receiveTime;
 
-  /** 发券请求单号 설명:发券时传入的唯一凭证 */
+  /** 쿠폰 발송 요청 번호 설명:쿠폰 발송 시 전달한 고유 증빙 */
   @SerializedName("send_request_no")
   private String sendRequestNo;
 
-  /** 核销请求单号 설명:核销时传入的唯一凭证（如券已被核销，将返回此字段） */
+  /** 사용 요청 번호 설명:사용 시 전달한 고유 증빙(쿠폰이 이미 사용된 경우, 이 필드 반환) */
   @SerializedName("use_request_no")
   private String useRequestNo;
 
-  /** 券核销时间 설명:券被核销的时间（如券已被核销，将返回此字段） */
+  /** 쿠폰 사용 시간 설명:쿠폰이 사용된 시간(쿠폰이 이미 사용된 경우, 이 필드 반환) */
   @SerializedName("use_time")
   private String useTime;
 
-  /** 关联的商户订单号 설명:若商家券操作过关联商户订单信息，则该字段返回商家券已关联的商户订单号。 */
+  /** 연결된 가맹점 주문 번호 설명:가맹점 쿠폰이 가맹점 주문 정보와 연결된 적이 있는 경우, 이 필드는 가맹점 쿠폰이 이미 연결된 가맹점 주문 번호를 반환합니다. */
   @SerializedName("associate_out_trade_no")
   private String associateOutTradeNo;
 

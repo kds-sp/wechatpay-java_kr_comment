@@ -22,7 +22,7 @@ public class StockGetResponse {
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次归属商户号 설명:批次是归属于哪个商户 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
+  /** 배치 소속 가맹점 번호 설명:批次是归属于哪个商户 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
@@ -34,7 +34,7 @@ public class StockGetResponse {
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 批次类型 설명:批次类型 */
+  /** 배치 유형 설명: 배치 유형 */
   @SerializedName("stock_type")
   private BusiFavorStockType stockType;
 

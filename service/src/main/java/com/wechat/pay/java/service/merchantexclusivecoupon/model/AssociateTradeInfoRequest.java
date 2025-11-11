@@ -22,11 +22,11 @@ public class AssociateTradeInfoRequest {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 关联的商户订单号 설명:微信支付下单时的商户订单号，欲与该商家券关联的微信支付 */
+  /** 연결된 가맹점 주문 번호 설명:微信支付下单时的商户订单号，欲与该商家券关联的微信支付 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 

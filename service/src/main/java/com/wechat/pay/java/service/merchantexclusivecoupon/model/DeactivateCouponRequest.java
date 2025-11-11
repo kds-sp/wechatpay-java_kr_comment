@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeactivateCouponRequest */
 public class DeactivateCouponRequest {
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
@@ -26,7 +26,7 @@ public class DeactivateCouponRequest {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 失效请求单据号 설명:每次失效请求的唯一标识，商户需保证唯一 */
+  /** 무효화 요청 증빙 번호 설명:매번 무효화 요청의 고유 식별자, 가맹점은 고유성 보장 필요 */
   @SerializedName("deactivate_request_no")
   private String deactivateRequestNo;
 

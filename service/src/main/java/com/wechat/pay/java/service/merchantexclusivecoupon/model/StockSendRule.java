@@ -51,11 +51,11 @@ public class StockSendRule {
   @SerializedName("prevent_api_abuse")
   private Boolean preventApiAbuse;
 
-  /** 是否允许转赠，暂不开放 설명:不填默认否，枚举值： true：是 false：否 该字段暂未开放 */
+  /** 是否允许转赠，暂不开放 설명:입력하지 않으면 기본값은 아니오, 열거형 값: true: 예 false: 아니오 참고: 해당 필드는 아직 미개방 */
   @SerializedName("transferable")
   private Boolean transferable;
 
-  /** 是否允许分享链接，暂不开放 설명:不填默认否，枚举值： true：是 false：否 该字段暂未开放 */
+  /** 是否允许分享链接，暂不开放 설명:입력하지 않으면 기본값은 아니오, 열거형 값: true: 예 false: 아니오 참고: 해당 필드는 아직 미개방 */
   @SerializedName("shareable")
   private Boolean shareable;
 

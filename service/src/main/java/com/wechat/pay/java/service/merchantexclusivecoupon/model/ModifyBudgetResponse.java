@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ModifyBudgetResponse */
 public class ModifyBudgetResponse {
-  /** 批次当前最大发放个数 설명:批次最大发放个数 */
+  /** 배치 현재 최대 발송 개수 설명: 배치 최대 발송 개수 */
   @SerializedName("max_coupons")
   private Long maxCoupons;
 
-  /** 当前单天发放上限个数 설명:当前单天发放上限个数 */
+  /** 현재 단일 일자 발송 상한선 개수 설명: 현재 단일 일자 발송 상한선 개수 */
   @SerializedName("max_coupons_by_day")
   private Long maxCouponsByDay;
 

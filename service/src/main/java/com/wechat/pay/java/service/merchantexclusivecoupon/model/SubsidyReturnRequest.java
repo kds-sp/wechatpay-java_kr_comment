@@ -23,7 +23,7 @@ public class SubsidyReturnRequest {
   private String stockId;
 
   /**
-   * 商家券code 설명:券的唯一标识。 在WECHATPAY\\_MODE的券code模式下，商家券code是由微信支付生成的唯一ID；
+   * 商家쿠폰 code 설명: 쿠폰의 고유 식별자。 在WECHATPAY\\_MODE的券code模式下，商家券code是由微信支付生成的唯一ID；
    * 在MERCHANT\\_UPLOAD、MERCHANT\\_API的券code模式下，商家券code是由商户上传或指定，在批次下保证唯一；
    */
   @SerializedName("coupon_code")

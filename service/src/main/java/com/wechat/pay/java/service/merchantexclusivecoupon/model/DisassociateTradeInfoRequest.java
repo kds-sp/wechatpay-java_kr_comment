@@ -22,11 +22,11 @@ public class DisassociateTradeInfoRequest {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 取消关联的商户订单号 설명:欲取消与商家券关联的微信支付下单的商户订单号，该单号需要已操作过与券关联，否则无法取消关联 */
+  /** 取消연결된 가맹점 주문 번호 설명:欲取消与商家券关联的微信支付下单的商户订单号，该单号需要已操作过与券关联，否则无法取消关联 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 

@@ -20,15 +20,15 @@ import com.google.gson.annotations.SerializedName;
 /** ListCouponsByFilterRequest */
 public class ListCouponsByFilterRequest {
   /**
-   * 用户标识 설명:Openid信息，用户在AppID下的唯一标识。
-   * 검증 규칙:传入的OpenID得是调用方商户号（即请求头里面的商户号）有绑定关系的AppID获取的OpenID或传入的OpenID得是归属商户号有绑定关系的AppID获取的OpenID。[获取OpenID文档](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
+   * 사용자 식별자 설명:Openid信息，用户在AppID下的唯一标识。
+   * 검증 규칙:전달한 OpenID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID에서 획득한 OpenID이거나, 전달한 OpenID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID에서 획득한 OpenID여야 합니다. [OpenID 획득 문서](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
    */
   @SerializedName("openid")
   @Expose(serialize = false)
   private String openid;
 
   /**
-   * 公众账号ID 설명:支持传入与当前调用接口商户号有绑定关系的AppID。支持小程序AppID与公众号AppID。
+   * 공개 계정 ID 설명:支持传入与当前调用接口商户号有绑定关系的AppID。支持小程序AppID与公众号AppID。
    * 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID 或 传入的AppID得是归属商户号有绑定关系的AppID
    */
   @SerializedName("appid")
@@ -45,7 +45,7 @@ public class ListCouponsByFilterRequest {
   @Expose(serialize = false)
   private String creatorMerchant;
 
-  /** 批次归属商户号 설명:批次归属商户号 검증 규칙:当调用方商户号（即请求头中的商户号）为批次归属商户号时，该参数必传 */
+  /** 배치 소속 가맹점 번호 설명:批次归属商户号 검증 규칙:当调用方商户号（即请求头中的商户号）为批次归属商户号时，该参数必传 */
   @SerializedName("belong_merchant")
   @Expose(serialize = false)
   private String belongMerchant;
@@ -65,7 +65,7 @@ public class ListCouponsByFilterRequest {
   @Expose(serialize = false)
   private Integer limit;
 
-  /** 券状态 설명:商家券状态 */
+  /** 쿠폰 상태 설명:가맹점 쿠폰 상태 */
   @SerializedName("coupon_state")
   @Expose(serialize = false)
   private CouponStatus couponState;

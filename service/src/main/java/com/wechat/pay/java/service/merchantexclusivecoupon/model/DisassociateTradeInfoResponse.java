@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 public class DisassociateTradeInfoResponse {
   /**
    * 取消关联券成功时间
-   * 설명:系统成功取消商家券与订单信息关联关系的时间，遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 설명:系统成功取消商家券与订单信息关联关系的时间，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("wechatpay_disassociate_time")
   private String wechatpayDisassociateTime;

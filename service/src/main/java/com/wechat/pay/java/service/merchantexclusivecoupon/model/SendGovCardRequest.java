@@ -38,7 +38,7 @@ public class SendGovCardRequest {
 
   /**
    * 请求发卡时间
-   * 설명:单次请求发卡时间，消费卡在商户系统的实际发放时间，为东八区标准时间（UTC+8）。商户需保证同一次请求的out_request_no+send_time唯一。由于系统限制，暂不支持传入早于当前时间24小时以上的时间进行发券请求。
+   * 설명:단일 요청 발급 시간, 소비 카드가 가맹점 시스템에서 실제 발급된 시간으로, 동부 8구 표준 시간(UTC+8). 가맹점은 동일 요청의 out_request_no+send_time 고유성 보장 필요. 시스템 제한으로 인해, 현재 시간보다 24시간 이상 이전 시간을 전달하여 쿠폰 발송 요청하는 것은 아직 지원하지 않음.
    */
   @SerializedName("send_time")
   private String sendTime;

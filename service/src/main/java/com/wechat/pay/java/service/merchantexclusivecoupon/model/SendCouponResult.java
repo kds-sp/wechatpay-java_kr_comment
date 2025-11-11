@@ -22,11 +22,11 @@ public class SendCouponResult {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 发券凭证 설명:发券凭证，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号，需在单个批次单个用户下确保唯一性 */
+  /** 쿠폰 발송 증빙 설명:发券凭证，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号，需在单个批次单个用户下确保唯一性 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 

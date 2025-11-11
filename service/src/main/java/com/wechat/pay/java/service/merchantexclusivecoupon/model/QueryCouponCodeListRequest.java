@@ -34,7 +34,7 @@ public class QueryCouponCodeListRequest {
   @Expose(serialize = false)
   private Long offset;
 
-  /** 公众账号ID 설명:公众账号ID */
+  /** 공개 계정 ID 설명:公众账号ID */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** UseCouponRequest */
 public class UseCouponRequest {
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
@@ -30,27 +30,27 @@ public class UseCouponRequest {
   private String stockId;
 
   /**
-   * 公众账号ID 설명:현재 호출 인터페이스 가맹점 번호와 바인딩 관계가 있는 AppID 전달 지원. 미니프로그램 AppID와 공개 계정 AppID 지원. 사용 인터페이스 반환 OpenID는 해당 전달 AppID 하에서 계산되어 획득됩니다.
-   * 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID或传入的AppID得是归属商户号有绑定关系的AppID
+   * 공개 계정 ID 설명:현재 호출 인터페이스 가맹점 번호와 바인딩 관계가 있는 AppID 전달 지원. 미니프로그램 AppID와 공개 계정 AppID 지원. 사용 인터페이스 반환 OpenID는 해당 전달 AppID 하에서 계산되어 획득됩니다.
+   * 검증 규칙:전달한 AppID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID이거나, 전달한 AppID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID여야 함
    */
   @SerializedName("appid")
   private String appid;
 
   /**
-   * 请求核销时间 설명:가맹점이 사용자 쿠폰 사용을 요청한 시간.
-   * 遵循[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339)标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。
+   * 요청 사용 시간 설명:가맹점이 사용자 쿠폰 사용을 요청한 시간.
+   * [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("use_time")
   private String useTime;
 
-  /** 核销请求单据号 설명:매번 사용 요청의 고유 식별자, 가맹점은 고유성 보장 필요 */
+  /** 사용 요청 증빙 번호 설명:매번 사용 요청의 고유 식별자, 가맹점은 고유성 보장 필요 */
   @SerializedName("use_request_no")
   private String useRequestNo;
 
   /**
-   * 用户标识 설명:사용자의 고유 식별자, 보안 검증에 사용, 필수 아님.
-   * 검증 규칙:传入的OpenID得是调用方商户号（即请求头里面的商户号）有绑定关系的AppID获取的OpenID或传入的OpenID得是归属商户号有绑定关系的AppID获取的OpenID。[获取OpenID文档](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
+   * 사용자 식별자 설명:사용자의 고유 식별자, 보안 검증에 사용, 필수 아님.
+   * 검증 규칙:전달한 OpenID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID에서 획득한 OpenID이거나, 전달한 OpenID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID에서 획득한 OpenID여야 합니다. [OpenID 획득 문서](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
    */
   @SerializedName("openid")
   private String openid;

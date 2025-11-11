@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** ReturnCouponRequest */
 public class ReturnCouponRequest {
-  /** 券code 설명:券的唯一标识 */
+  /** 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 
@@ -26,7 +26,7 @@ public class ReturnCouponRequest {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 退券请求单据号 설명:每次退券请求的唯一标识，商户需保证唯一 */
+  /** 쿠폰 반환 요청 증빙 번호 설명:매번 쿠폰 반환 요청의 고유 식별자, 가맹점은 고유성 보장 필요 */
   @SerializedName("return_request_no")
   private String returnRequestNo;
 

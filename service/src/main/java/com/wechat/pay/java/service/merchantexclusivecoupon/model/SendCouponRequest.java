@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** SendCouponRequest */
 public class SendCouponRequest {
-  /** 用户标识 설명:用户的唯一标识，必填 */
+  /** 사용자 식별자 설명:사용자의 고유 식별자, 필수 */
   @SerializedName("openid")
   private String openid;
 
-  /** 公众账号ID 설명:发券方AppID */
+  /** 공개 계정 ID 설명:쿠폰 발송 측 AppID */
   @SerializedName("appid")
   private String appid;
 
@@ -30,11 +30,11 @@ public class SendCouponRequest {
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 发券凭证 설명:发券凭证，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号，需在单个批次单个用户下确保唯一性 */
+  /** 쿠폰 발송 증빙 설명: 쿠폰 발송 증빙, 영문, 숫자, |, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음, 단일 배치 단일 사용자 하에서 고유성 보장 필요 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 券code 설명:要求接口指定code发券的批次必传 */
+  /** 쿠폰 code 설명: 인터페이스에서 code를 지정하여 쿠폰을 발송하는 배치는 필수 전달 */
   @SerializedName("coupon_code")
   private String couponCode;
 

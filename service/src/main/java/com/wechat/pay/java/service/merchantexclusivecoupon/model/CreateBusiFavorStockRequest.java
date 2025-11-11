@@ -22,7 +22,7 @@ public class CreateBusiFavorStockRequest {
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次归属商户号 설명:배치가 어느 가맹점에 속하는지. 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
+  /** 배치 소속 가맹점 번호 설명:배치가 어느 가맹점에 속하는지. 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
@@ -34,7 +34,7 @@ public class CreateBusiFavorStockRequest {
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 批次类型 설명:批次类型 */
+  /** 배치 유형 설명: 배치 유형 */
   @SerializedName("stock_type")
   private BusiFavorStockType stockType;
 
@@ -59,7 +59,7 @@ public class CreateBusiFavorStockRequest {
   private DisplayPatternInfo displayPatternInfo;
 
   /**
-   * 券code模式 설명:特殊规则： 1、券code模式为WECHATPAY\\_MODE时，是微信自动分配券code，商户不需要预存code；适用于多种场景
+   * 쿠폰 code 모드 설명: 특수 규칙: 1、券code模式为WECHATPAY\\_MODE时，是微信自动分配券code，商户不需要预存code；适用于多种场景
    * 2、券code模式为MERCHANT\\_API时，无需调用사전 저장 code 업로드接口，调用发券接口时需指定券code；更多用在商家自有流量场景（例如：商家自有小程序、H5网页等）
    * 3、券code模式为MERCHANT\\_UPLOAD，需要调用사전 저장 code 업로드接口上传code，调用发券接口时无需指定code；更多适用在微信支付平台流量场景（例如：支付有礼、支付有优惠等）
    */
