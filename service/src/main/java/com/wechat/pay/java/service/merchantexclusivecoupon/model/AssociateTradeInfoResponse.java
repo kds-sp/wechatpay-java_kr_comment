@@ -19,8 +19,8 @@ import com.google.gson.annotations.SerializedName;
 /** AssociateTradeInfoResponse */
 public class AssociateTradeInfoResponse {
   /**
-   * 关联成功时间
-   * 설명:系统关联券成功的时间，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
+   * 연결 성공 시간
+   * 설명: 시스템이 쿠폰 연결에 성공한 시간, [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
    * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("wechatpay_associate_time")

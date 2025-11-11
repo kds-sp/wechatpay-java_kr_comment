@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteCouponCodeResponse */
 public class DeleteCouponCodeResponse {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 删除时间 설명:商家券code实际被删除的时间 */
+  /** 삭제 시간 설명:가맹점 쿠폰 code가 실제로 삭제된 시간 */
   @SerializedName("delete_time")
   private String deleteTime;
 

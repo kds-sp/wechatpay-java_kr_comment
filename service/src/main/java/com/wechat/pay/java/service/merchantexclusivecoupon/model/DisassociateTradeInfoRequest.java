@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** DisassociateTradeInfoRequest */
 public class DisassociateTradeInfoRequest {
-  /** 배치 번호 설명:위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID， 对于商户自定义code的批次，关联请求必须填写배치 번호 */
+  /** 배치 번호 설명:위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID， 가맹점 사용자 정의 code 배치의 경우, 연결 요청 시 배치 번호 필수 기입 */
   @SerializedName("stock_id")
   private String stockId;
 
@@ -26,11 +26,11 @@ public class DisassociateTradeInfoRequest {
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 取消연결된 가맹점 주문 번호 설명:欲取消与商家券关联的微信支付下单的商户订单号，该单号需要已操作过与券关联，否则无法取消关联 */
+  /** 연결 해제할 가맹점 주문 번호 설명: 가맹점 쿠폰과 연결된 위챗페이 주문의 가맹점 주문 번호를 취소하려는 경우, 해당 내역 번호는 이미 쿠폰과 연결 작업을 수행했어야 하며, 그렇지 않으면 연결 해제 불가 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 请求业务单据号 설명:가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号。 */
+  /** 요청 업무 증빙 번호 설명:가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요，영문, 숫자, ｜, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음。 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 

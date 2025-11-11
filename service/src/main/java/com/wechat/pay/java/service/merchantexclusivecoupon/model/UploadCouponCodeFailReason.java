@@ -18,15 +18,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** UploadCouponCodeFailReason */
 public class UploadCouponCodeFailReason {
-  /** 上传失败的券code 설명:商户通过API上传的券code */
+  /** 업로드 실패한 쿠폰 code 설명:가맹점이 API를 통해 업로드한 쿠폰 code */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 上传失败错误码 설명:对应券code上传失败的错误码 */
+  /** 업로드 실패 오류 코드 설명:해당 쿠폰 code 업로드 실패 오류 코드 */
   @SerializedName("code")
   private String code;
 
-  /** 上传失败错误信息 설명:上传失败的错误信息描述 */
+  /** 업로드 실패 오류 정보 설명:업로드 실패 오류 정보 설명 */
   @SerializedName("message")
   private String message;
 

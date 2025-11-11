@@ -19,20 +19,20 @@ import com.google.gson.annotations.SerializedName;
 
 /** PayReceiptListRequest */
 public class PayReceiptListRequest {
-  /** 商家券배치 번호 설명:由微信支付生成，调用가맹점 쿠폰 생성API成功时返回的唯一批次ID */
+  /** 가맹점 쿠폰 배치 번호 설명: 위챗페이가 생성, 가맹점 쿠폰 생성 API 호출 성공 시 반환되는 고유 배치 ID */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
   /**
-   * 商家쿠폰 code 설명: 쿠폰의 고유 식별자。 在WECHATPAY\\_MODE的券code模式下，商家券code是由微信支付生成的唯一ID；
-   * 在MERCHANT\\_UPLOAD、MERCHANT\\_API的券code模式下，商家券code是由商户上传或指定，在批次下保证唯一；
+   * 가맹점 쿠폰 code 설명: 쿠폰의 고유 식별자. WECHATPAY\\_MODE 쿠폰 code 모드에서, 가맹점 쿠폰 code는 위챗페이가 생성한 고유 ID;
+   * MERCHANT\\_UPLOAD, MERCHANT\\_API 쿠폰 code 모드에서, 가맹점 쿠폰 code는 가맹점이 업로드하거나 지정하며, 배치 하에서 고유성 보장;
    */
   @SerializedName("coupon_code")
   @Expose(serialize = false)
   private String couponCode;
 
-  /** 补差付款请求单号 설명:商户调用补差付款API时填写的“业务请求唯一单号” */
+  /** 보조금 결제 요청 내역 번호 설명: 가맹점이 보조금 결제 API 호출 시 기입한 "업무 요청 고유 내역 번호" */
   @SerializedName("out_subsidy_no")
   @Expose(serialize = false)
   private String outSubsidyNo;

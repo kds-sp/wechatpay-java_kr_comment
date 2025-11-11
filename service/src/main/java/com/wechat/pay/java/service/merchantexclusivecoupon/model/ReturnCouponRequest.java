@@ -22,7 +22,7 @@ public class ReturnCouponRequest {
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 배치 번호 설명:券的所属배치 번호 */
+  /** 배치 번호 설명:쿠폰이 속한 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 

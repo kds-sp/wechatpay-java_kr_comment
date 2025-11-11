@@ -22,7 +22,7 @@ public class DeactivateCouponRequest {
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 배치 번호 설명:券的所属배치 번호 */
+  /** 배치 번호 설명:쿠폰이 속한 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 
@@ -30,7 +30,7 @@ public class DeactivateCouponRequest {
   @SerializedName("deactivate_request_no")
   private String deactivateRequestNo;
 
-  /** 失效原因 설명:商户失效券的原因 */
+  /** 무효화 사유 설명:가맹점이 쿠폰을 무효화한 사유 */
   @SerializedName("deactivate_reason")
   private String deactivateReason;
 

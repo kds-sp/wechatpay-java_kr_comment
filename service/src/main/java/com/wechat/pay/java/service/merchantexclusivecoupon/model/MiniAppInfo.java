@@ -19,21 +19,21 @@ import com.google.gson.annotations.SerializedName;
 /** MiniAppInfo */
 public class MiniAppInfo {
   /**
-   * 商家小程序AppID 설명:商家小程序AppID要与归属商户号有M-A or M-m-suba关系。
-   * 검증 규칙:传入的AppID得是与调用方商户号（即请求头里面的商户号）有绑定关系的AppID 或 传入的AppID得是归属商户号有绑定关系的AppID
+   * 가맹점 미니프로그램 AppID 설명: 가맹점 미니프로그램 AppID는 소속 가맹점 번호와 M-A 또는 M-m-suba 관계 필요.
+   * 검증 규칙: 전달한 AppID는 호출 당사자 가맹점 번호(즉 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID여야 하거나, 전달한 AppID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID여야 함
    */
   @SerializedName("mini_programs_appid")
   private String miniProgramsAppid;
 
-  /** 商家小程序path 설명:商家小程序path */
+  /** 가맹점 미니프로그램 path 설명:가맹점 미니프로그램 path */
   @SerializedName("mini_programs_path")
   private String miniProgramsPath;
 
-  /** 入口文案 설명:入口文案，字数上限为5个，一个中文汉字/英文字母/数字均占用一个字数。 */
+  /** 입구 문구 설명:입구 문구，글자 수 상한선 5자, 한자/영문/숫자 각각 1자로 계산。 */
   @SerializedName("entrance_words")
   private String entranceWords;
 
-  /** 引导文案 설명:小程序入口引导文案，用户自定义字段。字数上限为6个，一个中文汉字/英文字母/数字均占用一个字数。 */
+  /** 안내 문구 설명: 미니프로그램 입구 안내 문구, 사용자 정의 필드. 글자 수 상한선 6자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("guiding_words")
   private String guidingWords;
 

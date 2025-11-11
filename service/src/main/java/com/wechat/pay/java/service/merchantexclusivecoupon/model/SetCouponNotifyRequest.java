@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** SetCouponNotifyRequest */
 public class SetCouponNotifyRequest {
-  /** 商户号 설명:商户号，不填默认查询调用方商户号 */
+  /** 가맹점 번호 설명:가맹점 번호，기입하지 않으면 기본적으로 호출 당사자 가맹점 번호 조회 */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 通知URL地址 설명:商户提供的用于接收商家券事件通知的URL地址，必须支持HTTPS。 */
+  /** 알림 URL 주소 설명:가맹점 쿠폰 이벤트 알림을 수신하기 위해 가맹점이 제공한 URL 주소, HTTPS 지원 필수。 */
   @SerializedName("notify_url")
   private String notifyUrl;
 

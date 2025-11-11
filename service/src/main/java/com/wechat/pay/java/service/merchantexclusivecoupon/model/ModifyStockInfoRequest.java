@@ -24,43 +24,43 @@ public class ModifyStockInfoRequest {
   @Expose(serialize = false)
   private String stockId;
 
-  /** 自定义入口 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
+  /** 사용자 정의 입구 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
   @SerializedName("custom_entrance")
   private ModifyCustomEntrance customEntrance;
 
-  /** 批次名称 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. 注：该字段暂不支持修改 */
+  /** 배치 이름 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. 주: 이 필드는 아직 수정 미지원 */
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 批次备注 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 배치 비고 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("comment")
   private String comment;
 
-  /** 适用商品范围 설명:배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 적용 상품 범위 설명:배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("goods_name")
   private String goodsName;
 
-  /** 商户请求单号 설명:商户修改批次凭据号（格式：商户ID+日期+流水号），商户侧需保持唯一性。 */
+  /** 가맹점 요청 내역 번호 설명:가맹점이 배치를 수정한 증빙 번호（형식: 가맹점 ID+날짜+순번），가맹점 측에서 고유성 유지 필요。 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 样式信息 설명: */
+  /** 스타일 정보 설명: */
   @SerializedName("display_pattern_info")
   private DisplayPatternInfo displayPatternInfo;
 
-  /** 核销规则 설명:쿠폰 사용 관련 규칙 */
+  /** 사용 규칙 설명:쿠폰 사용 관련 규칙 */
   @SerializedName("coupon_use_rule")
   private ModifyCouponUseRule couponUseRule;
 
-  /** 发放规则 설명:쿠폰 발송 관련 규칙 */
+  /** 발송 규칙 설명:쿠폰 발송 관련 규칙 */
   @SerializedName("stock_send_rule")
   private ModifyStockSendRule stockSendRule;
 
-  /** 事件通知配置 설명:이벤트 콜백 알림 가맹점 설정 */
+  /** 이벤트 알림 구성 설명:이벤트 콜백 알림 가맹점 설정 */
   @SerializedName("notify_config")
   private NotifyConfig notifyConfig;
 
-  /** 是否允许营销补差 설명:该批次发放的券是否允许进行补差。只允许从false改为true，不支持从true改为false 참고: 해당 필드는 아직 미개방 */
+  /** 마케팅 보조금 허용 여부 설명:해당 배치에서 발송한 쿠폰의 보조금 허용 여부。false에서 true로만 변경 가능, true에서 false로 변경은 미지원 참고: 해당 필드는 아직 미개방 */
   @SerializedName("subsidy")
   private Boolean subsidy;
 

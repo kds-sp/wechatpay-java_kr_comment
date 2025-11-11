@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponCodeCount */
 public class CouponCodeCount {
-  /** 该批次总共已上传的code总数 설명:该批次总共已上传的code总数 */
+  /** 해당 배치에서 총 업로드한 code 총 수 설명:해당 배치에서 총 업로드한 code 총 수 */
   @SerializedName("total_count")
   private Long totalCount;
 
-  /** 该批次当前可用的code数 설명:该批次当前可用的code数 */
+  /** 해당 배치에서 현재 사용 가능한 code 수 설명:해당 배치에서 현재 사용 가능한 code 수 */
   @SerializedName("available_count")
   private Long availableCount;
 

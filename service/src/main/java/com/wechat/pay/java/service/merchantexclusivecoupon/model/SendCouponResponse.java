@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** SendCouponResponse */
 public class SendCouponResponse {
-  /** 发券结果 설명:发券结果 */
+  /** 쿠폰 발송 결과 설명:쿠폰 발송 결과 */
   @SerializedName("send_coupon_result")
   private SendCouponResult sendCouponResult;
 

@@ -18,34 +18,34 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponCodeEntity */
 public class CouponCodeEntity {
-  /** 商户上传code 설명:商户上传code */
+  /** 가맹점 업로드 code 설명:가맹점 업로드 code */
   @SerializedName("code")
   private String code;
 
-  /** 商户上传code分配状态 설명:商户上传code分配状态 */
+  /** 가맹점 업로드 code 할당 상태 설명: 가맹점 업로드 code 할당 상태 */
   @SerializedName("code_status")
   private CouponCodeStatus codeStatus;
 
-  /** 上传时间 설명:code上传成功的时间 */
+  /** 업로드 시간 설명:code 업로드 성공 시간 */
   @SerializedName("upload_time")
   private String uploadTime;
 
-  /** 被分配时间 설명:当code状态为被分配时，code被分配的时间 */
+  /** 할당된 시간 설명:code 상태가 할당됨일 때, code가 할당된 시간 */
   @SerializedName("dispatched_time")
   private String dispatchedTime;
 
-  /** 领券用户的OpenID 설명:领券用户的OpenID */
+  /** 쿠폰 수령 사용자의 OpenID 설명:쿠폰 수령 사용자의 OpenID */
   @SerializedName("openid")
   private String openid;
 
   /**
-   * 领券用户的UnionID
-   * 설명:领券用户的UnionID，具体参见https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html
+   * 쿠폰 수령 사용자의 UnionID
+   * 설명:쿠폰 수령 사용자의 UnionID，자세한 내용은 참조https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html
    */
   @SerializedName("unionid")
   private String unionid;
 
-  /** 用户쿠폰 code 설명: 쿠폰의 고유 식별자 */
+  /** 사용자 쿠폰 code 설명: 쿠폰의 고유 식별자 */
   @SerializedName("coupon_code")
   private String couponCode;
 

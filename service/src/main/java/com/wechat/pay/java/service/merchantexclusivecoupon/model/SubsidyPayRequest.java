@@ -18,41 +18,41 @@ import com.google.gson.annotations.SerializedName;
 
 /** SubsidyPayRequest */
 public class SubsidyPayRequest {
-  /** 商家券배치 번호 설명:由微信支付生成，调用가맹점 쿠폰 생성API成功时返回的唯一批次ID 仅支持“满减券”和“折扣券”的批次，“换购券”批次不支持 */
+  /** 가맹점 쿠폰 배치 번호 설명: 위챗페이가 생성, 가맹점 쿠폰 생성 API 호출 성공 시 반환되는 고유 배치 ID. "만원 이상 할인 쿠폰"과 "할인 쿠폰" 배치만 지원, "교환 구매 쿠폰" 배치는 미지원 */
   @SerializedName("stock_id")
   private String stockId;
 
   /**
-   * 商家쿠폰 code 설명: 쿠폰의 고유 식별자。 在WECHATPAY\\_MODE的券code模式下，商家券code是由微信支付生成的唯一ID；
-   * 在MERCHANT\\_UPLOAD、MERCHANT\\_API的券code模式下，商家券code是由商户上传或指定，在批次下保证唯一；
+   * 가맹점 쿠폰 code 설명: 쿠폰의 고유 식별자. WECHATPAY\\_MODE 쿠폰 code 모드에서, 가맹점 쿠폰 code는 위챗페이가 생성한 고유 ID;
+   * MERCHANT\\_UPLOAD, MERCHANT\\_API 쿠폰 code 모드에서, 가맹점 쿠폰 code는 가맹점이 업로드하거나 지정하며, 배치 하에서 고유성 보장;
    */
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 微信支付订单号 설명:微信支付下单支付成功返回的订单号 */
+  /** 위챗페이 주문 번호 설명: 위챗페이 주문 결제 성공 시 반환되는 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 营销补差扣款商户号 설명:营销补差扣款商户号 注：补差扣款商户号 = 制券商户号 或 补差扣款商户号 = 归属商户号 */
+  /** 마케팅 보조금 차감 가맹점 번호 설명: 마케팅 보조금 차감 가맹점 번호 주: 보조금 차감 가맹점 번호 = 쿠폰 제작 가맹점 번호 또는 보조금 차감 가맹점 번호 = 소속 가맹점 번호 */
   @SerializedName("payer_merchant")
   private String payerMerchant;
 
-  /** 营销补差入账商户号 설명:营销补差入账商户号 注：补差入账商户号 = 券归属商户号 或者和 券归属商户号有连锁品牌关系 */
+  /** 마케팅 보조금 입금 가맹점 번호 설명: 마케팅 보조금 입금 가맹점 번호 주: 보조금 입금 가맹점 번호 = 쿠폰 소속 가맹점 번호 또는 쿠폰 소속 가맹점 번호와 체인 브랜드 관계 */
   @SerializedName("payee_merchant")
   private String payeeMerchant;
 
   /**
-   * 补差付款金额 설명:单位为分，单笔订单补差金额不得超过券的优惠金额，最高补差金额为5000元 > 券的优惠金额定义： 满减券：满减金额即为优惠金额 折扣券：优惠金额 = 微信支付订单金额 ÷
-   * 折扣比例 × (1 - 折扣比例) 换购券：不支持
+   * 보조금 결제 금액 설명: 단위는 전, 단일 주문 보조금 금액은 쿠폰의 할인 금액을 초과할 수 없으며, 최대 보조금 금액은 5000원 > 쿠폰의 할인 금액 정의: 만원 이상 할인 쿠폰: 만원 이상 할인 금액이 할인 금액 할인 쿠폰: 할인 금액 = 위챗페이 주문 금액 ÷
+   * 할인 비율 × (1 - 할인 비율) 교환 구매 쿠폰: 미지원
    */
   @SerializedName("amount")
   private Long amount;
 
-  /** 补差付款描述 설명:付款备注描述，查询的时候原样带回 */
+  /** 보조금 결제 설명 설명: 결제 비고 설명, 조회 시 그대로 반환됨 */
   @SerializedName("description")
   private String description;
 
-  /** 业务请求唯一单号 설명:商户侧需保证唯一性，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号 */
+  /** 업무 요청 고유 내역 번호 설명: 가맹점 측에서 고유성 보장 필요, 영문, 숫자, ｜, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음 */
   @SerializedName("out_subsidy_no")
   private String outSubsidyNo;
 

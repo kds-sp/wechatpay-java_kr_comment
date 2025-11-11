@@ -32,8 +32,8 @@ public class CustomEntrance {
   private String appid;
 
   /**
-   * 更多优惠入口；营销馆创建地址：https://pay.weixin.qq.com/index.php/xphp/cfav_market/hall#/pages/list/list
-   * 설명:填写微信支付营销馆的馆ID，用户自定义字段。[营销馆](https://pay.weixin.qq.com/index.php/xphp/cfav_market/hall#/pages/list/list)需在商户平台创建。
+   * 추가 할인 입구; 마케팅관 생성 주소: https://pay.weixin.qq.com/index.php/xphp/cfav_market/hall#/pages/list/list
+   * 설명: 위챗페이 마케팅관의 관 ID를 기입, 사용자 정의 필드. [마케팅관](https://pay.weixin.qq.com/index.php/xphp/cfav_market/hall#/pages/list/list)은 가맹점 플랫폼에서 생성해야 함.
    */
   @SerializedName("hall_id")
   private String hallId;

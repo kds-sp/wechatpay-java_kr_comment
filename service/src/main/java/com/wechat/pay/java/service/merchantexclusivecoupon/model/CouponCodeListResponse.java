@@ -19,23 +19,23 @@ import java.util.List;
 
 /** CouponCodeListResponse */
 public class CouponCodeListResponse {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 总数 설명:该批次已上传code总个数 */
+  /** 총 수 설명:해당 배치에서 업로드한 code 총 개수 */
   @SerializedName("total_count")
   private Long totalCount;
 
-  /** 查询code结果列表 설명:查询code的结果列表 */
+  /** code 조회 결과 목록 설명:code 조회 결과 목록 */
   @SerializedName("data")
   private List<CouponCodeEntity> data;
 
-  /** 分页起始位置 설명:分页起始位置，与请求相同 */
+  /** 페이지네이션 시작 위치 설명:페이지네이션 시작 위치，요청과 동일 */
   @SerializedName("offset")
   private Long offset;
 
-  /** 返回数据的个数 설명:返回数据的实际个数 */
+  /** 반환 데이터의 개수 설명:반환 데이터의 실제 개수 */
   @SerializedName("limit")
   private Long limit;
 

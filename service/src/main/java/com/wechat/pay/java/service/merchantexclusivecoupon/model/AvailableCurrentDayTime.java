@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** AvailableCurrentDayTime */
 public class AvailableCurrentDayTime {
-  /** 当天可用开始时间 설명:当天可用开始时间 单位秒 1代表当天0点0分1秒 */
+  /** 당일 사용 가능 시작 시간 설명: 당일 사용 가능 시작 시간 단위 초 1은 당일 0시 0분 1초를 나타냄 */
   @SerializedName("begin_time")
   private Long beginTime;
 
-  /** 当天可用结束时间 설명:当天可用结束时间 单位秒 86399代表当天23点59分59秒 */
+  /** 당일 사용 가능 종료 시간 설명: 당일 사용 가능 종료 시간 단위 초 86399는 당일 23시 59분 59초를 나타냄 */
   @SerializedName("end_time")
   private Long endTime;
 

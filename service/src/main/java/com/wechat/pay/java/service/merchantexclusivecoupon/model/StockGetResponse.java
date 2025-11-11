@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** StockGetResponse */
 public class StockGetResponse {
-  /** 商家券批次名称 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 가맹점 쿠폰 배치 이름 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("stock_name")
   private String stockName;
 
@@ -26,7 +26,7 @@ public class StockGetResponse {
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
-  /** 批次备注 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 배치 비고 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("comment")
   private String comment;
 
@@ -46,7 +46,7 @@ public class StockGetResponse {
   @SerializedName("stock_send_rule")
   private StockSendRule stockSendRule;
 
-  /** 自定义入口 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
+  /** 사용자 정의 입구 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
   @SerializedName("custom_entrance")
   private CustomEntrance customEntrance;
 
@@ -73,7 +73,7 @@ public class StockGetResponse {
   @SerializedName("coupon_code_count")
   private CouponCodeCount couponCodeCount;
 
-  /** 事件通知配置 설명:이벤트 콜백 알림 가맹점 설정 */
+  /** 이벤트 알림 구성 설명:이벤트 콜백 알림 가맹점 설정 */
   @SerializedName("notify_config")
   private NotifyConfig notifyConfig;
 
@@ -81,7 +81,7 @@ public class StockGetResponse {
   @SerializedName("send_count_information")
   private SendCount sendCountInformation;
 
-  /** 是否允许营销补差 설명:该批次发放的券是否允许进行补差 참고: 해당 필드는 아직 미개방 */
+  /** 마케팅 보조금 허용 여부 설명:해당 배치에서 발송한 쿠폰의 보조금 허용 여부 참고: 해당 필드는 아직 미개방 */
   @SerializedName("subsidy")
   private Boolean subsidy;
 

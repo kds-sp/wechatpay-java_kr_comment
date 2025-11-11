@@ -18,15 +18,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** ModifyCouponUseRule */
 public class ModifyCouponUseRule {
-  /** 核销方式 설명:核销方式 */
+  /** 사용 방식 설명:사용 방식 */
   @SerializedName("use_method")
   private CouponUseMethod useMethod;
 
-  /** 小程序AppID 설명:核销方式为线上小程序核销才有效 */
+  /** 미니프로그램 AppID 설명: 사용 방식이 온라인 미니프로그램 사용일 때만 유효 */
   @SerializedName("mini_programs_appid")
   private String miniProgramsAppid;
 
-  /** 小程序path 설명:核销方式为线上小程序核销才有效 */
+  /** 미니프로그램 path 설명: 사용 방식이 온라인 미니프로그램 사용일 때만 유효 */
   @SerializedName("mini_programs_path")
   private String miniProgramsPath;
 

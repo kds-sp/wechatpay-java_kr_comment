@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 /** ListCouponsByFilterRequest */
 public class ListCouponsByFilterRequest {
   /**
-   * 사용자 식별자 설명:Openid信息，用户在AppID下的唯一标识。
+   * 사용자 식별자 설명:Openid 정보，AppID 하의 사용자 고유 식별자。
    * 검증 규칙:전달한 OpenID는 호출 측 가맹점 번호(즉, 요청 헤더 내 가맹점 번호)와 바인딩 관계가 있는 AppID에서 획득한 OpenID이거나, 전달한 OpenID는 소속 가맹점 번호와 바인딩 관계가 있는 AppID에서 획득한 OpenID여야 합니다. [OpenID 획득 문서](https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml#part-3)
    */
   @SerializedName("openid")

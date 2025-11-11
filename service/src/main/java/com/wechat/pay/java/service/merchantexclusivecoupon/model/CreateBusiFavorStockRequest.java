@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateBusiFavorStockRequest */
 public class CreateBusiFavorStockRequest {
-  /** 商家券批次名称 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 가맹점 쿠폰 배치 이름 설명:배치 이름, 글자 수 상한선 21자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("stock_name")
   private String stockName;
 
-  /** 배치 소속 가맹점 번호 설명:배치가 어느 가맹점에 속하는지. 注： 普通直连模式，该参数为直连商户号； 服务商模式，该参数为子商户号； 间连模式，该参数为子商户号。 */
+  /** 배치 소속 가맹점 번호 설명: 배치가 어느 가맹점에 속하는지. 주: 일반 직접 연결 모드, 이 매개변수는 직접 연결 가맹점 번호; 서비스 제공자 모드, 이 매개변수는 하위 가맹점 번호; 간접 연결 모드, 이 매개변수는 하위 가맹점 번호. */
   @SerializedName("belong_merchant")
   private String belongMerchant;
 
-  /** 批次备注 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 배치 비고 설명:가맹점에만 표시되며, 사용자 정의 정보에 사용. 글자 수 상한선 20자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("comment")
   private String comment;
 
-  /** 适用商品范围 설명:배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
+  /** 적용 상품 범위 설명:배치가 어떤 상품에서 사용 가능한지 설명하며, 위챗 카드 지갑에 표시됩니다. 글자 수 상한선 15자, 한자/영문/숫자 각각 1자로 계산. */
   @SerializedName("goods_name")
   private String goodsName;
 
@@ -38,39 +38,39 @@ public class CreateBusiFavorStockRequest {
   @SerializedName("stock_type")
   private BusiFavorStockType stockType;
 
-  /** 核销规则 설명:쿠폰 사용 관련 규칙 */
+  /** 사용 규칙 설명:쿠폰 사용 관련 규칙 */
   @SerializedName("coupon_use_rule")
   private CouponUseRule couponUseRule;
 
-  /** 发放规则 설명:쿠폰 발송 관련 규칙 */
+  /** 발송 규칙 설명:쿠폰 발송 관련 규칙 */
   @SerializedName("stock_send_rule")
   private StockSendRule stockSendRule;
 
-  /** 商户请求单号 설명:가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요 */
+  /** 가맹점 요청 내역 번호 설명:가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
-  /** 自定义入口 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
+  /** 사용자 정의 입구 설명:카드 상세 페이지, 여러 입구를 선택하여 사용자 유도 가능 */
   @SerializedName("custom_entrance")
   private CustomEntrance customEntrance;
 
-  /** 样式信息 설명:배치 생성 시의 스타일 정보. */
+  /** 스타일 정보 설명:배치 생성 시의 스타일 정보. */
   @SerializedName("display_pattern_info")
   private DisplayPatternInfo displayPatternInfo;
 
   /**
-   * 쿠폰 code 모드 설명: 특수 규칙: 1、券code模式为WECHATPAY\\_MODE时，是微信自动分配券code，商户不需要预存code；适用于多种场景
-   * 2、券code模式为MERCHANT\\_API时，无需调用사전 저장 code 업로드接口，调用发券接口时需指定券code；更多用在商家自有流量场景（例如：商家自有小程序、H5网页等）
-   * 3、券code模式为MERCHANT\\_UPLOAD，需要调用사전 저장 code 업로드接口上传code，调用发券接口时无需指定code；更多适用在微信支付平台流量场景（例如：支付有礼、支付有优惠等）
+   * 쿠폰 code 모드 설명: 특수 규칙: 1, 쿠폰 code 모드가 WECHATPAY\\_MODE일 때, 위챗이 자동으로 쿠폰 code를 할당하며, 가맹점은 code를 미리 저장할 필요 없음; 다양한 시나리오에 적용
+   * 2, 쿠폰 code 모드가 MERCHANT\\_API일 때, 사전 저장 code 업로드 인터페이스를 호출할 필요 없으며, 쿠폰 발송 인터페이스 호출 시 쿠폰 code 지정 필요; 가맹점 자체 트래픽 시나리오에 더 많이 사용(예: 가맹점 자체 미니프로그램, H5 웹페이지 등)
+   * 3, 쿠폰 code 모드가 MERCHANT\\_UPLOAD일 때, 사전 저장 code 업로드 인터페이스를 호출하여 code를 업로드해야 하며, 쿠폰 발송 인터페이스 호출 시 code 지정 불필요; 위챗페이 플랫폼 트래픽 시나리오에 더 많이 적용(예: 결제 시 선물, 결제 시 할인 등)
    */
   @SerializedName("coupon_code_mode")
   private CouponCodeMode couponCodeMode;
 
-  /** 事件通知配置 설명:이벤트 콜백 알림 가맹점 설정 */
+  /** 이벤트 알림 구성 설명:이벤트 콜백 알림 가맹점 설정 */
   @SerializedName("notify_config")
   private NotifyConfig notifyConfig;
 
-  /** 是否允许营销补差 설명:해당 배치에서 발송한 쿠폰의 보조금 허용 여부, 기본값 false 참고: 해당 필드는 아직 미개방 */
+  /** 마케팅 보조금 허용 여부 설명:해당 배치에서 발송한 쿠폰의 보조금 허용 여부, 기본값 false 참고: 해당 필드는 아직 미개방 */
   @SerializedName("subsidy")
   private Boolean subsidy;
 

@@ -19,17 +19,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponCodeInfoRequest */
 public class CouponCodeInfoRequest {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
-  /** 商户上传code 설명:商户上传code */
+  /** 가맹점 업로드 code 설명:가맹점 업로드 code */
   @SerializedName("coupon_code")
   @Expose(serialize = false)
   private String couponCode;
 
-  /** 공개 계정 ID 설명:公众账号ID */
+  /** 공개 계정 ID 설명:공개 계정 ID */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;

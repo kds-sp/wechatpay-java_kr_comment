@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** GetCouponNotifyRequest */
 public class GetCouponNotifyRequest {
-  /** 商户号 설명:商户号，不填默认查询调用方商户号 */
+  /** 가맹점 번호 설명:가맹점 번호，기입하지 않으면 기본적으로 호출 당사자 가맹점 번호 조회 */
   @SerializedName("mchid")
   @Expose(serialize = false)
   private String mchid;

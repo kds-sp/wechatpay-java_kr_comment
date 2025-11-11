@@ -19,7 +19,7 @@ import java.util.List;
 
 /** SubsidyPayReceiptListResponse */
 public class SubsidyPayReceiptListResponse {
-  /** 补差付款单据列表 설명:如果这张券发生过补差付款，会有补差单据信息返回 */
+  /** 보조금 결제 증빙 목록 설명:이 쿠폰에서 보조금 결제가 발생한 경우, 보조금 증빙 정보가 반환됨 */
   @SerializedName("pay_receipt_list")
   private List<SubsidyPayReceipt> payReceiptList;
 

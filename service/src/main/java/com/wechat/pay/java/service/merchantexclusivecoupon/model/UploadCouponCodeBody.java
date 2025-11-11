@@ -21,13 +21,13 @@ import java.util.List;
 /** UploadCouponCodeBody */
 public class UploadCouponCodeBody {
   /**
-   * 券code列表 설명:商户上传的券code列表；code允许包含的字符有 0-9 a-z A-Z 空格（仅含空格，不含制表符、换行符、换页符等） 中划线- 下划线_ 反斜线\\ 斜线/
-   * 等号= 竖线|
+   * 쿠폰 code 목록 설명: 가맹점이 업로드한 쿠폰 code 목록; code에 포함 가능한 문자 0-9 a-z A-Z 공백(공백만 포함, 탭, 줄바꿈, 페이지 나눔 등은 포함하지 않음) 중간선- 밑줄_ 백슬래시\\ 슬래시/
+   * 등호= 세로선|
    */
   @SerializedName("coupon_code_list")
   private List<String> couponCodeList = new ArrayList<String>();
 
-  /** 请求业务单据号 설명:商户上传code的凭据号，商户侧需保持唯一性 */
+  /** 요청 업무 증빙 번호 설명: 가맹점이 code를 업로드한 증빙 번호, 가맹점 측에서 고유성 유지 필요 */
   @SerializedName("upload_request_no")
   private String uploadRequestNo;
 

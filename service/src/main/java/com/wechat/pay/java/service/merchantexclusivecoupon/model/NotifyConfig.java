@@ -19,8 +19,8 @@ import com.google.gson.annotations.SerializedName;
 /** NotifyConfig */
 public class NotifyConfig {
   /**
-   * 事件通知AppID
-   * 설명:用于回调通知时，计算返回操作用户的OpenID（诸如领券用户），支持小程序or公众号的AppID；如该字段不填写，则回调通知中涉及到用户身份信息的OpenID与UnionID都将为空。
+   * 이벤트 알림 AppID
+   * 설명: 콜백 알림 시, 작업 사용자의 OpenID(예: 쿠폰 수령 사용자)를 계산하여 반환, 미니프로그램 또는 공개 계정의 AppID 지원; 이 필드를 기입하지 않으면, 콜백 알림에서 사용자 신원 정보와 관련된 OpenID와 UnionID가 모두 비어있음.
    */
   @SerializedName("notify_appid")
   private String notifyAppid;

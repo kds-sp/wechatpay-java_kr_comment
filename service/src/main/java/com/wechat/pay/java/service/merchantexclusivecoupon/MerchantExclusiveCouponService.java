@@ -122,7 +122,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CouponCodeInfoResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -166,7 +166,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CreateBusiFavorStockResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -197,7 +197,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return DeleteCouponCodeResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -241,7 +241,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return ModifyBudgetResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -276,7 +276,7 @@ public class MerchantExclusiveCouponService {
    * 가맹점 쿠폰 기본 정보 수정
    *
    * @param request 요청 매개변수
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -309,7 +309,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CouponCodeListResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -359,7 +359,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return StockGetResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -393,7 +393,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return UploadCouponCodeResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -429,7 +429,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return GetCouponNotifyResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -466,7 +466,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SetCouponNotifyResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -497,7 +497,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return AssociateTradeInfoResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -528,7 +528,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return DeactivateCouponResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -555,11 +555,11 @@ public class MerchantExclusiveCouponService {
   }
 
   /**
-   * 取消주문 정보 연결
+   * 주문 정보 연결 해제
    *
    * @param request 요청 매개변수
    * @return DisassociateTradeInfoResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -591,7 +591,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CouponListResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -653,7 +653,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CouponEntity
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -692,7 +692,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return ReturnCouponResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -723,7 +723,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SendCouponResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -754,7 +754,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return CouponSendGovCardResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -790,7 +790,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return UseCouponResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -821,7 +821,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SubsidyPayReceipt
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -858,7 +858,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SubsidyPayReceiptListResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -902,7 +902,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SubsidyReturnReceipt
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -940,7 +940,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SubsidyPayReceipt
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
@@ -972,7 +972,7 @@ public class MerchantExclusiveCouponService {
    *
    * @param request 요청 매개변수
    * @return SubsidyReturnReceipt
-   * @throws HttpException 发送HTTP请求失败。例如构建요청 매개변수失败、发送请求失败、I/O错误等。包含请求信息。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
    * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
    * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
    * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.

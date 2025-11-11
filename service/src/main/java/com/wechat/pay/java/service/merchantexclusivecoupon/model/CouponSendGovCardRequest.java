@@ -18,20 +18,20 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponSendGovCardRequest */
 public class CouponSendGovCardRequest {
-  /** 消费卡card_id创建方AppID 설명:消费卡cardi\\_d创建方的AppID，需与API调用方商户号有绑定关系，入参中的用户OpenID也需用此AppID生成 */
+  /** 소비 카드 card_id 생성 당사자 AppID 설명: 소비 카드 card_id 생성 당사자의 AppID, API 호출 당사자 가맹점 번호와 바인딩 관계 필요, 입력 매개변수의 사용자 OpenID도 이 AppID로 생성 필요 */
   @SerializedName("appid")
   private String appid;
 
-  /** 用户OpenID 설명:待发券用户的OpenID，需为消费卡创建方AppID生成的OpenID */
+  /** 사용자 OpenID 설명:쿠폰 발송 대상 사용자의 OpenID，소비 카드 생성 당사자 AppID로 생성한 OpenID여야 함 */
   @SerializedName("openid")
   private String openid;
 
-  /** 商户单据号 설명:商户此次发放凭据号。推荐使用大小写字母和数字，不同添加请求发放凭据号不同，商户侧需保证同一发券请求的out_request_no+send_time唯一性 */
+  /** 가맹점 증빙 번호 설명:가맹점 이번 발송 증빙 번호。대소문자 영문 및 숫자 사용 권장，다른 추가 요청의 발송 증빙 번호는 다름，가맹점 측에서 동일 쿠폰 발송 요청의 out_request_no+send_time 고유성 보장 필요 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 
   /**
-   * 请求发卡时间
+   * 카드 발급 요청 시간
    * 설명:단일 요청 발급 시간, 소비 카드가 가맹점 시스템에서 실제 발급된 시간으로, 동부 8구 표준 시간(UTC+8). 가맹점은 동일 요청의 out_request_no+send_time 고유성 보장 필요. 시스템 제한으로 인해, 현재 시간보다 24시간 이상 이전 시간을 전달하여 쿠폰 발송 요청하는 것은 아직 지원하지 않음.
    */
   @SerializedName("send_time")

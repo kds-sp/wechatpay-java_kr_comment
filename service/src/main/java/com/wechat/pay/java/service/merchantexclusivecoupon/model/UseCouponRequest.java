@@ -24,7 +24,7 @@ public class UseCouponRequest {
 
   /**
    * 배치 번호
-   * 설명:위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID，当你在가맹점 쿠폰 생성接口中的coupon\\_code\\_mode参数传值为MERCHANT\\_API或者MERCHANT\\_UPLOAD时，则核销接口中该字段必传，否则该字段可不传
+   * 설명: 위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID, 가맹점 쿠폰 생성 인터페이스의 coupon\\_code\\_mode 매개변수에 MERCHANT\\_API 또는 MERCHANT\\_UPLOAD를 전달할 때, 사용 인터페이스에서 이 필드 필수, 그렇지 않으면 이 필드는 전달하지 않아도 됨
    */
   @SerializedName("stock_id")
   private String stockId;

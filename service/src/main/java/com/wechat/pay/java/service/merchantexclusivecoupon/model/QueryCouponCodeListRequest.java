@@ -19,27 +19,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryCouponCodeListRequest */
 public class QueryCouponCodeListRequest {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
-  /** 分页最大size 설명:分页查询的最大size */
+  /** 페이지네이션 최대 size 설명:페이지네이션 조회의 최대 size */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Long limit;
 
-  /** 分页起始位置 설명:分页查询的起始位置 */
+  /** 페이지네이션 시작 위치 설명:페이지네이션 조회의 시작 위치 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Long offset;
 
-  /** 공개 계정 ID 설명:公众账号ID */
+  /** 공개 계정 ID 설명:공개 계정 ID */
   @SerializedName("appid")
   @Expose(serialize = false)
   private String appid;
 
-  /** 券code状态 설명:券code状态，当不填写时为查询所有状态的code列表 */
+  /** 쿠폰 code 상태 설명:쿠폰 code 상태，기입하지 않으면 모든 상태의 code 목록 조회 */
   @SerializedName("status")
   @Expose(serialize = false)
   private CouponCodeStatus status;

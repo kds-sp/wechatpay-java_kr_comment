@@ -19,22 +19,22 @@ import com.google.gson.annotations.SerializedName;
 /** FinderInfo */
 public class FinderInfo {
   /**
-   * 视频号ID
-   * 설명:关联视频号将展示在优惠券详情的顶部右侧，作为跳转去视频号的入口，入参参数请配置视频号id，请前往[视频号助手](https://channels.weixin.qq.com)管理查看视频号ID
+   * 비디오 계정 ID
+   * 설명: 연결된 비디오 계정은 할인 쿠폰 상세의 상단 우측에 표시됨, 비디오 계정으로 이동하는 입구로 사용, 입력 매개변수에 비디오 계정 id 구성, 자세한 내용은 [비디오 계정 도우미](https://channels.weixin.qq.com) 관리에서 비디오 계정 ID 확인
    */
   @SerializedName("finder_id")
   private String finderId;
 
   /**
-   * 视频号视频ID
-   * 설명:券详情视频内容，支持配置关联视频号下的具体视频内容，入参参数请配置视频id，请前往[视频号助手](https://channels.weixin.qq.com)管理后台复制具体视频ID
+   * 비디오 계정 비디오 ID
+   * 설명:쿠폰 상세 비디오 내용，연결된 비디오 계정 하의 구체적인 비디오 내용 구성 지원，입력 매개변수에 비디오 id 구성，자세한 내용은 [비디오 계정 도우미](https://channels.weixin.qq.com)관리 백엔드에서 구체적인 비디오 ID 복사
    */
   @SerializedName("finder_video_id")
   private String finderVideoId;
 
   /**
-   * 视频号封面图 설명:截取的视频号图片将在券到期提醒消息、券详情中展示。 1.图片尺寸：716像素（宽）\\*402像素（高）；图片大小不超过2M，支持JPG/PNG格式。
-   * 2.仅支持通过《[图片上传API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》接口获取的图片URL地址。
+   * 비디오 계정 표지 이미지 설명:잘라낸 비디오 계정 이미지는 쿠폰 만료 알림 메시지, 쿠폰 상세에 표시됨。 1.이미지 크기: 716픽셀(폭) \\* 402픽셀(높이)；이미지 크기는 2M 이하, JPG/PNG 형식 지원。
+   * 2.[이미지 업로드 API](https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter9_0_1.shtml)》인터페이스를 통해 획득한 이미지 URL 주소。
    */
   @SerializedName("finder_video_cover_image_url")
   private String finderVideoCoverImageUrl;

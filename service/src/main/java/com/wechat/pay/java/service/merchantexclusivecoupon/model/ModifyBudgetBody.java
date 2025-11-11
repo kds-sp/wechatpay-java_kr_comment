@@ -19,33 +19,33 @@ import com.google.gson.annotations.SerializedName;
 /** ModifyBudgetBody */
 public class ModifyBudgetBody {
   /**
-   * 目标批次最大发放个数 설명:批次最大发放个数，target\\_max\\_coupons与target\\_max\\_coupons\\_by\\_day只能修改一个
-   * 注：目标批次即修改后的批次
+   * 목표 배치 최대 발송 개수 설명: 배치 최대 발송 개수, target\\_max\\_coupons와 target\\_max\\_coupons\\_by\\_day 중 하나만 수정 가능
+   * 주: 목표 배치는 수정 후 배치
    */
   @SerializedName("target_max_coupons")
   private Long targetMaxCoupons;
 
   /**
-   * 当前批次最大发放个数 설명:当前批次最大发放个数，当传入target\\_max\\_coupons大于0时，current\\_max\\_coupons必传 注：当前批次即未修改的批次
+   * 현재 배치 최대 발송 개수 설명: 현재 배치 최대 발송 개수, target\\_max\\_coupons를 0보다 크게 전달할 때, current\\_max\\_coupons 필수 주: 현재 배치는 수정되지 않은 배치
    */
   @SerializedName("current_max_coupons")
   private Long currentMaxCoupons;
 
   /**
-   * 目标单天发放上限个数 설명:单天发放上限个数，target\\_max\\_coupons与target\\_max\\_coupons\\_by\\_day只能修改一个
-   * 注：目标批次即修改后的批次
+   * 목표 단일 일자 발송 상한선 개수 설명: 단일 일자 발송 상한선 개수, target\\_max\\_coupons와 target\\_max\\_coupons\\_by\\_day 중 하나만 수정 가능
+   * 주: 목표 배치는 수정 후 배치
    */
   @SerializedName("target_max_coupons_by_day")
   private Long targetMaxCouponsByDay;
 
   /**
-   * 当前单天发放上限个数 설명:当前单天发放上限个数
-   * ，当传入target\\_max\\_coupons\\_by\\_day大于0时，current\\_max\\_coupons\\_by\\_day必填 注：当前批次即未修改的批次
+   * 현재 단일 일자 발송 상한선 개수 설명: 현재 단일 일자 발송 상한선 개수
+   * , target\\_max\\_coupons\\_by\\_day를 0보다 크게 전달할 때, current\\_max\\_coupons\\_by\\_day 필수 주: 현재 배치는 수정되지 않은 배치
    */
   @SerializedName("current_max_coupons_by_day")
   private Long currentMaxCouponsByDay;
 
-  /** 修改预算请求单据号 설명:修改预算请求单据号 */
+  /** 예산 수정 요청 증빙 번호 설명: 예산 수정 요청 증빙 번호 */
   @SerializedName("modify_budget_request_no")
   private String modifyBudgetRequestNo;
 

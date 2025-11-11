@@ -19,17 +19,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteCouponCodeRequest */
 public class DeleteCouponCodeRequest {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   @Expose(serialize = false)
   private String stockId;
 
-  /** 券code 설명:上传的自定义code */
+  /** 쿠폰 code 설명:업로드한 사용자 정의 code */
   @SerializedName("coupon_code")
   @Expose(serialize = false)
   private String couponCode;
 
-  /** 请求业务单据号 설명:商户删除code的凭据号，商户侧需保持唯一性 */
+  /** 요청 업무 증빙 번호 설명:가맹점이 code를 삭제한 증빙 번호，가맹점 측에서 고유성 유지 필요 */
   @SerializedName("delete_request_no")
   @Expose(serialize = false)
   private String deleteRequestNo;

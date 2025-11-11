@@ -19,19 +19,19 @@ import java.util.List;
 
 /** CouponListResponse */
 public class CouponListResponse {
-  /** 结果集 */
+  /** 결과 집합 */
   @SerializedName("data")
   private List<CouponEntity> data;
 
-  /** 总数量 설명:总数量 */
+  /** 총 수량 설명:총 수량 */
   @SerializedName("total_count")
   private Integer totalCount;
 
-  /** 分页大小 설명:分页大小 */
+  /** 페이지네이션 크기 설명:페이지네이션 크기 */
   @SerializedName("limit")
   private Integer limit;
 
-  /** 分页页码 설명:分页页码 */
+  /** 페이지네이션 페이지 번호 설명:페이지네이션 페이지 번호 */
   @SerializedName("offset")
   private Integer offset;
 

@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** PayReceiptInfoRequest */
 public class PayReceiptInfoRequest {
-  /** 补差付款单号 설명:补差付款唯一单号，由微信支付生成，仅在补差付款成功后有返回 */
+  /** 보조금 결제 내역 번호 설명:보조금 결제 고유 내역 번호，위챗페이가 생성，보조금 결제 성공 후에만 반환 */
   @SerializedName("subsidy_receipt_id")
   @Expose(serialize = false)
   private String subsidyReceiptId;

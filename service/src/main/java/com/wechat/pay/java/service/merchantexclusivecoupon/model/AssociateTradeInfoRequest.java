@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** AssociateTradeInfoRequest */
 public class AssociateTradeInfoRequest {
-  /** 배치 번호 설명:위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID，对于商户自定义code的批次，关联请求必须填写배치 번호 */
+  /** 배치 번호 설명:위챗페이가 각 가맹점 쿠폰 배치에 할당한 고유 ID，가맹점 사용자 정의 code 배치의 경우, 연결 요청 시 배치 번호 필수 기입 */
   @SerializedName("stock_id")
   private String stockId;
 
@@ -26,11 +26,11 @@ public class AssociateTradeInfoRequest {
   @SerializedName("coupon_code")
   private String couponCode;
 
-  /** 연결된 가맹점 주문 번호 설명:微信支付下单时的商户订单号，欲与该商家券关联的微信支付 */
+  /** 연결된 가맹점 주문 번호 설명:위챗페이 주문 시 가맹점 주문 번호，해당 가맹점 쿠폰과 연결하려는 위챗페이 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 请求业务单据号 설명:가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요，可包含英文字母，数字，｜，\\_，\\*，-等内容，不允许出现其他不合法符号。 */
+  /** 요청 업무 증빙 번호 설명: 가맹점이 배치를 생성한 증빙 번호 (형식: 가맹점 ID+날짜+순번), 가맹점 측에서 고유성 유지 필요, 영문, 숫자, ｜, \\_, \\*, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음. */
   @SerializedName("out_request_no")
   private String outRequestNo;
 

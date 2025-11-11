@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** ModifyStockSendRule */
 public class ModifyStockSendRule {
-  /** 是否开启自然人限领 설명:true-是；false-否，不填默认否 注：该字段暂不支持修改 */
+  /** 자연인 수령 제한 활성화 여부 설명:true-예; false-아니오, 기입하지 않으면 기본값은 아니오 주: 이 필드는 아직 수정 미지원 */
   @SerializedName("natural_person_limit")
   private Boolean naturalPersonLimit;
 
-  /** 可疑账号拦截 설명:true-是；false-否，不填默认否 */
+  /** 의심 계정 차단 설명:true-예; false-아니오, 기입하지 않으면 기본값은 아니오 */
   @SerializedName("prevent_api_abuse")
   private Boolean preventApiAbuse;
 

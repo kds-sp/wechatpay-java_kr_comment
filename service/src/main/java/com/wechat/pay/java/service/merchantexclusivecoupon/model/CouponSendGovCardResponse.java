@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponSendGovCardResponse */
 public class CouponSendGovCardResponse {
-  /** 消费卡code 설명:消费卡card_id下的code */
+  /** 소비 카드 code 설명:소비 카드 card_id 하의 code */
   @SerializedName("card_code")
   private String cardCode;
 

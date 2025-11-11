@@ -19,45 +19,45 @@ import java.util.List;
 
 /** UploadCouponCodeResponse */
 public class UploadCouponCodeResponse {
-  /** 배치 번호 설명:商家券배치 번호 */
+  /** 배치 번호 설명:가맹점 쿠폰 배치 번호 */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 去重后上传code总数 설명:本次上传操作，去重后实际上传的code数目 */
+  /** 중복 제거 후 업로드한 code 총 수 설명:이번 업로드 작업에서 중복 제거 후 실제 업로드한 code 수 */
   @SerializedName("total_count")
   private Long totalCount;
 
-  /** 上传成功code个数 설명:本次上传操作上传成功个数 */
+  /** 업로드 성공한 code 개수 설명:이번 업로드 작업에서 업로드 성공한 개수 */
   @SerializedName("success_count")
   private Long successCount;
 
-  /** 上传成功的code列表 설명:本次新增上传成功的code信息。 特殊规则：单个券code长度为【1，32】，条目个数限制为【1，200】。 */
+  /** 업로드 성공한 code 목록 설명:이번에 새로 추가하여 업로드 성공한 code 정보。 특수 규칙: 단일 쿠폰 code 길이는【1，32】，항목 개수 제한은【1，200】。 */
   @SerializedName("success_codes")
   private List<String> successCodes;
 
   /**
-   * 上传成功时间
-   * 설명:上传操作完成时间，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
+   * 업로드 성공 시간
+   * 설명:업로드 작업 완료 시간，[rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 표준 형식 준수, 형식은 yyyy-MM-DDTHH:mm:ss+TIMEZONE이며, yyyy-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냅니다(+08:00는 동부 8구 시간, UTC보다
    * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00는 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냅니다.
    */
   @SerializedName("success_time")
   private String successTime;
 
-  /** 上传失败code个数 설명:本次上传操作上传失败的code数 */
+  /** 업로드 실패한 code 개수 설명:이번 업로드 작업에서 업로드 실패한 code 수 */
   @SerializedName("fail_count")
   private Long failCount;
 
-  /** 上传失败的code及原因 설명:本次导入失败的code信息，请参照错误信息，修改后重试 */
+  /** 업로드 실패한 code 및 사유 설명:이번에 가져오기 실패한 code 정보，오류 정보를 참조하여 수정 후 재시도 */
   @SerializedName("fail_codes")
   private List<UploadCouponCodeFailReason> failCodes;
 
-  /** 已存在的code列表 설명:历史已存在的code列表，本次不会重复导入。 特殊规则：单个券code长度为【1，32】，条目个数限制为【1，200】。 */
+  /** 이미 존재하는 code 목록 설명:과거에 이미 존재하는 code 목록，이번에는 중복 가져오기 안 함。 특수 규칙: 단일 쿠폰 code 길이는【1，32】，항목 개수 제한은【1，200】。 */
   @SerializedName("exist_codes")
   private List<String> existCodes;
 
   /**
-   * 本次请求中重复的code列表 설명:本次重复导入的code会被自动过滤，仅保留一个做导入，如满足要求则成功；如不满足要求，则失败；请参照报错提示修改重试。
-   * 特殊规则：单个券code长度为【1，32】，条目个数限制为【1，200】。
+   * 이번 요청에서 중복된 code 목록 설명:이번에 중복 가져온 code는 자동으로 필터링됨，하나만 남겨서 가져오기，요구사항을 만족하면 성공；요구사항을 만족하지 않으면 실패；오류 알림을 참조하여 수정 후 재시도。
+   * 특수 규칙: 단일 쿠폰 code 길이는【1，32】，항목 개수 제한은【1，200】。
    */
   @SerializedName("duplicate_codes")
   private List<String> duplicateCodes;

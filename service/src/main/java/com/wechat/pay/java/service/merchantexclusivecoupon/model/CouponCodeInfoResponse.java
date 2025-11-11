@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** CouponCodeInfoResponse */
 public class CouponCodeInfoResponse {
-  /** 商户上传code信息 설명:商户上传code信息，含状态，上传时间等 */
+  /** 가맹점 업로드 code 정보 설명: 가맹점 업로드 code 정보, 상태, 업로드 시간 등 포함 */
   @SerializedName("code_information")
   private CouponCodeEntity codeInformation;
 
-  /** 用户券信息 설명:用户券信息，仅当商户上传code的状态为DISPATCHED时返回券详情 */
+  /** 사용자 쿠폰 정보 설명: 사용자 쿠폰 정보, 가맹점 업로드 code의 상태가 DISPATCHED일 때만 쿠폰 상세 반환 */
   @SerializedName("coupon_information")
   private CouponEntity couponInformation;
 

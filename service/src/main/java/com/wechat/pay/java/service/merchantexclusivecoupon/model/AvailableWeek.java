@@ -19,11 +19,11 @@ import java.util.List;
 
 /** AvailableWeek */
 public class AvailableWeek {
-  /** 可用星期数 설명:0代表周日，1代表周一，以此类推 当填写available_day_time时，week_day必填 */
+  /** 사용 가능 요일 수 설명:0은 일요일, 1은 월요일, 이와 같이 순서대로 available_day_time을 기입할 때, week_day 필수 */
   @SerializedName("week_day")
   private List<Integer> weekDay;
 
-  /** 当天可用时间段 설명:可以填写多个时间段，最多不超过2个 */
+  /** 당일 사용 가능 시간대 설명:여러 시간대 기입 가능, 최대 2개 이하 */
   @SerializedName("available_day_time")
   private List<AvailableCurrentDayTime> availableDayTime;
 

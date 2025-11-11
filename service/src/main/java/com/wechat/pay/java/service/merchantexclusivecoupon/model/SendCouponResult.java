@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** SendCouponResult */
 public class SendCouponResult {
-  /** 배치 번호 설명:微信支付券批次ID */
+  /** 배치 번호 설명:위챗페이 쿠폰 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 쿠폰 발송 증빙 설명:发券凭证，可包含英文字母，数字，｜，_，*，-等内容，不允许出现其他不合法符号，需在单个批次单个用户下确保唯一性 */
+  /** 쿠폰 발송 증빙 설명:쿠폰 발송 증빙，영문, 숫자, ｜, _, *, - 등을 포함할 수 있으며, 기타 불법 기호는 허용되지 않음，단일 배치 단일 사용자 하에서 고유성 보장 필요 */
   @SerializedName("out_request_no")
   private String outRequestNo;
 

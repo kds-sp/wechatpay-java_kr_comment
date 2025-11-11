@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 
 /** SendCount */
 public class SendCount {
-  /** 已发放券张数 설명:批次已发放的券数量，满减、折扣、换购类型会返回该字段 */
+  /** 이미 발송한 쿠폰 장수 설명:배치에서 이미 발송한 쿠폰 수량，만원 이상 할인, 할인, 교환 구매 유형에서 이 필드 반환 */
   @SerializedName("total_send_num")
   private Long totalSendNum;
 
-  /** 已发放券金额 설명:批次已发放的预算金额，满减券类型会返回该字段 */
+  /** 이미 발송한 쿠폰 금액 설명:배치에서 이미 발송한 예산 금액，만원 이상 할인 쿠폰 유형에서 이 필드 반환 */
   @SerializedName("total_send_amount")
   private Long totalSendAmount;
 
-  /** 单天已发放券张数 설명:批次当天已发放的券数量，设置了单天发放上限的满减、折扣、换购类型返回该字段 */
+  /** 단일 일자 이미 발송한 쿠폰 장수 설명: 배치 당일 이미 발송한 쿠폰 수량, 단일 일자 발송 상한선을 설정한 만원 이상 할인, 할인, 교환 구매 유형에서 이 필드 반환 */
   @SerializedName("today_send_num")
   private Long todaySendNum;
 
-  /** 单天已发放券金额 설명:批次当天已发放的预算金额，设置了当天发放上限的满减券类型返回该字段 */
+  /** 단일 일자 이미 발송한 쿠폰 금액 설명: 배치 당일 이미 발송한 예산 금액, 당일 발송 상한선을 설정한 만원 이상 할인 쿠폰 유형에서 이 필드 반환 */
   @SerializedName("today_send_amount")
   private Long todaySendAmount;
 
