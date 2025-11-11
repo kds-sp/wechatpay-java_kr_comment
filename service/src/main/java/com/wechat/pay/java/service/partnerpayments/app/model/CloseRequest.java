@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제API
 //
 // API version: 1.2.3
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** CloseRequest */
 public class CloseRequest {
-  /** 服务商户号 说明：服务商户号，由微信支付生成并下发 */
+  /** 서비스 제공업체 가맹점 번호 설명: 서비스 제공업체 가맹점 번호,위챗페이가 생성하여 발급합니다 */
   @SerializedName("sp_mchid")
   private String spMchid;
 
-  /** 子商户号 说明：子商户的商户号，由微信支付生成并下发 */
+  /** 하위 가맹점 번호 설명: 하위 가맹점의 가맹점 번호,위챗페이가 생성하여 발급합니다 */
   @SerializedName("sub_mchid")
   private String subMchid;
 

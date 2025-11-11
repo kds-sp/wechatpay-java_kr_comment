@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// JSAPI支付
+// JSAPI 결제
 //
-// JSAPI支付API
+// JSAPI 결제API
 //
 // API version: 1.2.3
 
@@ -17,11 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** Payer */
 public class Payer {
-  /** 用户标识 说明：用户在服务商AppID下的唯一标识。 */
+  /** 사용자 식별자 설명: 서비스 제공업체 AppID 하의 사용자 고유 식별자. */
   @SerializedName("sp_openid")
   private String spOpenid;
 
-  /** 用户子标识 说明：用户在子商户AppID下的唯一标识。 */
+  /** 사용자 하위 식별자 설명: 하위 가맹점 AppID 하의 사용자 고유 식별자입니다. */
   @SerializedName("sub_openid")
   private String subOpenid;
 

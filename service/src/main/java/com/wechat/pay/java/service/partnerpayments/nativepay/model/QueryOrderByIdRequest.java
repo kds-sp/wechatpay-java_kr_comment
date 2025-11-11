@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// Native支付
+// Native 결제
 //
-// Native支付API
+// Native 결제API
 //
 // API version: 1.2.3
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryOrderByIdRequest */
 public class QueryOrderByIdRequest {
-  /** transactionId 说明：微信支付订单号 */
+  /** transactionId 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   @Expose(serialize = false)
   private String transactionId;
 
-  /** spMchid 说明：服务商户号 */
+  /** spMchid 설명: 서비스 제공업체 가맹점 번호 */
   @SerializedName("sp_mchid")
   @Expose(serialize = false)
   private String spMchid;
 
-  /** subMchid 说明：子商户号 */
+  /** subMchid 설명: 하위 가맹점 번호 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;

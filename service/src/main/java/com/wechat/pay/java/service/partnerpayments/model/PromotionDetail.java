@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제API
 //
 // API version: 1.2.3
 
@@ -18,15 +18,15 @@ import java.util.List;
 
 /** PromotionDetail */
 public class PromotionDetail {
-  /** 券ID 说明：券ID */
+  /** 쿠폰 ID 설명: 쿠폰 ID */
   @SerializedName("coupon_id")
   private String couponId;
 
-  /** 优惠名称 说明：优惠名称 */
+  /** 할인 이름 설명: 할인 이름 */
   @SerializedName("name")
   private String name;
 
-  /** GLOBAL：全场代金券；SINGLE：单品优惠 */
+  /** GLOBAL: 전역 상품권; SINGLE: 단품 할인 */
   public enum ScopeEnum {
     @SerializedName("GLOBAL")
     GLOBAL,
@@ -38,7 +38,7 @@ public class PromotionDetail {
   @SerializedName("scope")
   private ScopeEnum scope;
 
-  /** CASH：充值；NOCASH：预充值。 */
+  /** CASH: 충전; NOCASH: 사전 충전. */
   public enum TypeEnum {
     @SerializedName("CASH")
     CASH,
@@ -50,31 +50,31 @@ public class PromotionDetail {
   @SerializedName("type")
   private TypeEnum type;
 
-  /** 优惠券面额 说明：优惠券面额 */
+  /** 할인 쿠폰 액면가 설명: 할인 쿠폰 액면가 */
   @SerializedName("amount")
   private Integer amount;
 
-  /** 活动ID 说明：活动ID，批次ID */
+  /** 활동 ID 설명: 활동 ID, 배치 ID */
   @SerializedName("stock_id")
   private String stockId;
 
-  /** 微信出资 说明：单位为分 */
+  /** 위챗페이 출자 설명: 단위는 분입니다 */
   @SerializedName("wechatpay_contribute")
   private Integer wechatpayContribute;
 
-  /** 商户出资 说明：单位为分 */
+  /** 가맹점 출자 설명: 단위는 분입니다 */
   @SerializedName("merchant_contribute")
   private Integer merchantContribute;
 
-  /** 其他出资 说明：单位为分 */
+  /** 기타 출자 설명: 단위는 분입니다 */
   @SerializedName("other_contribute")
   private Integer otherContribute;
 
-  /** 优惠币种 说明：CNY：人民币，境内商户号仅支持人民币。 */
+  /** 할인 통화 설명: CNY: 위안화, 국내 가맹점 번호는 위안화만 지원합니다. */
   @SerializedName("currency")
   private String currency;
 
-  /** 单品列表 说明： */
+  /** 단품 목록 설명:  */
   @SerializedName("goods_detail")
   private List<PromotionGoodsDetail> goodsDetail;
 

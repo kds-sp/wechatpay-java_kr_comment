@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제API
 //
 // API version: 1.2.3
 
@@ -16,20 +16,20 @@ import static com.wechat.pay.java.core.util.StringUtil.toIndentedString;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-/** 优惠功能 */
+/** 할인 기능 */
 public class Detail {
   /**
-   * 订单原价 说明：1.商户侧一张小票订单可能被分多次支付，订单原价用于记录整张小票的交易金额。 2.当订单原价与支付金额不相等，则不享受优惠。
-   * 3.该字段主要用于防止同一张小票分多次支付，以享受多次优惠的情况，正常支付订单不必上传此参数。
+   * 주문 원가 설명: 1.가맹점 측 한 장의 영수증 주문이 여러 번 결제로 나뉠 수 있습니다,주문 원가전체 영수증의 거래 금액을 기록하는 데 사용됩니다. 2.주문 원가와 결제 금액이 같지 않으면 할인을 받을 수 없습니다.
+   * 3.이 필드는 주로 동일한 영수증을 여러 번 결제하여 여러 번 할인을 받는 상황을 방지하는 데 사용되며, 정상 결제 주문은 이 매개변수를 업로드할 필요가 없습니다.
    */
   @SerializedName("cost_price")
   private Integer costPrice;
 
-  /** 商品小票ID 说明：商家小票ID。 */
+  /** 상품 영수증 ID 설명: 가맹점 영수증 ID. */
   @SerializedName("invoice_id")
   private String invoiceId;
 
-  /** 单品列表 说明： */
+  /** 단품 목록 설명:  */
   @SerializedName("goods_detail")
   private List<GoodsDetail> goodsDetail;
 

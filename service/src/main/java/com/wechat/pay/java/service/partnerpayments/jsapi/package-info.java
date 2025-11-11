@@ -1,2 +1,2 @@
-/** 服务商-JSAPI支付API */
+/** 서비스 제공업체-JSAPI 결제 API */
 package com.wechat.pay.java.service.partnerpayments.jsapi;

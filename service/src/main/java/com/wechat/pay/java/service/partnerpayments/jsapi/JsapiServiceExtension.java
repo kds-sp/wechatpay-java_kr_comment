@@ -20,9 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * JSAPI 支付的扩展类。
+ * JSAPI 결제의 확장 클래스.
  *
- * <p>它封装了 JsapiService，并提供了一个增强的 JSAPI 下单方法 prepayWithRequestPayment。
+ * <p>JsapiService를 캡슐화하고 향상된 JSAPI 주문 메서드 prepayWithRequestPayment를 제공합니다.
  */
 public class JsapiServiceExtension {
   private final Signer signer;
@@ -45,18 +45,17 @@ public class JsapiServiceExtension {
   }
 
   /**
-   * JSAPI 支付下单，并返回 JSAPI 调起支付数据。推荐使用！
+   * JSAPI 결제 주문하고 JSAPI 결제 호출 데이터를 반환합니다. 권장 사용!
    *
-   * <p>请求成功后，该方法返回预支付交易会话标识 prepay_id 和客户端 JSAPI 调起支付所需参数。 它相比 JsapiService.prepay
-   * 更简单易用，因为无需开发者自行计算调起支付签名。
+   * <p>요청 성공 후, 이 메서드는 사전 결제 거래 세션 식별자 prepay_id와 클라이언트 JSAPI 결제 호출에 필요한 매개변수를 반환합니다. JsapiService.prepay보다 더 간단하고 사용하기 쉬우며, 개발자가 결제 호출 서명을 직접 계산할 필요가 없기 때문입니다.
    *
-   * @param request 请求参数 商户申请的公众号对应的appid
-   * @param requestPaymentAppid 商户申请的公众号对应的appid
+   * @param request 요청 매개변수 가맹점이 신청한 공개 계정에 해당하는 appid
+   * @param requestPaymentAppid 가맹점이 신청한 공개 계정에 해당하는 appid
    * @return PrepayWithRequestPaymentResponse
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public PrepayWithRequestPaymentResponse prepayWithRequestPayment(
       PrepayRequest request, String requestPaymentAppid) {
@@ -79,41 +78,41 @@ public class JsapiServiceExtension {
   }
 
   /**
-   * 微信支付订单号查询订单
+   * 위챗페이 주문 번호로 주문 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Transaction
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public Transaction queryOrderById(QueryOrderByIdRequest request) {
     return jsapiService.queryOrderById(request);
   }
 
   /**
-   * 商户订单号查询订单
+   * 가맹점 주문 번호로 주문 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Transaction
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public Transaction queryOrderByOutTradeNo(QueryOrderByOutTradeNoRequest request) {
     return jsapiService.queryOrderByOutTradeNo(request);
   }
 
   /**
-   * 关闭订单
+   * 주문 닫기
    *
-   * @param request 请求参数
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @param request 요청 매개변수
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아니거나 반환 본문 파싱 실패.
    */
   public void closeOrder(CloseOrderRequest request) {
     jsapiService.closeOrder(request);

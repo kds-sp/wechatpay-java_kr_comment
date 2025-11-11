@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제API
 //
 // API version: 1.2.3
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** PromotionGoodsDetail */
 public class PromotionGoodsDetail {
-  /** 商品编码 说明：商品编码 */
+  /** 상품 코드 설명: 상품 코드 */
   @SerializedName("goods_id")
   private String goodsId;
 
-  /** 商品数量 说明：商品数量 */
+  /** 상품 수량 설명: 상품 수량 */
   @SerializedName("quantity")
   private Integer quantity;
 
-  /** 商品价格 说明：商品价格 */
+  /** 상품 가격 설명: 상품 가격 */
   @SerializedName("unit_price")
   private Integer unitPrice;
 
-  /** 商品优惠金额 说明：商品优惠金额 */
+  /** 상품 할인 금액 설명: 상품 할인 금액 */
   @SerializedName("discount_amount")
   private Integer discountAmount;
 
-  /** 商品备注 说明：商品备注 */
+  /** 상품 비고 설명: 상품 비고 */
   @SerializedName("goods_remark")
   private String goodsRemark;
 

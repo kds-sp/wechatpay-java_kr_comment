@@ -1,2 +1,2 @@
-/** 服务商-APP支付API */
+/** 서비스 제공업체-APP 결제 API */
 package com.wechat.pay.java.service.partnerpayments.app;

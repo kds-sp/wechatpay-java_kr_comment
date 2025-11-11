@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제API
 //
 // API version: 1.2.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** PrepayResponse */
 public class PrepayResponse {
-  /** prepayId 说明：预支付交易会话标识 */
+  /** prepayId 설명: 사전 결제 거래 세션 식별자 */
   @SerializedName("prepay_id")
   private String prepayId;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// APP支付
+// APP 결제
 //
-// APP支付API
+// APP 결제API
 //
 // API version: 1.2.3
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** SettleInfo */
 public class SettleInfo {
-  /** profitSharing 说明：是否指定分账 */
+  /** profitSharing 설명: 분할 계정 지정 여부 */
   @SerializedName("profit_sharing")
   private Boolean profitSharing;
 

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제API
 //
 // API version: 1.2.3
 

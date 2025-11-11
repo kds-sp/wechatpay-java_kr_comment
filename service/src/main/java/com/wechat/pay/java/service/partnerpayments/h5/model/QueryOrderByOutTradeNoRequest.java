@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// H5支付
+// H5 결제
 //
-// H5支付API
+// H5 결제API
 //
 // API version: 1.2.3
 
@@ -18,17 +18,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryOrderByOutTradeNoRequest */
 public class QueryOrderByOutTradeNoRequest {
-  /** outTradeNo 说明：商户订单号 */
+  /** outTradeNo 설명: 가맹점 주문 번호 */
   @SerializedName("out_trade_no")
   @Expose(serialize = false)
   private String outTradeNo;
 
-  /** spMchid 说明：服务商户号 */
+  /** spMchid 설명: 서비스 제공업체 가맹점 번호 */
   @SerializedName("sp_mchid")
   @Expose(serialize = false)
   private String spMchid;
 
-  /** subMchid 说明：子商户号 */
+  /** subMchid 설명: 하위 가맹점 번호 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
