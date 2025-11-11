@@ -21,7 +21,7 @@ public class BusSceneInfo {
   @SerializedName("start_time")
   private String startTime;
 
-  /** 승차 노선 설명: 승차 노선 노선 이름 표시 규칙: \\^[A-Za-z0-9]{1,10}路$ line_name이 위 규칙에 부합하면, 차감 영수증에 승차 노선 필드가 추가로 표시됨 */
+  /** 승차 노선 설명: 승차 노선 노선 이름 표시 규칙: \\^[A-Za-z0-9]{1,10}로$ line_name이 위 규칙에 부합하면, 차감 영수증에 승차 노선 필드가 추가로 표시됨 */
   @SerializedName("line_name")
   private String lineName;
 
