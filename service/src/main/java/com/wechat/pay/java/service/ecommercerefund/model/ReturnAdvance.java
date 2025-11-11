@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -17,42 +17,42 @@ import com.google.gson.annotations.SerializedName;
 
 /** ReturnAdvance */
 public class ReturnAdvance {
-  /** 微信退款单号 说明：必须是垫付退款的微信退款单 */
+  /** 위챗 환불 내역 번호 설명: 선불 환불인 위챗 환불 내역이어야 함 */
   @SerializedName("refund_id")
   private String refundId;
 
-  /** 微信回补单号 说明：微信支付生成的垫付回补操作单号 */
+  /** 위챗 보충 내역 번호 설명: 위챗페이가 생성한 선불 보충 작업 내역 번호 */
   @SerializedName("advance_return_id")
   private String advanceReturnId;
 
-  /** 垫付回补金额 说明：退款单对应的垫付退款的金额 */
+  /** 선불 보충 금액 설명: 환불 내역에 대응하는 선불 환불 금액 */
   @SerializedName("return_amount")
   private Long returnAmount;
 
-  /** 出款方商户号 说明：微信支付分配给出款方的商户号 */
+  /** 출금 당사자 가맹점 번호 설명: 위챗페이가 출금 당사자에게 할당한 가맹점 번호 */
   @SerializedName("payer_mchid")
   private String payerMchid;
 
-  /** 出款方账户 说明：BASIC 基本账户 OPERATION 运营账户 */
+  /** 출금 당사자 계정 설명: BASIC 기본 계정 OPERATION 운영 계정 */
   @SerializedName("payer_account")
   private String payerAccount;
 
-  /** 入账方商户号 说明：微信支付分配给入账方的商户号 */
+  /** 입금 당사자 가맹점 번호 설명: 위챗페이가 입금 당사자에게 할당한 가맹점 번호 */
   @SerializedName("payee_mchid")
   private String payeeMchid;
 
-  /** 入账方账户 说明：BASIC 基本账户 OPERATION 运营账户 */
+  /** 입금 당사자 계정 설명: BASIC 기본 계정 OPERATION 운영 계정 */
   @SerializedName("payee_account")
   private String payeeAccount;
 
-  /** 垫付回补结果 说明：SUCCESS 回补成功 FAILED 回补失败，出款方账户余额不足时发生 PROCESSING 处理中 */
+  /** 선불 보충 결과 설명: SUCCESS 보충 성공 FAILED 보충 실패, 출금 당사자 계정 잔액 부족 시 발생 PROCESSING 처리 중 */
   @SerializedName("result")
   private String result;
 
   /**
-   * 垫付回补完成时间
-   * 说明：垫付回补完成的时间，遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日13点29分35秒。
+   * 선불 보충 완료 시간
+   * 설명: 선불 보충 완료 시간, rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄(+08:00은 동부 8구 시간을 나타내며 UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("success_time")
   private String successTime;

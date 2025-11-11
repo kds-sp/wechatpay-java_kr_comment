@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -18,27 +18,27 @@ import java.util.List;
 
 /** RefundAmount */
 public class RefundAmount {
-  /** 退款金额 说明：退款金额，单位为分，只能为整数，不能超 过原订单支付金额 */
+  /** 환불 금액 설명: 환불 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액을 초과할 수 없음 */
   @SerializedName("refund")
   private Long refund;
 
-  /** 退款出资账户及金额 说明：退款出资的账户类型及金额信息 */
+  /** 환불 출자 계정 및 금액 설명: 환불 출자의 계정 유형 및 금액 정보 */
   @SerializedName("from")
   private List<FundsFromItem> from;
 
-  /** 用户退款金额 说明：退款给用户的金额，不包含所有优惠券金额 */
+  /** 사용자 환불 금액 설명: 사용자에게 환불하는 금액, 모든 할인 쿠폰 금액 미포함 */
   @SerializedName("payer_refund")
   private Long payerRefund;
 
-  /** 优惠退款金额 说明：优惠券的退款金额，原支付单的优惠按比例退款 */
+  /** 할인 환불 금액 설명: 할인 쿠폰의 환불 금액, 원래 결제 내역의 할인은 비율에 따라 환불 */
   @SerializedName("discount_refund")
   private Long discountRefund;
 
-  /** 货币类型 说明：符合ISO4217标准的三位字母代码，目前只支持人民币：CNY */
+  /** 통화 유형 설명: ISO4217 표준에 부합하는 3자리 영문 코드, 현재는 인민폐만 지원: CNY */
   @SerializedName("currency")
   private String currency;
 
-  /** 垫付金额 说明：电商平台垫付的金额 */
+  /** 선불 금액 설명: 전자상거래 플랫폼이 선불한 금액 */
   @SerializedName("advance")
   private Long advance;
 

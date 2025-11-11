@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** PromotionDetail */
 public class PromotionDetail {
-  /** 券ID 说明：券或者立减优惠id */
+  /** 쿠폰 ID 설명: 쿠폰 또는 즉시 할인 id */
   @SerializedName("promotion_id")
   private String promotionId;
 
-  /** 优惠范围 说明：GLOBAL- 全场代金券 SINGLE- 单品优惠 */
+  /** 할인 범위 설명: GLOBAL- 전매장 상품권 SINGLE- 단품 할인 */
   @SerializedName("scope")
   private String scope;
 
-  /** 优惠类型 说明：COUPON- 代金券，需要走结算资金的充值型代金券 DISCOUNT- 优惠券，不走结算资金的免充值型优惠券 */
+  /** 할인 유형 설명: COUPON- 상품권, 결제 자금을 거치는 충전형 상품권 DISCOUNT- 할인 쿠폰, 결제 자금을 거치지 않는 무충전형 할인 쿠폰 */
   @SerializedName("type")
   private String type;
 
-  /** 优惠券面额 说明：用户享受优惠的金额（优惠券面额=微信出资金额+商家出资金额+其他出资方金额 ） */
+  /** 할인 쿠폰 액면가 설명: 사용자가 받는 할인 금액(할인 쿠폰 액면가=위챗 출자 금액+상점 출자 금액+기타 출자 당사자 금액) */
   @SerializedName("amount")
   private Long amount;
 
-  /** 优惠退款金额 说明：代金券退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见代金券或立减优惠 */
+  /** 할인 환불 금액 설명: 상품권 환불 금액<=환불 금액, 환불 금액-상품권 또는 즉시 할인 환불 금액이 현금, 자세한 설명은 상품권 또는 즉시 할인 참조 */
   @SerializedName("refund_amount")
   private Long refundAmount;
 

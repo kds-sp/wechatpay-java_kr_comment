@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -18,76 +18,76 @@ import java.util.List;
 
 /** Refund */
 public class Refund {
-  /** 微信支付退款订单号 说明：微信支付退款订单订单号 */
+  /** 위챗페이 환불 주문 번호 설명: 위챗페이 환불 주문 번호 */
   @SerializedName("refund_id")
   private String refundId;
 
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 내역 번호 설명: 가맹점 시스템 내부의 환불 내역 번호, 가맹점 시스템 내부에서 고유함, 숫자, 대소문자 영문, _, -, |, *, @만 가능, 동일 환불 내역 번호로 여러 번 요청해도 한 건만 환불됨. */
   @SerializedName("out_refund_no")
   private String outRefundNo;
 
-  /** 微信支付交易订单号 说明：微信支付交易订单号 */
+  /** 위챗페이 거래 주문 번호 설명: 위챗페이 거래 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 商户原交易订单号 说明：返回的原交易订单号 */
+  /** 가맹점 원래 거래 주문 번호 설명: 반환된 원래 거래 주문 번호 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
   /**
-   * 退款渠道 说明：ORIGINAL—原路退款 BALANCE—退回到余额 OTHER_BALANCE—原账户异常退到其他余额账户 OTHER_BANKCARD—原银行卡异常退到其他银行卡
+   * 환불 채널 설명: ORIGINAL—원래 경로 환불 BALANCE—잔액으로 환불 OTHER_BALANCE—원래 계정 이상으로 다른 잔액 계정으로 환불 OTHER_BANKCARD—원래 은행 카드 이상으로 다른 은행 카드로 환불
    */
   @SerializedName("channel")
   private String channel;
 
   /**
-   * 退款入账账户 说明：取当前退款单的退款入账方 1）退回银行卡： {银行名称}{卡类型}{卡尾号} 2）退回支付用户零钱: 支付用户零钱 3）退还商户: 商户基本账户 商户结算银行账户
-   * 4）退回支付用户零钱通: 支付用户零钱通
+   * 환불 입금 계정 설명: 현재 환불 내역의 환불 입금 당사자 1) 은행 카드로 환불: {은행명}{카드 유형}{카드 끝자리 번호} 2) 결제 사용자 잔돈으로 환불: 결제 사용자 잔돈 3) 가맹점으로 환불: 가맹점 기본 계정 가맹점 결제 은행 계정
+   * 4) 결제 사용자 잔돈통으로 환불: 결제 사용자 잔돈통
    */
   @SerializedName("user_received_account")
   private String userReceivedAccount;
 
   /**
-   * 退款成功时间
-   * 说明：退款成功时间，退款状态status为SUCCESS（退款成功）时，返回该字段。遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日13点29分35秒。
+   * 환불 성공 시간
+   * 설명: 환불 성공 시간, 환불 상태 status가 SUCCESS(환불 성공)일 때, 이 필드를 반환함. rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄(+08:00은 동부 8구 시간을 나타내며 UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("success_time")
   private String successTime;
 
   /**
-   * 退款创建时间
-   * 说明：退款受理时间，遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日13点29分35秒。
+   * 환불 생성 시간
+   * 설명: 환불 접수 시간, rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄(+08:00은 동부 8구 시간을 나타내며 UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("create_time")
   private String createTime;
 
   /**
-   * 退款状态 说明：退款状态： SUCCESS—退款成功 CLOSED—退款关闭。 PROCESSING—退款处理中
-   * ABNORMAL—退款异常，退款到银行发现用户的卡作废或者冻结了，导致原路退款银行卡失败，可前往商户平台（pay.weixin.qq.com）-交易中心，手动处理此笔退款。
+   * 환불 상태 설명: 환불 상태: SUCCESS—환불 성공 CLOSED—환불 닫힘. PROCESSING—환불 처리 중
+   * ABNORMAL—환불 이상, 은행으로 환불 시 사용자의 카드가 폐기되거나 동결되어, 원래 경로 환불 은행 카드 실패, 가맹점 플랫폼(pay.weixin.qq.com)-거래 센터로 이동하여 이 환불을 수동으로 처리할 수 있음.
    */
   @SerializedName("status")
   private String status;
 
-  /** 退款金额 说明：退款金额信息 */
+  /** 환불 금액 설명: 환불 금액 정보 */
   @SerializedName("amount")
   private RefundAmount amount;
 
-  /** 营销详情 说明：优惠退款信息 */
+  /** 마케팅 상세 설명: 할인 환불 정보 */
   @SerializedName("promotion_detail")
   private List<PromotionDetail> promotionDetail;
 
   /**
-   * 退款出资商户 说明：REFUND_SOURCE_PARTNER_ADVANCE : 电商平台垫付 REFUND_SOURCE_SUB_MERCHANT : 二级商户，默认值
-   * 注意：申请退款时可能会出现暂未扣除退款资金的情况，此时不返回本字段，需继续查单确认。
+   * 환불 출자 가맹점 설명: REFUND_SOURCE_PARTNER_ADVANCE: 전자상거래 플랫폼 선불 REFUND_SOURCE_SUB_MERCHANT: 하위 가맹점, 기본값
+   * 참고: 환불 신청 시 아직 환불 자금이 차감되지 않은 경우가 있을 수 있으며, 이 경우 본 필드를 반환하지 않으며, 계속 주문 조회로 확인해야 함.
    */
   @SerializedName("refund_account")
   private String refundAccount;
 
   /**
-   * 资金账户 说明：UNSETTLED : 未结算资金 AVAILABLE : 可用余额 UNAVAILABLE : 不可用余额 OPERATION : 运营户 BASIC :
-   * 基本账户（含可用余额和不可用余额） ECNY_BASIC : 数字人民币基本账户
+   * 자금 계정 설명: UNSETTLED: 미결제 자금 AVAILABLE: 사용 가능 잔액 UNAVAILABLE: 사용 불가 잔액 OPERATION: 운영 계정 BASIC:
+   * 기본 계정(사용 가능 잔액 및 사용 불가 잔액 포함) ECNY_BASIC: 디지털 인민폐 기본 계정
    */
   @SerializedName("funds_account")
   private String fundsAccount;

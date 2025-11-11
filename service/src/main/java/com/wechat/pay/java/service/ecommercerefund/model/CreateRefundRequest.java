@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -17,56 +17,56 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateRefundRequest */
 public class CreateRefundRequest {
-  /** 二级商户号 说明：微信支付分配二级商户的商户号 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점의 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 电商平台APPID 说明：电商平台在微信公众平台申请服务号对应的APPID，申请商户功能的时候微信支付会配置绑定关系 */
+  /** 전자상거래 플랫폼 APPID 설명: 전자상거래 플랫폼이 위챗 공개 플랫폼에서 신청한 서비스 계정에 대응하는 APPID, 가맹점 기능 신청 시 위챗페이가 바인딩 관계를 구성함 */
   @SerializedName("sp_appid")
   private String spAppid;
 
-  /** 二级商户APPID 说明：二级商户在微信申请公众号成功后分配的帐号ID，需要电商平台侧有配置绑定关系才能传 */
+  /** 하위 가맹점 APPID 설명: 하위 가맹점이 위챗에서 공개 계정 신청 성공 후 할당받은 계정 ID, 전자상거래 플랫폼 측에 바인딩 관계 구성이 있어야 전달 가능 */
   @SerializedName("sub_appid")
   private String subAppid;
 
-  /** 微信订单号 说明：原支付交易对应的微信订单号 */
+  /** 위챗 주문 번호 설명: 원래 결제 거래에 대응하는 위챗 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 商户订单号 说明：原支付交易对应的商户订单号 */
+  /** 가맹점 주문 번호 설명: 원래 결제 거래에 대응하는 가맹점 주문 번호 */
   @SerializedName("out_trade_no")
   private String outTradeNo;
 
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 내역 번호 설명: 가맹점 시스템 내부의 환불 내역 번호, 가맹점 시스템 내부에서 고유함, 숫자, 대소문자 영문, _, -, |, *, @만 가능, 동일 환불 내역 번호로 여러 번 요청해도 한 건만 환불됨. */
   @SerializedName("out_refund_no")
   private String outRefundNo;
 
-  /** 退款原因 说明：若商户传入，会在下发给用户的退款消息中体现退款原因 */
+  /** 환불 사유 설명: 가맹점이 전달하면, 사용자에게 전달되는 환불 메시지에 환불 사유가 표시됨 */
   @SerializedName("reason")
   private String reason;
 
-  /** 订单金额 说明：订单金额信息 */
+  /** 주문 금액 설명: 주문 금액 정보 */
   @SerializedName("amount")
   private RefundReqAmount amount;
 
   /**
-   * 退款结果回调url 说明：异步接收微信支付退款结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数。
-   * 如果参数中传了notify_url，则商户平台上配置的回调地址将不会生效，优先回调当前传的这个地址。
+   * 환불 결과 콜백 url 설명: 비동기로 위챗페이 환불 결과 알림을 수신하는 콜백 주소, 알림 url은 외부 네트워크에서 접근 가능한 url이어야 하며, 매개변수를 포함할 수 없음.
+   * 매개변수에 notify_url을 전달한 경우, 가맹점 플랫폼에 구성된 콜백 주소는 적용되지 않으며, 현재 전달한 주소를 우선적으로 콜백함.
    */
   @SerializedName("notify_url")
   private String notifyUrl;
 
   /**
-   * 退款出资商户 说明：REFUND_SOURCE_PARTNER_ADVANCE : 电商平台垫付，需要向微信支付申请开通 REFUND_SOURCE_SUB_MERCHANT :
-   * 二级商户，默认值 注意：若传入REFUND_SOURCE_PARTNER_ADVANCE，仅代表可以使用垫付退款，实际出款账户需以退款申请受理结果或查单结果为准。
+   * 환불 출자 가맹점 설명: REFUND_SOURCE_PARTNER_ADVANCE: 전자상거래 플랫폼 선불, 위챗페이에 신청하여 개설 필요 REFUND_SOURCE_SUB_MERCHANT:
+   * 하위 가맹점, 기본값 참고: REFUND_SOURCE_PARTNER_ADVANCE를 전달한 경우, 선불 환불 사용 가능을 의미할 뿐이며, 실제 출금 계정은 환불 신청 접수 결과 또는 주문 조회 결과를 기준으로 함.
    */
   @SerializedName("refund_account")
   private String refundAccount;
 
   /**
-   * 资金账户
-   * 说明：若订单处于待分账状态，可以传入此参数，指定退款资金来源账户。当该字段不存在时，默认使用订单交易资金所在账户出款，即待分账时使用不可用余额的资金进行退款，已分账或无分账时使用可用余额的资金进行退款。
-   * AVAILABLE：可用余额
+   * 자금 계정
+   * 설명: 주문이 분할 대기 상태인 경우, 이 매개변수를 전달하여 환불 자금 출처 계정을 지정할 수 있음. 이 필드가 없는 경우, 기본적으로 주문 거래 자금이 있는 계정에서 출금하며, 즉 분할 대기 시 사용 불가 잔액의 자금으로 환불하고, 분할 완료 또는 분할 없음 시 사용 가능 잔액의 자금으로 환불함.
+   * AVAILABLE: 사용 가능 잔액
    */
   @SerializedName("funds_account")
   private String fundsAccount;

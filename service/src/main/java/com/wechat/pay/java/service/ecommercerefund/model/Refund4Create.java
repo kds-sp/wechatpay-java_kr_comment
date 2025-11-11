@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -18,33 +18,33 @@ import java.util.List;
 
 /** Refund4Create */
 public class Refund4Create {
-  /** 微信支付退款订单号 说明：微信支付退款订单号 */
+  /** 위챗페이 환불 주문 번호 설명: 위챗페이 환불 주문 번호 */
   @SerializedName("refund_id")
   private String refundId;
 
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 내역 번호 설명: 가맹점 시스템 내부의 환불 내역 번호, 가맹점 시스템 내부에서 고유함, 숫자, 대소문자 영문, _, -, |, *, @만 가능, 동일 환불 내역 번호로 여러 번 요청해도 한 건만 환불됨. */
   @SerializedName("out_refund_no")
   private String outRefundNo;
 
   /**
-   * 退款创建时间
-   * 说明：退款受理时间，遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC
-   * 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日13点29分35秒。
+   * 환불 생성 시간
+   * 설명: 환불 접수 시간, rfc3339 표준 형식을 따름, 형식은 YYYY-MM-DDTHH:mm:ss+TIMEZONE, YYYY-MM-DD는 년월일을 나타내고, T는 문자열에 나타나며 time 요소의 시작을 나타내고, HH:mm:ss는 시분초를 나타내며, TIMEZONE은 시간대를 나타냄(+08:00은 동부 8구 시간을 나타내며 UTC보다
+   * 8시간 앞서며, 즉 베이징 시간). 예: 2015-05-20T13:29:35+08:00은 베이징 시간 2015년 5월 20일 13시 29분 35초를 나타냄.
    */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 退款金额 说明：订单退款金额信息 */
+  /** 환불 금액 설명: 주문 환불 금액 정보 */
   @SerializedName("amount")
   private RefundAmount amount;
 
-  /** 优惠退款详情 说明：优惠退款功能信息 */
+  /** 할인 환불 상세 설명: 할인 환불 기능 정보 */
   @SerializedName("promotion_detail")
   private List<PromotionDetail> promotionDetail;
 
   /**
-   * 退款出资商户 说明：REFUND_SOURCE_PARTNER_ADVANCE : 电商平台垫付 REFUND_SOURCE_SUB_MERCHANT : 二级商户，默认值
-   * 注意：申请退款时可能会出现暂未扣除退款资金的情况，此时不返回本字段，需查单确认。
+   * 환불 출자 가맹점 설명: REFUND_SOURCE_PARTNER_ADVANCE: 전자상거래 플랫폼 선불 REFUND_SOURCE_SUB_MERCHANT: 하위 가맹점, 기본값
+   * 참고: 환불 신청 시 아직 환불 자금이 차감되지 않은 경우가 있을 수 있으며, 이 경우 본 필드를 반환하지 않으며, 주문 조회로 확인해야 함.
    */
   @SerializedName("refund_account")
   private String refundAccount;

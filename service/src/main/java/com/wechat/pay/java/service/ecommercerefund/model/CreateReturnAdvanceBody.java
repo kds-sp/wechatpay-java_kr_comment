@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateReturnAdvanceBody */
 public class CreateReturnAdvanceBody {
-  /** 二级商户号 说明：微信支付分配给二级商户的商户号 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점의 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 

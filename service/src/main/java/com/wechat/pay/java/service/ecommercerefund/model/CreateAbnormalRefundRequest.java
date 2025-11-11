@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -19,39 +19,39 @@ import java.util.function.UnaryOperator;
 
 /** CreateAbnormalRefundRequest */
 public class CreateAbnormalRefundRequest {
-  /** 二级商户号 说明：微信支付分配二级商户的商户号 */
+  /** 하위 가맹점 번호 설명: 위챗페이가 할당한 하위 가맹점의 가맹점 번호 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 商户退款单号 说明：商户系统内部的退款单号，商户系统内部唯一，只能是数字、大小写字母_-|*@ ，同一退款单号多次请求只退一笔。 */
+  /** 가맹점 환불 내역 번호 설명: 가맹점 시스템 내부의 환불 내역 번호, 가맹점 시스템 내부에서 고유함, 숫자, 대소문자 영문, _, -, |, *, @만 가능, 동일 환불 내역 번호로 여러 번 요청해도 한 건만 환불됨. */
   @SerializedName("out_refund_no")
   private String outRefundNo;
 
-  /** 异常退款处理方式 说明：可选：退款至用户、退款至交易商户银行账户 */
+  /** 이상 환불 처리 방식 설명: 선택 가능: 사용자에게 환불, 거래 가맹점 은행 계정으로 환불 */
   @SerializedName("type")
   private Type type;
 
   /**
-   * 开户银行
-   * 说明：银行类型，采用字符串类型的银行标识，值列表详见[银行类型](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2)。仅支持招行、交通银行、农行、建行、工商、中行、平安、浦发、中信、光大、民生、兴业、广发、邮储、宁波银行的借记卡。
-   * 若退款至用户此字段必填。
+   * 개설 은행
+   * 설명: 은행 유형, 문자열 유형의 은행 식별자를 사용, 값 목록은 자세히 보기 [은행 유형](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2). 중국은행, 교통은행, 농업은행, 건설은행, 공상은행, 중은행, 핑안은행, 푸파은행, 중신은행, 광다은행, 민생은행, 흥업은행, 광파은행, 우정저축은행, 닝보은행의 직불 카드만 지원.
+   * 사용자에게 환불하는 경우 이 필드는 필수.
    */
   @SerializedName("bank_type")
   private String bankType;
 
   /**
-   * 收款银行卡号
-   * 说明：用户的银行卡账号，该字段需进行加密处理，加密方法详见[敏感信息加密说明](https://wechatpay-api.gitbook.io/wechatpay-api-v3/qian-ming-zhi-nan-1/min-gan-xin-xi-jia-mi)。
-   * 若退款至用户此字段必填。
+   * 수신 은행 카드 번호
+   * 설명: 사용자의 은행 카드 계정 번호, 이 필드는 암호화 처리가 필요하며, 암호화 방법은 자세히 보기 [민감 정보 암호화 설명](https://wechatpay-api.gitbook.io/wechatpay-api-v3/qian-ming-zhi-nan-1/min-gan-xin-xi-jia-mi).
+   * 사용자에게 환불하는 경우 이 필드는 필수.
    */
   @Encryption
   @SerializedName("bank_account")
   private String bankAccount;
 
   /**
-   * 收款用户姓名
-   * 说明：收款用户姓名，该字段需进行加密处理，加密方法详见[敏感信息加密说明](https://wechatpay-api.gitbook.io/wechatpay-api-v3/qian-ming-zhi-nan-1/min-gan-xin-xi-jia-mi)。
-   * 若退款至用户此字段必填。
+   * 수신 사용자 이름
+   * 설명: 수신 사용자 이름, 이 필드는 암호화 처리가 필요하며, 암호화 방법은 자세히 보기 [민감 정보 암호화 설명](https://wechatpay-api.gitbook.io/wechatpay-api-v3/qian-ming-zhi-nan-1/min-gan-xin-xi-jia-mi).
+   * 사용자에게 환불하는 경우 이 필드는 필수.
    */
   @Encryption
   @SerializedName("real_name")

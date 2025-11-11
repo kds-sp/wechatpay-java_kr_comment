@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 电商退款API
+// 전자상거래 환불 API
 //
-// 境内电商退款功能相关API文档
+// 국내 전자상거래 환불 기능 관련 API 문서
 //
 // API version: 1.1.8
 
@@ -41,7 +41,7 @@ import com.wechat.pay.java.service.ecommercerefund.model.Refund;
 import com.wechat.pay.java.service.ecommercerefund.model.Refund4Create;
 import com.wechat.pay.java.service.ecommercerefund.model.ReturnAdvance;
 
-/** EcommerceRefundService服务 */
+/** EcommerceRefundService 서비스 */
 public class EcommerceRefundService {
 
   private final HttpClient httpClient;
@@ -52,7 +52,7 @@ public class EcommerceRefundService {
     this.hostName = hostName;
   }
 
-  /** EcommerceRefundService构造器 */
+  /** EcommerceRefundService 생성자 */
   public static class Builder {
 
     private HttpClient httpClient;
@@ -80,14 +80,14 @@ public class EcommerceRefundService {
   }
 
   /**
-   * 申请退款
+   * 환불 신청
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Refund4Create
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public Refund4Create createRefund(CreateRefundRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/ecommerce/refunds/apply";
@@ -110,21 +110,21 @@ public class EcommerceRefundService {
   }
 
   /**
-   * 垫付退款回补
+   * 선불 환불 보충
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ReturnAdvance
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public ReturnAdvance createReturnAdvance(CreateReturnAdvanceRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/ecommerce/refunds/{refund_id}/return-advance";
 
     CreateReturnAdvanceRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "refund_id" + "}", urlEncode(realRequest.getRefundId()));
 
@@ -146,24 +146,24 @@ public class EcommerceRefundService {
   }
 
   /**
-   * 查询单笔退款（按微信支付退款单号）
+   * 단건 환불 조회(위챗페이 환불 내역 번호 기준)
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Refund
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public Refund queryRefund(QueryRefundRequest request) {
     String requestPath = "https://api.mch.weixin.qq.com/v3/ecommerce/refunds/id/{refund_id}";
 
     QueryRefundRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "refund_id" + "}", urlEncode(realRequest.getRefundId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -186,25 +186,25 @@ public class EcommerceRefundService {
   }
 
   /**
-   * 查询单笔退款（按商户退款单号）
+   * 단건 환불 조회(가맹점 환불 내역 번호 기준)
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return Refund
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public Refund queryRefundByOutRefundNo(QueryRefundByOutRefundNoRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/ecommerce/refunds/out-refund-no/{out_refund_no}";
 
     QueryRefundByOutRefundNoRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "out_refund_no" + "}", urlEncode(realRequest.getOutRefundNo()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
@@ -227,25 +227,25 @@ public class EcommerceRefundService {
   }
 
   /**
-   * 查询垫付回补结果
+   * 선불 보충 결과 조회
    *
-   * @param request 请求参数
+   * @param request 요청 매개변수
    * @return ReturnAdvance
-   * @throws HttpException 发送HTTP请求失败。例如构建请求参数失败、发送请求失败、I/O错误等。包含请求信息。
-   * @throws ValidationException 发送HTTP请求成功，验证微信支付返回签名失败。
-   * @throws ServiceException 发送HTTP请求成功，服务返回异常。例如返回状态码小于200或大于等于300。
-   * @throws MalformedMessageException 服务返回成功，content-type不为application/json、解析返回体失败。
+   * @throws HttpException HTTP 요청 전송 실패. 예: 요청 매개변수 구성 실패, 요청 전송 실패, I/O 오류 등. 요청 정보 포함.
+   * @throws ValidationException HTTP 요청 전송 성공, 위챗페이 반환 서명 검증 실패.
+   * @throws ServiceException HTTP 요청 전송 성공, 서비스 반환 예외. 예: 반환 상태 코드가 200보다 작거나 300보다 크거나 같음.
+   * @throws MalformedMessageException 서비스 반환 성공, content-type이 application/json이 아님, 반환 본문 파싱 실패.
    */
   public ReturnAdvance queryReturnAdvance(QueryReturnAdvanceRequest request) {
     String requestPath =
         "https://api.mch.weixin.qq.com/v3/ecommerce/refunds/{refund_id}/return-advance";
 
     QueryReturnAdvanceRequest realRequest = request;
-    // 添加 path param
+    // path 매개변수 추가
     requestPath =
         requestPath.replace("{" + "refund_id" + "}", urlEncode(realRequest.getRefundId()));
 
-    // 添加 query param
+    // query 매개변수 추가
     QueryParameter queryParameter = new QueryParameter();
     if (realRequest.getSubMchid() != null) {
       queryParameter.add("sub_mchid", urlEncode(realRequest.getSubMchid()));
