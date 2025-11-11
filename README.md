@@ -1,3 +1,5 @@
+# !!!! 위챗페이 v3는 정기결제를 지원하지 않으므로 사용하지 않음 !!! https://soundplatform.slack.com/archives/C095KTWGS79/p1762828404229629 #
+
 [![JavaDoc](http://img.shields.io/badge/javadoc-reference-blue.svg)](https://www.javadoc.io/doc/com.github.wechatpay-apiv3/wechatpay-java/latest/index.html)
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.wechatpay-apiv3/wechatpay-java?versionPrefix=0.2.17)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wechatpay-apiv3_wechatpay-java&metric=security_rating)](https://sonarcloud.io/summary/overall?id=wechatpay-apiv3_wechatpay-java)
