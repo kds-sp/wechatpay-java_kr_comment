@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 
 /** ActParticipateMchInfo */
 public class ActParticipateMchInfo {
-  /** 商户Id 说明：商户Id */
+  /** 가맹점 ID 설명: 가맹점 ID */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 商户名称 说明：商户名称 */
+  /** 가맹점 이름 설명: 가맹점 이름 */
   @SerializedName("merchant_name")
   private String merchantName;
 
-  /** 创建时间 说明：创建时间 */
+  /** 생성 시간 설명: 생성 시간 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 更新时间 说明：更新时间 */
+  /** 업데이트 시간 설명: 업데이트 시간 */
   @SerializedName("update_time")
   private String updateTime;
 

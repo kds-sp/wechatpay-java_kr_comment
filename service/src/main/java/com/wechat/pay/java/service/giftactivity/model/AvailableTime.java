@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** AvailableTime */
 public class AvailableTime {
-  /** 可用开始时间 说明：可用开始时间 */
+  /** 사용 가능 시작 시간 설명: 사용 가능 시작 시간 */
   @SerializedName("begin_time")
   private String beginTime;
 
-  /** 可用结束时间 说明：可用结束时间 */
+  /** 사용 가능 종료 시간 설명: 사용 가능 종료 시간 */
   @SerializedName("end_time")
   private String endTime;
 

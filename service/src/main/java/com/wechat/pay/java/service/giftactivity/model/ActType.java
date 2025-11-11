@@ -14,7 +14,7 @@ package com.wechat.pay.java.service.giftactivity.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** 活动类型 */
+/** 활동 유형 */
 public enum ActType {
   @SerializedName("FULL_SEND_ACT_TYPE")
   FULL_SEND_ACT_TYPE,

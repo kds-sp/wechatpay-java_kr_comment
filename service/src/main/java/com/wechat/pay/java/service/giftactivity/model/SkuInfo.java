@@ -18,15 +18,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** SkuInfo */
 public class SkuInfo {
-  /** 指定商品 说明：指定商品（商品sku） */
+  /** 지정 상품 설명: 지정 상품(상품 sku) */
   @SerializedName("goods_id")
   private String goodsId;
 
-  /** 创建时间 说明：创建时间 */
+  /** 생성 시간 설명: 생성 시간 */
   @SerializedName("create_time")
   private String createTime;
 
-  /** 更新时间 说明：更新时间 */
+  /** 업데이트 시간 설명: 업데이트 시간 */
   @SerializedName("update_time")
   private String updateTime;
 

@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteActivityMerchantResponse */
 public class DeleteActivityMerchantResponse {
-  /** 活动Id 说明：活动Id */
+  /** 활동 ID 설명: 활동 ID */
   @SerializedName("activity_id")
   private String activityId;
 
-  /** 删除时间 说明：成功删除发券商户号的时间 */
+  /** 삭제 시간 설명: 발권 가맹점 번호를 성공적으로 삭제한 시간 */
   @SerializedName("delete_time")
   private String deleteTime;
 

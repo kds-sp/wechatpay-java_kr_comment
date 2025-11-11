@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** InvalidParticipateMerchant */
 public class InvalidParticipateMerchant {
-  /** 商户Id 说明：商户Id */
+  /** 가맹점 ID 설명: 가맹점 ID */
   @SerializedName("mchid")
   private String mchid;
 
-  /** 无效原因 说明：活动参与商户校验失败的原因 */
+  /** 무효 사유 설명: 활동 참여 가맹점 검증 실패 사유 */
   @SerializedName("invalid_reason")
   private String invalidReason;
 

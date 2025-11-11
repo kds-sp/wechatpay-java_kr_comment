@@ -20,9 +20,9 @@ import java.util.List;
 /** PaymentMode */
 public class PaymentMode {
   /**
-   * 支付场景列表
-   * 说明：APP_SCENE：App场景；SWING_CARD:刷卡;NO_SECRET_SCENE:免密支付;MINIAPP_SCENE:小程序;FACE_PAY_SCENE:人脸支付;
-   * OTHER_SCENE:其他支付场景
+   * 결제 시나리오 목록
+   * 설명: APP_SCENE: App 시나리오; SWING_CARD: 카드 결제; NO_SECRET_SCENE: 비밀번호 없이 결제; MINIAPP_SCENE: 미니프로그램; FACE_PAY_SCENE: 얼굴 결제;
+   * OTHER_SCENE: 기타 결제 시나리오
    */
   @SerializedName("payment_scene_list")
   private List<PaymentScene> paymentSceneList;

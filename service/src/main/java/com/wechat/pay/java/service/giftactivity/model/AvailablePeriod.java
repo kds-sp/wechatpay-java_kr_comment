@@ -19,11 +19,11 @@ import java.util.List;
 
 /** AvailablePeriod */
 public class AvailablePeriod {
-  /** 可用时间 说明：可用时间 */
+  /** 사용 가능 시간 설명: 사용 가능 시간 */
   @SerializedName("available_time")
   private List<AvailableTime> availableTime;
 
-  /** 每日可用时间 说明：每日可用时间 */
+  /** 매일 사용 가능 시간 설명: 매일 사용 가능 시간 */
   @SerializedName("available_day_time")
   private List<AvailableDayTime> availableDayTime;
 

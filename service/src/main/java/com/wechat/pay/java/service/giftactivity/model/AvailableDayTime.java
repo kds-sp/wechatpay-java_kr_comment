@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** AvailableDayTime */
 public class AvailableDayTime {
-  /** 每日可用开始时间 说明：每日可用开始时间(格式:110000,表示11:00:00) */
+  /** 매일 사용 가능 시작 시간 설명: 매일 사용 가능 시작 시간(형식: 110000, 11:00:00을 의미) */
   @SerializedName("begin_day_time")
   private String beginDayTime;
 
-  /** 每日可用结束时间 说明：每日可用结束时间 (格式:135959,表示13:59:59) */
+  /** 매일 사용 가능 종료 시간 설명: 매일 사용 가능 종료 시간(형식: 135959, 13:59:59를 의미) */
   @SerializedName("end_day_time")
   private String endDayTime;
 

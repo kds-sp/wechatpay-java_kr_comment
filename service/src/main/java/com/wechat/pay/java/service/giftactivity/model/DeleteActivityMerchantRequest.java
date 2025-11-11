@@ -21,16 +21,16 @@ import java.util.List;
 
 /** DeleteActivityMerchantRequest */
 public class DeleteActivityMerchantRequest {
-  /** 活动Id 说明：活动Id */
+  /** 활동 ID 설명: 활동 ID */
   @SerializedName("activity_id")
   @Expose(serialize = false)
   private String activityId;
 
-  /** 删除的发券商户号 说明：从活动已有的发券商户号中移除的商户号列表 */
+  /** 삭제할 발권 가맹점 번호 설명: 활동에 이미 있는 발권 가맹점 번호에서 제거할 가맹점 번호 목록 */
   @SerializedName("merchant_id_list")
   private List<String> merchantIdList = new ArrayList<String>();
 
-  /** 请求业务单据号 说明：商户添加发券商户号的凭据号，商户侧需保持唯一性 */
+  /** 요청 업무 전표 번호 설명: 가맹점이 발권 가맹점 번호를 추가하는 증빙 번호, 가맹점 측에서 고유성을 유지해야 함 */
   @SerializedName("delete_request_no")
   private String deleteRequestNo;
 

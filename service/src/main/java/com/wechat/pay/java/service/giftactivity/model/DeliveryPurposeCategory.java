@@ -14,7 +14,7 @@ package com.wechat.pay.java.service.giftactivity.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/** 投放目的枚举值 */
+/** 배포 목적 열거형 값 */
 public enum DeliveryPurposeCategory {
   @SerializedName("OFF_LINE_PAY")
   OFF_LINE_PAY,

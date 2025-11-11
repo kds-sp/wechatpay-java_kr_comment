@@ -19,17 +19,17 @@ import com.google.gson.annotations.SerializedName;
 
 /** ListActivityMerchantRequest */
 public class ListActivityMerchantRequest {
-  /** 活动Id 说明：活动Id */
+  /** 활동 ID 설명: 활동 ID */
   @SerializedName("activity_id")
   @Expose(serialize = false)
   private String activityId;
 
-  /** 分页页码 说明：分页页码 */
+  /** 페이지 번호 설명: 페이지 번호 */
   @SerializedName("offset")
   @Expose(serialize = false)
   private Long offset;
 
-  /** 分页大小 说明：限制分页最大数据条目 */
+  /** 페이지 크기 설명: 페이지 최대 데이터 항목 제한 */
   @SerializedName("limit")
   @Expose(serialize = false)
   private Long limit;

@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 
 /** TerminateActivityRequest */
 public class TerminateActivityRequest {
-  /** 活动Id 说明：活动Id */
+  /** 활동 ID 설명: 활동 ID */
   @SerializedName("activity_id")
   @Expose(serialize = false)
   private String activityId;

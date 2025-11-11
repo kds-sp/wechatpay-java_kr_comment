@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 
 /** PaymentMethodInfo */
 public class PaymentMethodInfo {
-  /** 支付方式 说明：支付方式，可以指定银行卡或零钱 */
+  /** 결제 방식 설명: 결제 방식, 은행 카드 또는 잔액을 지정할 수 있음 */
   @SerializedName("payment_method")
   private PaymentMethodCategory paymentMethod;
 
-  /** 银行简称 说明：银行简称，指定支付方式为银行卡必填，详询附录 */
+  /** 은행 약칭 설명: 은행 약칭, 결제 방식을 은행 카드로 지정할 때 필수, 부록 참조 */
   @SerializedName("bank_abbreviation")
   private String bankAbbreviation;
 
