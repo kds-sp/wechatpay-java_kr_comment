@@ -18,19 +18,19 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 国密配置 */
+/** 국밀 구성 */
 public final class SMConfig implements Config {
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   private final String merchantId;
 
-  /** 商户私钥 */
+  /** 가맹점 개인키 */
   private final PrivateKey privateKey;
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   private final String merchantSerialNumber;
 
-  /** 微信支付平台证书Provider */
+  /** 위챗페이 플랫폼 인증서 Provider */
   private final CertificateProvider certificateProvider;
 
   private SMConfig(Builder builder) {
@@ -41,9 +41,9 @@ public final class SMConfig implements Config {
   }
 
   /**
-   * 创建敏感信息加密器
+   * 민감 정보 암호화기를 생성합니다.
    *
-   * @return 敏感信息加密器
+   * @return 민감 정보 암호화기
    */
   @Override
   public PrivacyEncryptor createEncryptor() {
@@ -53,9 +53,9 @@ public final class SMConfig implements Config {
   }
 
   /**
-   * 创建敏感信息解密器
+   * 민감 정보 복호화기를 생성합니다.
    *
-   * @return 敏感信息解密器
+   * @return 민감 정보 복호화기
    */
   @Override
   public PrivacyDecryptor createDecryptor() {
@@ -63,9 +63,9 @@ public final class SMConfig implements Config {
   }
 
   /**
-   * 创建认证凭据生成器
+   * 인증 자격 증명 생성기를 생성합니다.
    *
-   * @return 认证凭据生成器
+   * @return 인증 자격 증명 생성기
    */
   @Override
   public Credential createCredential() {
@@ -73,9 +73,9 @@ public final class SMConfig implements Config {
   }
 
   /**
-   * 创建请求验证器
+   * 요청 검증기를 생성합니다.
    *
-   * @return 请求验证器
+   * @return 요청 검증기
    */
   @Override
   public Validator createValidator() {
@@ -83,9 +83,9 @@ public final class SMConfig implements Config {
   }
 
   /**
-   * 创建签名器
+   * 서명기를 생성합니다.
    *
-   * @return 签名器
+   * @return 서명기
    */
   @Override
   public Signer createSigner() {
@@ -115,9 +115,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 设置私钥，从指定的本地私钥文件获得
+     * 개인키를 설정합니다. 지정된 로컬 개인키 파일에서 가져옵니다.
      *
-     * @param privateKeyPath 本地私钥文件路径
+     * @param privateKeyPath 로컬 개인키 파일 경로
      * @return Builder
      */
     public Builder privateKeyFromPath(String privateKeyPath) {
@@ -125,9 +125,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 设置商户API证书序列号
+     * 가맹점 API 인증서 일련번호를 설정합니다.
      *
-     * @param merchantSerialNumber 商户API证书序列号
+     * @param merchantSerialNumber 가맹점 API 인증서 일련번호
      * @return Builder
      */
     public Builder merchantSerialNumber(String merchantSerialNumber) {
@@ -136,9 +136,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 设置微信支付平台证书提供器
+     * 위챗페이 플랫폼 인증서 제공자를 설정합니다.
      *
-     * @param provider 微信支付平台证书提供器
+     * @param provider 위챗페이 플랫폼 인증서 제공자
      * @return Builder
      */
     public Builder wechatPayCertificateProvider(CertificateProvider provider) {
@@ -147,9 +147,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 添加一个微信支付平台证书对象
+     * 위챗페이 플랫폼 인증서 객체를 추가합니다.
      *
-     * @param certificate 微信支付平台证书对象
+     * @param certificate 위챗페이 플랫폼 인증서 객체
      * @return Builder
      */
     public Builder addWechatPayCertificate(X509Certificate certificate) {
@@ -158,9 +158,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 添加一个字符串的微信支付平台证书
+     * 문자열 형태의 위챗페이 플랫폼 인증서를 추가합니다.
      *
-     * @param certificate 微信支付平台证书
+     * @param certificate 위챗페이 플랫폼 인증서
      * @return Builder
      */
     public Builder addWechatPayCertificate(String certificate) {
@@ -168,9 +168,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 添加一个微信支付平台证书,从指定的本地证书文件
+     * 위챗페이 플랫폼 인증서를 추가합니다. 지정된 로컬 인증서 파일에서 가져옵니다.
      *
-     * @param certificatePath 微信支付平台证书路径
+     * @param certificatePath 위챗페이 플랫폼 인증서 경로
      * @return Builder
      */
     public Builder addWechatPayCertificateFromPath(String certificatePath) {
@@ -178,9 +178,9 @@ public final class SMConfig implements Config {
     }
 
     /**
-     * 移除所有的微信支付平台证书，加入新的证书列表
+     * 모든 위챗페이 플랫폼 인증서를 제거하고 새로운 인증서 목록을 추가합니다.
      *
-     * @param wechatPayCertificates 微信支付平台证书列表
+     * @param wechatPayCertificates 위챗페이 플랫폼 인증서 목록
      * @return Builder
      */
     public Builder wechatPayCertificates(List<X509Certificate> wechatPayCertificates) {

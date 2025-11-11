@@ -5,7 +5,7 @@ import com.wechat.pay.java.core.cipher.AbstractPrivacyEncryptor;
 import java.security.PublicKey;
 import java.security.Security;
 
-/** 国密敏感信息加密器 */
+/** 국밀 민감 정보 암호화기 */
 public final class SM2PrivacyEncryptor extends AbstractPrivacyEncryptor {
 
   static {
@@ -13,8 +13,8 @@ public final class SM2PrivacyEncryptor extends AbstractPrivacyEncryptor {
   }
 
   /**
-   * @param publicKey 请求的敏感信息加密时使用的微信支付国密公钥
-   * @param wechatpaySerial 微信支付国密平台证书的证书序列号
+   * @param publicKey 요청의 민감 정보 암호화 시 사용되는 위챗페이 국밀 공개키
+   * @param wechatpaySerial 위챗페이 국밀 플랫폼 인증서의 인증서 일련번호
    */
   public SM2PrivacyEncryptor(PublicKey publicKey, String wechatpaySerial) {
     super("SM2", publicKey, wechatpaySerial);

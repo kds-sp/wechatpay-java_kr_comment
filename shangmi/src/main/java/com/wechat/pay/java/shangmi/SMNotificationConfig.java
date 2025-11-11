@@ -52,9 +52,9 @@ public class SMNotificationConfig implements NotificationConfig {
     private byte[] apiV3Key;
 
     /**
-     * 移除之前的微信支付平台证书，加入新的证书
+     * 이전의 위챗페이 플랫폼 인증서를 제거하고 새로운 인증서를 추가합니다.
      *
-     * @param wechatpayCertificates 微信支付平台证书列表
+     * @param wechatpayCertificates 위챗페이 플랫폼 인증서 목록
      * @return Builder
      */
     public Builder wechatPayCertificates(List<X509Certificate> wechatpayCertificates) {
@@ -63,9 +63,9 @@ public class SMNotificationConfig implements NotificationConfig {
     }
 
     /**
-     * 设置微信支付平台证书提供器
+     * 위챗페이 플랫폼 인증서 제공자를 설정합니다.
      *
-     * @param certificateProvider 微信支付平台证书提供器
+     * @param certificateProvider 위챗페이 플랫폼 인증서 제공자
      * @return Builder
      */
     public Builder wechatPayCertificateProvider(CertificateProvider certificateProvider) {
@@ -74,9 +74,9 @@ public class SMNotificationConfig implements NotificationConfig {
     }
 
     /**
-     * 添加一个微信支付平台证书对象
+     * 위챗페이 플랫폼 인증서 객체를 추가합니다.
      *
-     * @param certificate 微信支付平台证书对象
+     * @param certificate 위챗페이 플랫폼 인증서 객체
      * @return Builder
      */
     public Builder addWechatPayCertificate(X509Certificate certificate) {
@@ -85,9 +85,9 @@ public class SMNotificationConfig implements NotificationConfig {
     }
 
     /**
-     * 添加一个字符串的微信支付平台证书
+     * 문자열 형태의 위챗페이 플랫폼 인증서를 추가합니다.
      *
-     * @param certificate 微信支付平台证书
+     * @param certificate 위챗페이 플랫폼 인증서
      * @return Builder
      */
     public Builder addWechatPayCertificate(String certificate) {
@@ -95,9 +95,9 @@ public class SMNotificationConfig implements NotificationConfig {
     }
 
     /**
-     * 设置APIv3密钥
+     * APIv3 키를 설정합니다.
      *
-     * @param apiV3Key APIv3密钥
+     * @param apiV3Key APIv3 키
      * @return Builder
      */
     public Builder apiV3Key(String apiV3Key) {

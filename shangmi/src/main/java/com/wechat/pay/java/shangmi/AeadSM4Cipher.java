@@ -10,7 +10,7 @@ import java.security.NoSuchProviderException;
 import java.security.Security;
 import java.util.Arrays;
 
-/** 国密SM4Gcm加解密器 */
+/** 국밀 SM4Gcm 암호화/복호화기 */
 public final class AeadSM4Cipher extends AbstractAeadCipher {
 
   static {
@@ -22,17 +22,17 @@ public final class AeadSM4Cipher extends AbstractAeadCipher {
   private static final String ALGORITHM = "SM4";
 
   /**
-   * @param apiV3Key APIv3密钥
+   * @param apiV3Key APIv3 키
    */
   public AeadSM4Cipher(byte[] apiV3Key) {
     super(ALGORITHM, TRANSFORMATION, TAG_LENGTH_BIT, covertSM4Key(apiV3Key));
   }
 
   /**
-   * 取SM3摘要的前128位，将APIv3Key转化成SM4使用的密钥
+   * SM3 다이제스트의 앞 128비트를 취하여 APIv3Key를 SM4에서 사용하는 키로 변환합니다.
    *
    * @param apiV3Key APIv3Key
-   * @return SM4Gcm的密钥
+   * @return SM4Gcm의 키
    */
   private static byte[] covertSM4Key(byte[] apiV3Key) {
     try {

@@ -5,7 +5,7 @@ import com.wechat.pay.java.core.certificate.CertificateProvider;
 import com.wechat.pay.java.core.cipher.AbstractVerifier;
 import java.security.Security;
 
-/** 国密验签器 */
+/** 국밀 서명 검증기 */
 public class SM2Verifier extends AbstractVerifier {
 
   static {
@@ -13,9 +13,9 @@ public class SM2Verifier extends AbstractVerifier {
   }
 
   /**
-   * SM2Verifier 构造函数
+   * SM2Verifier 생성자
    *
-   * @param certificateProvider 验签使用的微信支付平台证书管理器，非空
+   * @param certificateProvider 서명 검증에 사용되는 위챗페이 플랫폼 인증서 관리자, null이 아님
    */
   public SM2Verifier(CertificateProvider certificateProvider) {
 

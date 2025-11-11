@@ -17,50 +17,50 @@ public class SMPemUtil {
   }
 
   /**
-   * 从私钥字符串中加载EC(椭圆曲线)私钥。
+   * 개인키 문자열에서 EC(타원 곡선) 개인키를 로드합니다.
    *
-   * @param keyString 私钥字符串
-   * @return EC(椭圆曲线)私钥。例如：国密私钥
+   * @param keyString 개인키 문자열
+   * @return EC(타원 곡선) 개인키. 예: 국밀 개인키
    */
   public static PrivateKey loadPrivateKeyFromString(String keyString) {
     return PemUtil.loadPrivateKeyFromString(keyString, "EC", KonaProvider.NAME);
   }
 
   /**
-   * 从私钥文件路径加载私钥
+   * 개인키 파일 경로에서 개인키를 로드합니다.
    *
-   * @param keyPath 私钥文件路径
-   * @return 私钥
+   * @param keyPath 개인키 파일 경로
+   * @return 개인키
    */
   public static PrivateKey loadPrivateKeyFromPath(String keyPath) {
     return PemUtil.loadPrivateKeyFromPath(keyPath, "EC", KonaProvider.NAME);
   }
 
   /**
-   * 从证书输入流加载证书
+   * 인증서 입력 스트림에서 인증서를 로드합니다.
    *
-   * @param inputStream 证书输入流
-   * @return X509证书
+   * @param inputStream 인증서 입력 스트림
+   * @return X509 인증서
    */
   public static X509Certificate loadX509FromStream(InputStream inputStream) {
     return PemUtil.loadX509FromStream(inputStream, KonaProvider.NAME);
   }
 
   /**
-   * 从证书文件路径加载证书
+   * 인증서 파일 경로에서 인증서를 로드합니다.
    *
-   * @param certificatePath 证书文件绝对路径
-   * @return X509证书
+   * @param certificatePath 인증서 파일 절대 경로
+   * @return X509 인증서
    */
   public static X509Certificate loadX509FromPath(String certificatePath) {
     return PemUtil.loadX509FromPath(certificatePath, KonaProvider.NAME);
   }
 
   /**
-   * 从证书字符串加载证书
+   * 인증서 문자열에서 인증서를 로드합니다.
    *
-   * @param certificateString 证书字符串
-   * @return X509证书
+   * @param certificateString 인증서 문자열
+   * @return X509 인증서
    */
   public static X509Certificate loadX509FromString(String certificateString) {
     return PemUtil.loadX509FromString(certificateString, KonaProvider.NAME);

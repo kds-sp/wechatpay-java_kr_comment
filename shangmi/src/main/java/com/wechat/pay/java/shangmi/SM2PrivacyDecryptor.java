@@ -12,7 +12,7 @@ public final class SM2PrivacyDecryptor extends AbstractPrivacyDecryptor {
   }
 
   /**
-   * @param privateKey 商户API私钥
+   * @param privateKey 가맹점 API 개인키
    */
   public SM2PrivacyDecryptor(PrivateKey privateKey) {
     super("SM2", privateKey);
