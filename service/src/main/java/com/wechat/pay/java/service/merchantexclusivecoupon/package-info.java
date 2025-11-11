@@ -1,2 +1,2 @@
-/** 营销商家券对外API */
+/** 마케팅 가맹점 쿠폰 대외 API */
 package com.wechat.pay.java.service.merchantexclusivecoupon;
