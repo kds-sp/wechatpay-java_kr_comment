@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -18,22 +18,22 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryReturnOrderRequest */
 public class QueryReturnOrderRequest {
-  /** 电商平台二级商户号 说明：分账回退的接收商户，对应原分账出资的电商平台二级商户，填写微信支付分配的商户号 */
+  /** 전자상거래 플랫폼 하위 가맹점 번호 설명: 분할 환불 수신 가맹점, 원래 분할 출자 전자상거래 플랫폼 하위 가맹점에 대응, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   @Expose(serialize = false)
   private String subMchid;
 
-  /** 商户回退单号 说明：调用回退接口提供的商户系统内部的回退单号 */
+  /** 가맹점 환불 내역 번호 설명: 환불 인터페이스 호출 시 제공한 가맹점 시스템 내부의 환불 내역 번호 */
   @SerializedName("out_return_no")
   @Expose(serialize = false)
   private String outReturnNo;
 
-  /** 微信分账单号 说明：原发起分账请求时，微信返回的微信分账单号，与商户分账单号一一对应。 微信分账单号与商户分账单号二选一填写 */
+  /** 위챗 분할 내역 번호 설명: 원래 분할 요청을 시작할 때, 위챗이 반환한 위챗 분할 내역 번호, 가맹점 분할 내역 번호와 일대일 대응. 위챗 분할 내역 번호와 가맹점 분할 내역 번호 중 하나 선택하여 기입 */
   @SerializedName("order_id")
   @Expose(serialize = false)
   private String orderId;
 
-  /** 商户分账单号 说明：原发起分账请求时使用的商户系统内部的分账单号。微信分账单号与商户分账单号二选一填写 */
+  /** 가맹점 분할 내역 번호 설명: 원래 분할 요청을 시작할 때 사용한 가맹점 시스템 내부의 분할 내역 번호. 위챗 분할 내역 번호와 가맹점 분할 내역 번호 중 하나 선택하여 기입 */
   @SerializedName("out_order_no")
   @Expose(serialize = false)
   private String outOrderNo;

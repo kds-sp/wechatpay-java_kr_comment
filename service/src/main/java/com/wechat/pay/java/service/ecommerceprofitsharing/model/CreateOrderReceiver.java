@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -19,30 +19,30 @@ import java.util.function.UnaryOperator;
 
 /** CreateOrderReceiver */
 public class CreateOrderReceiver {
-  /** 分账接收方类型 说明：分账接收方类型 枚举值： MERCHANT\\_ID：商户 PERSONAL\\_OPENID：个人 */
+  /** 분할 수신자 유형 설명: 분할 수신자 유형 열거형 값: MERCHANT_ID: 가맹점 PERSONAL_OPENID: 개인 */
   @SerializedName("type")
   private String type;
 
-  /** 分账接收方账号 说明：分账接收方账号： 类型是MERCHANT\\_ID时，是商户ID 类型是PERSONAL\\_OPENID时，是个人OpenID */
+  /** 분할 수신자 계정 설명: 분할 수신자 계정: 유형이 MERCHANT_ID인 경우, 가맹점 ID 유형이 PERSONAL_OPENID인 경우, 개인 OpenID */
   @SerializedName("receiver_account")
   private String receiverAccount;
 
-  /** 分账接收商户号 说明：接收方类型为MERCHANT_ID时，填入微信支付分配的商户号。 如果填写了字段receiver_account，则无需填写本字段 */
+  /** 분할 수신 가맹점 번호 설명: 수신자 유형이 MERCHANT_ID인 경우, 위챗페이가 할당한 가맹점 번호를 기입. receiver_account 필드를 기입한 경우, 본 필드는 기입할 필요 없음 */
   @SerializedName("receiver_mchid")
   private String receiverMchid;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 분할 금액 설명: 분할 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액 및 최대 분할 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 분할 설명 설명: 분할 사유 설명, 분할 내역서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 
   /**
-   * 分账个人接收方姓名 说明：可选项，在接收方类型为个人的时可选填，若有值，会检查与 receiver\\_name 是否实名匹配，不匹配会拒绝分账请求 1.
-   * 分账接收方类型是PERSONAL\\_OPENID时，是个人姓名的密文（选传，传则校验）此字段的加密的方式详见：[敏感信息加解密](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/wechatpay/wechatpay4_3.shtml)
-   * 2. 使用微信支付平台证书中的公钥 3. 使用RSAES-OAEP算法进行加密 4. 将请求中HTTP头部的Wechatpay-Serial设置为证书序列号
+   * 분할 개인 수신자 이름 설명: 선택 항목, 수신자 유형이 개인일 때 선택적으로 기입 가능, 값이 있으면 receiver_name과 실명 일치 여부를 확인하며, 일치하지 않으면 분할 요청 거부 1.
+   * 분할 수신자 유형이 PERSONAL_OPENID인 경우, 개인 이름의 암호문(선택 전달, 전달 시 검증) 이 필드의 암호화 방식은 자세히 보기: [민감 정보 암호화/복호화](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/wechatpay/wechatpay4_3.shtml)
+   * 2. 위챗페이 플랫폼 인증서의 공개 키 사용 3. RSAES-OAEP 알고리즘을 사용하여 암호화 4. 요청의 HTTP 헤더의 Wechatpay-Serial을 인증서 일련 번호로 설정
    */
   @Encryption
   @SerializedName("receiver_name")

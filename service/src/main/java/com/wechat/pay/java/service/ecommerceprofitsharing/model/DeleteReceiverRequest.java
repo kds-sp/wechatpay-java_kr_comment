@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** DeleteReceiverRequest */
 public class DeleteReceiverRequest {
-  /** 公众账号ID 说明：微信分配的公众账号ID */
+  /** 공개 계정 ID 설명: 위챗이 할당한 공개 계정 ID */
   @SerializedName("appid")
   private String appid;
 
-  /** 接收方类型 说明：接收方类型 枚举值： MERCHANT\\_ID：商户 PERSONAL\\_OPENID：个人 */
+  /** 수신자 유형 설명: 수신자 유형 열거형 값: MERCHANT_ID: 가맹점 PERSONAL_OPENID: 개인 */
   @SerializedName("type")
   private String type;
 
-  /** 接收方账号 说明：类型是MERCHANT_ID时，是商户号 类型是PERSONAL_OPENID时，是个人openid */
+  /** 수신자 계정 설명: 유형이 MERCHANT_ID인 경우, 가맹점 번호 유형이 PERSONAL_OPENID인 경우, 개인 openid */
   @SerializedName("account")
   private String account;
 

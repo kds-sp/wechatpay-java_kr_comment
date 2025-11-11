@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,32 +17,32 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryAfterSalesOrderResponse */
 public class QueryAfterSalesOrderResponse {
-  /** 子商户号 说明：分账出资的商户 */
+  /** 하위 가맹점 번호 설명: 분할 출자 가맹점 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 분할 금액 설명: 분할 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액 및 최대 분할 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
   /**
-   * 分账结果 说明：枚举值： 1、PROCESSING：分账中（请稍后查询确认结果） 2、SUCCESS：分账成功（最终状态） 3、FAILED:
-   * 分账失败（最终状态，资金未变动或资金已转回分账出资方，请商户自行处理，具体失败原因请关注\"分账失败原因\"字段）
+   * 분할 결과 설명: 열거형 값: 1, PROCESSING: 분할 중(나중에 조회하여 결과 확인) 2, SUCCESS: 분할 성공(최종 상태) 3, FAILED:
+   * 분할 실패(최종 상태, 자금 미변동 또는 자금이 분할 출자 당사자로 전환됨, 가맹점이 자체 처리, 구체적 실패 사유는 "분할 실패 사유" 필드 참조)
    */
   @SerializedName("result")
   private String result;
 
-  /** 分账完成时间 说明：分账完成时间，遵循RFC3339标准格式 */
+  /** 분할 완료 시간 설명: 분할 완료 시간, RFC3339 표준 형식 준수 */
   @SerializedName("finish_time")
   private String finishTime;
 
   /**
-   * 分账失败原因 说明：分账失败原因。包含以下枚举值： 1. ACCOUNT_ABNORMAL : 分账接收账户异常 2. NO_RELATION : 分账关系已解除 3.
-   * RECEIVER_HIGH_RISK : 高风险接收方
+   * 분할 실패 사유 설명: 분할 실패 사유. 다음 열거형 값 포함: 1. ACCOUNT_ABNORMAL: 분할 수신 계정 이상 2. NO_RELATION: 분할 관계 해제됨 3.
+   * RECEIVER_HIGH_RISK: 고위험 수신자
    */
   @SerializedName("fail_reason")
   private String failReason;

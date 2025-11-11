@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,50 +17,50 @@ import com.google.gson.annotations.SerializedName;
 
 /** OrderReceiverDetail */
 public class OrderReceiverDetail {
-  /** 分账接收商户号 说明：仅分账接收方类型为MERCHANT_ID时，填写微信支付分配的商户号 */
+  /** 분할 수신 가맹점 번호 설명: 분할 수신자 유형이 MERCHANT_ID일 때만, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("receiver_mchid")
   private String receiverMchid;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 분할 금액 설명: 분할 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액 및 최대 분할 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 분할 설명 설명: 분할 사유 설명, 분할 내역서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 
-  /** 分账结果 说明：枚举值： 1. PENDING：待分账 2. SUCCESS：分账成功 3. CLOSED：已关闭 */
+  /** 분할 결과 설명: 열거형 값: 1. PENDING: 분할 대기 2. SUCCESS: 분할 성공 3. CLOSED: 닫힘 */
   @SerializedName("result")
   private String result;
 
-  /** 分账完成时间 说明：分账完成时间，遵循RFC3339标准格式 */
+  /** 분할 완료 시간 설명: 분할 완료 시간, RFC3339 표준 형식 준수 */
   @SerializedName("finish_time")
   private String finishTime;
 
   /**
-   * 分账失败原因 说明：分账失败原因。包含以下枚举值： 1. ACCOUNT\\_ABNORMAL : 分账接收账户异常 2. NO\\_RELATION : 分账关系已解除 3.
-   * RECEIVER\\_HIGH\\_RISK : 高风险接收方 4. RECEIVER\\_REAL\\_NAME\\_NOT\\_VERIFIED : 接收方未实名 5.
-   * NO\\_AUTH : 分账权限已解除 6. RECEIVER\\_RECEIPT\\_LIMIT : 超出用户月收款限额 7. PAYER\\_ACCOUNT\\_ABNORMAL :
-   * 分出方账户异常 8. INVALID\\_REQUEST: 描述参数设置失败
+   * 분할 실패 사유 설명: 분할 실패 사유. 다음 열거형 값 포함: 1. ACCOUNT_ABNORMAL: 분할 수신 계정 이상 2. NO_RELATION: 분할 관계 해제됨 3.
+   * RECEIVER_HIGH_RISK: 고위험 수신자 4. RECEIVER_REAL_NAME_NOT_VERIFIED: 수신자 미실명 5.
+   * NO_AUTH: 분할 권한 해제됨 6. RECEIVER_RECEIPT_LIMIT: 사용자 월 수신 한도 초과 7. PAYER_ACCOUNT_ABNORMAL:
+   * 분출 당사자 계정 이상 8. INVALID_REQUEST: 설명 매개변수 설정 실패
    */
   @SerializedName("fail_reason")
   private String failReason;
 
   /**
-   * 接收方类型 说明：接收方类型 枚举值： MERCHANT\\_ID：商户号（mch\\_id或者sub\\_mch\\_id）
-   * PERSONAL\\_OPENID：个人OpenID（由服务商的APPID转换得到） PERSONAL\\_SUB\\_OPENID：个人SubOpenID（由品牌主的APPID转换得到）
+   * 수신자 유형 설명: 수신자 유형 열거형 값: MERCHANT_ID: 가맹점 번호(mch_id 또는 sub_mch_id)
+   * PERSONAL_OPENID: 개인 OpenID(서비스 제공업체의 APPID로 변환) PERSONAL_SUB_OPENID: 개인 SubOpenID(브랜드 소유자의 APPID로 변환)
    */
   @SerializedName("type")
   private String type;
 
   /**
-   * 接收方账号 说明：接收方账号。 枚举值： 类型是MERCHANT\\_ID时，是商户号（mch\\_id或者sub\\_mch\\_id）
-   * 类型是PERSONAL\\_OPENID时，是个人openid，[openid获取方法](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/open/pay/chapter3_3_1.shtml#part-13)
+   * 수신자 계정 설명: 수신자 계정. 열거형 값: 유형이 MERCHANT_ID인 경우, 가맹점 번호(mch_id 또는 sub_mch_id)
+   * 유형이 PERSONAL_OPENID인 경우, 개인 openid, [openid 획득 방법](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/open/pay/chapter3_3_1.shtml#part-13)
    */
   @SerializedName("receiver_account")
   private String receiverAccount;
 
-  /** 分账明细单号 说明：微信分账明细单号，每笔分账业务执行的明细单号，可与资金账单对账使用 */
+  /** 분할 상세 내역 번호 설명: 위챗 분할 상세 내역 번호, 각 분할 거래 실행 상세 내역 번호, 자금 내역서와 대조에 사용 가능 */
   @SerializedName("detail_id")
   private String detailId;
 

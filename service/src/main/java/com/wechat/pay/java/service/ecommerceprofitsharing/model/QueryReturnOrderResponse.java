@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,49 +17,49 @@ import com.google.gson.annotations.SerializedName;
 
 /** QueryReturnOrderResponse */
 public class QueryReturnOrderResponse {
-  /** 电商平台二级商户号 说明：分账回退的接收商户，对应原分账出资的电商平台二级商户，填写微信支付分配的商户号 */
+  /** 전자상거래 플랫폼 하위 가맹점 번호 설명: 분할 환불 수신 가맹점, 원래 분할 출자 전자상거래 플랫폼 하위 가맹점에 대응, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信分账单号 说明：微信分账单号，微信系统返回的唯一标识 */
+  /** 위챗 분할 내역 번호 설명: 위챗 분할 내역 번호, 위챗 시스템이 반환한 고유 식별자 */
   @SerializedName("order_id")
   private String orderId;
 
-  /** 商户分账单号 说明：商户系统内部的分账单号，在商户系统内部唯一（单次分账、多次分账、完结分账应使用不同的商户分账单号），同一分账单号多次请求等同一次。只能是数字、大小写字母_-|*@ */
+  /** 가맹점 분할 내역 번호 설명: 가맹점 시스템 내부의 분할 내역 번호, 가맹점 시스템 내부에서 고유함(단일 분할, 다중 분할, 완료 분할은 서로 다른 가맹점 분할 내역 번호를 사용해야 함), 동일 분할 내역 번호로 여러 번 요청하면 한 번과 동일함. 숫자, 대소문자 영문, _, -, |, *, @만 가능 */
   @SerializedName("out_order_no")
   private String outOrderNo;
 
-  /** 商户回退单号 说明：此回退单号是商户在自己后台生成的一个新的回退单号，在商户后台唯一 只能是数字、大小写字母_-|*@ ，同一回退单号多次请求等同一次。 */
+  /** 가맹점 환불 내역 번호 설명: 이 환불 내역 번호는 가맹점이 자체 백엔드에서 생성한 새로운 환불 내역 번호로, 가맹점 백엔드에서 고유함 숫자, 대소문자 영문, _, -, |, *, @만 가능, 동일 환불 내역 번호로 여러 번 요청하면 한 번과 동일함. */
   @SerializedName("out_return_no")
   private String outReturnNo;
 
-  /** 微信回退单号 说明：微信分账回退单号，微信系统返回的唯一标识 */
+  /** 위챗 환불 내역 번호 설명: 위챗 분할 환불 내역 번호, 위챗 시스템이 반환한 고유 식별자 */
   @SerializedName("return_no")
   private String returnNo;
 
-  /** 回退商户号 说明：只能对原分账请求中成功分给商户接收方进行回退 */
+  /** 환불 가맹점 번호 설명: 원래 분할 요청에서 성공적으로 분할된 가맹점 수신자에 대해서만 환불 가능 */
   @SerializedName("return_mchid")
   private String returnMchid;
 
-  /** 回退金额 说明：需要从分账接收方回退的金额，单位为分，只能为整数，不能超过原始分账单分出给该接收方的金额 */
+  /** 환불 금액 설명: 분할 수신자로부터 환불해야 하는 금액, 단위는 전, 정수만 가능, 원래 분할 내역서에서 해당 수신자에게 분할된 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
   /**
-   * 回退结果 说明：如果请求返回为处理中，则商户可以通过调用回退结果查询接口获取请求的最终处理结果 枚举值： PROCESSING：处理中 SUCCESS：已成功 FAILED：已失败
-   * 注意：如果返回为处理中，请勿变更商户回退单号，使用相同的参数再次发起分账回退，否则会出现资金风险 在处理中状态的回退单如果5天没有成功，会因为超时被设置为已失败
+   * 환불 결과 설명: 요청 반환값이 처리 중인 경우, 가맹점은 환불 결과 조회 인터페이스를 호출하여 요청의 최종 처리 결과를 획득할 수 있음 열거형 값: PROCESSING: 처리 중 SUCCESS: 성공함 FAILED: 실패함
+   * 참고: 반환값이 처리 중인 경우, 가맹점 환불 내역 번호를 변경하지 말고 동일한 매개변수로 다시 분할 환불을 시작해야 하며, 그렇지 않으면 자금 위험이 발생함 처리 중 상태의 환불 내역이 5일 동안 성공하지 않으면, 시간 초과로 인해 실패로 설정됨
    */
   @SerializedName("result")
   private String result;
 
   /**
-   * 失败原因 说明：失败原因。包含以下枚举值： 1. ACCOUNT_ABNORMAL : 原分账接收方账户异常 2. TIME_OUT_CLOSED : 超时关单 3.
-   * PAYER_ACCOUNT_ABNORMAL : 原分账分出方账户异常 4. INVALID_REQUEST : 描述参数设置失败
+   * 실패 사유 설명: 실패 사유. 다음 열거형 값 포함: 1. ACCOUNT_ABNORMAL: 원래 분할 수신자 계정 이상 2. TIME_OUT_CLOSED: 시간 초과로 주문 닫음 3.
+   * PAYER_ACCOUNT_ABNORMAL: 원래 분할 분출 당사자 계정 이상 4. INVALID_REQUEST: 설명 매개변수 설정 실패
    */
   @SerializedName("fail_reason")
   private String failReason;
 
-  /** 完成时间 说明：分账回退完成时间，遵循RFC3339标准格式 */
+  /** 완료 시간 설명: 분할 환불 완료 시간, RFC3339 표준 형식 준수 */
   @SerializedName("finish_time")
   private String finishTime;
 

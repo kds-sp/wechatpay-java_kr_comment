@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,15 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateAfterSalesOrderResponse */
 public class CreateAfterSalesOrderResponse {
-  /** 子商户号 说明：分账出资的商户 */
+  /** 하위 가맹점 번호 설명: 분할 출자 가맹점 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 분할 금액 설명: 분할 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액 및 최대 분할 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 

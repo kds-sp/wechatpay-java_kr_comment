@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,25 +17,25 @@ import com.google.gson.annotations.SerializedName;
 
 /** AddReceiverRequest */
 public class AddReceiverRequest {
-  /** 公众账号ID 说明：微信分配的公众账号ID */
+  /** 공개 계정 ID 설명: 위챗이 할당한 공개 계정 ID */
   @SerializedName("appid")
   private String appid;
 
-  /** 接收方类型 说明：接收方类型 枚举值： MERCHANT\\_ID：商户 PERSONAL\\_OPENID：个人 */
+  /** 수신자 유형 설명: 수신자 유형 열거형 값: MERCHANT_ID: 가맹점 PERSONAL_OPENID: 개인 */
   @SerializedName("type")
   private String type;
 
-  /** 接收方账号 说明：类型是MERCHANT_ID时，是商户号 类型是PERSONAL_OPENID时，是个人openid */
+  /** 수신자 계정 설명: 유형이 MERCHANT_ID인 경우, 가맹점 번호 유형이 PERSONAL_OPENID인 경우, 개인 openid */
   @SerializedName("account")
   private String account;
 
-  /** 接收方名称 说明：商户全称。仅接收方类型是MERCHANT_ID时，才需要填写此字段。 */
+  /** 수신자 이름 설명: 가맹점 전체 이름. 수신자 유형이 MERCHANT_ID일 때만 이 필드를 기입해야 함. */
   @SerializedName("name")
   private String name;
 
   /**
-   * 与分账方的关系类型 说明：子商户与接收方的关系。 本字段值为枚举： SUPPLIER：供应商 DISTRIBUTOR：分销商 SERVICE_PROVIDER：服务商 PLATFORM：平台
-   * OTHERS：其他
+   * 분할 당사자와의 관계 유형 설명: 하위 가맹점과 수신자의 관계. 본 필드 값은 열거형: SUPPLIER: 공급업체 DISTRIBUTOR: 유통업체 SERVICE_PROVIDER: 서비스 제공업체 PLATFORM: 플랫폼
+   * OTHERS: 기타
    */
   @SerializedName("relation_type")
   private String relationType;

@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,23 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 /** FinishOrderRequest */
 public class FinishOrderRequest {
-  /** 电商平台二级商户号 说明：分账出资的电商平台二级商户，填写微信支付分配的商户号 */
+  /** 전자상거래 플랫폼 하위 가맹점 번호 설명: 분할 출자 전자상거래 플랫폼 하위 가맹점, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 商户分账单号 说明：商户系统内部的分账单号，在商户系统内部唯一（单次分账、多次分账、完结分账应使用不同的商户分账单号），同一分账单号多次请求等同一次。只能是数字、大小写字母_-|*@ */
+  /** 가맹점 분할 내역 번호 설명: 가맹점 시스템 내부의 분할 내역 번호, 가맹점 시스템 내부에서 고유함(단일 분할, 다중 분할, 완료 분할은 서로 다른 가맹점 분할 내역 번호를 사용해야 함), 동일 분할 내역 번호로 여러 번 요청하면 한 번과 동일함. 숫자, 대소문자 영문, _, -, |, *, @만 가능 */
   @SerializedName("out_order_no")
   private String outOrderNo;
 
-  /** 分账描述 说明：分账的原因描述，分账账单中需要体现 */
+  /** 분할 설명 설명: 분할 사유 설명, 분할 내역서에 표시되어야 함 */
   @SerializedName("description")
   private String description;
 
-  /** 分账结果回调url 说明：异步接收微信支付分账结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数 */
+  /** 분할 결과 콜백 url 설명: 비동기로 위챗페이 분할 결과 알림을 수신하는 콜백 주소, 알림 url은 외부 네트워크에서 접근 가능한 url이어야 하며, 매개변수를 포함할 수 없음 */
   @SerializedName("notify_url")
   private String notifyUrl;
 

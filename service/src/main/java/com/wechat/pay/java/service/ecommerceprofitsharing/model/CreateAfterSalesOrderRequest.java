@@ -1,8 +1,8 @@
 // Copyright 2021 Tencent Inc. All rights reserved.
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
-// 微信支付电商平台分账API
+// 위챗페이 전자상거래 플랫폼 분할 API
 //
 // API version: 1.0.21
 
@@ -17,27 +17,27 @@ import com.google.gson.annotations.SerializedName;
 
 /** CreateAfterSalesOrderRequest */
 public class CreateAfterSalesOrderRequest {
-  /** 子商户号 说明：分账出资的商户，填写微信支付分配的商户号 */
+  /** 하위 가맹점 번호 설명: 분할 출자 가맹점, 위챗페이가 할당한 가맹점 번호를 기입 */
   @SerializedName("sub_mchid")
   private String subMchid;
 
-  /** 微信订单号 说明：微信支付订单号 */
+  /** 위챗 주문 번호 설명: 위챗페이 주문 번호 */
   @SerializedName("transaction_id")
   private String transactionId;
 
-  /** 分账金额 说明：分账金额，单位为分，只能为整数，不能超过原订单支付金额及最大分账比例金额 */
+  /** 분할 금액 설명: 분할 금액, 단위는 전, 정수만 가능, 원 주문 결제 금액 및 최대 분할 비율 금액을 초과할 수 없음 */
   @SerializedName("amount")
   private Long amount;
 
-  /** 类型 说明：枚举值：1、SERVICE_FEE_INCOME：服务费收入分账 */
+  /** 유형 설명: 열거형 값: 1, SERVICE_FEE_INCOME: 서비스 수수료 수입 분할 */
   @SerializedName("type")
   private String type;
 
-  /** 场景 说明：枚举值： 1、REFUND_TICKET：退票 2、CHANGE_TICKET：改签 3、RETURN_GOODS：退货 */
+  /** 시나리오 설명: 열거형 값: 1, REFUND_TICKET: 티켓 환불 2, CHANGE_TICKET: 티켓 변경 3, RETURN_GOODS: 상품 반품 */
   @SerializedName("scene")
   private String scene;
 
-  /** 微信退款单号 说明：该笔微信订单对应的微信退款单号。退票收入分账、改签退款收入分账、退货收入分账时必填。 */
+  /** 위챗 환불 내역 번호 설명: 해당 위챗 주문에 대응하는 위챗 환불 내역 번호. 티켓 환불 수입 분할, 티켓 변경 환불 수입 분할, 상품 반품 수입 분할 시 필수. */
   @SerializedName("refund_id")
   private String refundId;
 
