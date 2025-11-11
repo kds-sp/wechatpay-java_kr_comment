@@ -6,42 +6,41 @@ import java.nio.charset.StandardCharsets;
 import java.security.cert.X509Certificate;
 import java.util.List;
 
-/** 证书服务使用示例 */
+/** 인증서 서비스 사용 예제 */
 public class CertificateServiceExample {
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   public static String merchantId = "190000****";
 
-  /** 商户API私钥路径 */
+  /** 가맹점 API 개인키 경로 */
   public static String privateKeyPath = "/Users/yourname/your/path/apiclient_key.pem";
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   public static String merchantSerialNumber = "5157F09EFDC096DE15EBE81A47057A72********";
 
-  /** 商户APIV3密钥 */
+  /** 가맹점 APIV3 키 */
   public static String apiV3Key = "...";
 
   public static CertificateService service;
 
   public static void main(String[] args) {
-    // 初始化商户配置
+    // 가맹점 구성 초기화
     Config config =
         new RSAAutoCertificateConfig.Builder()
             .merchantId(merchantId)
-            // 使用 com.wechat.pay.java.core.util
-            // 中的函数从本地文件中加载商户私钥，商户私钥会用来生成请求的签名
+            // com.wechat.pay.java.core.util의 함수를 사용하여 로컬 파일에서 가맹점 개인키를 로드, 가맹점 개인키는 요청 서명 생성에 사용됨
             .privateKeyFromPath(privateKeyPath)
             .merchantSerialNumber(merchantSerialNumber)
             .apiV3Key(apiV3Key)
             .build();
 
-    // 初始化证书服务
+    // 인증서 서비스 초기화
     service = new CertificateService.Builder().config(config).build();
-    // 设置商户apiV3密钥，apiV3密钥用于解密下载证书
-    // ... 调用接口
+    // 가맹점 apiV3 키 설정, apiV3 키는 다운로드한 인증서 복호화에 사용
+    // ... 인터페이스 호출
   }
 
-  /** 下载证书 */
+  /** 인증서 다운로드 */
   public static List<X509Certificate> downloadCertificate() {
     return service.downloadCertificate(apiV3Key.getBytes(StandardCharsets.UTF_8));
   }

@@ -13,77 +13,77 @@ import com.wechat.pay.java.service.payments.app.model.QueryOrderByOutTradeNoRequ
 import com.wechat.pay.java.service.payments.model.Transaction;
 
 public class AppServiceExtensionExample {
-  /** 商户号 */
+  /** 가맹점 번호 */
   public static String merchantId = "190000****";
 
-  /** 商户API私钥路径 */
+  /** 가맹점 API 개인키 경로 */
   public static String privateKeyPath = "/Users/yourname/your/path/apiclient_key.pem";
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   public static String merchantSerialNumber = "5157F09EFDC096DE15EBE81A47057A72********";
 
-  /** 商户APIV3密钥 */
+  /** 가맹점 APIV3 키 */
   public static String apiV3Key = "...";
 
   public static AppServiceExtension service;
 
   public static void main(String[] args) {
-    // 初始化商户配置
+    // 가맹점 구성 초기화
     Config config =
         new RSAAutoCertificateConfig.Builder()
             .merchantId(merchantId)
-            // 使用 com.wechat.pay.java.core.util 中的函数从本地文件中加载商户私钥，商户私钥会用来生成请求的签名
+            // com.wechat.pay.java.core.util의 함수를 사용하여 로컬 파일에서 가맹점 개인키를 로드, 가맹점 개인키는 요청 서명 생성에 사용됨
             .privateKeyFromPath(privateKeyPath)
             .merchantSerialNumber(merchantSerialNumber)
             .apiV3Key(apiV3Key)
             .build();
-    // 初始化服务
+    // 서비스 초기화
     service = new AppServiceExtension.Builder().config(config).build();
     try {
-      // ... 调用接口
+      // ... 인터페이스 호출
       PrepayWithRequestPaymentResponse response = prepayWithRequestPayment();
       System.out.println(response);
-    } catch (HttpException e) { // 发送HTTP请求失败
-      // 调用e.getHttpRequest()获取请求打印日志或上报监控，更多方法见HttpException定义
-    } catch (ServiceException e) { // 服务返回状态小于200或大于等于300，例如500
-      // 调用e.getResponseBody()获取返回体打印日志或上报监控，更多方法见ServiceException定义
-    } catch (MalformedMessageException e) { // 服务返回成功，返回体类型不合法，或者解析返回体失败
-      // 调用e.getMessage()获取信息打印日志或上报监控，更多方法见MalformedMessageException定义
+    } catch (HttpException e) { // HTTP 요청 전송 실패
+      // e.getHttpRequest()를 호출하여 요청을 가져와 로그를 출력하거나 모니터링에 보고, 더 많은 방법은 HttpException 정의 참조
+    } catch (ServiceException e) { // 서비스 반환 상태가 200보다 작거나 300보다 크거나 같음, 예: 500
+      // e.getResponseBody()를 호출하여 반환 본문을 가져와 로그를 출력하거나 모니터링에 보고, 더 많은 방법은 ServiceException 정의 참조
+    } catch (MalformedMessageException e) { // 서비스 반환 성공, 반환 본문 유형이 불법이거나 반환 본문 파싱 실패
+      // e.getMessage()를 호출하여 정보를 가져와 로그를 출력하거나 모니터링에 보고, 더 많은 방법은 MalformedMessageException 정의 참조
     }
   }
 
-  /** 关闭订单 */
+  /** 주문 닫기 */
   public static void closeOrder() {
 
     CloseOrderRequest request = new CloseOrderRequest();
-    // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
-    // 调用接口
+    // request.setXxx(val)를 호출하여 필요한 매개변수 설정, 구체적인 매개변수는 Request 정의 참조
+    // 인터페이스 호출
     service.closeOrder(request);
   }
 
-  /** APP支付下单，并返回APP调起支付数据 */
+  /** APP 결제 주문, APP 결제 데이터 반환 */
   public static PrepayWithRequestPaymentResponse prepayWithRequestPayment() {
     PrepayRequest request = new PrepayRequest();
-    // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
-    // 调用接口
+    // request.setXxx(val)를 호출하여 필요한 매개변수 설정, 구체적인 매개변수는 Request 정의 참조
+    // 인터페이스 호출
     return service.prepayWithRequestPayment(request);
   }
 
-  /** 微信支付订单号查询订单 */
+  /** 위챗페이 주문 번호로 주문 조회 */
   public static Transaction queryOrderById() {
 
     QueryOrderByIdRequest request = new QueryOrderByIdRequest();
-    // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
-    // 调用接口
+    // request.setXxx(val)를 호출하여 필요한 매개변수 설정, 구체적인 매개변수는 Request 정의 참조
+    // 인터페이스 호출
     return service.queryOrderById(request);
   }
 
-  /** 商户订单号查询订单 */
+  /** 가맹점 주문 번호로 주문 조회 */
   public static Transaction queryOrderByOutTradeNo() {
 
     QueryOrderByOutTradeNoRequest request = new QueryOrderByOutTradeNoRequest();
-    // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
-    // 调用接口
+    // request.setXxx(val)를 호출하여 필요한 매개변수 설정, 구체적인 매개변수는 Request 정의 참조
+    // 인터페이스 호출
     return service.queryOrderByOutTradeNo(request);
   }
 }

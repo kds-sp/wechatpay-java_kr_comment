@@ -27,115 +27,115 @@ import com.wechat.pay.java.service.retailstore.model.RetailStoreInfo;
 import com.wechat.pay.java.service.retailstore.model.UnlockQualificationRequest;
 import com.wechat.pay.java.service.retailstore.model.UnlockQualificationResponse;
 
-/** RetailStoreService使用示例 */
+/** RetailStoreService사용 예제 */
 public class RetailStoreServiceExample {
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   public static String merchantId = "190000****";
 
-  /** 商户API私钥路径 */
+  /** 가맹점 API 개인키 경로 */
   public static String privateKeyPath = "/Users/yourname/your/path/apiclient_key.pem";
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   public static String merchantSerialNumber = "5157F09EFDC096DE15EBE81A47057A72********";
 
-  /** 商户APIV3密钥 */
+  /** 가맹점 APIV3 키 */
   public static String apiV3Key = "...";
 
   public static RetailStoreService service;
 
   public static void main(String[] args) {
-    // 初始化商户配置
+    // 가맹점 구성 초기화
     Config config =
         new RSAAutoCertificateConfig.Builder()
             .merchantId(merchantId)
-            // 使用 com.wechat.pay.java.core.util 中的函数从本地文件中加载商户私钥，商户私钥会用来生成请求的签名
+            // com.wechat.pay.java.core.util의 함수를 사용하여 로컬 파일에서 가맹점 개인키를 로드, 가맹점 개인키는 요청 서명 생성에 사용됨
             .privateKeyFromPath(privateKeyPath)
             .merchantSerialNumber(merchantSerialNumber)
             .apiV3Key(apiV3Key)
             .build();
 
-    // 初始化服务
+    // 서비스 초기화
     service = new RetailStoreService.Builder().config(config).build();
-    // ... 调用接口
+    // ... 인터페이스 호출
   }
 
-  /** 门店报名品牌加价购活动 */
+  /** 매장 브랜드 가격 인상 구매 활동 신청 */
   public static ApplyActivityResponse applyActivity() {
 
     ApplyActivityRequest request = new ApplyActivityRequest();
     return service.applyActivity(request);
   }
 
-  /** 按区域查询品牌加价购活动 */
+  /** 지역별 브랜드 가격 인상 구매 활동 조회 */
   public static ListActsByAreaResponse listActsByArea() {
 
     ListActsByAreaRequest request = new ListActsByAreaRequest();
     return service.listActsByArea(request);
   }
 
-  /** 锁定品牌加价购活动资格 */
+  /** 브랜드 가격 인상 구매 활동 자격 잠금 */
   public static LockQualificationResponse lockQualification() {
     LockQualificationRequest request = new LockQualificationRequest();
     return service.lockQualification(request);
   }
 
-  /** 解锁品牌加价购活动资格 */
+  /** 브랜드 가격 인상 구매 활동 자격 잠금 해제 */
   public static UnlockQualificationResponse unlockQualification() {
     UnlockQualificationRequest request = new UnlockQualificationRequest();
     return service.unlockQualification(request);
   }
 
-  /** 添加零售小店活动业务代理 */
+  /** 소매 소규모 매장 활동 업무 대리인 추가 */
   public static AddRepresentativesResponse addRepresentative() {
 
     AddRepresentativeRequest request = new AddRepresentativeRequest();
     return service.addRepresentative(request);
   }
 
-  /** 添加小店活动门店 */
+  /** 소규모 매장 활동 매장 추가 */
   public static AddStoresResponse addStores() {
 
     AddStoresRequest request = new AddStoresRequest();
     return service.addStores(request);
   }
 
-  /** 生成小店活动物料码 */
+  /** 소규모 매장 활동 재료 코드 생성 */
   public static Materials createMaterials() {
 
     CreateMaterialsRequest request = new CreateMaterialsRequest();
     return service.createMaterials(request);
   }
 
-  /** 删除零售小店活动业务代理 */
+  /** 소매 소규모 매장 활동 업무 대리인 삭제 */
   public static DeleteRepresentativeResponse deleteRepresentative() {
 
     DeleteRepresentativeRequest request = new DeleteRepresentativeRequest();
     return service.deleteRepresentative(request);
   }
 
-  /** 删除小店活动门店 */
+  /** 소규모 매장 활동 매장 삭제 */
   public static DeleteStoresResponse deleteStores() {
 
     DeleteStoresRequest request = new DeleteStoresRequest();
     return service.deleteStores(request);
   }
 
-  /** 查询小店活动门店详情 */
+  /** 소규모 매장 활동 매장 상세 조회 */
   public static RetailStoreInfo getStore() {
 
     GetStoreRequest request = new GetStoreRequest();
     return service.getStore(request);
   }
 
-  /** 查询零售小店活动业务代理 */
+  /** 소매 소규모 매장 활동 업무 대리인 조회 */
   public static ListRepresentativeResponse listRepresentative() {
 
     ListRepresentativeRequest request = new ListRepresentativeRequest();
     return service.listRepresentative(request);
   }
 
-  /** 查询小店活动门店列表 */
+  /** 소규모 매장 활동 매장 목록 조회 */
   public static ListStoreResponse listStore() {
 
     ListStoreRequest request = new ListStoreRequest();

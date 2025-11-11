@@ -9,59 +9,59 @@ import java.util.ArrayList;
 
 public class MarketingBankPackagesServiceExtensionExample {
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   public static String merchantId = "190000****";
 
-  /** 商户API私钥路径 */
+  /** 가맹점 API 개인키 경로 */
   public static String privateKeyPath = "/Users/yourname/your/path/apiclient_key.pem";
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   public static String merchantSerialNumber = "5157F09EFDC096DE15EBE81A47057A72********";
 
-  /** 商户APIV3密钥 */
+  /** 가맹점 APIV3 키 */
   public static String apiV3Key = "...";
 
   public static MarketingBankPackagesServiceExtension service;
 
   public static void main(String[] args) {
-    // 初始化商户配置
+    // 가맹점 구성 초기화
     Config config =
         new RSAAutoCertificateConfig.Builder()
             .merchantId(merchantId)
-            // 使用 com.wechat.pay.java.core.util 中的函数从本地文件中加载商户私钥，商户私钥会用来生成请求的签名
+            // com.wechat.pay.java.core.util의 함수를 사용하여 로컬 파일에서 가맹점 개인키를 로드, 가맹점 개인키는 요청 서명 생성에 사용됨
             .privateKeyFromPath(privateKeyPath)
             .merchantSerialNumber(merchantSerialNumber)
             .apiV3Key(apiV3Key)
             .build();
 
-    // 初始化服务
+    // 서비스 초기화
     service = new MarketingBankPackagesServiceExtension.Builder().config(config).build();
 
-    // 如需通过代理调用微信支付API，可构造OkHttpClient来初始化服务，参考以下示例
+    // 프록시를 통해 위챗페이 API를 호출해야 하는 경우, OkHttpClient를 구성하여 서비스를 초기화할 수 있음, 다음 예제 참조
     // String hostName = "localhost";
     // int port = 1080;
     // OkHttpClient okHttpClient = new OkHttpClient.Builder()
     //         .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(hostName, port)))
     //         .build();
-    // 示例一：
+    // 예제 1:
     // HttpClient okHttpClientAdapter = new OkHttpClientAdapter(config.createCredential(),
     // config.createValidator(),
     //         okHttpClient);
     // service = new
     // MarketingBankPackagesServiceExtension.Builder().encryptor(config.createEncryptor()).httpClient(okHttpClientAdapter).build();
-    // 示例二：
+    // 예제 2:
     // HttpClient httpClient = new
     // DefaultHttpClientBuilder().config(config).okHttpClient(okHttpClient).build();
     // service = new
     // MarketingBankPackagesServiceExtension.Builder().encryptor(config.createEncryptor()).httpClient(httpClient).build();
 
-    // ... 调用接口
+    // ... 인터페이스 호출
     // uploadPackageByFile();
     uploadPackage();
     listTask();
   }
 
-  /** 查询上传任务列表 */
+  /** 업로드 작업 목록 조회 */
   public static ListTaskResponse listTask() {
 
     ListTaskRequest request = new ListTaskRequest();
@@ -75,7 +75,7 @@ public class MarketingBankPackagesServiceExtensionExample {
     return response;
   }
 
-  // 上传号码包文件
+  // 번호 패키지 파일 업로드
   public static Task uploadPackageByFile() {
     long start = System.currentTimeMillis();
     String packageId = "2000";
@@ -86,7 +86,7 @@ public class MarketingBankPackagesServiceExtensionExample {
       fileUploadResponse = service.uploadPackageByFile(packageId, bankType, filePath);
       System.out.println("##### upload response ##### \n" + fileUploadResponse.toString());
     } catch (IllegalArgumentException e) {
-      // ...上报监控和打印日志
+      // ... 모니터링 보고 및 로그 출력
       System.out.println("Upload error:" + e.toString());
     }
     long costTime = System.currentTimeMillis() - start;
@@ -94,7 +94,7 @@ public class MarketingBankPackagesServiceExtensionExample {
     return fileUploadResponse;
   }
 
-  // 上传号码包
+  // 번호 패키지 업로드
   public static Task uploadPackage() {
     long start = System.currentTimeMillis();
     String packageId = "2000";
@@ -110,7 +110,7 @@ public class MarketingBankPackagesServiceExtensionExample {
       fileUploadResponse = service.uploadPackage(packageId, bankType, fileName, fileContentList);
       System.out.println("##### upload response ##### \n" + fileUploadResponse.toString());
     } catch (Exception e) {
-      // ...上报监控和打印日志
+      // ... 모니터링 보고 및 로그 출력
       System.out.println("Upload error:" + e.toString());
     }
     long costTime = System.currentTimeMillis() - start;

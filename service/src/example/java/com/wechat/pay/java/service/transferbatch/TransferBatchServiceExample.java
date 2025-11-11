@@ -11,68 +11,67 @@ import com.wechat.pay.java.service.transferbatch.model.InitiateBatchTransferResp
 import com.wechat.pay.java.service.transferbatch.model.TransferBatchEntity;
 import com.wechat.pay.java.service.transferbatch.model.TransferDetailEntity;
 
-/** TransferBatchService使用示例 */
+/** TransferBatchService사용 예제 */
 public class TransferBatchServiceExample {
 
-  /** 商户号 */
+  /** 가맹점 번호 */
   public static String merchantId = "190000****";
 
-  /** 商户API私钥路径 */
+  /** 가맹점 API 개인키 경로 */
   public static String privateKeyPath = "/Users/yourname/your/path/apiclient_key.pem";
 
-  /** 商户证书序列号 */
+  /** 가맹점 인증서 일련번호 */
   public static String merchantSerialNumber = "5157F09EFDC096DE15EBE81A47057A72********";
 
-  /** 商户APIV3密钥 */
+  /** 가맹점 APIV3 키 */
   public static String apiV3Key = "...";
 
   public static TransferBatchService service;
 
   public static void main(String[] args) {
-    // 初始化商户配置
+    // 가맹점 구성 초기화
     Config config =
         new RSAAutoCertificateConfig.Builder()
             .merchantId(merchantId)
-            // 使用 com.wechat.pay.java.core.util
-            // 中的函数从本地文件中加载商户私钥，商户私钥会用来生成请求的签名
+            // com.wechat.pay.java.core.util의 함수를 사용하여 로컬 파일에서 가맹점 개인키를 로드, 가맹점 개인키는 요청 서명 생성에 사용됨
             .privateKeyFromPath(privateKeyPath)
             .merchantSerialNumber(merchantSerialNumber)
             .apiV3Key(apiV3Key)
             .build();
 
-    // 初始化服务
+    // 서비스 초기화
     service = new TransferBatchService.Builder().config(config).build();
-    // ... 调用接口
+    // ... 인터페이스 호출
   }
 
-  /** 通过微信批次单号查询批次单 */
+  /** 위챗페이 배치 번호로 배치 조회 */
   public static TransferBatchEntity getTransferBatchByNo() {
 
     GetTransferBatchByNoRequest request = new GetTransferBatchByNoRequest();
     return service.getTransferBatchByNo(request);
   }
 
-  /** 通过商家批次单号查询批次单 */
+  /** 가맹점 배치 번호로 배치 조회 */
   public static TransferBatchEntity getTransferBatchByOutNo() {
 
     GetTransferBatchByOutNoRequest request = new GetTransferBatchByOutNoRequest();
     return service.getTransferBatchByOutNo(request);
   }
 
-  /** 发起商家转账 */
+  /** 가맹점 전송 시작 */
   public static InitiateBatchTransferResponse initiateBatchTransfer() {
     InitiateBatchTransferRequest request = new InitiateBatchTransferRequest();
     return service.initiateBatchTransfer(request);
   }
 
-  /** 通过微信明细单号查询明细单 */
+  /** 위챗페이 명세 번호로 명세 조회 */
   public static TransferDetailEntity getTransferDetailByNo() {
 
     GetTransferDetailByNoRequest request = new GetTransferDetailByNoRequest();
     return service.getTransferDetailByNo(request);
   }
 
-  /** 通过商家明细单号查询明细单 */
+  /** 가맹점 명세 번호로 명세 조회 */
   public static TransferDetailEntity getTransferDetailByOutNo() {
 
     GetTransferDetailByOutNoRequest request = new GetTransferDetailByOutNoRequest();
